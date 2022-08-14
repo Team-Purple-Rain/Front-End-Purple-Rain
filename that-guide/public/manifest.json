@@ -1,6 +1,6 @@
 {
-  "short_name": "T.H.A.T. Guide",
-  "name": "T.H.A.T. Guide",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "hiker.png",
@@ -17,5 +17,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "scope": "/"
+  "scope":"/"
 }

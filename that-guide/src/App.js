@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
+  const [description, setDescription] = useState("");
+  const [memeImage, setMemeImage] = useState("");
+  const [team, setTeam] = useState("");
+
+  useEffect(() => {
+    axios.get(`${baseURL}`).then((res) => {
+      setDescription(res.data.description);
+      setMemeImage(res.data.meme_image);
+      setTeam(res.data.team);
+    });
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>
+        {" "}
+        Hey {team}! {description}{" "}
+      </h2>
+      <img src={memeImage} width="250px" />
+    </>
   );
 }
 

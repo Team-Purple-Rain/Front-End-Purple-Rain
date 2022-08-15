@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CurrentLocation from "./currentLocation";
 
 import Map from "./Map";
@@ -9,45 +9,46 @@ export default function Homepage() {
   const [distance, setDistance] = useState("");
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSetDistance = (event) => {
     setDistance(event.target.value);
     console.log(event.target.value);
 
-    let chosenDistance = event.target.value
-    console.log(chosenDistance)
+    let chosenDistance = event.target.value;
+    console.log(chosenDistance);
   };
 
   const handleStartHike = (event) => {
-    navigate("/starthike")
+    navigate("/starthike");
     event.preventDefault();
-    
+
     setError(null);
-    console.log("You have started a hike.")
+    console.log("You have started a hike.");
     console.log(distance);
   };
   const [longitude, setLongitude] = useState(" ");
   const [latitude, setLatitude] = useState(" ");
 
   navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position)
+    console.log(position);
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
 
     console.log(latitude);
     console.log(longitude);
-  })
-  
+  });
+
   return (
     <>
       <div className="location-header">
-        <h3>Current Location: {latitude}, {longitude}
+        <h3>
+          Current Location: {latitude}, {longitude}
           {/* <CurrentLocation lat={lat} long={long} /> */}
         </h3>
       </div>
 
-      <div className="map-and-button"> 
+      <div className="map-and-button">
         <div className="homepage-map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
@@ -74,10 +75,14 @@ export default function Homepage() {
           <option value="9">9 miles</option>
           <option value="10">10 miles</option>
         </select>
-        <button type="submit" className="start-hike" onClick={handleStartHike} onSubmit={setDistance}>
+        <button
+          type="submit"
+          className="start-hike"
+          onClick={handleStartHike}
+          onSubmit={setDistance}
+        >
           Start your hike!
         </button>
-
       </div>
     </>
   );

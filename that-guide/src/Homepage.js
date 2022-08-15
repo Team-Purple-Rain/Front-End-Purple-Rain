@@ -23,10 +23,7 @@ export default function Homepage() {
       </div>
 
       <div className="map-and-button">
-        <div className="homepage-map">
-          I am a map.
           <Map />
-        </div>
         <button className="pin-return">Return to current location (?)</button>
       </div>
 

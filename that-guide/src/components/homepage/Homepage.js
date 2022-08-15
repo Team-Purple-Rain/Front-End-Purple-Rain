@@ -1,13 +1,14 @@
 import { useState } from "react";
 import {useNavigate } from "react-router-dom";
-import CurrentLocation from "./currentLocation";
-
-import Map from "./Map";
-import StopWatch from "./stopwatch/watch_display/WatchDisplay";
+import Map from "../Map";
+import './homepage.css'
+import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 
 export default function Homepage() {
   const [distance, setDistance] = useState("");
   const [error, setError] = useState(null);
+  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("");
 
   const navigate = useNavigate()
 
@@ -27,18 +28,21 @@ export default function Homepage() {
     console.log("You have started a hike.")
     console.log(distance);
   };
-  const [longitude, setLongitude] = useState(" ");
-  const [latitude, setLatitude] = useState(" ");
 
   navigator.geolocation.getCurrentPosition((position) => {
     console.log(position)
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
-
     console.log(latitude);
     console.log(longitude);
   })
   
+  if (latitude==="") {
+    return(
+      <div>Gathering location data...</div>
+    )
+  }
+
   return (
     <>
       <div className="location-header">

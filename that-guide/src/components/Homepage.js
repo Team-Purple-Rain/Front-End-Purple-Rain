@@ -1,4 +1,6 @@
 import { useState } from "react";
+import CurrentLocation from "./currentLocation";
+
 import Map from "./Map";
 
 export default function Homepage() {
@@ -15,16 +17,29 @@ export default function Homepage() {
     setError(null);
     console.log("You have started a hike.");
   };
+  const [longitude, setLongitude] = useState(" ");
+  const [latitude, setLatitude] = useState(" ");
 
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position)
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+
+    console.log(latitude);
+    console.log(longitude);
+  })
+  
   return (
     <>
       <div className="location-header">
-        <h3>Current Location:</h3>
+        <h3>Current Location: {latitude}, {longitude}
+          {/* <CurrentLocation lat={lat} long={long} /> */}
+        </h3>
       </div>
 
       <div className="map-and-button">
         <div className="homepage-map">
-          <Map />
+          <Map latitude={latitude} longitude={longitude} />
         </div>
         <button className="pin-return">Return to current location (?)</button>
       </div>

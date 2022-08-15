@@ -4,12 +4,14 @@ import axios from "axios";
 import Homepage from "./components/Homepage";
 import StartHike from "./components/StartHike";
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
+  const [distance, setDistance] = useState("distance")
 
   return (
     <>
@@ -25,11 +27,15 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage />}
+          element={<Homepage 
+            setDistance={setDistance}
+            />}
+          
         />
           <Route 
             path="/starthike"
             element={<StartHike 
+              distance={distance}
             />}
             />
       </Routes>

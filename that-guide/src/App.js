@@ -1,9 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Homepage from "./Homepage";
-
+import Homepage from "./components/Homepage";
 
 function App() {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");

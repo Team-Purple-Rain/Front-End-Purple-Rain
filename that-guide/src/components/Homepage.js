@@ -18,6 +18,7 @@ export default function Homepage() {
     navigate("/starthike")
     setDistance(event.target.value);
     event.preventDefault();
+    setError(null)
 
     setError(null);
     console.log("You have started a hike.")

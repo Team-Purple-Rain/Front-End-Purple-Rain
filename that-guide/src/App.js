@@ -11,7 +11,7 @@ function App() {
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
-  const [distance, setDistance] = useState("distance")
+  const [distance, setDistance] = useState(null)
 
   return (
     <>

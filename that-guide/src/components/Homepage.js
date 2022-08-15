@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useNavigate } from "react-router-dom";
 import CurrentLocation from "./currentLocation";
 
 import Map from "./Map";
@@ -8,15 +9,23 @@ export default function Homepage() {
   const [distance, setDistance] = useState("");
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate()
+
   const handleSetDistance = (event) => {
     setDistance(event.target.value);
     console.log(event.target.value);
+
+    let chosenDistance = event.target.value
+    console.log(chosenDistance)
   };
 
   const handleStartHike = (event) => {
+    navigate("/starthike")
     event.preventDefault();
+    
     setError(null);
-    console.log("You have started a hike.");
+    console.log("You have started a hike.")
+    console.log(distance);
   };
   const [longitude, setLongitude] = useState(" ");
   const [latitude, setLatitude] = useState(" ");
@@ -38,7 +47,7 @@ export default function Homepage() {
         </h3>
       </div>
 
-      <div className="map-and-button">
+      <div className="map-and-button"> 
         <div className="homepage-map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
@@ -65,10 +74,10 @@ export default function Homepage() {
           <option value="9">9 miles</option>
           <option value="10">10 miles</option>
         </select>
-        <button type="submit" className="start-hike" onClick={handleStartHike}>
+        <button type="submit" className="start-hike" onClick={handleStartHike} onSubmit={setDistance}>
           Start your hike!
         </button>
-        <StopWatch />
+
       </div>
     </>
   );

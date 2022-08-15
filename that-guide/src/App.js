@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/Homepage";
+import StartHike from "./components/StartHike";
 
 function App() {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");

@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Homepage from "./components/Homepage";
+import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike";
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state";
@@ -12,8 +12,6 @@ function App() {
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
   const [distance, setDistance] = useState(null)
-
-
 
   return (
     <>

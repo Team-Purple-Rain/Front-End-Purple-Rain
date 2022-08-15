@@ -36,7 +36,7 @@ export default function Homepage() {
     console.log(latitude);
     console.log(longitude);
   })
-  
+
   if (latitude==="") {
     return(
       <div>Gathering location data...</div>

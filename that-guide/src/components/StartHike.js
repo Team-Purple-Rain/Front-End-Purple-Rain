@@ -1,6 +1,7 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state"
+import StopWatch from "./stopwatch/watch_display/WatchDisplay"
 
 export default function StartHike({distance}) {
 
@@ -23,7 +24,7 @@ return (
             <h3>Current Elevation: (list elevation)</h3>
             <h2>Goal distance: {distance} miles</h2>
         </div>
-
+        <StopWatch />
     </>
 );
 

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import {useNavigate } from "react-router-dom";
+import CurrentLocation from "./currentLocation";
+
 import Map from "./Map";
 import StopWatch from "./stopwatch/watch_display/WatchDisplay";
 
@@ -12,28 +14,42 @@ export default function Homepage() {
   const handleSetDistance = (event) => {
     setDistance(event.target.value);
     console.log(event.target.value);
+
+    let chosenDistance = event.target.value
+    console.log(chosenDistance)
   };
 
   const handleStartHike = (event) => {
     navigate("/starthike")
-    setDistance(event.target.value);
     event.preventDefault();
-    setError(null)
-
+    
     setError(null);
     console.log("You have started a hike.")
     console.log(distance);
   };
+  const [longitude, setLongitude] = useState(" ");
+  const [latitude, setLatitude] = useState(" ");
 
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position)
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+
+    console.log(latitude);
+    console.log(longitude);
+  })
+  
   return (
     <>
       <div className="location-header">
-        <h3>Current Location:</h3>
+        <h3>Current Location: {latitude}, {longitude}
+          {/* <CurrentLocation lat={lat} long={long} /> */}
+        </h3>
       </div>
 
       <div className="map-and-button"> 
         <div className="homepage-map">
-          <Map />
+          <Map latitude={latitude} longitude={longitude} />
         </div>
         <button className="pin-return">Return to current location (?)</button>
       </div>
@@ -61,7 +77,7 @@ export default function Homepage() {
         <button type="submit" className="start-hike" onClick={handleStartHike} onSubmit={setDistance}>
           Start your hike!
         </button>
-        <StopWatch />
+
       </div>
     </>
   );

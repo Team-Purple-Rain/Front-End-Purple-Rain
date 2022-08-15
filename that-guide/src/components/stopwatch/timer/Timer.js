@@ -5,7 +5,7 @@ export default function Timer(props) {
   let i = 0;
   const logTime = () => {
     const time = props.time;
-    while (i <= 20000000) {
+    while (i <= 200000000000) {
       // console.log(i);
       i += 1000;
       if (i === time) {

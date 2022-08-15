@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {useNavigate } from "react-router-dom";
-import Map from "../Map";
+import Map from "../map/Map";
 import './homepage.css'
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 
@@ -54,7 +54,6 @@ export default function Homepage() {
         <div className="homepage-map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
-        <button className="pin-return">Return to current location (?)</button>
       </div>
 
       <div className="hike-starter">

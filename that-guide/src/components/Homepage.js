@@ -1,9 +1,12 @@
 import { useState } from "react";
+import {useNavigate } from "react-router-dom";
 import Map from "./Map";
 
 export default function Homepage() {
   const [distance, setDistance] = useState("");
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate()
 
   const handleSetDistance = (event) => {
     setDistance(event.target.value);
@@ -11,6 +14,7 @@ export default function Homepage() {
   };
 
   const handleStartHike = (event) => {
+    navigate("/starthike")
     event.preventDefault();
     setError(null);
     console.log("You have started a hike.");

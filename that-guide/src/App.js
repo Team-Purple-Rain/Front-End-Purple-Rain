@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/Homepage";
 import StartHike from "./components/StartHike";
+import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
 
 function App() {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
@@ -14,13 +15,24 @@ function App() {
     <>
       <div className="title-header">
         <h1>T.H.A.T. Guide</h1>
-        <h3>Your interactive guide to the Appalachian Trail.</h3>
+        <h3>Thru Hiker's Appalachian Trail Guide</h3>
+        <h4>Your interactive guide to the Appalachian Trail.</h4>
       </div>
       <div className="nav-bar">
         <h3>(Here is where our navbar might go, scooter or beyond version) </h3>
       </div>
 
-      <Homepage />
+      <Routes>
+        <Route
+          path="/"
+          element={<Homepage />}
+        />
+          <Route 
+            path="/starthike"
+            element={<StartHike 
+            />}
+            />
+      </Routes>
     </>
   );
 

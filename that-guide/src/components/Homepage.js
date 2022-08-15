@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Map from "./Map";
+import StopWatch from "./stopwatch/watch_display/WatchDisplay";
 
 export default function Homepage() {
   const [distance, setDistance] = useState("");
@@ -52,6 +53,7 @@ export default function Homepage() {
         <button type="submit" className="start-hike" onClick={handleStartHike}>
           Start your hike!
         </button>
+        <StopWatch />
       </div>
     </>
   );

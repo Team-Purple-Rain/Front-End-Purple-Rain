@@ -1,7 +1,7 @@
 import { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Map from "../Map";
-import './homepage.css'
+import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 
 export default function Homepage({distance, setDistance}) {
@@ -13,42 +13,45 @@ export default function Homepage({distance, setDistance}) {
 
   const navigate = useNavigate()
 
+
+
   const handleSetDistance = (event) => {
     setDistance(event.target.value);
     console.log(event.target.value);
+
   };
 
   const handleStartHike = (event) => {
-    navigate("/starthike")
+    navigate("/starthike");
     event.preventDefault();
-    
+
     setError(null);
-    console.log("You have started a hike.")
+    console.log("You have started a hike.");
     console.log(distance);
   };
 
   navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position)
+    console.log(position);
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     console.log(latitude);
     console.log(longitude);
-  })
-  
-  if (latitude==="") {
-    return(
-      <div>Gathering location data...</div>
-    )
+  });
+
+  if (latitude === "") {
+    return <div>Gathering location data...</div>;
   }
 
   return (
     <>
-      {/* <div className="location-header">
-        <h3>Current Location: {latitude}, {longitude}
+      <div className="location-header">
+        <h3>
+          Current Location: {latitude}, {longitude}
+          {/* <CurrentLocation lat={lat} long={long} /> */}
         </h3>
-      </div> */}
+      </div>
 
-      <div className="map-and-button"> 
+      <div className="map-and-button">
         <div className="homepage-map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
@@ -57,10 +60,11 @@ export default function Homepage({distance, setDistance}) {
 
       <div className="hike-starter">
         <div className="current-stats">
-          <h3>Current Coordinates: {latitude}, {longitude}</h3>
+          <h3>Current Coordinates: (list coordinates)</h3>
           <h3>Current Elevation: (list elevation)</h3>
         </div>
         <h2>How far do you want to hike?</h2>
+
         <form id="select-distance" onSubmit={setDistance}>Select Distance (in miles):</form>
           <input 
             type="number"
@@ -71,10 +75,10 @@ export default function Homepage({distance, setDistance}) {
           className="start-hike" 
           onClick={handleStartHike} 
           onSubmit={handleSetDistance}
+
         >
           Start your hike!
         </button>
-
       </div>
     </>
   );

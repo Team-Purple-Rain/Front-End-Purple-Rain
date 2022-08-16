@@ -7,6 +7,7 @@ function StopWatch() {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
+  //   here I would put in current location etc
 
   React.useEffect(() => {
     let interval = null;

@@ -5,7 +5,7 @@ import StopWatch from "../stopwatch/watch_display/WatchDisplay"
 import "./StartHike.css"
 import Map from "../map/Map"
 import axios from "axios"
-import { speedOfLightDependencies } from "mathjs"
+
 
 export default function StartHike({ selectedDistance, latitude, longitude }) {
     console.log(selectedDistance)

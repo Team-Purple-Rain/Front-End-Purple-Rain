@@ -9,38 +9,9 @@ import axios from "axios"
 
 export default function StartHike({ selectedDistance, latitude, longitude }) {
     console.log(selectedDistance)
-    const [endHike, setEndHike] = useState(null);
-    const [distanceTraveled, setDistanceTraveled] = useState(null);
-    const [speed, setSpeed] = useState(null);
-    const [timeTraveled, setTimeTraveled] = useState(null);
-    const [elevationChange, setElevationChange] = useState(null);
-    const [startLat, setStartLat] = useState(latitude);
-    const [startLong, setStartLong] = useState(longitude);
 
     if (latitude === "") {
         return <div>Gathering location data...</div>;
-    }
-
-    const handleStartHike = (event) => {
-        console.log("hello button");
-        // // event.preventDefault();
-        // setStartLat(latitude);
-        // setStartLong(longitude);
-        axios
-            .post(`https://thatguide.herokuapp.com/map/`, {
-                start_location: {
-                    latitude: startLat,
-                    longitude: startLong,
-                },
-                end_location: endHike,
-                distance_traveled: distanceTraveled,
-                avg_mph: speed,
-                travel_time: timeTraveled,
-                elevation_gain: elevationChange
-            })
-            .then((res) => {
-                console.log("posted something")
-            })
     }
 
     return (
@@ -67,12 +38,6 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
                             <h4>MPH: ({selectedDistance} miles/time it takes for hiker to hike 1 mile) </h4>
                         </div>
                     </div>
-                    <button
-                        type="submit"
-                        onClick={handleStartHike}
-                    >
-                        Start Hike
-                    </button>
                     <div className="right-container">
                         <div className="time-remaining">
                             <StopWatch />

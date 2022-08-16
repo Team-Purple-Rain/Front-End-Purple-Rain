@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./watchDisplay.css";
+import "./WatchDisplay.css";
 import Timer from "../timer/Timer";
 import WatchButtons from "../watch_buttons/WatchButtons";
 

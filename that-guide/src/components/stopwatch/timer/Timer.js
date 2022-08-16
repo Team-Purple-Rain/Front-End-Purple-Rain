@@ -12,7 +12,7 @@ export default function Timer(props) {
       // console.log(i);
       i += 1000;
       if (i === time) {
-        storageBank.push(time);
+        // storageBank.push(time);
         addToLocalStorage(time);
       }
     }
@@ -20,9 +20,11 @@ export default function Timer(props) {
 
   const addToLocalStorage = (time) => {
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-    storageBank.push(time);
-    storageBank.push(props.longitude);
-    storageBank.push(props.latitude);
+    storageBank.push({
+      time: time,
+      longitude: props.longitude,
+      latitude: props.latitude,
+    });
     // storageBank.push(JSON.parse(localStorage.getItem("hike")));
     localStorage.setItem("hike", JSON.stringify(storageBank));
   };

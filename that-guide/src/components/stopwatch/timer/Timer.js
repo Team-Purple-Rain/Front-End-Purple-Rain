@@ -9,9 +9,15 @@ export default function Timer(props) {
       // console.log(i);
       i += 1000;
       if (i === time) {
-        console.log(time);
+        addToLocalStorage(time);
+        // console.log(time);
       }
     }
+  };
+
+  const addToLocalStorage = (time) => {
+    window.setLocalStorage()
+    console.log(time);
   };
 
   logTime();

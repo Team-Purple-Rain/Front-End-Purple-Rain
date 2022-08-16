@@ -11,12 +11,11 @@ function App() {
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
-  const [distance, setDistance] = useState("")
+  const [selectedDistance, setSelectedDistance] = useState("")
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
   navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position);
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     console.log(latitude);
@@ -42,18 +41,17 @@ function App() {
         <Route
           path="/"
           element={<Homepage
-            setDistance={setDistance}
-            distance={distance}
+            setSelectedDistance={setSelectedDistance}
+            selectedDistance={selectedDistance}
             latitude={latitude}
             longitude={longitude}
-
           />}
-
         />
+
         <Route
           path="/starthike"
           element={<StartHike
-            distance={distance}
+            selectedDistance={selectedDistance}
             longitude={longitude}
             latitude={latitude}
           />}

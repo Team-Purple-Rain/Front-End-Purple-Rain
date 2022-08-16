@@ -22,10 +22,6 @@ function App() {
     console.log(longitude);
   });
 
-  // if (latitude === "") {
-  //   return <div>Gathering location data...</div>;
-  // }
-
   return (
     <>
       <div className="title-header">

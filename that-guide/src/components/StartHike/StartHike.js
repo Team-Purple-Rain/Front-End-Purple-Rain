@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state"
 import StopWatch from "../stopwatch/watch_display/WatchDisplay"
 import "./StartHike.css"
-import Map from "../Map"
+import Map from "../map/Map"
 
 export default function StartHike({ distance }) {
     console.log(distance)

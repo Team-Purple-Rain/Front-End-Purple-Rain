@@ -7,6 +7,7 @@ function StopWatch() {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
+  //   here I would put in current location etc
 
   React.useEffect(() => {
     let interval = null;
@@ -46,6 +47,7 @@ function StopWatch() {
     console.log(
       "this will update the rest of the information that was unavailable at the start"
     );
+    setIsPaused(true);
   };
 
   return (

@@ -26,6 +26,7 @@ export default function ControlButtons(props) {
       <div className="btn btn-one" onClick={props.handleStop}>
         Stop Hike
       </div>
+      <br />
     </div>
   );
 }

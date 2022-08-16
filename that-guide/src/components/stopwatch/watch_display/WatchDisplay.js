@@ -32,6 +32,9 @@ function StopWatch({ latitude, longitude }) {
   const [elevationChange, setElevationChange] = useState(null);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
+
+  const [isStopped, setIsStopped] = useState(false);
+
   const handleStartHike = (event) => {
     console.log("hello button");
     // event.preventDefault();
@@ -84,21 +87,44 @@ function StopWatch({ latitude, longitude }) {
       "this will update the rest of the information that was unavailable at the start"
     );
     setIsPaused(true);
+    setIsStopped(!isStopped);
   };
 
   return (
-    <div className="stop-watch">
-      <Timer time={time} latitude={latitude} longitude={longitude} />
-      <WatchButtons
-        active={isActive}
-        isPaused={isPaused}
-        handleStart={handleStartHike}
-        handlePauseResume={handlePauseResume}
-        handleReset={handleReset}
-        handleStop={handleStop}
-      />
-    </div>
+    <>
+      <div className="stop-watch">
+        <Timer time={time} latitude={latitude} longitude={longitude} />
+        <WatchButtons
+          active={isActive}
+          isPaused={isPaused}
+          handleStart={handleStartHike}
+          handlePauseResume={handlePauseResume}
+          handleReset={handleReset}
+          handleStop={handleStop}
+          isStopped={isStopped}
+        />
+      </div>
+      {isStopped ? <Results /> : ""}
+    </>
   );
 }
+
+const Results = () => {
+  let hikeData = JSON.parse(localStorage.getItem("hike"));
+  console.log(hikeData);
+  return (
+    <div>
+      Hello
+      <div>
+        {hikeData.map((entry) => (
+          <div>
+            at {entry.time} seconds, you were at: {entry.latitude},
+            {entry.longitude}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default StopWatch;

@@ -8,11 +8,11 @@ export default function Timer(props) {
 
   const logTime = () => {
     let time = props.time;
-    // time = time.toString();
-    // let seconds = time.slice(0, -3);
     while (i <= 20000000) {
+      // i += 1000;
+      // triggers every second
       i += 1000 * 30;
-      // every 30 seconds?
+      // triggers event every 30 seconds
       if (i === time) {
         i = i.toString();
         i = i.slice(0, -3);

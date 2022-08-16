@@ -5,8 +5,6 @@ mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
 export default function Map({ latitude, longitude }) {
-  // console.log(latitude);
-  // console.log(longitude);
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);

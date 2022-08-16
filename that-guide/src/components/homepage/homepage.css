@@ -34,4 +34,11 @@
 .current-hike-stats {
   border: 2px solid black;
   text-align: center;
+  width: 75%;
+  margin: auto;
+}
+
+.distance-input {
+  width: 175px;
+  text-align: center;
 }

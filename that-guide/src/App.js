@@ -11,7 +11,7 @@ function App() {
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
-  const [distance, setDistance] = useState("5")
+  const [distance, setDistance] = useState("")
 
   return (
     <>
@@ -29,6 +29,7 @@ function App() {
           path="/"
           element={<Homepage 
             setDistance={setDistance}
+            distance={distance}
             />}
           
         />

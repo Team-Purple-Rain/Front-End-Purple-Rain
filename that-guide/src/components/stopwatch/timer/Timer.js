@@ -7,18 +7,23 @@ export default function Timer(props) {
   let i = 0;
 
   const logTime = () => {
-    const time = props.time;
+    let time = props.time;
+    // time = time.toString();
+    // let seconds = time.slice(0, -3);
     while (i <= 20000000) {
-      // console.log(i);
       i += 1000;
       if (i === time) {
-        // storageBank.push(time);
+        i = i.toString();
+        i = i.slice(0, -3);
+        console.log(i);
         addToLocalStorage(time);
       }
     }
   };
 
   const addToLocalStorage = (time) => {
+    time = time.toString();
+    time = time.slice(0, -3);
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
     storageBank.push({
       time: time,

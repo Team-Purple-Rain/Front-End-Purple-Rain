@@ -39,26 +39,26 @@ function StopWatch({ latitude, longitude }) {
     // setStartLong(longitude);
     setIsActive(true);
     setIsPaused(false);
-    axios
-      .post(`https://thatguide.herokuapp.com/map/`, {
-        start_location: {
-          latitude: startLat,
-          longitude: startLong,
-        },
-        end_location: endHike,
-        distance_traveled: distanceTraveled,
-        avg_mph: speed,
-        travel_time: timeTraveled,
-        elevation_gain: elevationChange,
-      })
-      .then((res) => {
-        console.log("posted something");
-      })
-      .catch((res) => {
-        console.log(res.response);
-        console.log(res.response.data);
-        console.log(res.response.start_location);
-      });
+    // axios
+    //   .post(`https://thatguide.herokuapp.com/map/`, {
+    //     start_location: {
+    //       latitude: startLat,
+    //       longitude: startLong,
+    //     },
+    //     end_location: endHike,
+    //     distance_traveled: distanceTraveled,
+    //     avg_mph: speed,
+    //     travel_time: timeTraveled,
+    //     elevation_gain: elevationChange,
+    //   })
+    //   .then((res) => {
+    //     console.log("posted something");
+    //   })
+    //   .catch((res) => {
+    //     console.log(res.response);
+    //     console.log(res.response.data);
+    //     console.log(res.response.start_location);
+    //   });
   };
 
   // const handleStart = () => {

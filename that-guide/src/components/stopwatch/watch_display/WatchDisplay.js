@@ -25,7 +25,6 @@ function StopWatch({ latitude, longitude }) {
     };
   }, [isActive, isPaused]);
 
-
   const [endHike, setEndHike] = useState(null);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
@@ -50,12 +49,17 @@ function StopWatch({ latitude, longitude }) {
         distance_traveled: distanceTraveled,
         avg_mph: speed,
         travel_time: timeTraveled,
-        elevation_gain: elevationChange
+        elevation_gain: elevationChange,
       })
       .then((res) => {
-        console.log("posted something")
+        console.log("posted something");
       })
-  }
+      .catch((res) => {
+        console.log(res.response);
+        console.log(res.response.data);
+        console.log(res.response.start_location);
+      });
+  };
 
   // const handleStart = () => {
   //   console.log(

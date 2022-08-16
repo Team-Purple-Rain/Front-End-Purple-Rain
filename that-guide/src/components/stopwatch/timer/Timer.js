@@ -16,7 +16,6 @@ export default function Timer(props) {
   };
 
   const addToLocalStorage = (time) => {
-    window.setLocalStorage()
     console.log(time);
   };
 

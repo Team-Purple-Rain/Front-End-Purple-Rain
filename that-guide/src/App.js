@@ -12,6 +12,8 @@ function App() {
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
   const [distance, setDistance] = useState("")
+  const [longitude, setLongitude] = useState("")
+  const [latitude, setLatitude] = useState("");
 
   return (
     <>
@@ -30,6 +32,9 @@ function App() {
           element={<Homepage 
             setDistance={setDistance}
             distance={distance}
+            setLongitude={setLongitude}
+            longitude={longitude}
+
             />}
           
         />
@@ -37,6 +42,7 @@ function App() {
             path="/starthike"
             element={<StartHike 
               distance={distance}
+              longitude={longitude}
             />}
             />
       </Routes>

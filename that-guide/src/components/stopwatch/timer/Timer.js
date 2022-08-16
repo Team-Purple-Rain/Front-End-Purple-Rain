@@ -1,17 +1,30 @@
 import React from "react";
 import "./Timer.css";
+import { useEffect } from "react";
 
 export default function Timer(props) {
+  let storageBank = [];
   let i = 0;
+
   const logTime = () => {
     const time = props.time;
     while (i <= 20000000) {
       // console.log(i);
       i += 1000;
       if (i === time) {
-        console.log(time);
+        storageBank.push(time);
+        addToLocalStorage(time);
       }
     }
+  };
+
+  const addToLocalStorage = (time) => {
+    storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+    storageBank.push(time);
+    storageBank.push(props.longitude);
+    storageBank.push(props.latitude);
+    // storageBank.push(JSON.parse(localStorage.getItem("hike")));
+    localStorage.setItem("hike", JSON.stringify(storageBank));
   };
 
   logTime();

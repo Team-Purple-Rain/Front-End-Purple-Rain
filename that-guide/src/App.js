@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
-import StartHike from "./components/startHike/StartHike";
+import StartHike from "./components/StartHike/StartHike";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state";
 
@@ -15,7 +15,7 @@ function App() {
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
-  navigator.geolocation.getCurrentPosition((position) => {
+  navigator.geolocation.watchPosition((position, positionError, ) => {
     console.log(position);
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);

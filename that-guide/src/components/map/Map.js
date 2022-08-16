@@ -1,6 +1,6 @@
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useEffect, useState, useRef } from "react";
-import './map.css'
+import "./map.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -12,24 +12,24 @@ export default function Map({ latitude, longitude }) {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [userMark, setUserMark] = useState()
+  const [userMarker, setUserMarker] = useState();
 
-  const geoJson = {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [longitude, latitude]
-        },
-        properties: {
-          title: 'Mapbox',
-          description: 'UserLocation'
-        }
-      },
-    ]
-  };
+  // const geoJson = {
+  //   type: "FeatureCollection",
+  //   features: [
+  //     {
+  //       type: "Feature",
+  //       geometry: {
+  //         type: "Point",
+  //         coordinates: [longitude, latitude],
+  //       },
+  //       properties: {
+  //         title: "Mapbox",
+  //         description: "UserLocation",
+  //       },
+  //     },
+  //   ],
+  // };
 
   useEffect(() => {
     // creating new map with style and center location
@@ -48,20 +48,24 @@ export default function Map({ latitude, longitude }) {
     // );
 
     //creates a new marker at set long lat
-    const userMarker = new mapboxgl.Marker().setLngLat([longitude,latitude]).addTo(map);
-    setUserMark(userMarker)
+    const userMark = new mapboxgl.Marker()
+      .setLngLat([longitude, latitude])
+      .addTo(map);
+    setUserMarker(userMark);
     setMapObject(map);
   }, []);
 
-      // function that updates the marker's long lat
-      function updateUserMarker(coords) {
-        if (mapObject) {
-          userMark.setLngLat(coords)
-        }
-        }
+  // function that updates the marker's long lat
+  function updateUserMarker() {
+    if (mapObject) {
+      userMarker.setLngLat([longitude, latitude]);
+    }
+  }
 
-    // function to re-center map around User
-    function setMapCenter(coords) {
+  setInterval(updateUserMarker, 10000)
+
+  // function to re-center map around User
+  function setMapCenter(coords) {
     if (mapObject) {
       mapObject.flyTo(coords);
     }
@@ -70,8 +74,8 @@ export default function Map({ latitude, longitude }) {
   return (
     <>
       <div ref={mapContainer} className="map-container"></div>
-      <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>Return to Current Location</button>
-      <button onClick={() => updateUserMarker([-80, 35.79])}>test 
+      <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>
+        Return to Current Location
       </button>
     </>
   );

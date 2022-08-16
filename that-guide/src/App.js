@@ -52,6 +52,8 @@ function App() {
               selectedDistance={selectedDistance}
               longitude={longitude}
               latitude={latitude}
+              setLatitude={setLatitude}
+              setLongitude={setLongitude}
             />
           }
         />

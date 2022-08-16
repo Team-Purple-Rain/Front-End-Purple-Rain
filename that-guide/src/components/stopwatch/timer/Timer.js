@@ -1,6 +1,6 @@
 import React from "react";
 import "./Timer.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Timer(props) {
   let storageBank = [];

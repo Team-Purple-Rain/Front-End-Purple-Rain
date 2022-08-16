@@ -30,6 +30,7 @@ function StopWatch() {
     console.log(
       "start session post request (sending that data that we do have access to ie. start_location etc), get current location"
     );
+
   };
 
   const handlePauseResume = () => {

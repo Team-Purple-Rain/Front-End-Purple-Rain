@@ -40,11 +40,10 @@ export default function Map({ latitude, longitude }) {
     });
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
     geoJson.features.map((feature) =>
-      new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
+      new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map)
     );
-
     setMapObject(map);
-  }, [longitude, latitude]);
+  }, []);
 
   function setMapCenter(coords) {
     if (mapObject) {

@@ -1,6 +1,6 @@
 .whole-stats-container {
     display: flex;
-    width: 75%;
+    width: 95%;
     margin: auto;
 }
 
@@ -15,13 +15,22 @@
     padding: 10px;
 }
 .distance-hiked, .distance-remaining, 
-.time-elapsed, .miles-per-hour, .time-remaining {
+.time-elapsed, .miles-per-hour {
     border: 2px solid black;
     padding: 5px;
-    margin: 4px;
+    margin: 3px;
 }
 
 button {
     padding: 4px;
     margin: 8px;
 }
+
+.starthike-map {
+    border: 4px solid black;
+    margin-top: 10px;
+    height: 400px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }

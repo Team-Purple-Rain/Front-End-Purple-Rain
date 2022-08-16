@@ -2,13 +2,16 @@ import React from "react";
 import "./Timer.css";
 
 export default function Timer(props) {
+  let storageBank = [];
   let i = 0;
+
   const logTime = () => {
     const time = props.time;
     while (i <= 20000000) {
       // console.log(i);
       i += 1000;
       if (i === time) {
+        storageBank.push(time);
         addToLocalStorage(time);
         // console.log(time);
       }
@@ -17,6 +20,10 @@ export default function Timer(props) {
 
   const addToLocalStorage = (time) => {
     console.log(time);
+    storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+    // storageBank.push(time);
+    storageBank.push(JSON.parse(localStorage.getItem("hike")));
+    localStorage.setItem("hike", JSON.stringify(storageBank));
   };
 
   logTime();

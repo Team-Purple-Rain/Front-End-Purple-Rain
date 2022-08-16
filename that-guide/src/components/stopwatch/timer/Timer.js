@@ -1,5 +1,6 @@
 import React from "react";
 import "./Timer.css";
+import { useEffect } from "react";
 
 export default function Timer(props) {
   let storageBank = [];
@@ -13,16 +14,16 @@ export default function Timer(props) {
       if (i === time) {
         storageBank.push(time);
         addToLocalStorage(time);
-        // console.log(time);
       }
     }
   };
 
   const addToLocalStorage = (time) => {
-    console.log(time);
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-    // storageBank.push(time);
-    storageBank.push(JSON.parse(localStorage.getItem("hike")));
+    storageBank.push(time);
+    storageBank.push(props.longitude);
+    storageBank.push(props.latitude);
+    // storageBank.push(JSON.parse(localStorage.getItem("hike")));
     localStorage.setItem("hike", JSON.stringify(storageBank));
   };
 

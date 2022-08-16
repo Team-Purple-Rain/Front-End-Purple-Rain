@@ -88,7 +88,7 @@ function StopWatch({ latitude, longitude }) {
 
   return (
     <div className="stop-watch">
-      <Timer time={time} />
+      <Timer time={time} latitude={latitude} longitude={longitude} />
       <WatchButtons
         active={isActive}
         isPaused={isPaused}

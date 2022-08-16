@@ -44,7 +44,7 @@ export default function Map({ latitude, longitude }) {
     );
 
     setMapObject(map);
-  }, []);
+  }, [longitude, latitude]);
 
   function setMapCenter(coords) {
     if (mapObject) {

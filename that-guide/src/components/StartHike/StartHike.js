@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state"
 import StopWatch from "../stopwatch/watch_display/WatchDisplay"
-import "./StartHike.css"
+import "./startHike.css"
 import Map from "../map/Map"
 
 export default function StartHike({ distance }) {
@@ -29,9 +29,7 @@ export default function StartHike({ distance }) {
                 <div className="location-header">
                     <h3>Your Current Hike</h3>
                 </div>
-                <div className="starthike-map">
                     <Map latitude={latitude} longitude={longitude} />
-                </div>
             </div>
             <div className="current-hike-stats">
                 <h3>Current Coordinates: {latitude}, {longitude}</h3>

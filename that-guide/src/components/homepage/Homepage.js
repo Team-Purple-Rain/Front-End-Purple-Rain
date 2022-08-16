@@ -4,20 +4,21 @@ import Map from "../Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 
-export default function Homepage() {
-  const [distance, setDistance] = useState("");
+export default function Homepage({distance, setDistance}) {
   const [error, setError] = useState(null);
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
-  const navigate = useNavigate();
+  const miles = distance
+
+  const navigate = useNavigate()
+
+
 
   const handleSetDistance = (event) => {
     setDistance(event.target.value);
     console.log(event.target.value);
 
-    let chosenDistance = event.target.value;
-    console.log(chosenDistance);
   };
 
   const handleStartHike = (event) => {
@@ -63,25 +64,18 @@ export default function Homepage() {
           <h3>Current Elevation: (list elevation)</h3>
         </div>
         <h2>How far do you want to hike?</h2>
-        <form id="select-distance">Select Distance:</form>
-        <select value={distance} onChange={handleSetDistance}>
-          <option value="">Please Select a Distance</option>
-          <option value="1">1 mile</option>
-          <option value="2">2 miles</option>
-          <option value="3">3 miles</option>
-          <option value="4">4 miles</option>
-          <option value="5">5 miles</option>
-          <option value="6">6 miles</option>
-          <option value="7">7 miles</option>
-          <option value="8">8 miles</option>
-          <option value="9">9 miles</option>
-          <option value="10">10 miles</option>
-        </select>
-        <button
-          type="submit"
-          className="start-hike"
-          onClick={handleStartHike}
-          onSubmit={setDistance}
+
+        <form id="select-distance" onSubmit={setDistance}>Select Distance (in miles):</form>
+          <input 
+            type="number"
+            placeholder="Please select a distance."
+            min="1"
+            onChange={(e) => setDistance(e.target.value)} />
+        <button type="submit" 
+          className="start-hike" 
+          onClick={handleStartHike} 
+          onSubmit={handleSetDistance}
+
         >
           Start your hike!
         </button>

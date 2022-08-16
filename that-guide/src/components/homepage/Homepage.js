@@ -26,21 +26,6 @@ export default function Homepage({ distance, setDistance, latitude, longitude })
     return <div>Gathering location data...</div>;
   }
 
-  // const [longitude, setLongitude] = useState("");
-  // const [latitude, setLatitude] = useState("");
-
-  // navigator.geolocation.getCurrentPosition((position) => {
-  //   console.log(position);
-  //   setLatitude(position.coords.latitude);
-  //   setLongitude(position.coords.longitude);
-  //   console.log(latitude);
-  //   console.log(longitude);
-  // });
-
-  // if (latitude === "") {
-  //   return <div>Gathering location data...</div>;
-  // }
-
   return (
     <>
       <div className="map-and-button">
@@ -48,7 +33,6 @@ export default function Homepage({ distance, setDistance, latitude, longitude })
           <Map latitude={latitude} longitude={longitude} />
         </div>
       </div>
-
       <div className="hike-starter">
         <div className="current-stats">
           <h3>Current Coordinates: {latitude}, {longitude}</h3>

@@ -40,10 +40,10 @@ export default function Map({ latitude, longitude }) {
     });
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
     geoJson.features.map((feature) =>
-    new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
-  );
+      new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
+    );
 
-  setMapObject(map);
+    setMapObject(map);
   }, []);
 
   function setMapCenter(coords) {
@@ -53,9 +53,9 @@ export default function Map({ latitude, longitude }) {
   }
 
   return (
-    <div>
+    <>
       <div ref={mapContainer} className="map-container"></div>
-      <button onClick={() => setMapCenter({center: [longitude, latitude]})}>Return to Current Location</button>
-    </div>
+      <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>Return to Current Location</button>
+    </>
   );
 }

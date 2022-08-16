@@ -8,6 +8,9 @@ function StopWatch({ latitude, longitude }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
+
+  console.log(latitude);
+  console.log(longitude);
   //   here I would put in current location etc
 
   React.useEffect(() => {
@@ -31,38 +34,38 @@ function StopWatch({ latitude, longitude }) {
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
   const [elevationChange, setElevationChange] = useState(null);
-  const [startLat, setStartLat] = useState(latitude);
-  const [startLong, setStartLong] = useState(longitude);
+  const startLat = { latitude };
+  const startLong = { longitude };
+  const [hikeUser, setHikeUser] = useState(null);
   const handleStartHike = (event) => {
     console.log("hello button");
     // event.preventDefault();
-    // setStartLat(latitude);
-    // setStartLong(longitude);
     setIsActive(true);
     setIsPaused(false);
     axios
-      .post(`https://thatguide.herokuapp.com/map/`, {
-        start_location: {
-          latitude: startLat,
-          longitude: startLong,
+      .post(`https://thatguide.herokuapp.com/map/`,
+        // {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // },
+        {
+          start_location: {
+            latitude: startLat,
+            longitude: startLong
+          },
+          end_location: endHike,
+          distance_traveled: distanceTraveled,
+          avg_mph: speed,
+          travel_time: timeTraveled,
+          elevation_gain: elevationChange,
+          hike_user: hikeUser
         },
-        end_location: endHike,
-        distance_traveled: distanceTraveled,
-        avg_mph: speed,
-        travel_time: timeTraveled,
-        elevation_gain: elevationChange
-      })
+      )
       .then((res) => {
         console.log("posted something")
       })
   }
-
-  // const handleStart = () => {
-  //   console.log(
-  //     "start session post request (sending that data that we do have access to ie. start_location etc), get current location"
-  //   );
-
-  // };
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);

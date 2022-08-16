@@ -40,7 +40,7 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
                     </div>
                     <div className="right-container">
                         <div className="time-remaining">
-                            <StopWatch />
+                            <StopWatch latitude={latitude} longitude={longitude} />
                         </div>
                     </div>
                 </div>

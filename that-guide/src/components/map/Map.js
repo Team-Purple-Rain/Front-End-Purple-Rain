@@ -62,7 +62,7 @@ export default function Map({ latitude, longitude }) {
     }
   }
 
-  setInterval(updateUserMarker, 10000)
+  setInterval(updateUserMarker, 8000)
 
   // function to re-center map around User
   function setMapCenter(coords) {

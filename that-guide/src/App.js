@@ -15,7 +15,7 @@ function App() {
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
-  navigator.geolocation.watchPosition((position) => {
+  navigator.geolocation.getCurrentPosition((position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     console.log(latitude);

@@ -12,6 +12,7 @@ export default function Map({ latitude, longitude }) {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
+  const [userMark, setUserMark] = useState()
 
   const geoJson = {
     type: 'FeatureCollection',
@@ -31,21 +32,36 @@ export default function Map({ latitude, longitude }) {
   };
 
   useEffect(() => {
-    // if (map.current) return; // initialize map only once
+    // creating new map with style and center location
     const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [longitude, latitude],
       zoom: zoom,
     });
+    // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
-    geoJson.features.map((feature) =>
-      new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map)
-    );
+
+    // adding markers to geoJson features
+    // geoJson.features.map((feature) =>
+    //   new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map)
+    // );
+
+    //creates a new marker at set long lat
+    const userMarker = new mapboxgl.Marker().setLngLat([longitude,latitude]).addTo(map);
+    setUserMark(userMarker)
     setMapObject(map);
   }, []);
 
-  function setMapCenter(coords) {
+      // function that updates the marker's long lat
+      function updateUserMarker(coords) {
+        if (mapObject) {
+          userMark.setLngLat(coords)
+        }
+        }
+
+    // function to re-center map around User
+    function setMapCenter(coords) {
     if (mapObject) {
       mapObject.flyTo(coords);
     }
@@ -55,6 +71,8 @@ export default function Map({ latitude, longitude }) {
     <>
       <div ref={mapContainer} className="map-container"></div>
       <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>Return to Current Location</button>
+      <button onClick={() => updateUserMarker([-80, 35.79])}>test 
+      </button>
     </>
   );
 }

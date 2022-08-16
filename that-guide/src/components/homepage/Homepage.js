@@ -41,7 +41,6 @@ export default function Homepage({ selectedDistance, setSelectedDistance, latitu
           <h3>Current Elevation: (display elevation)</h3>
         </div>
         <h2>How far do you want to hike?</h2>
-
         <form id="select-distance" onSubmit={setSelectedDistance}>Select Distance (in miles):</form>
         <input
           className="distance-input"
@@ -53,7 +52,6 @@ export default function Homepage({ selectedDistance, setSelectedDistance, latitu
           className="start-hike"
           onClick={handleStartHike}
           onSubmit={handleSetDistance}
-
         >
           Set distance
         </button>

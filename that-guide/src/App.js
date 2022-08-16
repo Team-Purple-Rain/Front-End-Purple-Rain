@@ -1,9 +1,8 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom"
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
-  const [distance, setDistance] = useState("")
+  const [distance, setDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
@@ -41,22 +40,24 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage
-            setDistance={setDistance}
-            distance={distance}
-            latitude={latitude}
-            longitude={longitude}
-
-          />}
-
+          element={
+            <Homepage
+              setDistance={setDistance}
+              distance={distance}
+              latitude={latitude}
+              longitude={longitude}
+            />
+          }
         />
         <Route
           path="/starthike"
-          element={<StartHike
-            distance={distance}
-            longitude={longitude}
-            latitude={latitude}
-          />}
+          element={
+            <StartHike
+              distance={distance}
+              longitude={longitude}
+              latitude={latitude}
+            />
+          }
         />
       </Routes>
     </>

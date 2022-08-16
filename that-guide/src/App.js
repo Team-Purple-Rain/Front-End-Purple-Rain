@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
-import StartHike from "./components/startHike/StartHike";
+import StartHike from "./components/StartHike/StartHike";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state";
 

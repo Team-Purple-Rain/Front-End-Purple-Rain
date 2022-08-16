@@ -10,11 +10,7 @@ function App() {
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
-<<<<<<< HEAD
-  const [distance, setDistance] = useState("");
-=======
-  const [selectedDistance, setSelectedDistance] = useState("")
->>>>>>> d6be5520289b345a78973942bfe257429c4b9241
+  const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
@@ -43,21 +39,25 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage
-            setSelectedDistance={setSelectedDistance}
-            selectedDistance={selectedDistance}
-            latitude={latitude}
-            longitude={longitude}
-          />}
+          element={
+            <Homepage
+              setSelectedDistance={setSelectedDistance}
+              selectedDistance={selectedDistance}
+              latitude={latitude}
+              longitude={longitude}
+            />
+          }
         />
 
         <Route
           path="/starthike"
-          element={<StartHike
-            selectedDistance={selectedDistance}
-            longitude={longitude}
-            latitude={latitude}
-          />}
+          element={
+            <StartHike
+              selectedDistance={selectedDistance}
+              longitude={longitude}
+              latitude={latitude}
+            />
+          }
         />
       </Routes>
     </>

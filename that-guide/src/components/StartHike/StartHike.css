@@ -1,14 +1,27 @@
 .whole-stats-container {
     display: flex;
-    justify-content: space-between;
+    width: 75%;
+    margin: auto;
 }
 
 .left-container {
     text-align: left;
+    justify-content: center;
     padding: 10px;
 }
 
 .right-container {
     text-align: right;
     padding: 10px;
+}
+.distance-hiked, .distance-remaining, 
+.time-elapsed, .miles-per-hour, .time-remaining {
+    border: 2px solid black;
+    padding: 5px;
+    margin: 4px;
+}
+
+button {
+    padding: 4px;
+    margin: 8px;
 }

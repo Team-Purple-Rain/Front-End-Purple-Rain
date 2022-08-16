@@ -4,7 +4,7 @@ import useLocalStorageState from "use-local-storage-state"
 import StopWatch from "../stopwatch/watch_display/WatchDisplay"
 import "./startHike.css"
 
-export default function StartHike({distance}) {
+export default function StartHike({distance, longitude, latitude}) {
 
 console.log(distance)
 
@@ -18,30 +18,30 @@ return (
             <div className="map-container">
                 <p>Map with the hiker's trail and their selected distance goes here.</p>
             </div>
-            <button className="pin-return">Return to current location (?)</button>
+            <button className="pin-return">Return to current location</button>
         </div>
         <div className="current-hike-stats">
-            <h3>Current Coordinates: (list coordinates)</h3>
-            <h3>Current Elevation: (list elevation)</h3>
+            <h3>Current Coordinates: (display coordinates)</h3>
+            <h3>Current Elevation: (display elevation)</h3>
             <h2>Goal distance: {distance} miles</h2>
             <div className="whole-stats-container">
                 <div className="left-container">
                     <div className="distance-hiked">
-                        <h5>Distance Hiked: (goal distance - distance remaining)</h5>
+                        <h4>Distance Hiked: (distance user has hiked)</h4>
                     </div>
                     <div className="distance-remaining">
-                        <h5>Distance Remaining: (goal distance - distance hiked)</h5>
+                        <h4>Distance Remaining: ({distance} miles - distance user has hiked)</h4>
                     </div>
                     <div className="time-elapsed">
-                        <h5>Time elapsed:</h5>
+                        <h4>Time elapsed: (data from Stopwatch component)</h4>
                     </div>
                 </div>
                 <div className="right-container">
                     <div className="miles-per-hour">
-                        <h5>MPH:</h5>
+                        <h4>MPH: ({distance} miles/time it takes for hiker to hike 1 mile) </h4>
                     </div>
                     <div className="time-remaining">
-                        <h5>Estimated time remaining:</h5>
+                        <h4>Estimated time remaining: </h4>
                     </div>
                 </div>
             </div>

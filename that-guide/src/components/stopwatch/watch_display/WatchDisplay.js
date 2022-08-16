@@ -47,6 +47,7 @@ function StopWatch() {
     console.log(
       "this will update the rest of the information that was unavailable at the start"
     );
+    setIsPaused(true);
   };
 
   return (

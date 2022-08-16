@@ -9,8 +9,6 @@ export default function Homepage({distance, setDistance}) {
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
-  const miles = distance
-
   const navigate = useNavigate()
 
 
@@ -44,29 +42,30 @@ export default function Homepage({distance, setDistance}) {
 
   return (
     <>
-      <div className="location-header">
+      {/* <div className="location-header">
         <h3>
-          Current Location: {latitude}, {longitude}
-          {/* <CurrentLocation lat={lat} long={long} /> */}
+          You are here:
+          <CurrentLocation lat={lat} long={long} />
         </h3>
-      </div>
+      </div> */}
 
       <div className="map-and-button">
         <div className="homepage-map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
-        <button className="pin-return">Return to current location (?)</button>
+        <button className="pin-return">Return to current location</button>
       </div>
 
       <div className="hike-starter">
         <div className="current-stats">
-          <h3>Current Coordinates: (list coordinates)</h3>
-          <h3>Current Elevation: (list elevation)</h3>
+          <h3>Current Coordinates: {latitude}, {longitude}</h3>
+          <h3>Current Elevation: (display elevation)</h3>
         </div>
         <h2>How far do you want to hike?</h2>
 
         <form id="select-distance" onSubmit={setDistance}>Select Distance (in miles):</form>
           <input 
+            className="distance-input"
             type="number"
             placeholder="Please select a distance."
             min="1"
@@ -77,7 +76,7 @@ export default function Homepage({distance, setDistance}) {
           onSubmit={handleSetDistance}
 
         >
-          Start your hike!
+          Set distance
         </button>
       </div>
     </>

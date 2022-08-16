@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
-import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom"
 import useLocalStorageState from "use-local-storage-state";
 
 function App() {
@@ -12,8 +12,20 @@ function App() {
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
   const [distance, setDistance] = useState("")
-  const [longitude, setLongitude] = useState("")
+  const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
+
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position);
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+    console.log(latitude);
+    console.log(longitude);
+  });
+
+  // if (latitude === "") {
+  //   return <div>Gathering location data...</div>;
+  // }
 
   return (
     <>
@@ -29,43 +41,26 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage 
+          element={<Homepage
             setDistance={setDistance}
             distance={distance}
-            setLongitude={setLongitude}
+            latitude={latitude}
             longitude={longitude}
 
-            />}
-          
+          />}
+
         />
-          <Route 
-            path="/starthike"
-            element={<StartHike 
-              distance={distance}
-              longitude={longitude}
-            />}
-            />
+        <Route
+          path="/starthike"
+          element={<StartHike
+            distance={distance}
+            longitude={longitude}
+            latitude={latitude}
+          />}
+        />
       </Routes>
     </>
   );
-
-  // Lisa's test of our endpoints below:
-  //   useEffect(() => {
-  //     axios.get(`${baseURL}`).then((res) => {
-  //       setDescription(res.data.description);
-  //       setMemeImage(res.data.meme_image);
-  //       setTeam(res.data.team);
-  //     });
-  //   });
-  //   return (
-  //     <>
-  //       <h2>
-  //         {" "}
-  //         Hey {team}! {description}{" "}
-  //       </h2>
-  //       <img src={memeImage} width="250px" />
-  //     </>
-  //   );
 }
 
 export default App;

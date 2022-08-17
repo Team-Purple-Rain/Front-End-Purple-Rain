@@ -34,8 +34,7 @@ function StopWatch({ latitude, longitude }) {
   const [isStopped, setIsStopped] = useState(false);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
-  const [ID, setID] = useState(null)
-
+  const [ID, setID] = useState(null);
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -43,21 +42,20 @@ function StopWatch({ latitude, longitude }) {
     setIsActive(true);
     setIsPaused(false);
     axios
-      .post(`https://thatguide.herokuapp.com/map/`,
-        {
-          start_location: {
-            latitude: startLat,
-            longitude: startLong,
-          },
-          end_location: endHike,
-          hike_user: hikeUser
-        })
+      .post(`https://thatguide.herokuapp.com/map/`, {
+        start_location: {
+          latitude: startLat,
+          longitude: startLong,
+        },
+        end_location: endHike,
+        hike_user: hikeUser,
+      })
       .then((res) => {
         console.log("posted something");
         console.log(res);
         console.log(res.data.id);
         setID(res.data.id);
-      })
+      });
   };
 
   const handlePauseResume = () => {
@@ -68,6 +66,7 @@ function StopWatch({ latitude, longitude }) {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
+    localStorage.clear();
     console.log("clear session data");
   };
 
@@ -78,21 +77,20 @@ function StopWatch({ latitude, longitude }) {
     setIsPaused(true);
     setIsStopped(!isStopped);
     axios
-      .patch(`https://thatguide.herokuapp.com/map/${ID}/`,
-        {
-          end_location: {
-            latitude: endHikeLat,
-            longitude: endHikeLong
-          },
-          distance_traveled: distanceTraveled,
-          avg_mph: speed,
-          travel_time: timeTraveled,
-          elevation_gain: elevationChange,
-          hike_user: hikeUser
-        })
+      .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
+        end_location: {
+          latitude: endHikeLat,
+          longitude: endHikeLong,
+        },
+        distance_traveled: distanceTraveled,
+        avg_mph: speed,
+        travel_time: timeTraveled,
+        elevation_gain: elevationChange,
+        hike_user: hikeUser,
+      })
       .then((res) => {
         console.log("patched something");
-      })
+      });
   };
 
   return (
@@ -113,7 +111,6 @@ function StopWatch({ latitude, longitude }) {
     </>
   );
 }
-
 // const Results = () => {
 //   let hikeData = JSON.parse(localStorage.getItem("hike"));
 //   console.log(hikeData);

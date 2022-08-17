@@ -18,25 +18,25 @@ function App() {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     // console.log(latitude);
-    console.log(longitude);
+    // console.log(longitude);
     // console.log(position)
   }
 
-  function error() {
-    alert('Please enable location services!')
-  }
+  // function error() {
+  //   alert('Please enable location services!')
+  // }
 
-  const options = {
-    enableHighAccuracy: false,
-    maximumAge: 10000,
-    timeout: 15000
-  }
+  // const options = {
+  //   enableHighAccuracy: false,
+  //   maximumAge: 10000,
+  //   timeout: 15000
+  // }
 
   const getLocation = () => {
     if (!navigator.geolocation) {
       alert("This device doesn't support location services.")
     } else {
-      navigator.geolocation.getCurrentPosition(success, error, options)
+      navigator.geolocation.getCurrentPosition(success)
     }
   }
 

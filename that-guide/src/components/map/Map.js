@@ -18,22 +18,22 @@ export default function Map({ latitude, longitude }) {
   //   [-73.043655, 37.702501]
   // ];
 
-  // const geoJson = {
-  //   type: "FeatureCollection",
-  //   features: [
-  //     {
-  //       type: "Feature",
-  //       geometry: {
-  //         type: "Point",
-  //         coordinates: [longitude, latitude],
-  //       },
-  //       properties: {
-  //         title: "Mapbox",
-  //         description: "UserLocation",
-  //       },
-  //     },
-  //   ],
-  // };
+  const geoJson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [longitude, latitude],
+        },
+        properties: {
+          title: "Mapbox",
+          description: "UserLocation",
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     // creating new map with style and center location
@@ -66,8 +66,6 @@ export default function Map({ latitude, longitude }) {
       userMarker.setLngLat([longitude, latitude]);
     }
   }
-
-  // setInterval(updateUserMarker, 8000)
 
   updateUserMarker()
 

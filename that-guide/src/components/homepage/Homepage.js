@@ -9,6 +9,9 @@ export default function Homepage({ selectedDistance, setSelectedDistance, latitu
 
   const navigate = useNavigate()
 
+  
+
+
   const miles = selectedDistance
 
   const handleSetDistance = (event) => {

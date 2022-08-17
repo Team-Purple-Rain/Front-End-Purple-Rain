@@ -34,7 +34,7 @@
 .current-hike-stats {
   border: 2px solid black;
   text-align: center;
-  width: 75%;
+  /* width: 75%; */
   margin: auto;
 }
 

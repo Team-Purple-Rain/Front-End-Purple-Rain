@@ -20,6 +20,7 @@
     border: 2px solid black;
     padding: 5px;
     margin: 3px;
+    font-size: calc(0.75em + 1vw);
 }
 
 button {

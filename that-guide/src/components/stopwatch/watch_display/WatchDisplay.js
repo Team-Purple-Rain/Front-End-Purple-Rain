@@ -111,7 +111,11 @@ function StopWatch({ latitude, longitude }) {
 
 const Results = () => {
   let hikeData = JSON.parse(localStorage.getItem("hike"));
-  console.log(hikeData);
+  if (hikeData) {
+    console.log(hikeData);
+  } else {
+    console.log("no data yet");
+  }
   return (
     <div>
       Hello

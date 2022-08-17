@@ -9,13 +9,8 @@ function StopWatch({ latitude, longitude }) {
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
 
-  // console.log(latitude);
-  // console.log(longitude);
-  //   here I would put in current location etc
-
   React.useEffect(() => {
     let interval = null;
-
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
         setTime((time) => time + 10);
@@ -28,7 +23,7 @@ function StopWatch({ latitude, longitude }) {
     };
   }, [isActive, isPaused]);
 
-  const [endHike, setEndHike] = useState(null);
+  const endHike = useState(null);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
@@ -37,9 +32,10 @@ function StopWatch({ latitude, longitude }) {
   const [startLong, setStartLong] = useState(longitude);
   const [hikeUser, setHikeUser] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
+  const [endHikeLat, setEndHikeLat] = useState(latitude);
+  const [endHikeLong, setEndHikeLong] = useState(longitude);
+  const [ID, setID] = useState(null)
 
-  // console.log(startLat);
-  // console.log(startLong);
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -48,28 +44,21 @@ function StopWatch({ latitude, longitude }) {
     setIsPaused(false);
     axios
       .post(`https://thatguide.herokuapp.com/map/`,
-        // {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // }, 
         {
           start_location: {
             latitude: startLat,
             longitude: startLong,
           },
           end_location: endHike,
-          distance_traveled: distanceTraveled,
-          avg_mph: speed,
-          travel_time: timeTraveled,
-          elevation_gain: elevationChange,
           hike_user: hikeUser
         })
       .then((res) => {
         console.log("posted something");
+        console.log(res);
+        console.log(res.data.id);
+        setID(res.data.id);
       })
   };
-
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
@@ -82,12 +71,28 @@ function StopWatch({ latitude, longitude }) {
     console.log("clear session data");
   };
 
-  const handleStop = () => {
+  const handleStop = (event) => {
     console.log(
       "this will update the rest of the information that was unavailable at the start"
     );
     setIsPaused(true);
     setIsStopped(!isStopped);
+    axios
+      .patch(`https://thatguide.herokuapp.com/map/${ID}/`,
+        {
+          end_location: {
+            latitude: endHikeLat,
+            longitude: endHikeLong
+          },
+          distance_traveled: distanceTraveled,
+          avg_mph: speed,
+          travel_time: timeTraveled,
+          elevation_gain: elevationChange,
+          hike_user: hikeUser
+        })
+      .then((res) => {
+        console.log("patched something");
+      })
   };
 
   return (

@@ -13,12 +13,14 @@ function App() {
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
+  const highestElevation = useState("")
+
 
   function success(position) {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     // console.log(latitude);
-    console.log(longitude);
+    // console.log(longitude);
     // console.log(position)
   }
 
@@ -42,6 +44,11 @@ function App() {
 
   setInterval(getLocation, 10000);
 
+
+// Elevation function below:
+
+
+
   return (
     <>
       <div className="title-header">
@@ -62,6 +69,7 @@ function App() {
               selectedDistance={selectedDistance}
               latitude={latitude}
               longitude={longitude}
+              highestElevation={highestElevation}
             />
           }
         />
@@ -74,6 +82,7 @@ function App() {
               latitude={latitude}
               setLatitude={setLatitude}
               setLongitude={setLongitude}
+              highestElevation={highestElevation}
             />
           }
         />

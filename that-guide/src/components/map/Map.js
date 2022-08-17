@@ -13,6 +13,10 @@ export default function Map({ latitude, longitude }) {
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
   const [userMarker, setUserMarker] = useState();
+  // const bounds = [
+  //   [-85.617648, 33.257538],
+  //   [-73.043655, 37.702501]
+  // ];
 
   // const geoJson = {
   //   type: "FeatureCollection",
@@ -35,9 +39,10 @@ export default function Map({ latitude, longitude }) {
     // creating new map with style and center location
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/rfrenia/cl6xss090001714pg664smgvh",
       center: [longitude, latitude],
       zoom: zoom,
+      // maxBounds: bounds
     });
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
@@ -62,7 +67,9 @@ export default function Map({ latitude, longitude }) {
     }
   }
 
-  setInterval(updateUserMarker, 8000)
+  // setInterval(updateUserMarker, 8000)
+
+  updateUserMarker()
 
   // function to re-center map around User
   function setMapCenter(coords) {

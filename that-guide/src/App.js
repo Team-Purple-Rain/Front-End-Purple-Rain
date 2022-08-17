@@ -1,9 +1,8 @@
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom"
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 
 function App() {
@@ -11,15 +10,35 @@ function App() {
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
   const [team, setTeam] = useState("");
-  const [selectedDistance, setSelectedDistance] = useState("")
+  const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
-  navigator.geolocation.getCurrentPosition((position) => {
+  function success(position) {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
+    // console.log(latitude);
+    // console.log(longitude);
+    // console.log(position)
+  }
 
-  });
+  function error() {
+    alert('Please enable location services!')
+  }
+
+  const options = {
+    enableHighAccuracy: true
+  }
+
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      alert("This device doesn't support location services.")
+    } else {
+      navigator.geolocation.getCurrentPosition(success, error, options)
+    }
+  }
+
+  setInterval(getLocation, 5000);
 
   return (
     <>
@@ -35,21 +54,27 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage
-            setSelectedDistance={setSelectedDistance}
-            selectedDistance={selectedDistance}
-            latitude={latitude}
-            longitude={longitude}
-          />}
+          element={
+            <Homepage
+              setSelectedDistance={setSelectedDistance}
+              selectedDistance={selectedDistance}
+              latitude={latitude}
+              longitude={longitude}
+            />
+          }
         />
 
         <Route
           path="/starthike"
-          element={<StartHike
-            selectedDistance={selectedDistance}
-            longitude={longitude}
-            latitude={latitude}
-          />}
+          element={
+            <StartHike
+              selectedDistance={selectedDistance}
+              longitude={longitude}
+              latitude={latitude}
+              setLatitude={setLatitude}
+              setLongitude={setLongitude}
+            />
+          }
         />
       </Routes>
     </>

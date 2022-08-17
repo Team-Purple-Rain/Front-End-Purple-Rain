@@ -31,7 +31,7 @@ export default function Homepage({ selectedDistance, setSelectedDistance, latitu
   return (
     <>
       <div className="map-and-button">
-        <div className="homepage-map">
+        <div id="map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
       </div>

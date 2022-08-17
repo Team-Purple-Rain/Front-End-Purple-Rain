@@ -6,19 +6,21 @@ import "./StartHike.css";
 import Map from "../map/Map";
 import axios from "axios";
 
+export default function StartHike({
+  selectedDistance,
+  latitude,
+  longitude,
+  highestElevation,
+}) {
+  console.log(selectedDistance);
 
-export default function StartHike({ selectedDistance, latitude, longitude }) {
-    console.log(selectedDistance);
-
-
-
-    if (latitude === "") {
+  if (latitude === "") {
     return <div>Gathering location data...</div>;
-    }
+  }
 
-    return (
-        <>
-        <div>
+  return (
+    <>
+      <div>
         <div className="location-header">
           <h3>Your Current Hike</h3>
         </div>

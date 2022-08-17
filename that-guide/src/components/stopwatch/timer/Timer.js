@@ -1,6 +1,7 @@
 import React from "react";
 import "./Timer.css";
 import { useEffect, useState } from "react";
+import ElevationData from "../../elevationData/ElevationData";
 
 export default function Timer(props) {
   let storageBank = [];
@@ -21,6 +22,8 @@ export default function Timer(props) {
       }
     }
   };
+
+  ElevationData();
 
   const addToLocalStorage = (time) => {
     time = time.toString();

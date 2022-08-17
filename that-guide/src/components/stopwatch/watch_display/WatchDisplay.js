@@ -4,7 +4,7 @@ import Timer from "../timer/Timer";
 import WatchButtons from "../watch_buttons/WatchButtons";
 import axios from "axios";
 
-function StopWatch({ latitude, longitude }) {
+function StopWatch({ latitude, longitude, highestElevation }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
@@ -96,7 +96,12 @@ function StopWatch({ latitude, longitude }) {
   return (
     <>
       <div className="stop-watch">
-        <Timer time={time} latitude={latitude} longitude={longitude} />
+        <Timer
+          time={time}
+          latitude={latitude}
+          longitude={longitude}
+          highestElevation={highestElevation}
+        />
         <WatchButtons
           active={isActive}
           isPaused={isPaused}

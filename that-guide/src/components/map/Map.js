@@ -2,6 +2,7 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
 import "./map.css";
+import ElevationData from "../elevationData/ElevationData";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -20,7 +21,7 @@ export default function Map({ latitude, longitude }) {
 
   const bounds = [
     [-85.617648, 33.257538],
-    [-73.043655, 37.702501]
+    [-73.043655, 37.702501],
   ];
 
   const geoJson = {
@@ -47,7 +48,7 @@ export default function Map({ latitude, longitude }) {
       style: "mapbox://styles/rfrenia/cl6xss090001714pg664smgvh",
       center: [longitude, latitude],
       zoom: zoom,
-      maxBounds: bounds
+      maxBounds: bounds,
     });
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
@@ -119,6 +120,7 @@ export default function Map({ latitude, longitude }) {
           Current Coordinates: {latitude}, {longitude}
         </h3>
         <h3>Current Elevation: {elevation} </h3>
+        <ElevationData elevation={elevation} />
       </div>
     </>
   );

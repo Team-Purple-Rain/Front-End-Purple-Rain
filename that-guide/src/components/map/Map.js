@@ -2,7 +2,6 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
 import "./map.css";
-import ElevationData from "../elevationData/ElevationData";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -119,8 +118,8 @@ export default function Map({ latitude, longitude }) {
         <h3>
           Current Coordinates: {latitude}, {longitude}
         </h3>
-        <h3 className="elevation_div" id={elevation} value={elevation}>
-          Current Elevation: {elevation}{" "}
+        <h3 className="elevation_div" id={elevation}>
+          Current Elevation: {elevation}
         </h3>
       </div>
     </>

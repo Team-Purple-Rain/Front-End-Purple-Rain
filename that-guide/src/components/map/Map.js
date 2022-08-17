@@ -119,8 +119,9 @@ export default function Map({ latitude, longitude }) {
         <h3>
           Current Coordinates: {latitude}, {longitude}
         </h3>
-        <h3>Current Elevation: {elevation} </h3>
-        <ElevationData elevation={elevation} />
+        <h3 className="elevation_div" id={elevation} value={elevation}>
+          Current Elevation: {elevation}{" "}
+        </h3>
       </div>
     </>
   );

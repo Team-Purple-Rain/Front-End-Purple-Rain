@@ -1,7 +1,7 @@
 import React from "react";
 import "./Timer.css";
 import { useEffect, useState } from "react";
-import ElevationData from "../../elevationData/ElevationData";
+import { ElevationData } from "../../elevationData/ElevationData";
 
 export default function Timer(props) {
   let storageBank = [];
@@ -23,9 +23,14 @@ export default function Timer(props) {
     }
   };
 
-  ElevationData();
+  const elevationBank = [];
+
+  // console.log(elevationBank);
 
   const addToLocalStorage = (time) => {
+    let actualElevation = document.getElementsByClassName("elevation_div");
+    actualElevation = actualElevation[0].id;
+    elevationBank.push(actualElevation);
     time = time.toString();
     time = time.slice(0, -3);
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
@@ -33,6 +38,7 @@ export default function Timer(props) {
       time: time,
       longitude: props.longitude,
       latitude: props.latitude,
+      elevation: elevationBank[0],
     });
     // storageBank.push(JSON.parse(localStorage.getItem("hike")));
     localStorage.setItem("hike", JSON.stringify(storageBank));

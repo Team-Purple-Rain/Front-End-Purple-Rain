@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+// import { useEffect, useState } from "react";
 
-export default function ElevationData(elevation) {
-  useEffect(() => {
-    console.log(elevation);
-    return elevation;
-  });
-}
+// export default function ElevationData(props) {
+//   return (
+//     <div className="elevation_div">Current Elevation: {props.elevation} </div>
+//   );
+// }

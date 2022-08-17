@@ -6,12 +6,7 @@ import "./StartHike.css";
 import Map from "../map/Map";
 import axios from "axios";
 
-export default function StartHike({
-  selectedDistance,
-  latitude,
-  longitude,
-  highestElevation,
-}) {
+export default function StartHike({ selectedDistance, latitude, longitude }) {
   console.log(selectedDistance);
 
   if (latitude === "") {

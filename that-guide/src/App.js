@@ -18,7 +18,7 @@ function App() {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     // console.log(latitude);
-    console.log(longitude);
+    // console.log(longitude);
     // console.log(position)
   }
 

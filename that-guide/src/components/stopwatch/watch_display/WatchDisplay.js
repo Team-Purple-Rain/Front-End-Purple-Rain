@@ -69,6 +69,16 @@ function StopWatch({ latitude, longitude }) {
     setIsActive(false);
     setTime(0);
     console.log("clear session data");
+    axios
+      .delete(`https://thatguide.herokuapp.com/map/${ID}/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          }
+        })
+      .then(() => {
+        console.log("deleted something")
+      })
   };
 
   const handleStop = (event) => {

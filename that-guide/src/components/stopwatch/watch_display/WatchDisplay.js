@@ -8,11 +8,9 @@ function StopWatch({ latitude, longitude }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  //   here I would put in current location etc
 
   React.useEffect(() => {
     let interval = null;
-
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
         setTime((time) => time + 10);
@@ -25,51 +23,40 @@ function StopWatch({ latitude, longitude }) {
     };
   }, [isActive, isPaused]);
 
-  const [endHike, setEndHike] = useState(null);
+  const endHike = useState(null);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
   const [elevationChange, setElevationChange] = useState(null);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
-
+  const [hikeUser, setHikeUser] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
+  const [endHikeLat, setEndHikeLat] = useState(latitude);
+  const [endHikeLong, setEndHikeLong] = useState(longitude);
+  const [ID, setID] = useState(null);
 
   const handleStartHike = (event) => {
     console.log("hello button");
     // event.preventDefault();
-    // setStartLat(latitude);
-    // setStartLong(longitude);
     setIsActive(true);
     setIsPaused(false);
-    // axios
-    //   .post(`https://thatguide.herokuapp.com/map/`, {
-    //     start_location: {
-    //       latitude: startLat,
-    //       longitude: startLong,
-    //     },
-    //     end_location: endHike,
-    //     distance_traveled: distanceTraveled,
-    //     avg_mph: speed,
-    //     travel_time: timeTraveled,
-    //     elevation_gain: elevationChange,
-    //   })
-    //   .then((res) => {
-    //     console.log("posted something");
-    //   })
-    //   .catch((res) => {
-    //     console.log(res.response);
-    //     console.log(res.response.data);
-    //     console.log(res.response.start_location);
-    //   });
+    axios
+      .post(`https://thatguide.herokuapp.com/map/`, {
+        start_location: {
+          latitude: startLat,
+          longitude: startLong,
+        },
+        end_location: endHike,
+        hike_user: hikeUser,
+      })
+      .then((res) => {
+        console.log("posted something");
+        console.log(res);
+        console.log(res.data.id);
+        setID(res.data.id);
+      });
   };
-
-  // const handleStart = () => {
-  //   console.log(
-  //     "start session post request (sending that data that we do have access to ie. start_location etc), get current location"
-  //   );
-
-  // };
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
@@ -82,12 +69,27 @@ function StopWatch({ latitude, longitude }) {
     console.log("clear session data");
   };
 
-  const handleStop = () => {
+  const handleStop = (event) => {
     console.log(
       "this will update the rest of the information that was unavailable at the start"
     );
     setIsPaused(true);
     setIsStopped(!isStopped);
+    axios
+      .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
+        end_location: {
+          latitude: endHikeLat,
+          longitude: endHikeLong,
+        },
+        distance_traveled: distanceTraveled,
+        avg_mph: speed,
+        travel_time: timeTraveled,
+        elevation_gain: elevationChange,
+        hike_user: hikeUser,
+      })
+      .then((res) => {
+        console.log("patched something");
+      });
   };
 
   return (
@@ -104,31 +106,26 @@ function StopWatch({ latitude, longitude }) {
           isStopped={isStopped}
         />
       </div>
-      {isStopped ? <Results /> : ""}
+      {/* {isStopped ? <Results /> : ""} */}
     </>
   );
 }
-
-const Results = () => {
-  let hikeData = JSON.parse(localStorage.getItem("hike"));
-  if (hikeData) {
-    console.log(hikeData);
-  } else {
-    console.log("no data yet");
-  }
-  return (
-    <div>
-      Hello
-      <div>
-        {hikeData.map((entry) => (
-          <div>
-            at {entry.time} seconds, you were at: {entry.latitude},
-            {entry.longitude}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+// const Results = () => {
+//   let hikeData = JSON.parse(localStorage.getItem("hike"));
+//   console.log(hikeData);
+//   return (
+//     <div>
+//       Hello
+//       <div>
+//         {hikeData.map((entry) => (
+//           <div>
+//             at {entry.time} seconds, you were at: {entry.latitude},
+//             {entry.longitude}
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
 
 export default StopWatch;

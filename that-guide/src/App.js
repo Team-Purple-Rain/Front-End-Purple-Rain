@@ -13,12 +13,12 @@ function App() {
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
- 
-  function success (position) {
+
+  function success(position) {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     // console.log(latitude);
-    // console.log(longitude);
+    console.log(longitude);
     // console.log(position)
   }
 
@@ -27,17 +27,20 @@ function App() {
   }
 
   const options = {
-    enableHighAccuracy: true
+    enableHighAccuracy: false,
+    maximumAge: 10000,
+    timeout: 15000
   }
 
   const getLocation = () => {
     if (!navigator.geolocation) {
       alert("This device doesn't support location services.")
     } else {
-    navigator.geolocation.getCurrentPosition(success, error, options) 
-  }}
+      navigator.geolocation.getCurrentPosition(success, error, options)
+    }
+  }
 
-  setInterval(getLocation, 5000);
+  setInterval(getLocation, 10000);
 
   return (
     <>
@@ -62,7 +65,6 @@ function App() {
             />
           }
         />
-
         <Route
           path="/starthike"
           element={

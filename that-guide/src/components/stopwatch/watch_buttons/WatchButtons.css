@@ -8,6 +8,7 @@ editing of the .Control-Buttons class. Will ask Lisa what it does.*/
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: calc(0.75em + 1vw);
     }
     
     .btn-grp {
@@ -26,9 +27,7 @@ editing of the .Control-Buttons class. Will ask Lisa what it does.*/
     margin: 5px;
     display: flex;
     text-align: center;
-
-    
-    border: 2px solid #e42a2a;
+    font-size: calc(0.75em + 1vw);
     justify-content: center;
     align-items: center;
     cursor: pointer;

@@ -1,5 +1,6 @@
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useEffect, useState, useRef } from "react";
+import { useInterval } from "use-interval";
 import "./map.css";
 
 mapboxgl.accessToken =
@@ -13,27 +14,31 @@ export default function Map({ latitude, longitude }) {
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
   const [userMarker, setUserMarker] = useState();
-  // const bounds = [
-  //   [-85.617648, 33.257538],
-  //   [-73.043655, 37.702501]
-  // ];
+  const [elevation, setElevation] = useState("calculating...");
 
-  // const geoJson = {
-  //   type: "FeatureCollection",
-  //   features: [
-  //     {
-  //       type: "Feature",
-  //       geometry: {
-  //         type: "Point",
-  //         coordinates: [longitude, latitude],
-  //       },
-  //       properties: {
-  //         title: "Mapbox",
-  //         description: "UserLocation",
-  //       },
-  //     },
-  //   ],
-  // };
+  // useInterval(getElevation(), 10000);
+
+  const bounds = [
+    [-85.617648, 33.257538],
+    [-73.043655, 37.702501]
+  ];
+
+  const geoJson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [longitude, latitude],
+        },
+        properties: {
+          title: "Mapbox",
+          description: "UserLocation",
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     // creating new map with style and center location
@@ -42,7 +47,7 @@ export default function Map({ latitude, longitude }) {
       style: "mapbox://styles/rfrenia/cl6xss090001714pg664smgvh",
       center: [longitude, latitude],
       zoom: zoom,
-      // maxBounds: bounds
+      maxBounds: bounds
     });
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
@@ -60,6 +65,8 @@ export default function Map({ latitude, longitude }) {
     setMapObject(map);
   }, []);
 
+  // getElevation();
+
   // function that updates the marker's long lat
   function updateUserMarker() {
     if (mapObject) {
@@ -67,9 +74,7 @@ export default function Map({ latitude, longitude }) {
     }
   }
 
-  // setInterval(updateUserMarker, 8000)
-
-  updateUserMarker()
+  updateUserMarker();
 
   // function to re-center map around User
   function setMapCenter(coords) {
@@ -78,12 +83,43 @@ export default function Map({ latitude, longitude }) {
     }
   }
 
+  useInterval(() => {
+    async function getElevation() {
+      // Construct the API request.
+      const query = await fetch(
+        `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${longitude},${latitude}.json?layers=contour&radius=3&limit=10&access_token=${mapboxgl.accessToken}`,
+        { method: "GET" }
+      );
+      if (query.status !== 200) return;
+      const data = await query.json();
+      // Get all the returned features.
+      const allFeatures = data.features;
+      console.log(allFeatures);
+      // For each returned feature, add elevation data to the elevations array.
+      const elevations = allFeatures.map((feature) => feature.properties.ele);
+      console.log(elevations);
+      // In the elevations array, find the largest value.
+      const highestElevation = Math.max(...elevations);
+
+      const elevationConversion = highestElevation * 3.28;
+      console.log(elevationConversion);
+      setElevation(`${elevationConversion} feet`);
+    }
+    getElevation();
+  }, 7000);
+
   return (
     <>
       <div ref={mapContainer} className="map-container"></div>
       <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>
         Return to Current Location
       </button>
+      <div className="current-stats">
+        <h3>
+          Current Coordinates: {latitude}, {longitude}
+        </h3>
+        <h3>Current Elevation: {elevation} </h3>
+      </div>
     </>
   );
 }

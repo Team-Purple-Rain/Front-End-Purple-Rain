@@ -66,6 +66,7 @@ function StopWatch({ latitude, longitude }) {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
+    localStorage.clear();
     console.log("clear session data");
   };
 

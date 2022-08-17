@@ -6,3 +6,9 @@
     border-radius: 50%;
     cursor: pointer;
   }  */
+
+  .current-stats {
+    text-align: center;
+    border: 2px solid black;
+    margin-bottom: 5px;
+  }

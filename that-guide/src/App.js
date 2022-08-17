@@ -13,8 +13,7 @@ function App() {
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
-  const highestElevation = useState("")
-
+  const highestElevation = useState("");
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -36,18 +35,13 @@ function App() {
 
   const getLocation = () => {
     if (!navigator.geolocation) {
-      alert("This device doesn't support location services.")
+      alert("This device doesn't support location services.");
     } else {
-      navigator.geolocation.getCurrentPosition(success)
+      navigator.geolocation.getCurrentPosition(success);
     }
-  }
+  };
 
   setInterval(getLocation, 10000);
-
-
-// Elevation function below:
-
-
 
   return (
     <>

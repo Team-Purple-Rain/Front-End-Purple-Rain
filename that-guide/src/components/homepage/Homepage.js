@@ -4,15 +4,18 @@ import Map from "../map/Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 
-export default function Homepage({ selectedDistance, setSelectedDistance, latitude, longitude, highestElevation }) {
+export default function Homepage({
+  selectedDistance,
+  setSelectedDistance,
+  latitude,
+  longitude,
+  highestElevation,
+}) {
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  
-
-
-  const miles = selectedDistance
+  const miles = selectedDistance;
 
   const handleSetDistance = (event) => {
     setSelectedDistance(event.target.value);
@@ -44,14 +47,18 @@ export default function Homepage({ selectedDistance, setSelectedDistance, latitu
           <h3>Current Elevation: </h3>
         </div> */}
         <h2>How far do you want to hike?</h2>
-        <form id="select-distance" onSubmit={setSelectedDistance}>Select Distance (in miles):</form>
+        <form id="select-distance" onSubmit={setSelectedDistance}>
+          Select Distance (in miles):
+        </form>
         <input
           className="distance-input"
           type="number"
           placeholder="Please select a distance."
           min="1"
-          onChange={(e) => setSelectedDistance(e.target.value)} />
-        <button type="submit"
+          onChange={(e) => setSelectedDistance(e.target.value)}
+        />
+        <button
+          type="submit"
           className="start-hike"
           onClick={handleStartHike}
           onSubmit={handleSetDistance}

@@ -75,7 +75,8 @@ function StopWatch({ latitude, longitude, highestElevation }) {
       "this will update the rest of the information that was unavailable at the start"
     );
     setIsPaused(true);
-    setIsStopped(!isStopped);
+    setIsActive(false);
+    // setIsStopped(!isStopped);
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
         end_location: {

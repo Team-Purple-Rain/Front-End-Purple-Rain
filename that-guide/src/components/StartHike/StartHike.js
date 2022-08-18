@@ -7,7 +7,7 @@ import Map from "../map/Map";
 import axios from "axios";
 
 export default function StartHike({ selectedDistance, latitude, longitude }) {
-  console.log(selectedDistance);
+  // console.log(selectedDistance);
 
   if (latitude === "") {
     return <div>Gathering location data...</div>;

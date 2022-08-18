@@ -4,8 +4,10 @@ import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
+import Results from "./components/results/results";
+import Profile from "./components/profile/profile";
 
-function App() {
+function App({ ID }) {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
@@ -77,6 +79,22 @@ function App() {
               setLongitude={setLongitude}
               highestElevation={highestElevation}
             />
+          }
+        />
+        <Route
+          path="/hikeresults"
+          element={
+            <Results
+              latitude={latitude}
+              longitude={longitude}
+              ID={ID}
+            />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Profile />
           }
         />
       </Routes>

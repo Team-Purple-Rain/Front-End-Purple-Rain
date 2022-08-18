@@ -23,6 +23,7 @@ export default function ControlButtons(props) {
   return (
     <div className="Control-Buttons">
       <div>{props.active ? ActiveButtons : StartButton}</div>
+      {/* <div>{props.isStopped ? ("") : ActiveButtons}</div> */}
       <div className="btn btn-one" onClick={props.handleStop}>
         Stop Hike
       </div>
@@ -30,3 +31,9 @@ export default function ControlButtons(props) {
     </div>
   );
 }
+
+// {((props.active) && (!props.isStopped)) ? ActiveButtons :  }
+// {(currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleUnfollowRequest()}>Unfollow User </button>)
+//     : (!currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleFollowRequest()}>Follow User </button>)
+//         : ""
+//   }

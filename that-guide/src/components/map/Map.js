@@ -52,6 +52,7 @@ export default function Map({ latitude, longitude }) {
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
+
     // adding markers to geoJson features
     // geoJson.features.map((feature) =>
     //   new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map)
@@ -63,6 +64,38 @@ export default function Map({ latitude, longitude }) {
       .addTo(map);
     setUserMarker(userMark);
     setMapObject(map);
+
+    // A test to see if we can add a layer that displays water datapoints.
+map.on('load', () => {
+  // Add a custom vector tileset source. This tileset contains
+  // point features representing museums. Each feature contains
+  // three properties. For example:
+  // {
+  //     alt_name: "Museo Arqueologico",
+  //     name: "Museo Inka",
+  //     tourism: "museum"
+  // }
+  map.addSource('natural water sources', {
+  type: 'vector',
+  url: 'rfrenia.cl6z7h0cf0lcg20oydqdndanj-90np4'
+  });
+  map.addLayer({
+  'id': 'natural water sources',
+  'type': 'circle',
+  'source': 'natural water sources',
+  'layout': {
+  // Make the layer visible by default.
+  'visibility': 'visible'
+  },
+  'paint': {
+  'circle-radius': 8,
+  'circle-color': 'rgba(55,148,179,1)'
+  },
+  'source-layer': 'natural water sources'
+    });})
+
+
+
   }, []);
 
   // getElevation();
@@ -103,10 +136,19 @@ export default function Map({ latitude, longitude }) {
 
       const elevationConversion = highestElevation * 3.28;
       console.log(elevationConversion);
-      setElevation(`${elevationConversion} feet`);
+      let roundedElevation = elevationConversion.toFixed(1)
+
+      
+
+      setElevation(`${roundedElevation} feet`);
     }
     getElevation();
   }, 7000);
+
+
+  let roundedLatitude = parseFloat(latitude.toFixed(5))
+  let roundedLongitude = parseFloat(longitude.toFixed(5));
+
 
   return (
     <>
@@ -116,7 +158,7 @@ export default function Map({ latitude, longitude }) {
       </button>
       <div className="current-stats">
         <h3>
-          Current Coordinates: {latitude}, {longitude}
+          Current Coordinates: {roundedLatitude}, {roundedLongitude}
         </h3>
         <h3 className="elevation_div" id={elevation}>
           Current Elevation: {elevation}

@@ -15,17 +15,6 @@ export default function ControlButtons(props) {
       {props.isPaused ? "Resume Hike" : "Pause Hike"}
     </div>
   );
-  const ResetButtons = (
-    <div className="btn-grp">
-      <div className="btn btn-two" onClick={props.handleReset}>
-        Reset and Save Hike
-      </div>
-      <div className="btn btn-two" onClick={props.handleReset}>
-        Reset and Discard Hike
-      </div>
-      {/* are (stop & reset and reset & save) these redundant?  */}
-    </div>
-  );
 
   const StopButton = (
     <>
@@ -48,9 +37,3 @@ export default function ControlButtons(props) {
     </div>
   );
 }
-
-// {((props.active) && (!props.isStopped)) ? ActiveButtons :  }
-// {(currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleUnfollowRequest()}>Unfollow User </button>)
-//     : (!currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleFollowRequest()}>Follow User </button>)
-//         : ""
-//   }

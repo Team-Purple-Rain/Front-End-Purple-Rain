@@ -66,21 +66,21 @@ function StopWatch({ latitude, longitude, handleResults }) {
     setIsPaused(!isPaused);
   };
 
-  const handleReset = () => {
-    setIsActive(false);
-    setTime(0);
-    localStorage.clear();
-    console.log("clear session data");
-    axios
-      .delete(`https://thatguide.herokuapp.com/map/${ID}/`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then(() => {
-        console.log("deleted something");
-      });
-  };
+  // const handleReset = () => {
+  //   setIsActive(false);
+  //   setTime(0);
+  //   localStorage.clear();
+  //   console.log("clear session data");
+  //   axios
+  //     .delete(`https://thatguide.herokuapp.com/map/${ID}/`, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then(() => {
+  //       console.log("deleted something");
+  //     });
+  // };
 
   const handleStop = (event) => {
     console.log(
@@ -116,7 +116,7 @@ function StopWatch({ latitude, longitude, handleResults }) {
           isPaused={isPaused}
           handleStartHike={handleStartHike}
           handlePauseResume={handlePauseResume}
-          handleReset={handleReset}
+          // handleReset={handleReset}
           handleStop={handleStop}
           isStopped={isStopped}
           isStarted={isStarted}
@@ -128,22 +128,5 @@ function StopWatch({ latitude, longitude, handleResults }) {
     </>
   );
 }
-// const Results = () => {
-//   let hikeData = JSON.parse(localStorage.getItem("hike"));
-//   console.log(hikeData);
-//   return (
-//     <div>
-//       Hello
-//       <div>
-//         {hikeData.map((entry) => (
-//           <div>
-//             at {entry.time} seconds, you were at: {entry.latitude},
-//             {entry.longitude}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
 
 export default StopWatch;

@@ -1,14 +1,26 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Map from "../map/Map";
+import axios from "axios";
 
-function Results({ latitude, longitude }) {
+function Results({ latitude, longitude, ID }) {
+    console.log(ID);
     const navigate = useNavigate();
     const handleResetSave = (event) => {
         navigate("/profile");
     }
     const handleClearData = (event) => {
-        navigate("/");
+        axios
+            .delete(`https://thatguide.herokuapp.com/map/${ID}/`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
+                })
+            .then(() => {
+                console.log("deleted something")
+                navigate("/");
+            })
     }
 
     return (

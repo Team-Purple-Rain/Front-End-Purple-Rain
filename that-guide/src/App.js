@@ -7,7 +7,7 @@ import useLocalStorageState from "use-local-storage-state";
 import Results from "./components/results/results";
 import Profile from "./components/profile/profile";
 
-function App() {
+function App({ ID }) {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
   const [description, setDescription] = useState("");
   const [memeImage, setMemeImage] = useState("");
@@ -87,6 +87,7 @@ function App() {
             <Results
               latitude={latitude}
               longitude={longitude}
+              ID={ID}
             />
           }
         />

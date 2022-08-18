@@ -106,7 +106,7 @@ function StopWatch({ latitude, longitude, highestElevation }) {
   return (
     <>
       <div className="stop-watch">
-        <Timer time={time} latitude={latitude} longitude={longitude} />
+        <Timer time={time} latitude={latitude} longitude={longitude} ID={ID} />
         <WatchButtons
           active={isActive}
           isPaused={isPaused}
@@ -115,6 +115,7 @@ function StopWatch({ latitude, longitude, highestElevation }) {
           handleReset={handleReset}
           handleStop={handleStop}
           isStopped={isStopped}
+          ID={ID}
         />
       </div>
       {/* {isStopped ? <Results /> : ""} */}

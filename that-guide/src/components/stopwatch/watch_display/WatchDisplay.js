@@ -71,6 +71,15 @@ function StopWatch({ latitude, longitude, highestElevation }) {
     setTime(0);
     localStorage.clear();
     console.log("clear session data");
+    axios
+      .delete(`https://thatguide.herokuapp.com/map/${ID}/`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        console.log("deleted something");
+      });
   };
 
   const handleStop = (event) => {
@@ -101,7 +110,7 @@ function StopWatch({ latitude, longitude, highestElevation }) {
   return (
     <>
       <div className="stop-watch">
-        <Timer time={time} latitude={latitude} longitude={longitude} />
+        <Timer time={time} latitude={latitude} longitude={longitude} ID={ID} />
         <WatchButtons
           active={isActive}
           isPaused={isPaused}
@@ -111,6 +120,7 @@ function StopWatch({ latitude, longitude, highestElevation }) {
           handleStop={handleStop}
           isStopped={isStopped}
           start={start}
+          ID={ID}
         />
       </div>
       {/* {isStopped ? <Results /> : ""} */}

@@ -21,6 +21,9 @@ export default function Homepage({
     console.log(event.target.value);
   };
 
+  const handleSeeProfile = (event) => {
+    navigate("/profile");
+  }
   const handleStartHike = (event) => {
     navigate("/starthike");
     event.preventDefault();
@@ -40,11 +43,8 @@ export default function Homepage({
           <Map latitude={latitude} longitude={longitude} />
         </div>
       </div>
+      <button onClick={handleSeeProfile}>Go To Profile</button>
       <div className="hike-starter">
-        {/* <div className="current-stats">
-          <h3>Current Coordinates: {latitude}, {longitude}</h3>
-          <h3>Current Elevation: </h3>
-        </div> */}
         <h2>How far do you want to hike?</h2>
         <form id="select-distance" onSubmit={setSelectedDistance}>
           Select Distance (in miles):

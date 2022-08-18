@@ -49,3 +49,9 @@ export default function ControlButtons(props) {
     </div>
   );
 }
+
+// {((props.active) && (!props.isStopped)) ? ActiveButtons :  }
+// {(currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleUnfollowRequest()}>Unfollow User </button>)
+//     : (!currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleFollowRequest()}>Follow User </button>)
+//         : ""
+//   }

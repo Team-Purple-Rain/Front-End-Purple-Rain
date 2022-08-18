@@ -63,7 +63,6 @@ function App() {
               selectedDistance={selectedDistance}
               latitude={latitude}
               longitude={longitude}
-              highestElevation={highestElevation}
             />
           }
         />

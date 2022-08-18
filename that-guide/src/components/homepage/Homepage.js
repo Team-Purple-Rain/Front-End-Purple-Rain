@@ -9,7 +9,6 @@ export default function Homepage({
   setSelectedDistance,
   latitude,
   longitude,
-  highestElevation,
 }) {
   const [error, setError] = useState(null);
 

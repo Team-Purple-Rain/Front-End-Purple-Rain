@@ -20,7 +20,7 @@ export default function Map({ latitude, longitude }) {
 
   const bounds = [
     [-85.617648, 33.257538],
-    [-73.043655, 37.702501]
+    [-73.043655, 37.702501],
   ];
 
   const geoJson = {
@@ -47,7 +47,7 @@ export default function Map({ latitude, longitude }) {
       style: "mapbox://styles/rfrenia/cl6xss090001714pg664smgvh",
       center: [longitude, latitude],
       zoom: zoom,
-      maxBounds: bounds
+      maxBounds: bounds,
     });
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
@@ -118,7 +118,9 @@ export default function Map({ latitude, longitude }) {
         <h3>
           Current Coordinates: {latitude}, {longitude}
         </h3>
-        <h3>Current Elevation: {elevation} </h3>
+        <h3 className="elevation_div" id={elevation}>
+          Current Elevation: {elevation}
+        </h3>
       </div>
     </>
   );

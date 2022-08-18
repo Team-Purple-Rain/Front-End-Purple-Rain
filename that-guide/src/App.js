@@ -4,6 +4,7 @@ import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
+import Results from "./components/results/results";
 
 function App() {
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
@@ -76,6 +77,15 @@ function App() {
               setLatitude={setLatitude}
               setLongitude={setLongitude}
               highestElevation={highestElevation}
+            />
+          }
+        />
+        <Route
+          path="/hikeresults"
+          element={
+            <Results
+              latitude={latitude}
+              longitude={longitude}
             />
           }
         />

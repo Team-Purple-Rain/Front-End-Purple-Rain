@@ -9,9 +9,17 @@ import axios from "axios";
 export default function StartHike({ selectedDistance, latitude, longitude }) {
   console.log(selectedDistance);
 
+  const navigate = useNavigate();
+
+  const handleResults = (event) => {
+    navigate("/hikeresults")
+    console.log("results page");
+  }
+
   if (latitude === "") {
     return <div>Gathering location data...</div>;
   }
+
 
   return (
     <>
@@ -22,10 +30,6 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
         <Map latitude={latitude} longitude={longitude} />
       </div>
       <div className="current-hike-stats">
-        {/* <h3>
-          Current Coordinates: {latitude}, {longitude}
-        </h3>
-        <h3>Current Elevation: (display elevation)</h3> */}
         <h2>Goal distance: {selectedDistance} miles</h2>
         <div className="whole-stats-container">
           <div className="left-container">
@@ -50,6 +54,7 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
               <StopWatch latitude={latitude} longitude={longitude} />
             </div>
           </div>
+          <button onClick={handleResults}>See Results Page</button>
         </div>
       </div>
     </>

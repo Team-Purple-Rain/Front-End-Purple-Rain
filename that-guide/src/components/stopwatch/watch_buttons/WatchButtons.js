@@ -1,39 +1,39 @@
 import React from "react";
 import "./WatchButtons.css";
+import { useState } from "react";
 
 export default function ControlButtons(props) {
   const StartButton = (
     <>
-      <div className="btn btn-one btn-start" onClick={props.handleStart}>
+      <div className="btn btn-one btn-start" onClick={props.handleStartHike}>
         Start Hike
-      </div>{" "}
+      </div>
     </>
   );
-  const ActiveButtons = (
-    <div className="btn-grp">
-      <div className="btn btn-two" onClick={props.handleReset}>
-        Reset Hike
-      </div>
-      <div className="btn btn-one" onClick={props.handlePauseResume}>
-        {props.isPaused ? "Resume Hike" : "Pause Hike"}
-      </div>
+  const PauseResumeButton = (
+    <div className="btn btn-one" onClick={props.handlePauseResume}>
+      {props.isPaused ? "Resume Hike" : "Pause Hike"}
     </div>
+  );
+
+  const StopButton = (
+    <>
+      <div className="btn btn-one" onClick={props.handleResults}>
+        Stop Hike
+      </div>
+    </>
   );
 
   return (
     <div className="Control-Buttons">
-      <div>{props.active ? ActiveButtons : StartButton}</div>
-      {/* <div>{props.isStopped ? ("") : ActiveButtons}</div> */}
-      <div className="btn btn-one" onClick={props.handleStop}>
-        Stop Hike
-      </div>
+      {!props.isStarted === true ? <div>{StartButton}</div> : ""}
+      {/* if timer has not yet started, display startbutton, if it has display nothing. setStarted===true, setActive===true */}
+      {props.active ? PauseResumeButton : ""}
+      {/* if active, display pause/resume button */}
+
+      {props.isPaused && props.isStarted ? StopButton : <></>}
+      {/* if watch has been started and is paused, display stopbutton */}
       <br />
     </div>
   );
 }
-
-// {((props.active) && (!props.isStopped)) ? ActiveButtons :  }
-// {(currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleUnfollowRequest()}>Unfollow User </button>)
-//     : (!currentFollowers.includes(ownerID) && (!owner)) ? (<button class="card-footer-item" onClick={() => handleFollowRequest()}>Follow User </button>)
-//         : ""
-//   }

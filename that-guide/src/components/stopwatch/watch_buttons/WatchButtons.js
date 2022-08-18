@@ -2,30 +2,44 @@ import React from "react";
 import "./WatchButtons.css";
 
 export default function ControlButtons(props) {
+  console.log(props);
   const StartButton = (
     <>
-      <div className="btn btn-one btn-start" onClick={props.handleStart}>
-        Start Hike
-      </div>{" "}
+      {!props.active && (
+        <div className="btn btn-one btn-start" onClick={props.handleStartHike}>
+          Start Hike
+        </div>
+      )}
     </>
   );
-  const ActiveButtons = (
+  const PauseResumeButton = (
+    <div className="btn btn-one" onClick={props.handlePauseResume}>
+      {props.isPaused ? "Resume Hike" : "Pause Hike"}
+    </div>
+  );
+  const ResetButtons = (
     <div className="btn-grp">
       <div className="btn btn-two" onClick={props.handleReset}>
-        Reset Hike
+        Reset and Save Hike
       </div>
-      <div className="btn btn-one" onClick={props.handlePauseResume}>
-        {props.isPaused ? "Resume Hike" : "Pause Hike"}
-      </div>
+      <div className="btn btn-two"> Reset and Stop Hike</div>
+    </div>
+  );
+
+  const StopButton = (
+    <div className="btn btn-one" onClick={props.handleStop}>
+      Stop Hike
     </div>
   );
 
   return (
     <div className="Control-Buttons">
-      <div>{props.active ? ActiveButtons : StartButton}</div>
-      <div className="btn btn-one" onClick={props.handleStop}>
-        Stop Hike
-      </div>
+      <div>{StartButton}</div>
+      {props.active ? PauseResumeButton : <></>}
+
+      {props.isPaused ? <div>{ResetButtons}</div> : ""}
+
+      {/* <div>{PauseResumeButton}</div>; */}
       <br />
     </div>
   );

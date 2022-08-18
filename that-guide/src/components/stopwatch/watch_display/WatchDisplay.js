@@ -4,11 +4,11 @@ import Timer from "../timer/Timer";
 import WatchButtons from "../watch_buttons/WatchButtons";
 import axios from "axios";
 
-function StopWatch({ latitude, longitude, highestElevation }) {
+function StopWatch({ latitude, longitude, handleResults }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  const [start, setStart] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
 
   React.useEffect(() => {
     let interval = null;
@@ -43,7 +43,7 @@ function StopWatch({ latitude, longitude, highestElevation }) {
     // event.preventDefault();
     setIsActive(true);
     setIsPaused(false);
-    setStart(true);
+    setIsStarted(true);
     // axios
     //   .post(`https://thatguide.herokuapp.com/map/`, {
     //     start_location: {
@@ -119,7 +119,8 @@ function StopWatch({ latitude, longitude, highestElevation }) {
           handleReset={handleReset}
           handleStop={handleStop}
           isStopped={isStopped}
-          start={start}
+          isStarted={isStarted}
+          handleResults={handleResults}
           ID={ID}
         />
       </div>

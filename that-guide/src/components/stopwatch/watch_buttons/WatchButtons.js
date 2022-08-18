@@ -3,15 +3,11 @@ import "./WatchButtons.css";
 import { useState } from "react";
 
 export default function ControlButtons(props) {
-  console.log(props);
-
   const StartButton = (
     <>
-      {!props.active && (
-        <div className="btn btn-one btn-start" onClick={props.handleStartHike}>
-          Start Hike
-        </div>
-      )}
+      <div className="btn btn-one btn-start" onClick={props.handleStartHike}>
+        Start Hike
+      </div>
     </>
   );
   const PauseResumeButton = (
@@ -32,19 +28,22 @@ export default function ControlButtons(props) {
   );
 
   const StopButton = (
-    <div className="btn btn-one" onClick={props.handleStop}>
-      Stop Hike
-    </div>
+    <>
+      <div className="btn btn-one" onClick={props.handleResults}>
+        Stop Hike
+      </div>
+    </>
   );
 
   return (
     <div className="Control-Buttons">
-      <div>{StartButton}</div>
-      {props.active ? PauseResumeButton : <></>}
+      {!props.isStarted === true ? <div>{StartButton}</div> : ""}
+      {/* if timer has not yet started, display startbutton, if it has display nothing. setStarted===true, setActive===true */}
+      {props.active ? PauseResumeButton : ""}
+      {/* if active, display pause/resume button */}
 
-      {/* {!props.isPaused && props.start === true ? "" : <>{ResetButtons}</>} */}
-      {/* {props.isPaused ? { ResetButtons } : ""} */}
-      {/* <div>{PauseResumeButton}</div>; */}
+      {props.isPaused && props.isStarted ? StopButton : <></>}
+      {/* if watch has been started and is paused, display stopbutton */}
       <br />
     </div>
   );

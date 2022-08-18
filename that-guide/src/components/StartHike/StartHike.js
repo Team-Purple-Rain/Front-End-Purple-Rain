@@ -12,17 +12,16 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
   const navigate = useNavigate();
 
   const handleResults = (event) => {
-    navigate("/hikeresults")
+    navigate("/hikeresults");
     console.log("results page");
-  }
+  };
   const handleReturnHome = (event) => {
     navigate("/");
-  }
+  };
 
   if (latitude === "") {
     return <div>Gathering location data...</div>;
   }
-
 
   return (
     <>
@@ -54,10 +53,14 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
           </div>
           <div className="right-container">
             <div className="time-remaining">
-              <StopWatch latitude={latitude} longitude={longitude} />
+              <StopWatch
+                latitude={latitude}
+                longitude={longitude}
+                handleResults={handleResults}
+              />
             </div>
           </div>
-          <button onClick={handleResults}>See Results Page</button>
+          {/* <button onClick={handleResults}>See Results Page</button> */}
           <button onClick={handleReturnHome}>Return Home</button>
         </div>
       </div>

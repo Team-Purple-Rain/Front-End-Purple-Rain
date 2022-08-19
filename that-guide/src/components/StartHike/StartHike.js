@@ -51,7 +51,8 @@ export default function StartHike({
         console.log(res);
         console.log(res.data.id);
         setID(res.data.id);
-      });
+      })
+      .catch((res) => console.log(res));
   };
 
   const handlePauseResume = () => {

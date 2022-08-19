@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 
 export default function Timer(props) {
+  const [startDataLogged, setStartDataLogged] = useState(false);
   let storageBank = [];
   let i = 0;
 
@@ -43,17 +44,15 @@ export default function Timer(props) {
     let elevation = document.getElementsByClassName("elevation_div");
     elevation = elevation[0].id;
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-    storageBank.push(
-      {
-        seconds_elapsed: 0,
-        timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
-        longitude: props.longitude,
-        latitude: props.latitude,
-        elevation: elevation,
-      },
-      []
-    );
+    storageBank.push({
+      seconds_elapsed: "0",
+      timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
+      longitude: props.longitude,
+      latitude: props.latitude,
+      elevation: elevation,
+    });
     localStorage.setItem("hike", JSON.stringify(storageBank));
+    console.log("intial log made");
   };
 
   logTime();
@@ -61,11 +60,15 @@ export default function Timer(props) {
   useEffect(() => {
     let elevation = document.getElementsByClassName("elevation_div");
     elevation = elevation[0].id;
-    if (elevation !== "calculating..." && props.time === 0) {
-      console.log("make initial log");
+    if (
+      elevation !== "calculating..." &&
+      props.time === 0 &&
+      startDataLogged === false
+    ) {
       MakeInitialLog();
+      setStartDataLogged(true);
     }
-  }, [props.time]);
+  });
 
   return (
     <div className="timer">

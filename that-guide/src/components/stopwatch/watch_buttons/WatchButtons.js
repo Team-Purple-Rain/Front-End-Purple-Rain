@@ -1,6 +1,5 @@
 import React from "react";
 import "./WatchButtons.css";
-import { useState } from "react";
 
 export default function ControlButtons(props) {
   const StartButton = (

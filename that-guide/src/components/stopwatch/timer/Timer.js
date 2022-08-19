@@ -44,15 +44,17 @@ export default function Timer(props) {
       let elevation = document.getElementsByClassName("elevation_div");
       elevation = elevation[0].id;
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-      storageBank.push({
-        seconds_elapsed: 0,
-        timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
-        longitude: props.longitude,
-        latitude: props.latitude,
-        elevation: elevation,
-      });
+      storageBank.push(
+        {
+          seconds_elapsed: 0,
+          timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
+          longitude: props.longitude,
+          latitude: props.latitude,
+          elevation: elevation,
+        },
+        []
+      );
       localStorage.setItem("hike", JSON.stringify(storageBank));
-      console.log("time to make entry #1");
     });
   };
 

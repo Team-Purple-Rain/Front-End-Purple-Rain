@@ -9,16 +9,16 @@
   .shelter-marker {
     background-image: url('./mapIcons/campsite.png');
     background-size: cover;
-    width: 15px;
-    height: 15px;
+    width: 5px;
+    height: 5px;
     cursor: pointer;
   }
 
   .water-marker {
     background-image: url('water-drops-removebg-preview.png');
     background-size: cover;
-    width: 5%;
-    height: 5%;
+    width: 2%;
+    height: 2%;
     cursor: pointer;
   }
 

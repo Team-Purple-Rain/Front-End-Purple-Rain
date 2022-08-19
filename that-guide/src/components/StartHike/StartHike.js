@@ -8,7 +8,34 @@ import axios from "axios";
 import moment from "moment";
 
 export default function StartHike({ selectedDistance, latitude, longitude }) {
+  const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
+  const [isStarted, setIsStarted] = useState(false);
   // console.log(selectedDistance);
+
+  const handleStartHike = (event) => {
+    console.log("hello button");
+
+    // event.preventDefault();
+    setIsActive(true);
+    setIsPaused(false);
+    setIsStarted(true);
+    // axios
+    //   .post(`https://thatguide.herokuapp.com/map/`, {
+    //     start_location: {
+    //       latitude: startLat,
+    //       longitude: startLong,
+    //     },
+    //     end_location: endHike,
+    //     hike_user: hikeUser,
+    //   })
+    //   .then((res) => {
+    //     console.log("posted something");
+    //     console.log(res);
+    //     console.log(res.data.id);
+    //     setID(res.data.id);
+    //   });
+  };
 
   const navigate = useNavigate();
 
@@ -58,6 +85,11 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
                 latitude={latitude}
                 longitude={longitude}
                 handleResults={handleResults}
+                handleStartHike={handleStartHike}
+                isActive={isActive}
+                isPaused={isPaused}
+                setIsActive={setIsActive}
+                setIsPaused={setIsPaused}
               />
             </div>
           </div>

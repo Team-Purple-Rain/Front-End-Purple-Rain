@@ -4,11 +4,21 @@ import Timer from "../timer/Timer";
 import WatchButtons from "../watch_buttons/WatchButtons";
 import axios from "axios";
 
-function StopWatch({ latitude, longitude, handleResults }) {
-  const [isActive, setIsActive] = useState(false);
-  const [isPaused, setIsPaused] = useState(true);
+function StopWatch({
+  latitude,
+  longitude,
+  handleResults,
+  handleStartHike,
+  isActive,
+  isPaused,
+  isStarted,
+  setIsActive,
+  setIsPaused,
+}) {
+  // const [isActive, setIsActive] = useState(false);
+  // const [isPaused, setIsPaused] = useState(true);
+  // const [isStarted, setIsStarted] = useState(false);
   const [time, setTime] = useState(0);
-  const [isStarted, setIsStarted] = useState(false);
 
   React.useEffect(() => {
     let interval = null;
@@ -37,29 +47,29 @@ function StopWatch({ latitude, longitude, handleResults }) {
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [ID, setID] = useState(null);
 
-  const handleStartHike = (event) => {
-    console.log("hello button");
+  // const handleStartHike = (event) => {
+  //   console.log("hello button");
 
-    // event.preventDefault();
-    setIsActive(true);
-    setIsPaused(false);
-    setIsStarted(true);
-    // axios
-    //   .post(`https://thatguide.herokuapp.com/map/`, {
-    //     start_location: {
-    //       latitude: startLat,
-    //       longitude: startLong,
-    //     },
-    //     end_location: endHike,
-    //     hike_user: hikeUser,
-    //   })
-    //   .then((res) => {
-    //     console.log("posted something");
-    //     console.log(res);
-    //     console.log(res.data.id);
-    //     setID(res.data.id);
-    //   });
-  };
+  //   // event.preventDefault();
+  //   setIsActive(true);
+  //   setIsPaused(false);
+  //   setIsStarted(true);
+  //   // axios
+  //   //   .post(`https://thatguide.herokuapp.com/map/`, {
+  //   //     start_location: {
+  //   //       latitude: startLat,
+  //   //       longitude: startLong,
+  //   //     },
+  //   //     end_location: endHike,
+  //   //     hike_user: hikeUser,
+  //   //   })
+  //   //   .then((res) => {
+  //   //     console.log("posted something");
+  //   //     console.log(res);
+  //   //     console.log(res.data.id);
+  //   //     setID(res.data.id);
+  //   //   });
+  // };
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);

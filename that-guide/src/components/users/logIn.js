@@ -20,7 +20,6 @@ function LogIn({ setAuth, auth }) {
             .post(`https://thatguide.herokuapp.com/auth/token/login`, {
                 username: username,
                 password: password,
-                // headers: { Authorization: `Token ${token}` }
             })
             .then((res) => {
                 console.log(res)

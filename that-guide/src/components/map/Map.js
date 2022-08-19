@@ -4,6 +4,7 @@ import { useInterval } from "use-interval";
 import "./map.css";
 import {water} from './sources/water'
 import {shelterSources} from './sources/shelterSources'
+import {watersources} from  "./sources/watersources.js"
 
 
 mapboxgl.accessToken =
@@ -18,6 +19,7 @@ export default function Map({ latitude, longitude }) {
   const [mapObject, setMapObject] = useState();
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
+
 
   const bounds = [
     [-85.617648, 33.257538],
@@ -36,10 +38,11 @@ export default function Map({ latitude, longitude }) {
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    for (const feature of water.features) {
+    for (const feature of watersources.features) {
       // create a HTML element for each feature
       const el = document.createElement("div");
       el.className = "water-marker";
+
       // el.addEventListener('click', function() {
       //   window.alert("hi!")
       // })
@@ -58,6 +61,7 @@ export default function Map({ latitude, longitude }) {
         )
         .addTo(map);
     }
+
 
     for (const feature of shelterSources.features) {
       // create a HTML element for each feature

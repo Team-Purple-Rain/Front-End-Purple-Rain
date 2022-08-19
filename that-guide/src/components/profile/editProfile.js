@@ -63,10 +63,39 @@ function EditProfile() {
             />
             <br />
             <br />
-            <label>Experience Level</label>
+            <label>Experience Level  </label>
+            <select name="selectList" id="selectList"
+                value={experience}
+                onChange={(event) => setExperience(event.target.value)}
+            >
+                <option value="beginner"> Beginner </option>
+                <option value="moderate"> Moderate </option>
+                <option value="expert"> Expert </option>
+                <option value="hobbit"> I am a Hobbit </option>
+            </select>
+            {/* <input
+                type="text"
+                value={experience}
+                onChange={(event) => setExperience(event.target.value)}
+            /> */}
             <br />
             <br />
-            <label>Preferred Hiking Pace</label>
+            <label>Preferred Hiking Pace  </label>
+            <select name="selectList" id="selectList"
+                value={preferredPace}
+                onChange={(event) => setPreferredPace(event.target.value)}
+            >
+                <option value="leisure"> Leisure ( 30 minute mile / 2mph )</option>
+                <option value="some sweat"> Some Sweat ( 20-30 minute mile / 2-3 mph )</option>
+                <option value="a little bit fast now"> A Little Bit Faster Now ( 15-20 minute mile / 3-4 mph )</option>
+                <option value="running"> Runnin ( 12-15 minute mile / 4-5 mph )</option>
+                <option value="running from a bear"> Running from a Bear ( 10 minute mile and faster / 6mph )</option>
+            </select>
+            {/* <input
+                type="text"
+                value={preferredPace}
+                onChange={(event) => setPreferredPace(event.target.value)}
+            /> */}
             <br />
             <br />
             <button onClick={handleSaveChanges}>Save Changes</button>

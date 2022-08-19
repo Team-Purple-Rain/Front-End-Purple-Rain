@@ -47,13 +47,17 @@ export default function Map({ latitude, longitude }) {
 
       // make a marker for each feature and add to the map
       new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
+        .setLngLat([feature.longitude,feature.latitude])
         .addTo(map)
+        .on('click', (e)=>{
+          map.flyTo({center: [feature.longitude,feature.latitude]})
+        })
         .setPopup(
           new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h4>${feature.properties.title}</h4>
-              <p>${feature.properties.description}</p>
+              `<h4>${feature.title}</h4>
+              <p>Mile Marker: ${feature.mile}</p>
+              <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
               <button type="button" id="test">Test</button>`
             )
         )
@@ -65,9 +69,9 @@ export default function Map({ latitude, longitude }) {
       // create a HTML element for each feature
       const el = document.createElement("div");
       el.className = "shelter-marker";
-      // el.addEventListener('click', function() {
-      //   window.alert("hi!")
-      // })
+      el.addEventListener('click', function() {
+        map.flyTo({center: [feature.longitude,feature.latitude]})
+      })
 
       // make a marker for each feature and add to the map
       new mapboxgl.Marker(el)
@@ -75,17 +79,17 @@ export default function Map({ latitude, longitude }) {
         .addTo(map)
         .setPopup(
           new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
+          .setHTML(
               `<h4>${feature.title}</h4>
               <p>County: ${feature.county}</p>
               <p>State: ${feature.state}</p>
               <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
-              <button type="button" id="test">Test</button>`
+              <button type="button" id="button">Test</button>`
             )
         )
         .addTo(map);
-    }
-
+        }
+    
     // adding markers to geoJson features
     // waterGeoJson.features.map((feature) =>
     //   new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
@@ -99,6 +103,9 @@ export default function Map({ latitude, longitude }) {
     setUserMarker(userMark);
     setMapObject(map);
   }, []);
+
+  // const button = document.getElementById('button')
+  // button.addEventListener("click", function(e){alert('test')})
 
   // function that updates the marker's long lat
   function updateUserMarker() {

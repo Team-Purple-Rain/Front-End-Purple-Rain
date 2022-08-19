@@ -1,3 +1,33 @@
+export const superwater = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [-84.19871, 34.61768],
+      },
+      properties: {
+        title: "Black Gap Shelter",
+        mile: 1.5,
+        state: "GA",
+      },
+    },
+    {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [-84.138261, 34.664756],
+      },
+      properties: {
+        title: "Stream near Hawk Mountain",
+        mile: 7.9,
+        state: "GA",
+      },
+    },
+  ],
+};
+
 export const water = {
   features: [
     {

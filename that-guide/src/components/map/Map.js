@@ -2,9 +2,8 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
 import "./map.css";
-import {water} from './sources/water'
+import {water, superwater} from './sources/water'
 import {shelterSources} from './sources/shelterSources'
-
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -18,7 +17,7 @@ export default function Map({ latitude, longitude }) {
   const [mapObject, setMapObject] = useState();
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
-
+  
   // const bounds = [
   //   [-85.617648, 33.257538],
   //   [-73.043655, 37.702501],
@@ -37,32 +36,54 @@ export default function Map({ latitude, longitude }) {
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
     // adding water source markers to map
-    for (const feature of water.features) {
-      // create a HTML element for each feature
-      const el = document.createElement("div");
-      el.className = "water-marker";
-      // el.addEventListener('click', function() {
-      //   window.alert("hi!")
-      // })
+    map.on('load', () => {
+      map.addSource('water-data',{
+        type: 'geojson',
+        data: superwater
+      });
 
-      // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el)
-        .setLngLat([feature.longitude,feature.latitude])
-        .addTo(map)
-        .on('click', (e)=>{
-          map.flyTo({center: [feature.longitude,feature.latitude]})
-        })
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h4>${feature.title}</h4>
-              <p>Mile Marker: ${feature.mile}</p>
-              <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
-              <button type="button" id="test">Test</button>`
-            )
-        )
-        .addTo(map);
-    }
+      map.addLayer({
+        'id': 'superwater',
+        'type': 'circle',
+        'source': 'water-data',
+        'layout': {
+        // Make the layer visible by default.
+        'visibility': 'visible'
+        },
+        'paint': {
+        'circle-radius': 8,
+        'circle-color': 'rgba(55,148,179,1)'
+        },
+        });
+    })
+    
+
+    // for (const feature of water.features) {
+    //   // create a HTML element for each feature
+    //   const el = document.createElement("div");
+    //   el.className = "water-marker";
+    //   // el.addEventListener('click', function() {
+    //   //   window.alert("hi!")
+    //   // })
+
+    //   // make a marker for each feature and add to the map
+    //   new mapboxgl.Marker(el)
+    //     .setLngLat([feature.longitude,feature.latitude])
+    //     .addTo(map)
+    //     .on('click', (e)=>{
+    //       map.flyTo({center: [feature.longitude,feature.latitude]})
+    //     })
+    //     .setPopup(
+    //       new mapboxgl.Popup({ offset: 25 }) // add popups
+    //         .setHTML(
+    //           `<h4>${feature.title}</h4>
+    //           <p>Mile Marker: ${feature.mile}</p>
+    //           <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
+    //           <button type="button" id="test">Test</button>`
+    //         )
+    //     )
+    //     .addTo(map);
+    // }
 
     // adding shelter source markers to map
     for (const feature of shelterSources.features) {
@@ -89,14 +110,17 @@ export default function Map({ latitude, longitude }) {
         )
         .addTo(map);
         }
-    
+
     // adding markers to geoJson features
     // waterGeoJson.features.map((feature) =>
     //   new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
     // );
 
-    //creates a User Location Marker at device location
-    const userMark = new mapboxgl.Marker()
+    // creates a User Location Marker at device location
+    const el = document.createElement('div')
+    el.className = 'user-marker'
+
+    const userMark = new mapboxgl.Marker(el)
       .setLngLat([longitude, latitude])
       .addTo(map);
 

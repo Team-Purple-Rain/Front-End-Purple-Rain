@@ -23,28 +23,30 @@ export default function Map({ latitude, longitude }) {
     [-73.043655, 37.702501],
   ];
 
-  const geoJson = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [longitude, latitude],
-        },
-        properties: {
-          title: "Mapbox",
-          description: "UserLocation",
-        },
-      },
-    ],
-  };
+  // const waterGeoJson = {
+  //   type: "FeatureCollection",
+  //   features: [
+  //     {
+  //       type: "Feature",
+  //       geometry: {
+  //         type: "Point",
+  //         coordinates: [-84.19871 ,34.61768 ],
+  //       },
+  //       properties: {
+  //         title: "Black Gap shelter",
+  //         description: "water is downhill from here",
+  //       },
+  //     },
+  //   ],
+  // };
+
+  // console.log(waterGeoJson.features[0].geometry.coordinates)
 
   useEffect(() => {
     // creating new map with style and center location
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/rfrenia/cl6xss090001714pg664smgvh",
+      style: "mapbox://styles/rfrenia/cl6zh412n000614qw9xqdrr6n",
       center: [longitude, latitude],
       zoom: zoom,
       maxBounds: bounds,
@@ -53,10 +55,29 @@ export default function Map({ latitude, longitude }) {
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
 
-    // adding markers to geoJson features
-    // geoJson.features.map((feature) =>
-    //   new mapboxgl.Marker().setLngLat([longitude, latitude]).addTo(map)
-    // );
+  //   for (const feature of waterGeoJson.features) {
+  //     // create a HTML element for each feature
+  //     const el = document.createElement('div');
+  //     el.className = 'marker';
+    
+  //     // make a marker for each feature and add to the map
+  //     new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
+  //     new mapboxgl.Marker(el)
+  // .setLngLat(feature.geometry.coordinates)
+  // .setPopup(
+  //   new mapboxgl.Popup({ offset: 25 }) // add popups
+  //     .setHTML(
+  //       `<h4>${feature.properties.title}</h4><p>${feature.properties.description}</p>`
+  //     )
+  // )
+  // .addTo(map);
+  //   }
+
+  //   // adding markers to geoJson features
+  //   waterGeoJson.features.map((feature) =>
+  //     new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
+      
+  //   );
 
     //creates a new marker at set long lat
     const userMark = new mapboxgl.Marker()
@@ -65,36 +86,9 @@ export default function Map({ latitude, longitude }) {
     setUserMarker(userMark);
     setMapObject(map);
 
-    // A test to see if we can add a layer that displays water datapoints.
-map.on('load', () => {
-  // Add a custom vector tileset source. This tileset contains
-  // point features representing museums. Each feature contains
-  // three properties. For example:
-  // {
-  //     alt_name: "Museo Arqueologico",
-  //     name: "Museo Inka",
-  //     tourism: "museum"
-  // }
-  map.addSource('natural water sources', {
-  type: 'vector',
-  url: 'rfrenia.cl6z7h0cf0lcg20oydqdndanj-90np4'
-  });
-  map.addLayer({
-  'id': 'natural water sources',
-  'type': 'circle',
-  'source': 'natural water sources',
-  'layout': {
-  // Make the layer visible by default.
-  'visibility': 'visible'
-  },
-  'paint': {
-  'circle-radius': 8,
-  'circle-color': 'rgba(55,148,179,1)'
-  },
-  'source-layer': 'natural water sources'
-    });})
 
-
+    // adding popups to the page when you click on it
+    
 
   }, []);
 

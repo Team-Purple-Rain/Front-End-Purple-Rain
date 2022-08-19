@@ -4,6 +4,7 @@ import { useInterval } from "use-interval";
 import "./map.css";
 import {water} from './sources/water'
 import {shelterSources} from './sources/shelterSources'
+import {watersources} from  "./sources/watersources.js"
 
 
 mapboxgl.accessToken =
@@ -19,10 +20,12 @@ export default function Map({ latitude, longitude }) {
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
+
   // const bounds = [
   //   [-85.617648, 33.257538],
   //   [-73.043655, 37.702501],
   // ];
+
 
   useEffect(() => {
     // creating new map with style and center location
@@ -41,6 +44,7 @@ export default function Map({ latitude, longitude }) {
       // create a HTML element for each feature
       const el = document.createElement("div");
       el.className = "water-marker";
+
       // el.addEventListener('click', function() {
       //   window.alert("hi!")
       // })

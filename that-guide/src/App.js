@@ -2,20 +2,36 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router, useNavigate } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 import Results from "./components/results/results";
 import Profile from "./components/profile/profile";
+import NewUser from "./components/users/newUser";
+import LogIn from "./components/users/logIn";
+import LogOut from "./components/users/logout";
 
-function App({ ID }) {
+function App() {
+
+  // code from card ID
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [username, setUsername] = useState(localStorage.getItem("username"));
+
+  const setAuth = (username, token) => {
+    setToken(token);
+    setUsername(username);
+  };
+
+  const isLoggedIn = username && token;
+  // end code from card  ID 
+
+
+
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
-  const [description, setDescription] = useState("");
-  const [memeImage, setMemeImage] = useState("");
-  const [team, setTeam] = useState("");
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const highestElevation = useState("");
+  const [ID, setID] = useState(null);
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -35,6 +51,8 @@ function App({ ID }) {
   //   timeout: 15000
   // }
 
+  const navigate = useNavigate();
+
   const getLocation = () => {
     if (!navigator.geolocation) {
       alert("This device doesn't support location services.");
@@ -42,6 +60,19 @@ function App({ ID }) {
       navigator.geolocation.getCurrentPosition(success);
     }
   };
+
+  const handleSeeProfile = (event) => {
+    navigate("/profile");
+  }
+  const handleNewUser = (event) => {
+    navigate("/createuser");
+  }
+  const handleLogIn = (event) => {
+    navigate("/login");
+  }
+  const handleLogOut = (event) => {
+    navigate("/logout");
+  }
 
   setInterval(getLocation, 10000);
 
@@ -54,6 +85,10 @@ function App({ ID }) {
       </div>
       <div className="nav-bar">
         <h3>(Here is where our navbar might go, scooter or beyond version) </h3>
+        <button onClick={handleSeeProfile}>Go To Profile</button>
+        <button onClick={handleNewUser}>Create Profile</button>
+        <button onClick={handleLogIn}>Log In</button>
+        <button onClick={handleLogOut}>Log Out</button>
       </div>
 
       <Routes>
@@ -87,14 +122,39 @@ function App({ ID }) {
             <Results
               latitude={latitude}
               longitude={longitude}
-              ID={ID}
+              setID={setID}
             />
           }
         />
         <Route
           path="/profile"
           element={
-            <Profile />
+            <Profile
+              token={token}
+              username={username}
+            />
+          }
+        />
+        <Route
+          path="/createuser"
+          element={
+            <NewUser />}
+        />
+        <Route
+          path="/login"
+          element={
+            <LogIn
+              setAuth={setAuth}
+            />
+          }
+        />
+        <Route
+          path="/logout"
+          element={
+            <LogOut
+              setAuth={setAuth}
+              token={token}
+            />
           }
         />
       </Routes>

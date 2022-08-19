@@ -14,6 +14,7 @@ import Profile from "./components/profile/profile";
 import NewUser from "./components/users/newUser";
 import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
+import EditProfile from "./components/profile/editProfile";
 
 function App() {
   // code from card ID
@@ -137,9 +138,20 @@ function App() {
         <Route path="/login" element={<LogIn setAuth={setAuth} />} />
         <Route
           path="/logout"
-          element={<LogOut setAuth={setAuth} token={token} />}
+          element={<LogOut
+            setAuth={setAuth}
+            token={token} />}
         />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={<Profile />} />
+        <Route
+          path="/editprofile"
+          element={
+            <EditProfile
+              username={username}
+            />}
+        />
       </Routes>
     </>
   );

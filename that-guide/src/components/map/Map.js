@@ -2,7 +2,7 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
 import "./map.css";
-import {waterSources} from './sources/waterSources'
+import {water} from './sources/water'
 import {shelterSources} from './sources/shelterSources'
 
 
@@ -36,7 +36,7 @@ export default function Map({ latitude, longitude }) {
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    for (const feature of waterSources.features) {
+    for (const feature of water.features) {
       // create a HTML element for each feature
       const el = document.createElement("div");
       el.className = "water-marker";

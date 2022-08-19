@@ -1,4 +1,4 @@
-export const waterSources = {
+export const water = {
     type: "FeatureCollection",
     features: [
       {

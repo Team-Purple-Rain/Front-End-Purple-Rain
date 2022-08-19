@@ -59,7 +59,8 @@ export default function StartHike({
     setIsPaused(!isPaused);
   };
 
-  const handleStop = (event) => {
+  const handleStop = () => {
+    // console.log(ID);
     console.log(
       "this will update the rest of the information that was unavailable at the start"
     );
@@ -80,7 +81,7 @@ export default function StartHike({
       })
       .then((res) => {
         console.log("patched something");
-        navigate("/hikeresults");
+        navigate(`/hikeresults/${ID}`);
         console.log("results page");
       });
   };
@@ -141,7 +142,6 @@ export default function StartHike({
               />
             </div>
           </div>
-          {/* <button onClick={handleResults}>See Results Page</button> */}
           <button onClick={handleReturnHome}>Return Home</button>
         </div>
       </div>

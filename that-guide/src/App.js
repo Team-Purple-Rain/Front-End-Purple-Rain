@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
-import { Routes, Route, BrowserRouter as Router, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  BrowserRouter as Router,
+  useNavigate,
+} from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 import Results from "./components/results/results";
 import Profile from "./components/profile/profile";
@@ -11,7 +16,6 @@ import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
 
 function App() {
-
   // code from card ID
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [username, setUsername] = useState(localStorage.getItem("username"));
@@ -22,9 +26,7 @@ function App() {
   };
 
   const isLoggedIn = username && token;
-  // end code from card  ID 
-
-
+  // end code from card  ID
 
   const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
   const [selectedDistance, setSelectedDistance] = useState("");
@@ -63,16 +65,16 @@ function App() {
 
   const handleSeeProfile = (event) => {
     navigate("/profile");
-  }
+  };
   const handleNewUser = (event) => {
     navigate("/createuser");
-  }
+  };
   const handleLogIn = (event) => {
     navigate("/login");
-  }
+  };
   const handleLogOut = (event) => {
     navigate("/logout");
-  }
+  };
 
   setInterval(getLocation, 10000);
 
@@ -117,45 +119,25 @@ function App() {
           }
         />
         <Route
-          path="/hikeresults"
+          path="/hikeresults/:ID"
           element={
             <Results
               latitude={latitude}
               longitude={longitude}
               setID={setID}
+              ID={ID}
             />
           }
         />
         <Route
           path="/profile"
-          element={
-            <Profile
-              token={token}
-              username={username}
-            />
-          }
+          element={<Profile token={token} username={username} />}
         />
-        <Route
-          path="/createuser"
-          element={
-            <NewUser />}
-        />
-        <Route
-          path="/login"
-          element={
-            <LogIn
-              setAuth={setAuth}
-            />
-          }
-        />
+        <Route path="/createuser" element={<NewUser />} />
+        <Route path="/login" element={<LogIn setAuth={setAuth} />} />
         <Route
           path="/logout"
-          element={
-            <LogOut
-              setAuth={setAuth}
-              token={token}
-            />
-          }
+          element={<LogOut setAuth={setAuth} token={token} />}
         />
         <Route path="/profile" element={<Profile />} />
       </Routes>

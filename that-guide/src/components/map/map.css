@@ -12,3 +12,22 @@
     border: 2px solid black;
     margin-bottom: 5px;
   }
+
+  .marker {
+    background-image: url('waterdrop.png');
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .mapboxgl-popup {
+    max-width: 200px;
+  }
+  
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+  

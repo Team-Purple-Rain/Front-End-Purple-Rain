@@ -26,11 +26,11 @@ export default function ControlButtons(props) {
   return (
     <div className="Control-Buttons">
       {!props.isStarted === true ? <div>{StartButton}</div> : ""}
-      {/* if timer has not yet started, display startbutton, if it has display nothing. setStarted===true, setActive===true */}
+      {/* if timer has not yet started, display startbutton, if it has, display nothing. setStarted===true, setActive===true */}
       {props.active ? PauseResumeButton : ""}
       {/* if active, display pause/resume button */}
 
-      {props.isPaused && props.isStarted ? StopButton : <></>}
+      {props.isPaused && props.isStarted ? StopButton : ""}
       {/* if watch has been started and is paused, display stopbutton */}
       <br />
     </div>

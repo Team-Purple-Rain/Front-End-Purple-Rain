@@ -19,10 +19,10 @@ export default function Map({ latitude, longitude }) {
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
-  const bounds = [
-    [-85.617648, 33.257538],
-    [-73.043655, 37.702501],
-  ];
+  // const bounds = [
+  //   [-85.617648, 33.257538],
+  //   [-73.043655, 37.702501],
+  // ];
 
   useEffect(() => {
     // creating new map with style and center location
@@ -31,11 +31,12 @@ export default function Map({ latitude, longitude }) {
       style: "mapbox://styles/rfrenia/cl6zh412n000614qw9xqdrr6n",
       center: [longitude, latitude],
       zoom: zoom,
-      maxBounds: bounds,
+      // maxBounds: bounds,
     });
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
+    // adding water source markers to map
     for (const feature of water.features) {
       // create a HTML element for each feature
       const el = document.createElement("div");
@@ -59,6 +60,7 @@ export default function Map({ latitude, longitude }) {
         .addTo(map);
     }
 
+    // adding shelter source markers to map
     for (const feature of shelterSources.features) {
       // create a HTML element for each feature
       const el = document.createElement("div");
@@ -69,13 +71,15 @@ export default function Map({ latitude, longitude }) {
 
       // make a marker for each feature and add to the map
       new mapboxgl.Marker(el)
-        .setLngLat(feature.geometry.coordinates)
+        .setLngLat([feature.longitude,feature.latitude])
         .addTo(map)
         .setPopup(
           new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(
-              `<h4>${feature.properties.title}</h4>
-              <p>${feature.properties.description}</p>
+              `<h4>${feature.title}</h4>
+              <p>County: ${feature.county}</p>
+              <p>State: ${feature.state}</p>
+              <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
               <button type="button" id="test">Test</button>`
             )
         )

@@ -18,7 +18,7 @@ export default function ControlButtons(props) {
 
   const StopButton = (
     <>
-      <div className="btn btn-one" onClick={props.handleResults}>
+      <div className="btn btn-one" onClick={props.handleStop}>
         Stop Hike
       </div>
     </>

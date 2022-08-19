@@ -61,7 +61,6 @@ export default function StartHike({ selectedDistance, latitude, longitude }) {
               />
             </div>
           </div>
-          {/* <button onClick={handleResults}>See Results Page</button> */}
           <button onClick={handleReturnHome}>Return Home</button>
         </div>
       </div>

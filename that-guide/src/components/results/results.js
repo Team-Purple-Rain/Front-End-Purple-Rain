@@ -25,7 +25,7 @@ function Results({ latitude, longitude, ID }) {
 
   return (
     <>
-      <h1>hello there resutls page</h1>
+      <h1>hello there Results page</h1>
       <Map latitude={latitude} longitude={longitude} />
       <button onClick={handleResetSave}>Save Hike</button>
       <button onClick={handleClearData}>Delete Hike</button>

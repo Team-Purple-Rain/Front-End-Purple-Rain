@@ -2,6 +2,9 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
 import "./map.css";
+import {waterSources} from './sources/waterSources'
+import {shelterSources} from './sources/shelterSources'
+
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -16,31 +19,10 @@ export default function Map({ latitude, longitude }) {
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
-  // useInterval(getElevation(), 10000);
-
   const bounds = [
     [-85.617648, 33.257538],
     [-73.043655, 37.702501],
   ];
-
-  // const waterGeoJson = {
-  //   type: "FeatureCollection",
-  //   features: [
-  //     {
-  //       type: "Feature",
-  //       geometry: {
-  //         type: "Point",
-  //         coordinates: [-84.19871 ,34.61768 ],
-  //       },
-  //       properties: {
-  //         title: "Black Gap shelter",
-  //         description: "water is downhill from here",
-  //       },
-  //     },
-  //   ],
-  // };
-
-  // console.log(waterGeoJson.features[0].geometry.coordinates)
 
   useEffect(() => {
     // creating new map with style and center location
@@ -54,45 +36,65 @@ export default function Map({ latitude, longitude }) {
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
+    for (const feature of waterSources.features) {
+      // create a HTML element for each feature
+      const el = document.createElement("div");
+      el.className = "water-marker";
+      // el.addEventListener('click', function() {
+      //   window.alert("hi!")
+      // })
 
-  //   for (const feature of waterGeoJson.features) {
-  //     // create a HTML element for each feature
-  //     const el = document.createElement('div');
-  //     el.className = 'marker';
-    
-  //     // make a marker for each feature and add to the map
-  //     new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map);
-  //     new mapboxgl.Marker(el)
-  // .setLngLat(feature.geometry.coordinates)
-  // .setPopup(
-  //   new mapboxgl.Popup({ offset: 25 }) // add popups
-  //     .setHTML(
-  //       `<h4>${feature.properties.title}</h4><p>${feature.properties.description}</p>`
-  //     )
-  // )
-  // .addTo(map);
-  //   }
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h4>${feature.properties.title}</h4>
+              <p>${feature.properties.description}</p>
+              <button type="button" id="test">Test</button>`
+            )
+        )
+        .addTo(map);
+    }
 
-  //   // adding markers to geoJson features
-  //   waterGeoJson.features.map((feature) =>
-  //     new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
-      
-  //   );
+    for (const feature of shelterSources.features) {
+      // create a HTML element for each feature
+      const el = document.createElement("div");
+      el.className = "shelter-marker";
+      // el.addEventListener('click', function() {
+      //   window.alert("hi!")
+      // })
 
-    //creates a new marker at set long lat
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(
+              `<h4>${feature.properties.title}</h4>
+              <p>${feature.properties.description}</p>
+              <button type="button" id="test">Test</button>`
+            )
+        )
+        .addTo(map);
+    }
+
+    // adding markers to geoJson features
+    // waterGeoJson.features.map((feature) =>
+    //   new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
+    // );
+
+    //creates a User Location Marker at device location
     const userMark = new mapboxgl.Marker()
       .setLngLat([longitude, latitude])
       .addTo(map);
+
     setUserMarker(userMark);
     setMapObject(map);
-
-
-    // adding popups to the page when you click on it
-    
-
   }, []);
-
-  // getElevation();
 
   // function that updates the marker's long lat
   function updateUserMarker() {
@@ -121,28 +123,24 @@ export default function Map({ latitude, longitude }) {
       const data = await query.json();
       // Get all the returned features.
       const allFeatures = data.features;
-      console.log(allFeatures);
+      // console.log(allFeatures);
       // For each returned feature, add elevation data to the elevations array.
       const elevations = allFeatures.map((feature) => feature.properties.ele);
-      console.log(elevations);
+      // console.log(elevations);
       // In the elevations array, find the largest value.
       const highestElevation = Math.max(...elevations);
 
       const elevationConversion = highestElevation * 3.28;
-      console.log(elevationConversion);
-      let roundedElevation = elevationConversion.toFixed(1)
-
-      
+      // console.log(elevationConversion);
+      let roundedElevation = elevationConversion.toFixed(1);
 
       setElevation(`${roundedElevation} feet`);
     }
     getElevation();
   }, 7000);
 
-
-  let roundedLatitude = parseFloat(latitude.toFixed(5))
+  let roundedLatitude = parseFloat(latitude.toFixed(5));
   let roundedLongitude = parseFloat(longitude.toFixed(5));
-
 
   return (
     <>

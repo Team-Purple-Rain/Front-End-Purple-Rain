@@ -13,12 +13,19 @@
     margin-bottom: 5px;
   }
 
-  .marker {
-    background-image: url('waterdrop.png');
+  .shelter-marker {
+    background-image: url('./mapIcons/campsite.png');
     background-size: cover;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 2.5vh;
+    height: 2.5vh;
+    cursor: pointer;
+  }
+
+  .water-marker {
+    background-image: url('./mapIcons/waterdrop.png');
+    background-size: cover;
+    width: 3vh;
+    height: 3vh;
     cursor: pointer;
   }
 

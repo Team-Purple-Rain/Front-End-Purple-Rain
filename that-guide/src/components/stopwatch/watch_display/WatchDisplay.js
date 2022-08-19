@@ -7,13 +7,10 @@ import axios from "axios";
 function StopWatch({
   latitude,
   longitude,
-  handleResults,
   handleStartHike,
   isActive,
   isPaused,
   isStarted,
-  setIsActive,
-  setIsPaused,
   handlePauseResume,
   handleStop,
   ID,
@@ -44,7 +41,6 @@ function StopWatch({
           isPaused={isPaused}
           handleStartHike={handleStartHike}
           handlePauseResume={handlePauseResume}
-          // handleReset={handleReset}
           isStarted={isStarted}
           handleStop={handleStop}
           ID={ID}

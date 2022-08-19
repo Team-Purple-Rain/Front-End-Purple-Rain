@@ -84,19 +84,10 @@ function App({ ID }) {
         <Route
           path="/hikeresults"
           element={
-            <Results
-              latitude={latitude}
-              longitude={longitude}
-              ID={ID}
-            />
+            <Results latitude={latitude} longitude={longitude} ID={ID} />
           }
         />
-        <Route
-          path="/profile"
-          element={
-            <Profile />
-          }
-        />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );

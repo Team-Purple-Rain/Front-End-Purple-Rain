@@ -7,10 +7,14 @@ function Profile() {
     const handleReturnHome = (event) => {
         navigate("/");
     }
+    const handleEditProfile = (event) => {
+        navigate("/editprofile");
+    }
 
     return (
         <>
             <h1>hello profile page</h1>
+            <button onClick={handleEditProfile}>Edit Profile</button>
             <button onClick={handleReturnHome}>Return Home</button>
         </>
     )

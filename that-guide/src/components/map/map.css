@@ -1,11 +1,3 @@
-/* .marker {
-    background-image: url('/Users/anle/Momentum/p4/Front-End-Purple-Rain/that-guide/public/mapbox-icon.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-  }  */
 
   .current-stats {
     text-align: center;
@@ -24,16 +16,16 @@
   .shelter-marker {
     background-image: url('./mapIcons/campsite.png');
     background-size: cover;
-    width: 15px;
-    height: 15px;
+    width: 5px;
+    height: 5px;
     cursor: pointer;
   }
 
   .water-marker {
-    background-image: url('./mapIcons/waterdrop.png');
+    background-image: url('water-drops-removebg-preview.png');
     background-size: cover;
-    width: 5%;
-    height: 5%;
+    width: 2%;
+    height: 2%;
     cursor: pointer;
   }
 

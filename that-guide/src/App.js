@@ -14,6 +14,11 @@ import Profile from "./components/profile/profile";
 import NewUser from "./components/users/newUser";
 import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
+import Button from "@mui/material/Button"
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddIcon from '@mui/icons-material/Add';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function App() {
   // code from card ID
@@ -38,9 +43,6 @@ function App() {
   function success(position) {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
-    // console.log(latitude);
-    // console.log(longitude);
-    // console.log(position)
   }
 
   // function error() {
@@ -78,19 +80,70 @@ function App() {
 
   setInterval(getLocation, 10000);
 
+
+
   return (
     <>
+    <div className="background">
+    <div className="load-screen">
       <div className="title-header">
+        <div className="mountains">
         <h1>T.H.A.T. Guide</h1>
         <h3>Thru Hiker's Appalachian Trail Guide</h3>
         <h4>Your interactive guide to the Appalachian Trail.</h4>
       </div>
-      <div className="nav-bar">
-        <h3>(Here is where our navbar might go, scooter or beyond version) </h3>
-        <button onClick={handleSeeProfile}>Go To Profile</button>
-        <button onClick={handleNewUser}>Create Profile</button>
-        <button onClick={handleLogIn}>Log In</button>
-        <button onClick={handleLogOut}>Log Out</button>
+
+      
+      <div className="nav-bar" id="overlay">
+        <Button 
+            startIcon={<AccountCircleIcon />}
+            variant="contained"
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#21b6ae",
+              padding: "10px",
+              fontSize: "12px",
+              margin: "8px",
+              border: "1px solid white"
+          }}
+            onClick={handleSeeProfile}>Go To Profile</Button>
+        <Button 
+              startIcon={<AddIcon/>}
+              variant="contained"
+              style={{
+                borderRadius: 10,
+                backgroundColor: "#21b6ae",
+                padding: "10px",
+                fontSize: "12px",
+                margin: "8px",
+                border: "1px solid white"
+            }}
+            onClick={handleNewUser}>Create Profile</Button>
+        <Button 
+              startIcon={<LoginIcon/>}
+              variant="contained"
+              style={{
+                borderRadius: 10,
+                backgroundColor: "#62b378",
+                padding: "10px",
+                fontSize: "12px",
+                margin: "8px",
+                border: "1px solid white"
+            }}
+            onClick={handleLogIn}>Log In</Button>
+        <Button 
+              startIcon={<LogoutIcon/>}
+              variant="contained"
+              style={{
+                borderRadius: 10,
+                backgroundColor: "#d95252",
+                padding: "10px",
+                fontSize: "12px",
+                margin: "8px",
+                border: "1px solid white"
+            }}
+            onClick={handleLogOut}>Log Out</Button>
+        </div>
       </div>
 
       <Routes>
@@ -141,6 +194,8 @@ function App() {
         />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      </div>
+      </div>
     </>
   );
 }

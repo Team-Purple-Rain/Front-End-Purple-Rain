@@ -70,8 +70,7 @@ function EditProfile() {
             >
                 <option value="beginner"> Beginner </option>
                 <option value="moderate"> Moderate </option>
-                <option value="expert"> Expert </option>
-                <option value="hobbit"> I am a Hobbit </option>
+                <option value="advanced"> Advanced </option>
             </select>
             {/* <input
                 type="text"
@@ -85,11 +84,9 @@ function EditProfile() {
                 value={preferredPace}
                 onChange={(event) => setPreferredPace(event.target.value)}
             >
-                <option value="leisure"> Leisure ( 30 minute mile / 2mph )</option>
-                <option value="some sweat"> Some Sweat ( 20-30 minute mile / 2-3 mph )</option>
-                <option value="a little bit fast now"> A Little Bit Faster Now ( 15-20 minute mile / 3-4 mph )</option>
-                <option value="running"> Runnin ( 12-15 minute mile / 4-5 mph )</option>
-                <option value="running from a bear"> Running from a Bear ( 10 minute mile and faster / 6mph )</option>
+                <option value="leisure"> Leisure ( 20-30 minute mile / 2-3mph )</option>
+                <option value="powerwalk"> Powerwalk ( 12-15 minute mile / 4-5mph )</option>
+                <option value="chased by bear"> Chased By Bear ( 10 minute mile and faster / 6mph )</option>
             </select>
             {/* <input
                 type="text"

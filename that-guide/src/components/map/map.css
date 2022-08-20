@@ -1,8 +1,21 @@
 
+
   .current-stats {
-    text-align: center;
     border: 2px solid black;
-    margin-bottom: 5px;
+    text-align: center;
+    margin-top: 20px;
+  
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: white;
+    border-radius: 6px;
+    line-height: .6;
+    background-image: linear-gradient(to bottom right, rgb(15, 113, 111), rgb(21, 144, 142));
+    font-family: 'Playfair Display', serif;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    font-weight: bold;
+    border: 1px solid grey;
+    margin-bottom: 10px;
   }
 
 

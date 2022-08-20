@@ -4,6 +4,9 @@ import { useInterval } from "use-interval";
 import "./map.css";
 import {water} from './sources/water'
 import {shelterSources} from './sources/shelterSources'
+import {watersources} from  "./sources/watersources.js"
+import Button from "@mui/material/Button";
+
 
 
 mapboxgl.accessToken =
@@ -19,10 +22,12 @@ export default function Map({ latitude, longitude }) {
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
+
   // const bounds = [
   //   [-85.617648, 33.257538],
   //   [-73.043655, 37.702501],
   // ];
+
 
   useEffect(() => {
     // creating new map with style and center location
@@ -41,6 +46,7 @@ export default function Map({ latitude, longitude }) {
       // create a HTML element for each feature
       const el = document.createElement("div");
       el.className = "water-marker";
+
       // el.addEventListener('click', function() {
       //   window.alert("hi!")
       // })
@@ -156,9 +162,19 @@ export default function Map({ latitude, longitude }) {
   return (
     <>
       <div ref={mapContainer} className="map-container"></div>
-      <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>
+      <Button 
+          variant="contained"
+          style={{
+            borderRadius: 35,
+            backgroundColor: "#21b6ae",
+            padding: "10px",
+            fontSize: "12px",
+            margin: "8px"
+        }}
+        onClick={() => 
+          setMapCenter({ center: [longitude, latitude] })}>
         Return to Current Location
-      </button>
+      </Button>
       <div className="current-stats">
         <h3>
           Current Coordinates: {roundedLatitude}, {roundedLongitude}

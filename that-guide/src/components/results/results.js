@@ -9,6 +9,7 @@ function Results({ latitude, longitude }) {
 
   const navigate = useNavigate();
   const handleResetSave = (event) => {
+    localStorage.clear();
     navigate("/profile");
   };
   const handleClearData = () => {

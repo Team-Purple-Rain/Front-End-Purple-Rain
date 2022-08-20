@@ -12,8 +12,8 @@ h3 {
   color: white;
   border-radius: 6px;
   line-height: .6;
-  background: linear-gradient(to bottom right, rgba(6, 57, 35, 0.4), rgb(85, 163, 129)), url("/Users/chloemintel/Front-End-Purple-Rain/that-guide/src/atmountains.jpg");
-  background: -webkit-linear-gradient(to bottom right, rgb(13, 113, 70), .4, rgb(85, 163, 129)), url("/Users/chloemintel/Front-End-Purple-Rain/that-guide/src/atmountains.jpg");
+  background: linear-gradient(to bottom right, rgba(6, 57, 35, 0.4), rgb(85, 163, 129)), url("/users/chloemintel/Front-End-Purple-Rain/that-guide/src/atmountains.jpg");
+  background: -webkit-linear-gradient(to bottom right, rgb(13, 113, 70), .4, rgb(85, 163, 129)), url("/users/chloemintel/Front-End-Purple-Rain/that-guide/src/atmountains.jpg");
   font-family: 'Playfair Display', serif;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   background-size: cover;

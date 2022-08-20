@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Map from "../map/Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
+import Button from "@mui/material/Button";
+import LoadingScreen from "react-loading-screen"
+import TextField from '@mui/material/TextField';
 
 export default function Homepage({
   selectedDistance,
@@ -13,8 +16,6 @@ export default function Homepage({
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
-
-  const miles = selectedDistance;
 
   const handleSetDistance = (event) => {
     setSelectedDistance(event.target.value);
@@ -30,36 +31,63 @@ export default function Homepage({
   };
 
   if (latitude === "") {
-    return <div>Gathering location data...</div>;
+    return (
+      <LoadingScreen 
+      loading={true}
+          bgColor="#f1f1f1"
+          spinnerColor="#9ee5f8"
+          textColor="#676767"
+          text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
+        />
+
+    )
   }
 
   return (
+
     <>
+    <div className = "load-screen">
       <div className="map-and-button">
         <div id="map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
       </div>
       <div className="hike-starter">
+
         <h2>How far do you want to hike?</h2>
         <form id="select-distance" onSubmit={setSelectedDistance}>
           Select Distance (in miles):
         </form>
-        <input
-          className="distance-input"
-          type="number"
-          placeholder="Please select a distance."
-          min="1"
-          onChange={(e) => setSelectedDistance(e.target.value)}
-        />
-        <button
+        <div className="hike-starter-container">
+        <TextField 
+            label="Type distance" 
+            style={{
+              borderRadius: 10,
+              backgroundColor: "white",
+              fontSize: "12px",
+              margin: "15px"}}
+              id="filled-basic" 
+              variant="filled"
+            onChange={(e) => setSelectedDistance(e.target.value)}/>
+        <Button
+        style={{
+          borderRadius: 35,
+          backgroundColor: "#21b6ae",
+          padding: "10px",
+          fontSize: "12px",
+          margin: "10px"
+      }}
+          variant="contained"
           type="submit"
           className="start-hike"
           onClick={handleStartHike}
           onSubmit={handleSetDistance}
         >
+
           Set distance
-        </button>
+        </Button>
+        </div>
+        </div>
       </div>
     </>
   );

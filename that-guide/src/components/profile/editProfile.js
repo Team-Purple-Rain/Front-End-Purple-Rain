@@ -18,13 +18,22 @@ function EditProfile() {
     console.log(token)
     const handleSaveChanges = (event) => {
         axios
-            .patch(`https://thatguide.herokuapp.com/users/me`, {
+            .patch(`https://thatguide.herokuapp.com/users/me/`, {
                 email: email,
                 phone: phone,
                 pace_list: preferredPace,
                 experience_list: experience,
                 first_name: firstName,
                 last_name: lastName
+            },
+                {
+                    headers: {
+                        Authorization: `Token ${token}`,
+                    }
+                }
+            )
+            .then((res) => {
+                navigate("/profile")
             })
     }
 
@@ -69,7 +78,7 @@ function EditProfile() {
                 onChange={(event) => setExperience(event.target.value)}
             >
                 <option value="beginner"> Beginner </option>
-                <option value="moderate"> Moderate </option>
+                <option value="medium"> Moderate </option>
                 <option value="advanced"> Advanced </option>
             </select>
             {/* <input

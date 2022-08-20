@@ -14,9 +14,7 @@ import Profile from "./components/profile/profile";
 import NewUser from "./components/users/newUser";
 import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
-
 import EditProfile from "./components/profile/editProfile";
-
 import Button from "@mui/material/Button"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
@@ -205,7 +203,11 @@ function App() {
             />
             <Route
               path="/profile"
-              element={<Profile />} />
+              element={<Profile
+                username={username}
+                token={token}
+              />}
+            />
             <Route
               path="/editprofile"
               element={

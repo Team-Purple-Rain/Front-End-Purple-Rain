@@ -17,6 +17,13 @@
     margin-bottom: 10px;
   }
 
+  .user-marker {
+    background-image: url('./mapIcons/hiker.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
 
   .shelter-marker {
     background-image: url('./mapIcons/campsite.png');

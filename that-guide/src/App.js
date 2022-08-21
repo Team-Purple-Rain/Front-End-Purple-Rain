@@ -102,7 +102,7 @@ function App() {
               borderRadius: 10,
               backgroundColor: "#21b6ae",
               padding: "10px",
-              fontSize: "calc(.5vw + .5vh + .5vmin)",
+              fontSize: "calc(.7vw + .7vh + .5vmin)",
               margin: "8px",
               border: "1px solid white"
           }}
@@ -113,7 +113,7 @@ function App() {
                 borderRadius: 10,
                 backgroundColor: "#21b6ae",
                 padding: "10px",
-                fontSize: "calc(.5vw + .5vh + .5vmin)",
+                fontSize: "calc(.7vw + .7vh + .5vmin)",
                 margin: "8px",
                 border: "1px solid white"
             }}
@@ -125,7 +125,7 @@ function App() {
                 borderRadius: 10,
                 backgroundColor: "#62b378",
                 padding: "10px",
-                fontSize: "calc(.5vw + .5vh + .5vmin)",
+                fontSize: "calc(.7vw + .7vh + .5vmin)",
                 margin: "8px",
                 border: "1px solid white"
             }}
@@ -137,7 +137,7 @@ function App() {
                 borderRadius: 10,
                 backgroundColor: "#d95252",
                 padding: "10px",
-                fontSize: "calc(.5vw + .5vh + .5vmin)",
+                fontSize: "calc(.7vw + .7vh + .5vmin)",
                 margin: "8px",
                 border: "1px solid white"
             }}

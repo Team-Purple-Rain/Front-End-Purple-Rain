@@ -151,6 +151,7 @@ export default function Map({ latitude, longitude }) {
     <>
     <div className="big-map-container">
       <div ref={mapContainer} className="map-container"></div>
+      <div className="location-button">
       <Button 
           variant="contained"
           style={{
@@ -159,12 +160,12 @@ export default function Map({ latitude, longitude }) {
             padding: "10px",
             fontSize: "12px",
             margin: "10px",
-            float: "right"
         }}
         onClick={() => 
           setMapCenter({ center: [longitude, latitude] })}>
         Return to Current Location
       </Button>
+      </div>
     </div>
       <div className="current-stats">
         <h3>

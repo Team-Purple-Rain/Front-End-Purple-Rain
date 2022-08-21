@@ -1,8 +1,9 @@
-.stop-watch{
-	height: 30vw;
-	width: 30vw;
-	background-color: #0d0c1b;
+.stop-watch {
+	width: 65%;
+	background-color: #232239;
 	display: flex;
+	border: 1px solid white;
+	border-radius: 10px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;

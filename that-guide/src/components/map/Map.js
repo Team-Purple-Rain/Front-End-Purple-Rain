@@ -2,12 +2,11 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
 import "./map.css";
-import {water} from './sources/water'
-import {shelterSources} from './sources/shelterSources'
-import {watersources} from  "./sources/watersources.js"
-import Button from "@mui/material/Button";
-
-
+import { water } from "./sources/water";
+import { shelter } from "./sources/shelter";
+import myImage from "./mapIcons/smol.png";
+import waterImage from "./mapIcons/smolwater.png"
+import Button from "@mui/material/Button"
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -42,67 +41,59 @@ export default function Map({ latitude, longitude }) {
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
     // adding water source markers to map
-    for (const feature of water.features) {
-      // create a HTML element for each feature
-      const el = document.createElement("div");
-      el.className = "water-marker";
+    map.on("load", () => {
+      map.loadImage(myImage, (error, image) => {
+        if (error) throw error;
+        map.addImage("shelter-marker", image)
+        map.addSource("shelter-data", {
+          type: "geojson",
+          data: shelter,
+        });
 
-      // el.addEventListener('click', function() {
-      //   window.alert("hi!")
-      // })
+        map.addLayer({
+          id: "shelters",
+          type: "symbol",
+          source: "shelter-data",
+          "minzoom": 0,
+          layout: {
+            "icon-image": "shelter-marker",
+            // Make the layer visible by default.
+            visibility: "visible",
+          },
+        });
+      });
+    });
 
-      // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el)
-        .setLngLat([feature.longitude,feature.latitude])
-        .addTo(map)
-        .on('click', (e)=>{
-          map.flyTo({center: [feature.longitude,feature.latitude]})
-        })
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-            .setHTML(
-              `<h4>${feature.title}</h4>
-              <p>Mile Marker: ${feature.mile}</p>
-              <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
-              <button type="button" id="test">Test</button>`
-            )
-        )
-        .addTo(map);
-    }
+    map.on("load", () => {
+      map.loadImage(waterImage, (error, image) => {
+        if (error) throw error;
+        map.addImage("water-marker", image);
+        map.addSource("water-data", {
+          type: "geojson",
+          data: water,
+        });
+
+        map.addLayer({
+          id: "water-sources",
+          type: "symbol",
+          source: "water-data",
+          "minzoom":0,
+          layout: {
+            "icon-image": "water-marker",
+            // Make the layer visible by default.
+            visibility: "visible",
+          },
+        });
+      })
+    })
 
     // adding shelter source markers to map
-    for (const feature of shelterSources.features) {
-      // create a HTML element for each feature
-      const el = document.createElement("div");
-      el.className = "shelter-marker";
-      el.addEventListener('click', function() {
-        map.flyTo({center: [feature.longitude,feature.latitude]})
-      })
 
-      // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el)
-        .setLngLat([feature.longitude,feature.latitude])
-        .addTo(map)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 25 }) // add popups
-          .setHTML(
-              `<h4>${feature.title}</h4>
-              <p>County: ${feature.county}</p>
-              <p>State: ${feature.state}</p>
-              <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
-              <button type="button" id="button">Test</button>`
-            )
-        )
-        .addTo(map);
-        }
-    
-    // adding markers to geoJson features
-    // waterGeoJson.features.map((feature) =>
-    //   new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map)
-    // );
+    // creates a User Location Marker at device location
+    const el = document.createElement("div");
+    el.className = "user-marker";
 
-    //creates a User Location Marker at device location
-    const userMark = new mapboxgl.Marker()
+    const userMark = new mapboxgl.Marker(el)
       .setLngLat([longitude, latitude])
       .addTo(map);
 
@@ -110,10 +101,7 @@ export default function Map({ latitude, longitude }) {
     setMapObject(map);
   }, []);
 
-  // const button = document.getElementById('button')
-  // button.addEventListener("click", function(e){alert('test')})
-
-  // function that updates the marker's long lat
+  // function that updates the User marker's long lat
   function updateUserMarker() {
     if (mapObject) {
       userMarker.setLngLat([longitude, latitude]);
@@ -156,11 +144,12 @@ export default function Map({ latitude, longitude }) {
     getElevation();
   }, 7000);
 
-  let roundedLatitude = parseFloat(latitude.toFixed(5));
-  let roundedLongitude = parseFloat(longitude.toFixed(5));
+  // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
+  // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));
 
   return (
     <>
+    <div className="big-map-container">
       <div ref={mapContainer} className="map-container"></div>
       <Button 
           variant="contained"
@@ -169,15 +158,17 @@ export default function Map({ latitude, longitude }) {
             backgroundColor: "#21b6ae",
             padding: "10px",
             fontSize: "12px",
-            margin: "8px"
+            margin: "10px",
+            float: "right"
         }}
         onClick={() => 
           setMapCenter({ center: [longitude, latitude] })}>
         Return to Current Location
       </Button>
+    </div>
       <div className="current-stats">
         <h3>
-          Current Coordinates: {roundedLatitude}, {roundedLongitude}
+          {/* Current Coordinates: {roundedLatitude}, {roundedLongitude} */}
         </h3>
         <h3 className="elevation_div" id={elevation}>
           Current Elevation: {elevation}
@@ -186,3 +177,55 @@ export default function Map({ latitude, longitude }) {
     </>
   );
 }
+
+// for (const feature of water.features) {
+//   // create a HTML element for each feature
+//   const el = document.createElement("div");
+//   el.className = "water-marker";
+//   // el.addEventListener('click', function() {
+//   //   window.alert("hi!")
+//   // })
+
+//   // make a marker for each feature and add to the map
+//   new mapboxgl.Marker(el)
+//     .setLngLat([feature.longitude,feature.latitude])
+//     .addTo(map)
+//     .on('click', (e)=>{
+//       map.flyTo({center: [feature.longitude,feature.latitude]})
+//     })
+//     .setPopup(
+//       new mapboxgl.Popup({ offset: 25 }) // add popups
+//         .setHTML(
+//           `<h4>${feature.title}</h4>
+//           <p>Mile Marker: ${feature.mile}</p>
+//           <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
+//           <button type="button" id="test">Test</button>`
+//         )
+//     )
+//     .addTo(map);
+// }
+
+// for (const feature of shelterSources.features) {
+//   // create a HTML element for each feature
+//   const el = document.createElement("div");
+//   el.className = "shelter-marker";
+//   el.addEventListener('click', function() {
+//     map.flyTo({center: [feature.longitude,feature.latitude]})
+//   })
+
+//   // make a marker for each feature and add to the map
+//   new mapboxgl.Marker(el)
+//     .setLngLat([feature.longitude,feature.latitude])
+//     .addTo(map)
+//     .setPopup(
+//       new mapboxgl.Popup({ offset: 25 }) // add popups
+//       .setHTML(
+//           `<h4>${feature.title}</h4>
+//           <p>County: ${feature.county}</p>
+//           <p>State: ${feature.state}</p>
+//           <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
+//           <button type="button" id="button">Test</button>`
+//         )
+//     )
+//     .addTo(map);
+//     }

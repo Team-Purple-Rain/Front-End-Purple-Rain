@@ -1,9 +1,8 @@
 
-
   .current-stats {
     border: 2px solid black;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 65px;
     padding-top: 6px;
     padding-bottom: 6px;
     color: white;
@@ -14,23 +13,35 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     font-weight: bold;
     border: 1px solid grey;
+    line-height: 1.2;
     margin-bottom: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: calc(0.65em + 1vw);
   }
 
+  .user-marker {
+    background-image: url('./mapIcons/hiker.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
 
   .shelter-marker {
     background-image: url('./mapIcons/campsite.png');
     background-size: cover;
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 10px;
     cursor: pointer;
   }
 
   .water-marker {
     background-image: url('water-drops-removebg-preview.png');
     background-size: cover;
-    width: 2%;
-    height: 2%;
+    width: 5%;
+    height: 5%;
     cursor: pointer;
   }
 

@@ -98,25 +98,24 @@ function App() {
 
             <div className="nav-bar" id="overlay">
               <Button
-                startIcon={<AccountCircleIcon />}
+
                 variant="contained"
                 style={{
                   borderRadius: 10,
                   backgroundColor: "#21b6ae",
                   padding: "10px",
-                  fontSize: "12px",
+                  fontSize: "calc(.5vw + .5vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}
                 onClick={handleSeeProfile}>Go To Profile</Button>
               <Button
-                startIcon={<AddIcon />}
                 variant="contained"
                 style={{
                   borderRadius: 10,
                   backgroundColor: "#21b6ae",
                   padding: "10px",
-                  fontSize: "12px",
+                  fontSize: "calc(.5vw + .5vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}
@@ -128,7 +127,7 @@ function App() {
                   borderRadius: 10,
                   backgroundColor: "#62b378",
                   padding: "10px",
-                  fontSize: "12px",
+                  fontSize: "calc(.5vw + .5vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}
@@ -140,7 +139,7 @@ function App() {
                   borderRadius: 10,
                   backgroundColor: "#d95252",
                   padding: "10px",
-                  fontSize: "12px",
+                  fontSize: "calc(.5vw + .5vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}

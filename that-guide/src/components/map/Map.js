@@ -144,11 +144,12 @@ export default function Map({ latitude, longitude }) {
     getElevation();
   }, 7000);
 
-  let roundedLatitude = parseFloat(latitude.toFixed(5));
-  let roundedLongitude = parseFloat(longitude.toFixed(5));
+  // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
+  // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));
 
   return (
     <>
+    <div className="big-map-container">
       <div ref={mapContainer} className="map-container"></div>
       <Button 
           variant="contained"
@@ -157,15 +158,17 @@ export default function Map({ latitude, longitude }) {
             backgroundColor: "#21b6ae",
             padding: "10px",
             fontSize: "12px",
-            margin: "8px"
+            margin: "10px",
+            float: "right"
         }}
         onClick={() => 
           setMapCenter({ center: [longitude, latitude] })}>
         Return to Current Location
       </Button>
+    </div>
       <div className="current-stats">
         <h3>
-          Current Coordinates: {roundedLatitude}, {roundedLongitude}
+          {/* Current Coordinates: {roundedLatitude}, {roundedLongitude} */}
         </h3>
         <h3 className="elevation_div" id={elevation}>
           Current Elevation: {elevation}

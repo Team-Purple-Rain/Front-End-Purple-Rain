@@ -19,6 +19,7 @@ h3 {
   background-size: cover;
   font-weight: bold;
   border: 1px solid grey;
+  line-height: 1.2;
   margin-bottom: 10px;
   align-items: center;
 }
@@ -50,13 +51,14 @@ h3 {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .hike-starter {
   border: 2px solid black;
   text-align: center;
   margin-top: 20px;
-
   padding-top: 6px;
   padding-bottom: 6px;
   color: white;
@@ -73,11 +75,12 @@ h3 {
 .hike-starter-container {
   display: flex;
   align-items: center;
-  margin-left: 60%;
 }
 
 .current-hike-stats {
-  border: 2px solid black;
+  border-radius: 5px;
+  background-color:rgb(206, 230, 230, .5);
+  padding: 1px;
   text-align: center;
   /* width: 75%; */
   margin: auto;

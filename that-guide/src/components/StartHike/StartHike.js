@@ -6,6 +6,7 @@ import "./StartHike.css";
 import Map from "../map/Map";
 import axios from "axios";
 import moment from "moment";
+import LoadingScreen from "react-loading-screen"
 
 export default function StartHike({
   selectedDistance,
@@ -93,7 +94,16 @@ export default function StartHike({
   };
 
   if (latitude === "") {
-    return <div>Gathering location data...</div>;
+    return (
+      <LoadingScreen 
+      loading={true}
+          bgColor="#f1f1f1"
+          spinnerColor="#9ee5f8"
+          textColor="#676767"
+          text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
+        />
+
+    )
   }
 
   return (

@@ -6,6 +6,7 @@ import { water } from "./sources/water";
 import { shelter } from "./sources/shelter";
 import myImage from "./mapIcons/smol.png";
 import waterImage from "./mapIcons/smolwater.png"
+import Button from "@mui/material/Button"
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -149,9 +150,19 @@ export default function Map({ latitude, longitude }) {
   return (
     <>
       <div ref={mapContainer} className="map-container"></div>
-      <button onClick={() => setMapCenter({ center: [longitude, latitude] })}>
+      <Button 
+          variant="contained"
+          style={{
+            borderRadius: 35,
+            backgroundColor: "#21b6ae",
+            padding: "10px",
+            fontSize: "12px",
+            margin: "8px"
+        }}
+        onClick={() => 
+          setMapCenter({ center: [longitude, latitude] })}>
         Return to Current Location
-      </button>
+      </Button>
       <div className="current-stats">
         <h3>
           Current Coordinates: {roundedLatitude}, {roundedLongitude}

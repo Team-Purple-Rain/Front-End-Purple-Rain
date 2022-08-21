@@ -7,6 +7,7 @@ import Map from "../map/Map";
 import axios from "axios";
 import moment from "moment";
 import LoadingScreen from "react-loading-screen"
+import Button from "@mui/material/Button"
 
 export default function StartHike({
   selectedDistance,
@@ -114,7 +115,7 @@ export default function StartHike({
         </div>
         <Map latitude={latitude} longitude={longitude} />
       </div>
-      <div className="current-hike-stats">
+      <div className="second-location-header">
         <h2>Goal distance: {selectedDistance} miles</h2>
         <div className="whole-stats-container">
           <div className="left-container">
@@ -127,12 +128,12 @@ export default function StartHike({
                 has hiked)
               </h4>
             </div>
-            <div className="miles-per-hour">
+            {/* <div className="miles-per-hour">
               <h4>
                 MPH: ({selectedDistance} miles/time it takes for hiker to hike 1
                 mile){" "}
               </h4>
-            </div>
+            </div> */}
           </div>
           <div className="right-container">
             <div className="time-remaining">
@@ -152,8 +153,19 @@ export default function StartHike({
               />
             </div>
           </div>
-          <button onClick={handleReturnHome}>Return Home</button>
-        </div>
+          </div>
+          <Button 
+            
+            variant="contained"
+            style={{
+              borderRadius: 50,
+              backgroundColor: "#21b6ae",
+              padding: "10px",
+              fontSize: "calc(.5vw + .5vh + .5vmin)",
+              margin: "8px",
+              border: "1px solid white"
+          }}
+            onClick={handleReturnHome}>Return Home</Button>
       </div>
     </>
   );

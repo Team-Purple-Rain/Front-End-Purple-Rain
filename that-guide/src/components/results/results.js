@@ -33,7 +33,7 @@ function Results({ latitude, longitude }) {
 
   return (
     <>
-      <h1>hello there resutls page</h1>
+      <div className="location-header">Your Hike Results</div>
       <Map latitude={latitude} longitude={longitude} />
       <div className="results-buttons">
       <Button 

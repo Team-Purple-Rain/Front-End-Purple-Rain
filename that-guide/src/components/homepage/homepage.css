@@ -19,6 +19,7 @@ h3 {
   background-size: cover;
   font-weight: bold;
   border: 1px solid grey;
+  line-height: 1.2;
   margin-bottom: 10px;
   align-items: center;
 }
@@ -35,28 +36,40 @@ h3 {
 }
 
 .location-header {
-  text-align: center;
   border: 2px solid black;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: white;
+  border-radius: 6px;
   line-height: .6;
+  background-image: linear-gradient(to bottom right, rgb(13, 60, 113), rgb(85, 125, 163));
+  font-family: 'Playfair Display', serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  font-weight: bold;
+  border: 1px solid grey;
+  margin-bottom: 10px;
   width: 60%;
-  margin: auto;
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .map-container {
   border-radius: 3px;
   margin-top: 10px;
   height: 400px;
-  width: 300px;
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .hike-starter {
   border: 2px solid black;
   text-align: center;
   margin-top: 20px;
-
   padding-top: 6px;
   padding-bottom: 6px;
   color: white;
@@ -68,16 +81,21 @@ h3 {
   font-weight: bold;
   border: 1px solid grey;
   margin-bottom: 10px;
+  width: 90%;
+  margin: auto;
+
+  
 }
 
 .hike-starter-container {
   display: flex;
   align-items: center;
-  margin-left: 60%;
 }
 
 .current-hike-stats {
-  border: 2px solid black;
+  border-radius: 5px;
+  background-color:rgb(206, 230, 230, .5);
+  padding: 1px;
   text-align: center;
   /* width: 75%; */
   margin: auto;

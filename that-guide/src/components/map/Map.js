@@ -40,7 +40,7 @@ export default function Map({ latitude, longitude }) {
     // adding zoom controls to map
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    // adding water source markers to map
+    // adding shelter source markers to map
     map.on("load", () => {
       map.loadImage(myImage, (error, image) => {
         if (error) throw error;
@@ -57,13 +57,33 @@ export default function Map({ latitude, longitude }) {
           "minzoom": 0,
           layout: {
             "icon-image": "shelter-marker",
+            "icon-allow-overlap": true,
             // Make the layer visible by default.
             visibility: "visible",
           },
         });
+
+        map.on('click', 'shelters', (e) => {
+          const coordinates = e.features[0].geometry.coordinates.slice();
+          const title = e.features[0].properties.title
+          const county = e.features[0].properties.county
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(
+          `<h4>${e.features[0].properties.title}</h4>
+          <p>Mile Marker: ${e.features[0].properties.mile}</p>
+          <p>Coordinates: ${e.features[0].latitude},${e.features[0].longitude}</p>           
+          <button type="button" id="test">Test</button>`
+        )
+            .addTo(map);
+        })
       });
     });
 
+    // adding water source markers to map
     map.on("load", () => {
       map.loadImage(waterImage, (error, image) => {
         if (error) throw error;
@@ -80,14 +100,13 @@ export default function Map({ latitude, longitude }) {
           "minzoom":0,
           layout: {
             "icon-image": "water-marker",
+            "icon-allow-overlap": true,
             // Make the layer visible by default.
             visibility: "visible",
           },
         });
       })
     })
-
-    // adding shelter source markers to map
 
     // creates a User Location Marker at device location
     const el = document.createElement("div");
@@ -195,7 +214,7 @@ export default function Map({ latitude, longitude }) {
 //         .setHTML(
 //           `<h4>${feature.title}</h4>
 //           <p>Mile Marker: ${feature.mile}</p>
-//           <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
+//           <p>Coordinates: ${e.features[0].latitude},${e.features[0].longitude}</p>
 //           <button type="button" id="test">Test</button>`
 //         )
 //     )

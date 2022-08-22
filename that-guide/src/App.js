@@ -3,10 +3,7 @@ import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
 import {
-  Routes,
-  Route,
-  BrowserRouter as Router,
-  useNavigate,
+  Routes, Route, BrowserRouter as Router, useNavigate,
 } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 import Results from "./components/results/results";
@@ -20,22 +17,17 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-
+import GetProfile from "./components/profile/visitProfile";
 
 function App() {
-  // code from card ID
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [username, setUsername] = useState(localStorage.getItem("username"));
-
   const setAuth = (username, token) => {
     setToken(token);
     setUsername(username);
   };
-
   const isLoggedIn = username && token;
-  // end code from card  ID
 
-  const [baseURL, setBaseURL] = useState("https://thatguide.herokuapp.com");
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
@@ -68,7 +60,7 @@ function App() {
   };
 
   const handleSeeProfile = (event) => {
-    navigate("/profile");
+    navigate("/profile")
   };
   const handleNewUser = (event) => {
     navigate("/createuser");
@@ -184,15 +176,14 @@ function App() {
               }
             />
             <Route
-              path="/profile"
-              element={<Profile token={token} username={username} />}
-            />
-            <Route
               path="/createuser"
               element={<NewUser />} />
             <Route
               path="/login"
-              element={<LogIn setAuth={setAuth} />} />
+              element={<LogIn
+                setAuth={setAuth}
+                setUsername={setUsername}
+              />} />
             <Route
               path="/logout"
               element={

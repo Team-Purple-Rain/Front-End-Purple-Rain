@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"
 import axios from "axios";
+import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 
 function LogIn({ setAuth, auth }) {
     const navigate = useNavigate();
@@ -26,6 +27,9 @@ function LogIn({ setAuth, auth }) {
                 localStorage.setItem("auth_token", res.data.auth_token);
                 setData(res);
                 setToken(res.data.auth_token);
+                localStorage.setItem("username", `${username}`);
+                localStorage.setItem("log in", "true")
+                console.log(username);
                 navigate("/");
             })
             .catch((res) => {
@@ -36,8 +40,7 @@ function LogIn({ setAuth, auth }) {
 
     useEffect(() => {
         if (username && token) {
-            setAreYouLoggedIn(true)
-            localStorage.setItem("log in", "true")
+            localStorage.setItem("log in", "true");
             localStorage.setItem("username", `${username}`)
         } else {
         }
@@ -61,7 +64,7 @@ function LogIn({ setAuth, auth }) {
                 <>
                     <label class="label is-large" htmlFor='password'>Password</label>
                     <input
-                        type="text"
+                        type="password"
                         id="password"
                         required
                         value={password}

@@ -19,12 +19,33 @@ h3 {
   background-size: cover;
   font-weight: bold;
   border: 1px solid grey;
+  line-height: 1.2;
   margin-bottom: 10px;
   align-items: center;
 }
 
 
-
+.options {
+  text-align: center;
+  padding-top: 6px;
+  width: 50%;
+  padding-bottom: 6px;
+  color: white;
+  border-radius: 6px;
+  line-height: .6;
+  background: linear-gradient(to bottom right, rgba(6, 57, 35, 0.8), rgba(85, 114, 163, 0.74)), url("/public/atmountains.jpg");
+  background: -webkit-linear-gradient(to bottom right, rgb(13, 113, 70), .4, rgb(85, 163, 129)), url("/public/atmountains.jpg");
+  font-family: 'Playfair Display', serif;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-size: cover;
+  font-weight: bold;
+  border: 1px solid grey;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
 
 .nav-bar {
   text-align: center;
@@ -36,11 +57,18 @@ h3 {
 
 .location-header {
   text-align: center;
-  border: 2px solid black;
-  line-height: .6;
-  width: 60%;
-  margin: auto;
-  align-items: center;
+  margin-top: 5px;
+  color: white;
+  border-radius: 6px;
+  background-image: linear-gradient(to bottom right, rgb(13, 60, 113), rgb(85, 125, 163));
+  font-family: 'Playfair Display', serif;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 40%;
+  padding: 1px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .map-container {
@@ -50,34 +78,40 @@ h3 {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .hike-starter {
-  border: 2px solid black;
   text-align: center;
   margin-top: 20px;
-
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   color: white;
   border-radius: 6px;
-  line-height: .6;
-  background-image: linear-gradient(to bottom right, rgb(13, 60, 113), rgb(85, 125, 163));
+  /* line-height: .6; */
+  background-image: linear-gradient(to bottom right, rgb(13, 60, 113, .6), rgb(85, 125, 163, .6));
   font-family: 'Playfair Display', serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   font-weight: bold;
-  border: 1px solid grey;
+
   margin-bottom: 10px;
+  width: 90%;
+  margin: auto;
+  
+
+  
 }
 
 .hike-starter-container {
   display: flex;
   align-items: center;
-  margin-left: 60%;
 }
 
 .current-hike-stats {
-  border: 2px solid black;
+  border-radius: 5px;
+  background-color:rgb(206, 230, 230, .5);
+  padding: 1px;
   text-align: center;
   /* width: 75%; */
   margin: auto;

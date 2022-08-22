@@ -1,11 +1,11 @@
 .timer{
-	margin : 3rem 0;
+	margin-left: 10px;
+	margin-right: 10px;
 	width: 100%;
-
-	/* display: flex; */
+	line-height: 1.2;
+	display: flex;
 	height: 12%;
 	justify-content: center;
-	align-items: center;
 }
 
 .all-digits {
@@ -22,10 +22,11 @@
 }
 
 .mili-sec{
-	color: #e42a2a;
+	color: #e24646;
 }
 
 .time-elapsed{
 	color: white;
 	text-align: center;
+
 }

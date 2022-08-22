@@ -47,11 +47,13 @@ export default function Homepage({
 
     <>
     <div className = "load-screen">
+      <h4 className="options">Option 1: Select a Goal Destination</h4>
       <div className="map-and-button">
         <div id="map">
           <Map latitude={latitude} longitude={longitude} />
         </div>
       </div>
+      <h4 className="options">Option 2: Select a Travel Distance</h4> 
       <div className="hike-starter">
 
         <h2>How far do you want to hike?</h2>

@@ -48,6 +48,7 @@ function Profile() {
             </div>
             <div className="results-box">
                 <h2>Results Go Here</h2>
+                <Results />
             </div>
             <button onClick={handleEditProfile}>Edit Profile</button>
             <button onClick={handleReturnHome}>Return Home</button>

@@ -17,7 +17,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import GetProfile from "./components/profile/visitProfile";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -87,16 +86,14 @@ function App() {
               <h4>Your interactive guide to the Appalachian Trail.</h4>
             </div>
 
-
             <div className="nav-bar" id="overlay">
               <Button
-
                 variant="contained"
                 style={{
                   borderRadius: 10,
                   backgroundColor: "#21b6ae",
                   padding: "10px",
-                  fontSize: "calc(.5vw + .5vh + .5vmin)",
+                  fontSize: "calc(.7vw + .7vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}
@@ -107,7 +104,7 @@ function App() {
                   borderRadius: 10,
                   backgroundColor: "#21b6ae",
                   padding: "10px",
-                  fontSize: "calc(.5vw + .5vh + .5vmin)",
+                  fontSize: "calc(.7vw + .7vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}
@@ -119,7 +116,7 @@ function App() {
                   borderRadius: 10,
                   backgroundColor: "#62b378",
                   padding: "10px",
-                  fontSize: "calc(.5vw + .5vh + .5vmin)",
+                  fontSize: "calc(.7vw + .7vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}
@@ -131,7 +128,7 @@ function App() {
                   borderRadius: 10,
                   backgroundColor: "#d95252",
                   padding: "10px",
-                  fontSize: "calc(.5vw + .5vh + .5vmin)",
+                  fontSize: "calc(.7vw + .7vh + .5vmin)",
                   margin: "8px",
                   border: "1px solid white"
                 }}

@@ -38,8 +38,13 @@ export default function Map({ latitude, longitude }) {
       // maxBounds: bounds,
     });
     // adding zoom controls to map
-    map.addControl(new mapboxgl.NavigationControl(), "top-right");
-
+    // map.addControl(new mapboxgl.NavigationControl(), "top-right");
+    const scale = new mapboxgl.ScaleControl({
+      maxWidth: 80,
+      unit: "imperial"
+    });
+    map.addControl(scale);
+    scale.setUnit("imperial");
     // adding water source markers to map
     map.on("load", () => {
       map.loadImage(myImage, (error, image) => {
@@ -84,6 +89,7 @@ export default function Map({ latitude, longitude }) {
             visibility: "visible",
           },
         });
+      map.addControl(new mapboxgl.NavigationControl());
       })
     })
 
@@ -169,7 +175,7 @@ export default function Map({ latitude, longitude }) {
     </div>
       <div className="current-stats">
         <h3>
-          {/* Current Coordinates: {roundedLatitude}, {roundedLongitude} */}
+          Current Location: {latitude}, {longitude}
         </h3>
         <h3 className="elevation_div" id={elevation}>
           Current Elevation: {elevation}

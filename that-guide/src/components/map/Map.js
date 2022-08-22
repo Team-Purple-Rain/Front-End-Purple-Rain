@@ -75,7 +75,7 @@ export default function Map({ latitude, longitude }) {
             .setHTML(
           `<h4>${e.features[0].properties.title}</h4>
           <p>Mile Marker: ${e.features[0].properties.mile}</p>
-          <p>Coordinates: ${e.features[0].latitude},${e.features[0].longitude}</p>           
+          <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
           <button type="button" id="test">Test</button>`
         )
             .addTo(map);

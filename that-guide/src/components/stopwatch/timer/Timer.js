@@ -31,10 +31,12 @@ export default function Timer(props) {
     time = time.slice(0, -3);
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
     storageBank.push({
-      seconds_elapsed: time,
-      timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
-      longitude: props.longitude,
-      latitude: props.latitude,
+      hike_session: 2,
+      created_at: moment().format(),
+      location: {
+        latitude: props.latitude,
+        longitude: props.longitude,
+      },
       elevation: elevation,
     });
     localStorage.setItem("hike", JSON.stringify(storageBank));
@@ -45,10 +47,12 @@ export default function Timer(props) {
     elevation = elevation[0].id;
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
     storageBank.push({
-      seconds_elapsed: "0",
-      timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
-      longitude: props.longitude,
-      latitude: props.latitude,
+      hike_session: "2",
+      created_at: moment().format(),
+      location: {
+        latitude: props.latitude,
+        longitude: props.longitude,
+      },
       elevation: elevation,
     });
     localStorage.setItem("hike", JSON.stringify(storageBank));

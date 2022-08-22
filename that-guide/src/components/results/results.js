@@ -20,6 +20,10 @@ function Results({ latitude, longitude }) {
   const [timeTraveled, setTimeTraveled] = useState(null);
   const [elevationChange, setElevationChange] = useState(null);
 
+  let secondsElapsed = localStorage.getItem("time");
+  console.log(secondsElapsed);
+  let time = secondsElapsed / 60;
+
   const navigate = useNavigate();
   const handleResetSave = (event) => {
     localStorage.clear();
@@ -50,7 +54,7 @@ function Results({ latitude, longitude }) {
       setEndHikeLong(res.data.end_location.longitude);
       setStartLat(res.data.start_location.latitude);
       setStartLong(res.data.start_location.longitude);
-      setTimeTraveled(res.data.travel_time);
+      setTimeTraveled(time);
       setHikeUser(res.data.username)
     })
 

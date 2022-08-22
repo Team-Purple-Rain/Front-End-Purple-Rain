@@ -50,6 +50,7 @@ function Results({ latitude, longitude }) {
       setStartLat(res.data.start_location.latitude);
       setStartLong(res.data.start_location.longitude);
       setTimeTraveled(res.data.travel_time);
+      setHikeUser(res.data.username)
     })
 
   return (

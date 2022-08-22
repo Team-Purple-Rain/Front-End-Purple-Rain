@@ -6,8 +6,8 @@ import "./StartHike.css";
 import Map from "../map/Map";
 import axios from "axios";
 import moment from "moment";
-import LoadingScreen from "react-loading-screen"
-import Button from "@mui/material/Button"
+import LoadingScreen from "react-loading-screen";
+import Button from "@mui/material/Button";
 
 export default function StartHike({
   selectedDistance,
@@ -32,28 +32,29 @@ export default function StartHike({
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
 
+  console.log(selectedDistance);
+
   const handleStartHike = (event) => {
     console.log("hello button");
-
     // event.preventDefault();
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
-    axios
-      .post(`https://thatguide.herokuapp.com/map/`, {
-        start_location: {
-          latitude: startLat,
-          longitude: startLong,
-        },
-        end_location: endHike,
-        hike_user: hikeUser,
-      })
-      .then((res) => {
-        console.log("posted something");
-        console.log(res);
-        console.log(res.data.id);
-        setID(res.data.id);
-      });
+    // axios
+    //   .post(`https://thatguide.herokuapp.com/map/`, {
+    //     start_location: {
+    //       latitude: startLat,
+    //       longitude: startLong,
+    //     },
+    //     end_location: endHike,
+    //     hike_user: hikeUser,
+    //   })
+    //   .then((res) => {
+    //     console.log("posted something");
+    //     console.log(res);
+    //     console.log(res.data.id);
+    //     setID(res.data.id);
+    //   });
   };
 
   const handlePauseResume = () => {
@@ -94,19 +95,18 @@ export default function StartHike({
     navigate("/");
   };
 
-  console.log({latitude}, {longitude})
+  console.log({ latitude }, { longitude });
 
   if (latitude === "") {
     return (
-      <LoadingScreen 
-      loading={true}
-          bgColor="#f1f1f1"
-          spinnerColor="#9ee5f8"
-          textColor="#676767"
-          text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-        />
-
-    )
+      <LoadingScreen
+        loading={true}
+        bgColor="#f1f1f1"
+        spinnerColor="#9ee5f8"
+        textColor="#676767"
+        text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
+      />
+    );
   }
 
   return (
@@ -118,9 +118,12 @@ export default function StartHike({
         <Map latitude={latitude} longitude={longitude} />
       </div>
       <div className="second-location-header">
-        <h2>Goal distance: {selectedDistance} miles</h2>
-        <div className="whole-stats-container">
-          <div className="left-container">
+        <></>
+        {selectedDistance === "" ? (
+          ""
+        ) : (
+          <div>
+            <h2>Goal distance: {selectedDistance} miles</h2>
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>
             </div>
@@ -137,6 +140,10 @@ export default function StartHike({
               </h4>
             </div> */}
           </div>
+        )}
+
+        <div className="whole-stats-container">
+          <div className="left-container"></div>
           <div className="right-container">
             <div className="time-remaining">
               <StopWatch
@@ -155,19 +162,21 @@ export default function StartHike({
               />
             </div>
           </div>
-          </div>
-          <Button 
-            
-            variant="contained"
-            style={{
-              borderRadius: 50,
-              backgroundColor: "#21b6ae",
-              padding: "10px",
-              fontSize: "calc(.5vw + .5vh + .5vmin)",
-              margin: "8px",
-              border: "1px solid white"
+        </div>
+        <Button
+          variant="contained"
+          style={{
+            borderRadius: 50,
+            backgroundColor: "#21b6ae",
+            padding: "10px",
+            fontSize: "calc(.5vw + .5vh + .5vmin)",
+            margin: "8px",
+            border: "1px solid white",
           }}
-            onClick={handleReturnHome}>Return Home</Button>
+          onClick={handleReturnHome}
+        >
+          Return Home
+        </Button>
       </div>
     </>
   );

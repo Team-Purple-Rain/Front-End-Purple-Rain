@@ -94,6 +94,8 @@ export default function StartHike({
     navigate("/");
   };
 
+  console.log({latitude}, {longitude})
+
   if (latitude === "") {
     return (
       <LoadingScreen 

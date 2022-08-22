@@ -76,11 +76,20 @@ export default function Map({ latitude, longitude }) {
           `<h4>${e.features[0].properties.title}</h4>
           <p>Mile Marker: ${e.features[0].properties.mile}</p>
           <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
-          <button type="button" id="test">Test</button>`
+          <button type="button" id="test" onClick="console.log("hi")">Start Hike</button>`
         )
             .addTo(map);
         })
       });
+      // change cursor when hovering over the icon
+        map.on('mouseenter', 'shelters', () => {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+
+          // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'shelters', () => {
+          map.getCanvas().style.cursor = '';
+        });
     });
 
     // adding water source markers to map

@@ -27,9 +27,10 @@ function LogIn({ setAuth, auth }) {
                 localStorage.setItem("auth_token", res.data.auth_token);
                 setData(res);
                 setToken(res.data.auth_token);
-                navigate("/");
                 localStorage.setItem("username", `${username}`);
-                console.log(username)
+                localStorage.setItem("log in", "true")
+                console.log(username);
+                navigate("/");
             })
             .catch((res) => {
                 let error = res.response.data.non_field_errors;
@@ -39,8 +40,7 @@ function LogIn({ setAuth, auth }) {
 
     useEffect(() => {
         if (username && token) {
-            setAreYouLoggedIn(true)
-            localStorage.setItem("log in", "true")
+            localStorage.setItem("log in", "true");
             localStorage.setItem("username", `${username}`)
         } else {
         }

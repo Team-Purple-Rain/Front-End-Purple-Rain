@@ -25,8 +25,6 @@ function App() {
     setToken(token);
     setUsername(username);
   };
-  const isLoggedIn = username && token;
-
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
@@ -47,6 +45,9 @@ function App() {
   //   maximumAge: 10000,
   //   timeout: 15000
   // }
+
+  const areYouLoggedIn = localStorage.getItem("log in");
+  console.log(areYouLoggedIn);
 
   const navigate = useNavigate();
 
@@ -85,55 +86,61 @@ function App() {
               <h3>Thru Hiker's Appalachian Trail Guide</h3>
               <h4>Your interactive guide to the Appalachian Trail.</h4>
             </div>
+            {areYouLoggedIn ? (
+              <div className="nav-bar" id="overlay">
+                <Button
+                  variant="contained"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                  }}
+                  onClick={handleSeeProfile}>Go To Profile</Button>
+                <Button
+                  startIcon={<LogoutIcon />}
+                  variant="contained"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#d95252",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                  }}
+                  onClick={handleLogOut}>Log Out</Button>
+              </div>
+            ) : (
+              <div className="nav-bar" id="overlay">
+                <Button
+                  variant="contained"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                  }}
+                  onClick={handleNewUser}>Create Profile</Button>
+                <Button
+                  startIcon={<LoginIcon />}
+                  variant="contained"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#62b378",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                  }}
+                  onClick={handleLogIn}>Log In</Button>
+              </div>
+            )}
 
-            <div className="nav-bar" id="overlay">
-              <Button
-                variant="contained"
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "#21b6ae",
-                  padding: "10px",
-                  fontSize: "calc(.7vw + .7vh + .5vmin)",
-                  margin: "8px",
-                  border: "1px solid white"
-                }}
-                onClick={handleSeeProfile}>Go To Profile</Button>
-              <Button
-                variant="contained"
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "#21b6ae",
-                  padding: "10px",
-                  fontSize: "calc(.7vw + .7vh + .5vmin)",
-                  margin: "8px",
-                  border: "1px solid white"
-                }}
-                onClick={handleNewUser}>Create Profile</Button>
-              <Button
-                startIcon={<LoginIcon />}
-                variant="contained"
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "#62b378",
-                  padding: "10px",
-                  fontSize: "calc(.7vw + .7vh + .5vmin)",
-                  margin: "8px",
-                  border: "1px solid white"
-                }}
-                onClick={handleLogIn}>Log In</Button>
-              <Button
-                startIcon={<LogoutIcon />}
-                variant="contained"
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "#d95252",
-                  padding: "10px",
-                  fontSize: "calc(.7vw + .7vh + .5vmin)",
-                  margin: "8px",
-                  border: "1px solid white"
-                }}
-                onClick={handleLogOut}>Log Out</Button>
-            </div>
+
           </div>
 
           <Routes>

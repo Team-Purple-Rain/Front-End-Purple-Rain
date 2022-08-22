@@ -29,39 +29,39 @@ function Results({ latitude, longitude }) {
   };
 
 
-  
+
 
   return (
     <>
       <div className="location-header">Your Hike Results</div>
-      <Map latitude={latitude} longitude={longitude} />
+      {/* <Map latitude={latitude} longitude={longitude} /> */}
       <div className="results-buttons">
-      <Button 
-              startIcon={<SaveIcon/>}
-              variant="contained"
-              style={{
-                borderRadius: 10,
-                backgroundColor: "#62b378",
-                padding: "10px",
-                fontSize: "calc(.5vw + .5vh + .5vmin)",
-                margin: "8px",
-                border: "1px solid white",
-                float: "right"
-            }}
-            onClick={handleResetSave}>Save Hike</Button>
-      <Button 
-              startIcon={<DeleteOutlineIcon/>}
-              variant="contained"
-              style={{
-                borderRadius: 10,
-                backgroundColor: "#d95252",
-                padding: "10px",
-                fontSize: "calc(.5vw + .5vh + .5vmin)",
-                margin: "8px",
-                border: "1px solid white",
-                float: "right"
-            }}
-            onClick={handleClearData}>Delete Hike</Button>
+        <Button
+          startIcon={<SaveIcon />}
+          variant="contained"
+          style={{
+            borderRadius: 10,
+            backgroundColor: "#62b378",
+            padding: "10px",
+            fontSize: "calc(.5vw + .5vh + .5vmin)",
+            margin: "8px",
+            border: "1px solid white",
+            float: "right"
+          }}
+          onClick={handleResetSave}>Save Hike</Button>
+        <Button
+          startIcon={<DeleteOutlineIcon />}
+          variant="contained"
+          style={{
+            borderRadius: 10,
+            backgroundColor: "#d95252",
+            padding: "10px",
+            fontSize: "calc(.5vw + .5vh + .5vmin)",
+            margin: "8px",
+            border: "1px solid white",
+            float: "right"
+          }}
+          onClick={handleClearData}>Delete Hike</Button>
       </div>
     </>
   );

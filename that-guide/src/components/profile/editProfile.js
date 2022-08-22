@@ -16,19 +16,21 @@ function EditProfile() {
     const [experience, setExperience] = useState(null);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
-    axios
-        .get(`https://thatguide.herokuapp.com/users/me/`, {
-            headers: {
-                Authorization: `Token ${token}`,
-            }
-        })
-        .then((res) => {
-            setEmail(res.data.email);
-            setPhone(res.data.phone);
-            setFirstName(res.data.first_name);
-            setLastName(res.data.last_name);
-        })
-        ;
+
+    //     axios
+    //         .get(`https://thatguide.herokuapp.com/users/me/`, {
+    //             headers: {
+    //                 Authorization: `Token ${token}`,
+    //             }
+    //         })
+    //         .then((res) => {
+    //             setEmail(res.data.email);
+    //             setPhone(res.data.phone);
+    //             setFirstName(res.data.first_name);
+    //             setLastName(res.data.last_name);
+    //         })
+    //     ;
+
     const handleSaveChanges = (event) => {
         axios
             .patch(`https://thatguide.herokuapp.com/users/me/`, {
@@ -47,6 +49,9 @@ function EditProfile() {
             )
             .then((res) => {
                 console.log("changes made");
+                // setFirstName("");
+                // setLastName("");
+                // setEmail("");
                 navigate("/profile")
             })
     }
@@ -60,8 +65,9 @@ function EditProfile() {
             <label>First Name  </label>
             <input
                 type="text"
-                placeholder={firstName}
+                name="first"
                 value={firstName}
+                // placeholder={firstName}
                 required
                 onChange={(event) => setFirstName(event.target.value)}
             />
@@ -70,6 +76,7 @@ function EditProfile() {
             <label>Last Name  </label>
             <input
                 type="text"
+                // placeholder={lastName}
                 value={lastName}
                 required
                 onChange={(event) => setLastName(event.target.value)}
@@ -80,13 +87,15 @@ function EditProfile() {
             <input
                 type="text"
                 value={email}
+                placeholder={email}
                 onChange={(event) => setEmail(event.target.value)}
             />
             <br />
             <br />
             <label>Phone  </label>
             <input
-                type="number"
+                type="text"
+                placeholder={phone}
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
             />
@@ -97,6 +106,7 @@ function EditProfile() {
                 value={experience}
                 onChange={(event) => setExperience(event.target.value)}
             >
+                <option> Select Option </option>
                 <option value="beginner"> Beginner </option>
                 <option value="medium"> Moderate </option>
                 <option value="advanced"> Advanced </option>
@@ -108,6 +118,7 @@ function EditProfile() {
                 value={preferredPace}
                 onChange={(event) => setPreferredPace(event.target.value)}
             >
+                <option> Select Option </option>
                 <option value="leisure"> Leisure ( 20-30 minute mile / 2-3mph )</option>
                 <option value="powerwalk"> Powerwalk ( 12-15 minute mile / 4-5mph )</option>
                 <option value="chased by bear"> Chased By Bear ( 10 minute mile and faster / 6mph )</option>

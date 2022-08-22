@@ -95,19 +95,6 @@ export const shelter = {
     {
       type: "Feature",
       properties: {
-        title: "Whitley Gap Shelter",
-        mile: "37.799999999999997",
-        elevation: "3370'",
-        county: "White",
-        state: "GA",
-        latitude: 34.7125,
-        longitude: -83.83428,
-      },
-      geometry: { type: "Point", coordinates: [-83.83428, 34.7125] },
-    },
-    {
-      type: "Feature",
-      properties: {
         title: "Low Gap Shelter",
         mile: "42.6",
         elevation: "3050'",
@@ -148,7 +135,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Deep Gap Shelter",
-        mile: "65.599999999999994",
+        mile: "65.6",
         elevation: "3550'",
         county: "Rabun",
         state: "GA",
@@ -277,19 +264,6 @@ export const shelter = {
     {
       type: "Feature",
       properties: {
-        title: "Cold Spring Shelter",
-        mile: "125.2",
-        elevation: "4920'",
-        county: "Macon",
-        state: "NC",
-        latitude: 35.23109,
-        longitude: -83.355996,
-      },
-      geometry: { type: "Point", coordinates: [-83.355996, 35.23109] },
-    },
-    {
-      type: "Feature",
-      properties: {
         title: "Wesser Bald Shelter",
         mile: "131",
         elevation: "4115'",
@@ -330,7 +304,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Sassafras Gap Shelter",
-        mile: "143.80000000000001",
+        mile: "143.8",
         elevation: "4330'",
         county: "Swain",
         state: "NC",
@@ -356,7 +330,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Cable Gap Shelter",
-        mile: "159.19999999999999",
+        mile: "159.2",
         elevation: "2880'",
         county: "Graham",
         state: "NC",
@@ -472,19 +446,6 @@ export const shelter = {
     {
       type: "Feature",
       properties: {
-        title: "Mount Le Conte Shelter",
-        mile: "210.5",
-        elevation: "6440'",
-        county: "Sevier",
-        state: "TN",
-        latitude: 35.6528,
-        longitude: -83.4389,
-      },
-      geometry: { type: "Point", coordinates: [-83.4389, 35.6528] },
-    },
-    {
-      type: "Feature",
-      properties: {
         title: "Icewater Spring Shelter",
         mile: "210.8",
         elevation: "5920'",
@@ -520,19 +481,6 @@ export const shelter = {
         longitude: -83.25653,
       },
       geometry: { type: "Point", coordinates: [-83.25653, 35.69375] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "Cosby Knob Shelter",
-        mile: "231.1",
-        elevation: "4740'",
-        county: "Haywood",
-        state: "NC",
-        latitude: 35.72828,
-        longitude: -83.318219,
-      },
-      geometry: { type: "Point", coordinates: [-83.318219, 35.72828] },
     },
     {
       type: "Feature",
@@ -603,7 +551,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Spring Mountain Shelter",
-        mile: "285.89999999999998",
+        mile: "285.9",
         elevation: "3300'",
         county: "Greene",
         state: "TN",
@@ -663,32 +611,6 @@ export const shelter = {
         longitude: -82.58713,
       },
       geometry: { type: "Point", coordinates: [-82.58713, 35.96408] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "Bald Mountain Shelter",
-        mile: "327.39999999999998",
-        elevation: "5100'",
-        county: "Unicoi",
-        state: "TN",
-        latitude: 36.16,
-        longitude: -82.47808,
-      },
-      geometry: { type: "Point", coordinates: [-82.47808, 36.16] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "No Business Knob Shelter",
-        mile: "338",
-        elevation: "3180'",
-        county: "Unicoi",
-        state: "TN",
-        latitude: 36.6662,
-        longitude: -82.43365,
-      },
-      geometry: { type: "Point", coordinates: [-82.43365, 36.6662] },
     },
     {
       type: "Feature",
@@ -793,19 +715,6 @@ export const shelter = {
         longitude: -82.08831,
       },
       geometry: { type: "Point", coordinates: [-82.08831, 36.22014] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "Laurel Fork Shelter",
-        mile: "421.8",
-        elevation: "2450'",
-        county: "Carter",
-        state: "TN",
-        latitude: 36.27876,
-        longitude: -82.213623,
-      },
-      geometry: { type: "Point", coordinates: [-82.213623, 36.27876] },
     },
     {
       type: "Feature",
@@ -967,7 +876,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Trimpi Shelter",
-        mile: "524.20000000000005",
+        mile: "524.2",
         elevation: "2900'",
         county: "Smyth",
         state: "VA",
@@ -1032,7 +941,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Chestnut Knob Shelter",
-        mile: "569.70000000000005",
+        mile: "569.7",
         elevation: "4409",
         county: "Tazewell",
         state: "VA",
@@ -1110,7 +1019,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Rice Field Shelter",
-        mile: "643.70000000000005",
+        mile: "643.7",
         elevation: "3375'",
         county: "Giles",
         state: "VA",
@@ -1466,7 +1375,7 @@ export const shelter = {
         county: "Nelson",
         state: "VA",
         latitude: 37.8849,
-        longitude: 78.99363,
+        longitude: -78.99363,
       },
       geometry: { type: "Point", coordinates: [78.99363, 37.8849] },
     },
@@ -1734,7 +1643,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Crampton Gap Shelter",
-        mile: "1035.9000000000001",
+        mile: "1035.9",
         elevation: "1000'",
         county: "Frederick",
         state: "MD",
@@ -1747,7 +1656,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Rocky Run Shelter",
-        mile: "1040.9000000000001",
+        mile: "1040.9",
         elevation: "970'",
         county: "Washington",
         state: "MD",
@@ -1760,7 +1669,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Pine Knob Shelter",
-        mile: "1048.4000000000001",
+        mile: "1048.4",
         elevation: "1360'",
         county: "Washington",
         state: "MD",
@@ -1773,7 +1682,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Ensign Cowall Shelter",
-        mile: "1056.5999999999999",
+        mile: "1056.6",
         elevation: "1430'",
         county: "Washington",
         state: "MD",
@@ -1812,7 +1721,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Deer Lick Shelters",
-        mile: "1071.0999999999999",
+        mile: "1071.1",
         elevation: "1420'",
         county: "Franklin",
         state: "PA",
@@ -1864,7 +1773,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Quarry Gap Shelters",
-        mile: "1086.9000000000001",
+        mile: "1086.9",
         elevation: "1455'",
         county: "Franklin",
         state: "PA",
@@ -1903,7 +1812,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "James Fry Shelter",
-        mile: "1111.4000000000001",
+        mile: "1111.4",
         elevation: "805'",
         county: "Cumberland",
         state: "PA",
@@ -1994,7 +1903,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "William Penn Shelter",
-        mile: "1191.4000000000001",
+        mile: "1191.4",
         elevation: "1300'",
         county: "Berks",
         state: "PA",
@@ -2015,19 +1924,6 @@ export const shelter = {
         longitude: -76.3464,
       },
       geometry: { type: "Point", coordinates: [-76.3464, 40.51312] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "Eagles Nest Shelter",
-        mile: "1210.5999999999999",
-        elevation: "1510'",
-        county: "Schuylkill",
-        state: "PA",
-        latitude: 40.54932,
-        longitude: -76.615239,
-      },
-      geometry: { type: "Point", coordinates: [-76.615239, 40.54932] },
     },
     {
       type: "Feature",
@@ -2106,19 +2002,6 @@ export const shelter = {
         longitude: -75.35939,
       },
       geometry: { type: "Point", coordinates: [-75.35939, 40.8394] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "Kirkridge Shelter",
-        mile: "1289",
-        elevation: "1480'",
-        county: "Northhampton",
-        state: "PA",
-        latitude: 40.93672,
-        longitude: -75.51864,
-      },
-      geometry: { type: "Point", coordinates: [-75.51864, 40.93672] },
     },
     {
       type: "Feature",
@@ -2717,19 +2600,6 @@ export const shelter = {
         longitude: -72.95256,
       },
       geometry: { type: "Point", coordinates: [-72.95256, 43.3476] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "Old Job Shelter",
-        mile: "1669.2",
-        elevation: "1525'",
-        county: "Rutland",
-        state: "NC",
-        latitude: 43.35404,
-        longitude: -72.92845,
-      },
-      geometry: { type: "Point", coordinates: [-72.92845, 43.35404] },
     },
     {
       type: "Feature",

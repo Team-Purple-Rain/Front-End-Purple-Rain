@@ -5,8 +5,8 @@ import "./map.css";
 import { water } from "./sources/water";
 import { shelter } from "./sources/shelter";
 import myImage from "./mapIcons/smol.png";
-import waterImage from "./mapIcons/smolwater.png"
-import Button from "@mui/material/Button"
+import waterImage from "./mapIcons/smolwater.png";
+import Button from "@mui/material/Button";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -21,12 +21,10 @@ export default function Map({ latitude, longitude }) {
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
-
   // const bounds = [
   //   [-85.617648, 33.257538],
   //   [-73.043655, 37.702501],
   // ];
-
 
   useEffect(() => {
     // creating new map with style and center location
@@ -37,19 +35,19 @@ export default function Map({ latitude, longitude }) {
       zoom: zoom,
       // maxBounds: bounds,
     });
-    // adding zoom controls to map
+
     // map.addControl(new mapboxgl.NavigationControl(), "top-right");
     const scale = new mapboxgl.ScaleControl({
       maxWidth: 80,
-      unit: "imperial"
+      unit: "imperial",
     });
     map.addControl(scale);
     scale.setUnit("imperial");
-    // adding water source markers to map
+    // adding shelter source markers to map
     map.on("load", () => {
       map.loadImage(myImage, (error, image) => {
         if (error) throw error;
-        map.addImage("shelter-marker", image)
+        map.addImage("shelter-marker", image);
         map.addSource("shelter-data", {
           type: "geojson",
           data: shelter,
@@ -59,16 +57,52 @@ export default function Map({ latitude, longitude }) {
           id: "shelters",
           type: "symbol",
           source: "shelter-data",
-          "minzoom": 0,
+          minzoom: 8,
           layout: {
             "icon-image": "shelter-marker",
+            "icon-allow-overlap": true,
             // Make the layer visible by default.
             visibility: "visible",
           },
         });
+
+        map.on("click", "shelters", (e) => {
+          map.flyTo({
+            center: [
+              e.features[0].properties.longitude,
+              e.features[0].properties.latitude,
+            ],
+          });
+          const coordinates = e.features[0].geometry.coordinates.slice();
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(
+              `<h4>${e.features[0].properties.title}</h4>
+          <p>Mile Marker: ${parseFloat(Number(latitude.toFixed(1)))}</p>
+          <p>Coordinates: ${e.features[0].properties.latitude},${
+                e.features[0].properties.longitude
+              }</p>           
+          <button type="button" id="test" onClick={console.log("hi")}>Start Hike</button>`
+            )
+            .addTo(map);
+        });
+      });
+
+      // change cursor when hovering over the icon
+      map.on("mouseenter", "shelters", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+
+      // Change it back to a pointer when it leaves.
+      map.on("mouseleave", "shelters", () => {
+        map.getCanvas().style.cursor = "";
       });
     });
 
+    // adding water source markers to map
     map.on("load", () => {
       map.loadImage(waterImage, (error, image) => {
         if (error) throw error;
@@ -82,19 +116,52 @@ export default function Map({ latitude, longitude }) {
           id: "water-sources",
           type: "symbol",
           source: "water-data",
-          "minzoom":0,
+          minzoom: 8,
           layout: {
             "icon-image": "water-marker",
+            "icon-allow-overlap": true,
             // Make the layer visible by default.
             visibility: "visible",
           },
         });
+
+        map.on("click", "water-sources", (e) => {
+          map.flyTo({
+            center: [
+              e.features[0].properties.longitude,
+              e.features[0].properties.latitude,
+            ],
+          });
+          const coordinates = e.features[0].geometry.coordinates.slice();
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(
+              `<h4>${e.features[0].properties.title}</h4>
+        <p>Mile Marker: ${parseFloat(Number(latitude.toFixed(1)))}</p>
+        <p>Coordinates: ${e.features[0].properties.latitude},${
+                e.features[0].properties.longitude
+              }</p>           
+        <button type="button" id="test" onClick={console.log("hi")}>Start Hike</button>`
+            )
+            .addTo(map);
+        });
+      });
+
+      // change cursor when hovering over the icon
+      map.on("mouseenter", "shelters", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+
+      // Change it back to a pointer when it leaves.
+      map.on("mouseleave", "shelters", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
       map.addControl(new mapboxgl.NavigationControl());
-      })
-    })
-
-    // adding shelter source markers to map
-
+    });
     // creates a User Location Marker at device location
     const el = document.createElement("div");
     el.className = "user-marker";
@@ -155,24 +222,26 @@ export default function Map({ latitude, longitude }) {
 
   return (
     <>
-    <div className="big-map-container">
-      <div ref={mapContainer} className="map-container"></div>
-      <div className="location-button">
-      <Button 
-          variant="contained"
-          style={{
-            borderRadius: 35,
-            backgroundColor: "#21b6ae",
-            padding: "10px",
-            fontSize: "12px",
-            margin: "10px",
-        }}
-        onClick={() => 
-          setMapCenter({ center: [longitude, latitude] })}>
-        Return to Current Location
-      </Button>
+      <div className="big-map-container">
+        <div ref={mapContainer} className="map-container"></div>
+        <div className="location-button">
+          <Button
+            variant="contained"
+            style={{
+              borderRadius: 35,
+              backgroundColor: "#21b6ae",
+              padding: "10px",
+              fontSize: "12px",
+              margin: "10px",
+            }}
+            onClick={() =>
+              setMapCenter({ center: [longitude, latitude], zoom: 15 })
+            }
+          >
+            Return to Current Location
+          </Button>
+        </div>
       </div>
-    </div>
       <div className="current-stats">
         <h3>
           Current Location: {latitude}, {longitude}
@@ -205,7 +274,7 @@ export default function Map({ latitude, longitude }) {
 //         .setHTML(
 //           `<h4>${feature.title}</h4>
 //           <p>Mile Marker: ${feature.mile}</p>
-//           <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
+//           <p>Coordinates: ${e.features[0].latitude},${e.features[0].longitude}</p>
 //           <button type="button" id="test">Test</button>`
 //         )
 //     )

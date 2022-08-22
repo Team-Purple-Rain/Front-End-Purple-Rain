@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 
 // If you want your app to work offline and load faster, you can change

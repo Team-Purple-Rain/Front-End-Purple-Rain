@@ -31,30 +31,41 @@ export default function StartHike({
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
-
+  // let username = localStorage.getItem("username");
+  let token = localStorage.getItem("auth_token");
   console.log(selectedDistance);
+
+  axios
+    .get(`https://thatguide.herokuapp.com/users/me/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      }
+    })
+    .then((res) => {
+      setHikeUser(res.data.id);
+      console.log(hikeUser);
+    })
 
   const handleStartHike = (event) => {
     console.log("hello button");
-    // event.preventDefault();
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
-    // axios
-    //   .post(`https://thatguide.herokuapp.com/map/`, {
-    //     start_location: {
-    //       latitude: startLat,
-    //       longitude: startLong,
-    //     },
-    //     end_location: endHike,
-    //     hike_user: hikeUser,
-    //   })
-    //   .then((res) => {
-    //     console.log("posted something");
-    //     console.log(res);
-    //     console.log(res.data.id);
-    //     setID(res.data.id);
-    //   });
+    axios
+      .post(`https://thatguide.herokuapp.com/map/`, {
+        start_location: {
+          latitude: startLat,
+          longitude: startLong,
+        },
+        end_location: endHike,
+        hike_user: hikeUser,
+      })
+      .then((res) => {
+        console.log("posted something");
+        console.log(res);
+        console.log(res.data.id);
+        setID(res.data.id);
+      });
   };
 
   const handlePauseResume = () => {

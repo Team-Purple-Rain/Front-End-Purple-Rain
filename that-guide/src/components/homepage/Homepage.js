@@ -85,7 +85,6 @@ export default function Homepage({
           onClick={handleStartHike}
           onSubmit={handleSetDistance}
         >
-
           Set distance
         </Button>
         </div>

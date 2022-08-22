@@ -14,7 +14,7 @@ export default function Profile() {
     const [experience, setExperience] = useState(null);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
-    
+
     axios
         .get(`https://thatguide.herokuapp.com/users/me/`, {
             headers: {
@@ -38,24 +38,24 @@ export default function Profile() {
         navigate("/editprofile");
     }
 
-// console.log({latitude}, {longitude})
+    // console.log({latitude}, {longitude})
 
-// if (latitude === "") {
-//     return (
-//       <LoadingScreen 
-//       loading={true}
-//           bgColor="#f1f1f1"
-//           spinnerColor="#9ee5f8"
-//           textColor="#676767"
-//           text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-//         />
+    // if (latitude === "") {
+    //     return (
+    //       <LoadingScreen 
+    //       loading={true}
+    //           bgColor="#f1f1f1"
+    //           spinnerColor="#9ee5f8"
+    //           textColor="#676767"
+    //           text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
+    //         />
 
-//     )
-//   }
+    //     )
+    //   }
 
     return (
         <>
-        {/* <div>
+            {/* <div>
             <div className="location-header">
                 <h3>Current Location</h3>
             </div>

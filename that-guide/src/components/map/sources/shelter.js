@@ -95,19 +95,6 @@ export const shelter = {
     {
       type: "Feature",
       properties: {
-        title: "Whitley Gap Shelter",
-        mile: "37.8",
-        elevation: "3370'",
-        county: "White",
-        state: "GA",
-        latitude: 34.7125,
-        longitude: -83.83428,
-      },
-      geometry: { type: "Point", coordinates: [-83.83428, 34.7125] },
-    },
-    {
-      type: "Feature",
-      properties: {
         title: "Low Gap Shelter",
         mile: "42.6",
         elevation: "3050'",
@@ -624,19 +611,6 @@ export const shelter = {
         longitude: -82.58713,
       },
       geometry: { type: "Point", coordinates: [-82.58713, 35.96408] },
-    },
-    {
-      type: "Feature",
-      properties: {
-        title: "No Business Knob Shelter",
-        mile: "338",
-        elevation: "3180'",
-        county: "Unicoi",
-        state: "TN",
-        latitude: 36.6662,
-        longitude: -82.43365,
-      },
-      geometry: { type: "Point", coordinates: [-82.43365, 36.6662] },
     },
     {
       type: "Feature",

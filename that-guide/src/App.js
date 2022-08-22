@@ -199,7 +199,11 @@ function App() {
               path="/profile"
               element={<Profile
                 username={username}
+                latitude={latitude}
+                longitude={longitude}
                 token={token}
+                setLatitude={setLatitude}
+                setLongitude={setLongitude}
               />}
             />
             <Route

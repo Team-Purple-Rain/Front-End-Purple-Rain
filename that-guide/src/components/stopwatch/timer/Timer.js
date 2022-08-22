@@ -5,6 +5,7 @@ import moment from "moment";
 
 export default function Timer(props) {
   const [startDataLogged, setStartDataLogged] = useState(false);
+  const [setTimeTraveled] = useState(null);
   let storageBank = [];
   let i = 0;
 
@@ -20,12 +21,16 @@ export default function Timer(props) {
         i = i.slice(0, -3);
         console.log(i);
         addToLocalStorage(time);
+        console.log(time);
+        localStorage.setItem("time", i);
       }
     }
   };
 
   const addToLocalStorage = (time) => {
     let elevation = document.getElementsByClassName("elevation_div");
+    let timeTraveled = time;
+    console.log(timeTraveled);
     elevation = elevation[0].id;
     time = time.toString();
     time = time.slice(0, -3);
@@ -38,6 +43,7 @@ export default function Timer(props) {
       elevation: elevation,
     });
     localStorage.setItem("hike", JSON.stringify(storageBank));
+
   };
 
   const MakeInitialLog = () => {

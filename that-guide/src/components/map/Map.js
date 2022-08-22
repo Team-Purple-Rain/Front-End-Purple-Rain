@@ -1,5 +1,6 @@
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useInterval } from "use-interval";
 import "./map.css";
 import { water } from "./sources/water";
@@ -11,7 +12,7 @@ import Button from "@mui/material/Button";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
-export default function Map({ latitude, longitude }) {
+export default function Map({ latitude, longitude, selectedDistance, setSelectedDistance }) {
   // console.log(latitude);
   // console.log(longitude);
   const mapContainer = useRef(null);
@@ -241,14 +242,6 @@ export default function Map({ latitude, longitude }) {
             Return to Current Location
           </Button>
         </div>
-      </div>
-      <div className="current-stats">
-        <h3>
-          Current Location: {latitude}, {longitude}
-        </h3>
-        <h3 className="elevation_div" id={elevation}>
-          Current Elevation: {elevation}
-        </h3>
       </div>
     </>
   );

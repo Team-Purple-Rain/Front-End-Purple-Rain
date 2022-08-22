@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import { useInterval } from "use-interval";
 import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
@@ -30,21 +32,20 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const highestElevation = useState("");
   const [ID, setID] = useState(null);
+  const [elevation, setElevation] = useState("calculating...");
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [zoom, setZoom] = useState(15);
+  const [mapObject, setMapObject] = useState();
 
   function success(position) {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
   }
 
-  // function error() {
-  //   alert('Please enable location services!')
-  // }
-
-  // const options = {
-  //   enableHighAccuracy: false,
-  //   maximumAge: 10000,
-  //   timeout: 15000
-  // }
+  // Token to get elevation on navbar.
+  mapboxgl.accessToken =
+  "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
   const areYouLoggedIn = localStorage.getItem("log in");
   console.log(areYouLoggedIn);
@@ -74,7 +75,32 @@ function App() {
 
   setInterval(getLocation, 10000);
 
+  useInterval(() => {
+    async function getElevation() {
+      // Construct the API request.
+      const query = await fetch(
+        `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${longitude},${latitude}.json?layers=contour&radius=3&limit=10&access_token=${mapboxgl.accessToken}`,
+        { method: "GET" }
+      );
+      if (query.status !== 200) return;
+      const data = await query.json();
+      // Get all the returned features.
+      const allFeatures = data.features;
+      // console.log(allFeatures);
+      // For each returned feature, add elevation data to the elevations array.
+      const elevations = allFeatures.map((feature) => feature.properties.ele);
+      // console.log(elevations);
+      // In the elevations array, find the largest value.
+      const highestElevation = Math.max(...elevations);
 
+      const elevationConversion = highestElevation * 3.28;
+      // console.log(elevationConversion);
+      let roundedElevation = elevationConversion.toFixed(1);
+
+      setElevation(`${roundedElevation} feet`);
+    }
+    getElevation();
+  }, 7000);
 
   return (
     <>
@@ -82,10 +108,15 @@ function App() {
         <div className="load-screen">
           <div className="title-header">
             <div className="mountains">
-              <h1>T.H.A.T. Guide</h1>
               <h3>Thru Hiker's Appalachian Trail Guide</h3>
-              <h4>Your interactive guide to the Appalachian Trail.</h4>
+              <h4>Take on the trail, one hike at a time.</h4>
             </div>
+        <h4>
+          Your Location: {latitude}, {longitude}
+        </h4>
+        <h4 className="elevation_div" id={elevation}>
+          Current Elevation: {elevation}
+        </h4>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
                 <Button
@@ -139,8 +170,6 @@ function App() {
                   onClick={handleLogIn}>Log In</Button>
               </div>
             )}
-
-
           </div>
 
           <Routes>
@@ -217,7 +246,9 @@ function App() {
             />
           </Routes>
         </div>
+
       </div>
+      
     </>
   );
 }

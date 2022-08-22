@@ -1,11 +1,18 @@
+import * as React from 'react';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Map from "../map/Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Button from "@mui/material/Button";
-import LoadingScreen from "react-loading-screen";
-import TextField from "@mui/material/TextField";
+import LoadingScreen from "react-loading-screen"
+import TextField from '@mui/material/TextField';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 export default function Homepage({
   selectedDistance,
@@ -35,6 +42,13 @@ export default function Homepage({
     }
   };
 
+  const [expanded, setExpanded] = React.useState(false);
+  
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+
   if (latitude === "") {
     return (
       <LoadingScreen
@@ -47,47 +61,52 @@ export default function Homepage({
     );
   }
 
+
+
+
   return (
     <>
       <div className="load-screen">
-        <h4 className="options">Current Location</h4>
         <div className="map-and-button">
           <div id="map">
             <Map latitude={latitude} longitude={longitude} />
           </div>
         </div>
-        <h4 className="options">What is your goal for this hike?</h4>
-        <div className="hike-starter">
-          <div>
-            <h2>I just want to hike!</h2>
-            <p>
-              {" "}
-              selecting this option will start tracking a hike without a goal
-              distance. hiking results will only be shown after pressing "Stop
-              Hike"
-            </p>
-          </div>
-          <Button
-            style={{
-              borderRadius: 35,
-              backgroundColor: "#21b6ae",
-              padding: "10px",
-              fontSize: "12px",
-              margin: "10px",
-            }}
-            variant="contained"
-            type="submit"
-            className="start-hike"
-            onClick={handleStartHike}
-          >
-            {" "}
-            Start Hike
-          </Button>
-          <h3>OR</h3>
-          <div>
-            <h2>I want to hike</h2>
+        <div>
+      <h4 className="options">How do you want to hike today?</h4>
+      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            Select a destination.
+          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Choose your goal stop in the map above.</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Click your desired water or shelter stop in the map above to start your hike.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2bh-content"
+          id="panel2bh-header"
+        >
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>Set a distance.</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>
+            Choose a distance you want to hike in miles.
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          <div className="dropdown-options">
+            <h4>I want to hike</h4>
             <form id="select-distance" onSubmit={setSelectedDistance}>
-              {/* Select Distance (in miles): */}
             </form>
             <div className="hike-starter-container">
               <TextField
@@ -102,7 +121,7 @@ export default function Homepage({
                 variant="filled"
                 onChange={(e) => setSelectedDistance(e.target.value)}
               />
-              <h2>miles</h2>
+              <h4>miles</h4>
               <Button
                 style={{
                   borderRadius: 35,
@@ -121,8 +140,53 @@ export default function Homepage({
               </Button>
             </div>
           </div>
-        </div>
-      </div>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3bh-content"
+          id="panel3bh-header"
+        >
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            Freeform hike.
+          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>
+          Choose this option to track a hike without a goal
+              distance. Hiking results will be shown after pressing "Stop
+              Hike."
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          <div>
+            <div className="dropdown-options">
+              <h4>I just want to hike!</h4>
+            
+            <Button
+              style={{
+                borderRadius: 35,
+                backgroundColor: "#21b6ae",
+                padding: "10px",
+                fontSize: "12px",
+                margin: "10px",
+              }}
+              variant="contained"
+              type="submit"
+              className="start-hike"
+              onClick={handleStartHike}
+            >
+              {" "}
+              Start Hike
+            </Button>
+            </div>
+          </div>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+    </div>
+  </div>
     </>
   );
 }

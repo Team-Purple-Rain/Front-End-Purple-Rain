@@ -33,9 +33,9 @@ export default function Offline({ children }) {
               ""
             )}
           </div>
+          {children}
         </div>
       </div>
-      {children}
     </>
   );
 }

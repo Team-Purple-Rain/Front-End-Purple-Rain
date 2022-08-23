@@ -42,7 +42,10 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [goalCoords, setGoalCoords] = useState([]);
+  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [])
+  const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
+  const [selectedHikeType, setSelectedHikeType] = useState(null)
+  const [destination, setDestination] = useState("")
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -192,10 +195,16 @@ function App() {
                 <Homepage
                   setSelectedDistance={setSelectedDistance}
                   selectedDistance={selectedDistance}
+                  hikeType={hikeType}
+                  setHikeType={setHikeType}
+                  selectedHikeType={selectedHikeType}
+                  setSelectedHikeType={setSelectedHikeType}
                   latitude={latitude}
                   longitude={longitude}
                   goalCoords = {goalCoords}
                   setGoalCoords = {setGoalCoords}
+                  setDestination={setDestination}
+                  destination={destination}
                 />
               }
             />
@@ -210,6 +219,11 @@ function App() {
                   setLongitude={setLongitude}
                   highestElevation={highestElevation}
                   goalCoords = {goalCoords}
+                  hikeType={hikeType}
+                  setHikeType={setHikeType}
+                  selectedHikeType={selectedHikeType}
+                  setSelectedHikeType={setSelectedHikeType}
+                  destination={destination}
                 />
               }
             />

@@ -12,6 +12,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Spinner from "react-spinkit";
+import useLocalStorageState from 'use-local-storage-state';
 
 
 export default function Homepage({
@@ -19,7 +20,12 @@ export default function Homepage({
   setSelectedDistance,
   latitude,
   longitude,
-  setGoalCoords
+  setGoalCoords,
+  hikeType,
+  setHikeType,
+  selectedHikeType,
+  setSelectedHikeType,
+  setDestination
 }) {
   const [error, setError] = useState(null);
 
@@ -63,14 +69,12 @@ export default function Homepage({
   }
 
 
-
-
   return (
     <>
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
-            <Map latitude={latitude} longitude={longitude} setGoalCoords = {setGoalCoords}
+            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType} setDestination={setDestination} longitude={longitude} setGoalCoords = {setGoalCoords}
 />
           </div>
         </div>
@@ -122,6 +126,7 @@ export default function Homepage({
                 id="filled-basic"
                 variant="filled"
                 onChange={(e) => setSelectedDistance(e.target.value)}
+                onClick={() => {setHikeType("Mile-based Hike"); setSelectedHikeType("Mile-based Hike")}}
               />
               <h4>miles</h4>
               <Button
@@ -177,7 +182,7 @@ export default function Homepage({
               variant="contained"
               type="submit"
               className="start-hike"
-              onClick={handleStartHike}
+              onClick={() => {setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); handleStartHike()}}
             >
               {" "}
               Start Hike

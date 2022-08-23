@@ -16,6 +16,9 @@ export default function Map({
   latitude,
   longitude,
   setGoalCoords,
+  setHikeType,
+  setSelectedHikeType,
+  setDestination
 }) {
   // console.log(latitude);
   // console.log(longitude);
@@ -104,9 +107,13 @@ export default function Map({
           btn.addEventListener("click", () => {
             setGoalCoords(coordinates);
             navigate("/starthike");
+            setHikeType("Destination Hike");
+            setSelectedHikeType("Destination Hike");
+            setDestination(e.features[0].properties.title)
           });
         });
       });
+
 
       // change cursor when hovering over the icon
       map.on("mouseenter", "shelters", () => {
@@ -170,6 +177,10 @@ export default function Map({
           btn.addEventListener("click", () => {
             setGoalCoords(coordinates);
             navigate("/starthike");
+            setHikeType("Destination Hike");
+            setSelectedHikeType("Destination Hike");
+            setDestination(e.features[0].properties.title)
+
           });
         });
       });

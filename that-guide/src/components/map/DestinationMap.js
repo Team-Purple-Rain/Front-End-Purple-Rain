@@ -16,7 +16,11 @@ mapboxgl.accessToken =
 export default function DestinationMap({
   latitude,
   longitude,
-  goalCoords
+  goalCoords,
+  hikeType,
+  setHikeType,
+  selectedHikeType,
+  setSelectedHikeType
 }) {
   // console.log(latitude);
   // console.log(longitude);

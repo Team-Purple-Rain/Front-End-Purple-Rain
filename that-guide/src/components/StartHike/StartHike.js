@@ -15,7 +15,12 @@ export default function StartHike({
   latitude,
   longitude,
   time,
-  goalCoords
+  goalCoords,
+  hikeType,
+  setHikeType,
+  selectedHikeType,
+  setSelectedHikeType,
+  destination
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -121,12 +126,17 @@ export default function StartHike({
             <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
       </div>
     );
-}
+};
+
+
 
   return (
     <>
       <div>
-          <h3 className="options">Your Current Hike</h3>
+        {hikeType === "Destination Hike"
+          ? <h3 className="options">Your hike to {destination}</h3> 
+        : <h3 className="options">Your Current {hikeType}</h3>}
+
         </div>
         <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords}/>
       <div className="second-location-header">

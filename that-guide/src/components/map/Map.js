@@ -12,9 +12,14 @@ import Button from "@mui/material/Button";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
-export default function Map({ latitude, longitude, selectedDistance, setSelectedDistance }) {
+export default function Map({
+  latitude,
+  longitude,
+  setGoalCoords,
+}) {
   // console.log(latitude);
   // console.log(longitude);
+  const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
@@ -44,6 +49,10 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
     });
     map.addControl(scale);
     scale.setUnit("imperial");
+
+    // adding navigation control box to map
+    map.addControl(new mapboxgl.NavigationControl());
+
     // adding shelter source markers to map
     map.on("load", () => {
       map.loadImage(myImage, (error, image) => {
@@ -67,6 +76,7 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
           },
         });
 
+        // adding popups to icons
         map.on("click", "shelters", (e) => {
           map.flyTo({
             center: [
@@ -74,21 +84,27 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
               e.features[0].properties.latitude,
             ],
           });
+
           const coordinates = e.features[0].geometry.coordinates.slice();
+
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
           }
+
           new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
               `<h4>${e.features[0].properties.title}</h4>
-          <p>Mile Marker: ${parseFloat(Number(latitude.toFixed(1)))}</p>
-          <p>Coordinates: ${e.features[0].properties.latitude},${
-                e.features[0].properties.longitude
-              }</p>           
-          <button type="button" id="test" onClick={console.log("hi")}>Start Hike</button>`
+          <p>Mile Marker: ${e.features[0].properties.mile}</p>
+          <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
+              <button type="button" id="btn">Start Hike</button>`
             )
             .addTo(map);
+          const btn = document.getElementById("btn");
+          btn.addEventListener("click", () => {
+            setGoalCoords(coordinates);
+            navigate("/starthike");
+          });
         });
       });
 
@@ -97,7 +113,7 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
         map.getCanvas().style.cursor = "pointer";
       });
 
-      // Change it back to a pointer when it leaves.
+      // Change it back to a pointer when it leaves
       map.on("mouseleave", "shelters", () => {
         map.getCanvas().style.cursor = "";
       });
@@ -126,6 +142,7 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
           },
         });
 
+        // adding popups to icons
         map.on("click", "water-sources", (e) => {
           map.flyTo({
             center: [
@@ -133,21 +150,27 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
               e.features[0].properties.latitude,
             ],
           });
+
           const coordinates = e.features[0].geometry.coordinates.slice();
+
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
           }
+
           new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
               `<h4>${e.features[0].properties.title}</h4>
-        <p>Mile Marker: ${parseFloat(Number(latitude.toFixed(1)))}</p>
-        <p>Coordinates: ${e.features[0].properties.latitude},${
-                e.features[0].properties.longitude
-              }</p>           
-        <button type="button" id="test" onClick={console.log("hi")}>Start Hike</button>`
+        <p>Mile Marker: ${e.features[0].properties.mile}</p>
+        <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
+        <button type="button" id="btn">Start Hike</button>`
             )
             .addTo(map);
+          const btn = document.getElementById("btn");
+          btn.addEventListener("click", () => {
+            setGoalCoords(coordinates);
+            navigate("/starthike");
+          });
         });
       });
 
@@ -160,9 +183,8 @@ export default function Map({ latitude, longitude, selectedDistance, setSelected
       map.on("mouseleave", "water-sources", () => {
         map.getCanvas().style.cursor = "";
       });
-
-      map.addControl(new mapboxgl.NavigationControl());
     });
+
     // creates a User Location Marker at device location
     const el = document.createElement("div");
     el.className = "user-marker";

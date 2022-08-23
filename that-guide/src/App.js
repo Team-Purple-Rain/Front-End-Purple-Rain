@@ -19,6 +19,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddIcon from '@mui/icons-material/Add';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -102,6 +104,9 @@ function App() {
     getElevation();
   }, 7000);
 
+
+
+
   return (
     <>
       <div className="background">
@@ -171,7 +176,8 @@ function App() {
               </div>
             )}
           </div>
-
+          </div>
+          </div>
           <Routes>
             <Route
               path="/"
@@ -245,9 +251,9 @@ function App() {
               }
             />
           </Routes>
-        </div>
 
-      </div>
+
+
       
     </>
   );

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"
 import axios from "axios";
 import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
+import "./users.css";
 
 function LogIn({ setAuth, auth }) {
     const navigate = useNavigate();
@@ -49,6 +50,7 @@ function LogIn({ setAuth, auth }) {
 
     return (
         <>
+        <div className="user-stats">
             <h1>Log In</h1>
             <label class="label is-large" htmlFor='username'>Username</label>
             <input type="text"
@@ -78,6 +80,7 @@ function LogIn({ setAuth, auth }) {
             </form>
             <br />
             <button onClick={handleReturnHome}>Return Home</button>
+            </div>
         </>
     )
 }

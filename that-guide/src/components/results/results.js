@@ -60,55 +60,53 @@ function Results({ latitude, longitude }) {
 
   return (
     <>
-      <div className="location-header">Your Hike Results</div>
-      <div className="results-stats">
-        <h3>Starting Location: {startLat}, {startLong}
-        </h3>
-        <h3>
+      <div className="results-box">
+        <h4>Starting Location: {startLat}, {startLong}
+        </h4>
+        <h4>
           Ending Location: {endHikeLat}, {endHikeLong}
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           Elevation Change: {elevationChange}
-        </h3>
-        <h3>Time Hiking: {timeTraveled}
-        </h3>
-        <h3>
+        </h4>
+        <h4>Time Hiking: {timeTraveled}
+        </h4>
+        <h4>
           Average Pace:
           {speed}
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           Distance Hiked: {distanceTraveled}
-        </h3>
+        </h4>
+        <div className="results-buttons">
+          <Button
+            startIcon={<SaveIcon />}
+            variant="contained"
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#62b378",
+              padding: "10px",
+              fontSize: "calc(.7vw + .7vh + .5vmin)",
+              marginTop: "20px",
+              border: "1px solid white",
+            }}
+            onClick={handleResetSave}>Save Hike</Button>
+          <Button
+            startIcon={<DeleteOutlineIcon />}
+            variant="contained"
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#d95252",
+              padding: "10px",
+              fontSize: "calc(.7vw + .7vh + .5vmin)",
+              marginTop: "20px",
+              border: "1px solid white",
+            }}
+            onClick={handleClearData}>Delete Hike</Button>
       </div>
+    </div>
       {/* <Map latitude={latitude} longitude={longitude} /> */}
-      <div className="results-buttons">
-        <Button
-          startIcon={<SaveIcon />}
-          variant="contained"
-          style={{
-            borderRadius: 10,
-            backgroundColor: "#62b378",
-            padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            border: "1px solid white",
-            float: "right"
-          }}
-          onClick={handleResetSave}>Save Hike</Button>
-        <Button
-          startIcon={<DeleteOutlineIcon />}
-          variant="contained"
-          style={{
-            borderRadius: 10,
-            backgroundColor: "#d95252",
-            padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            border: "1px solid white",
-            float: "right"
-          }}
-          onClick={handleClearData}>Delete Hike</Button>
-      </div>
+
     </>
   );
 }

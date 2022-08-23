@@ -123,9 +123,7 @@ export default function StartHike({
   return (
     <>
       <div>
-        <div className="location-header">
           <h3>Your Current Hike</h3>
-        </div>
         <Map latitude={latitude} longitude={longitude} />
       </div>
       <div className="second-location-header">

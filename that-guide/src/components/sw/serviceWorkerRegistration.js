@@ -9,6 +9,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
+  console.log(config);
   console.log("this is coming from sw registration");
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
     // The URL constructor is available in all browsers that support SW.

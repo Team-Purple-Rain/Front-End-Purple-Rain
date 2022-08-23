@@ -3,6 +3,7 @@ import "./Timer.css";
 import { useEffect, useState } from "react";
 import moment from "moment";
 
+
 export default function Timer(props) {
   const [startDataLogged, setStartDataLogged] = useState(false);
   const [setTimeTraveled] = useState(null);
@@ -37,7 +38,7 @@ export default function Timer(props) {
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
     storageBank.push({
       seconds_elapsed: time,
-      timestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
+      setTimestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
       longitude: props.longitude,
       latitude: props.latitude,
       elevation: elevation,

@@ -27,7 +27,7 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
-            {!online ? <OffLinePage /> : <>{children}</>}
+            {!online ? <OffLinePage StopWatch={StopWatch} /> : <>{children}</>}
           </div>
         </div>
       </div>

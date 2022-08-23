@@ -4,14 +4,15 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 import { useInterval } from "use-interval";
 import axios from "axios";
 
-export default function OffLinePage() {
+export default function OffLinePage(props) {
+  console.log(props);
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const [elevation, setElevation] = useState("calculating...");
+  const [mapSrc, setMapSrc] = useState("./basic_staticAT.png");
 
   function success(position) {
     setLatitude(position.coords.latitude);
-    console.log(position.coords.latitude);
     setLongitude(position.coords.longitude);
   }
 
@@ -55,6 +56,7 @@ export default function OffLinePage() {
   };
 
   setInterval(getLocation, 10000);
+
   return (
     <div>
       <div>
@@ -63,6 +65,7 @@ export default function OffLinePage() {
           Your current coordinates are:
           <p>Latitude:{latitude}</p>
           <p>Longitude:{longitude}</p>
+          <props.StopWatch />
         </p>
       </div>
     </div>

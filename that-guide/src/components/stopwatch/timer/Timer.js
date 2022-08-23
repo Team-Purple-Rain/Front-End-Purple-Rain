@@ -45,7 +45,6 @@ export default function Timer(props) {
       elevation: elevation,
     });
     localStorage.setItem("hike", JSON.stringify(storageBank));
-
   };
 
   const MakeInitialLog = () => {
@@ -67,18 +66,18 @@ export default function Timer(props) {
 
   logTime();
 
-  useEffect(() => {
-    let elevation = document.getElementsByClassName("elevation_div");
-    elevation = elevation[0].id;
-    if (
-      elevation !== "calculating..." &&
-      props.time === 0 &&
-      startDataLogged === false
-    ) {
-      MakeInitialLog();
-      setStartDataLogged(true);
-    }
-  });
+  // useEffect(() => {
+  //   let elevation = document.getElementsByClassName("elevation_div");
+  //   elevation = elevation[0].id;
+  //   if (
+  //     elevation !== "calculating..." &&
+  //     props.time === 0 &&
+  //     startDataLogged === false
+  //   ) {
+  //     MakeInitialLog();
+  //     setStartDataLogged(true);
+  //   }
+  // });
 
   return (
     <div className="timer">

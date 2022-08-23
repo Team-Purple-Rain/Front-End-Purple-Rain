@@ -151,12 +151,12 @@ export default function Map({ latitude, longitude }) {
       });
 
       // change cursor when hovering over the icon
-      map.on("mouseenter", "shelters", () => {
+      map.on("mouseenter", "water-sources", () => {
         map.getCanvas().style.cursor = "pointer";
       });
 
       // Change it back to a pointer when it leaves.
-      map.on("mouseleave", "shelters", () => {
+      map.on("mouseleave", "water-sources", () => {
         map.getCanvas().style.cursor = "";
       });
 

@@ -4,6 +4,7 @@ import useLocalStorageState from "use-local-storage-state";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import "./StartHike.css";
 import Map from "../map/Map";
+import DestinationMap from "../map/DestinationMap";
 import axios from "axios";
 import moment from "moment";
 import LoadingScreen from "react-loading-screen";
@@ -14,7 +15,8 @@ export default function StartHike({
   latitude,
   longitude,
   time,
-  elevation
+  elevation,
+  goalCoords
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -37,6 +39,7 @@ export default function StartHike({
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
   console.log(selectedDistance);
+  console.log(goalCoords)
 
   axios
     .get(`https://thatguide.herokuapp.com/users/me/`, {
@@ -131,7 +134,7 @@ export default function StartHike({
         <div className="location-header">
           <h3>Your Current Hike</h3>
         </div>
-        <Map latitude={latitude} longitude={longitude} />
+        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} />
       </div>
       <div className="second-location-header">
         <></>

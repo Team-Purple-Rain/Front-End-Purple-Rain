@@ -24,8 +24,14 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
-            <p>You're not online</p>
-            <p>Check your internet connection.</p>
+            {!online ? (
+              <div>
+                <p>You're not online</p>
+                <p>Check your internet connection.</p>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

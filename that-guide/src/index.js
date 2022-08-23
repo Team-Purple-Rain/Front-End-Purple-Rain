@@ -4,6 +4,7 @@ import App from "./App";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { BrowserRouter } from "react-router-dom";
 import { Offline } from "../src/components/Offline";
+import { register as registerServiceWorker } from "./components/sw/serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
   </BrowserRouter>
 );
 
+registerServiceWorker();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA

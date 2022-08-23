@@ -18,7 +18,6 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -31,27 +30,6 @@
     <title>T.H.A.T. Guide</title>
   </head>
   <body>
-    <script>
-      window.addEventListener('load', () => {
-        registerSW();
-      });
-   
-      // Register the Service Worker
-      async function registerSW() {
-        if ('serviceWorker' in navigator) {
-          try {
-            await navigator
-                  .serviceWorker
-                  .register('./service-worker.js');
-                  console.log("service worker registered")
-          }
-          
-          catch (e) {
-            console.log('SW registration failed');
-          }
-        }
-      }
-      </script>
     <div id="root"></div>
     
     <!--

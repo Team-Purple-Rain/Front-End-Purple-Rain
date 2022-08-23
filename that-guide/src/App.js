@@ -37,7 +37,7 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [goalCoords, setGoalCoords] = useState([])
+  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [])
 
   function success(position) {
     setLatitude(position.coords.latitude);

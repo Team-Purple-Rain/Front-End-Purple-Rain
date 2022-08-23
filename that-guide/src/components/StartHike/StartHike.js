@@ -31,12 +31,23 @@ export default function StartHike({
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
-
+  // let username = localStorage.getItem("username");
+  let token = localStorage.getItem("auth_token");
   console.log(selectedDistance);
+
+  axios
+    .get(`https://thatguide.herokuapp.com/users/me/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      }
+    })
+    .then((res) => {
+      setHikeUser(res.data.id);
+      console.log(hikeUser);
+    })
 
   const handleStartHike = (event) => {
     console.log("hello button");
-    // event.preventDefault();
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);

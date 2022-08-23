@@ -15,6 +15,8 @@ mapboxgl.accessToken =
 export default function Map({
   latitude,
   longitude,
+  selectedDistance,
+  setSelectedDistance,
   setGoalCoords,
   setHikeType,
   setSelectedHikeType,

@@ -5,7 +5,10 @@ import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
 import {
-  Routes, Route, BrowserRouter as Router, useNavigate,
+  Routes,
+  Route,
+  BrowserRouter as Router,
+  useNavigate,
 } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 import Results from "./components/results/results";
@@ -54,7 +57,7 @@ function App() {
 
   // Token to get elevation on navbar.
   mapboxgl.accessToken =
-  "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
+    "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
   const areYouLoggedIn = localStorage.getItem("log in");
   // console.log(areYouLoggedIn);
@@ -70,7 +73,7 @@ function App() {
   };
 
   const handleSeeProfile = (event) => {
-    navigate("/profile")
+    navigate("/profile");
   };
   const handleNewUser = (event) => {
     navigate("/createuser");
@@ -126,12 +129,12 @@ function App() {
                 </div>
                 <h4>Take on the trail, one hike at a time.</h4>
             </div>
-        <h4>
-          Your Location: {latitude}, {longitude}
-        </h4>
-        <h4 className="elevation_div" id={elevation}>
-          Current Elevation: {elevation}
-        </h4>
+            <h4>
+              Your Location: {latitude}, {longitude}
+            </h4>
+            <h4 className="elevation_div" id={elevation}>
+              Current Elevation: {elevation}
+            </h4>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
                 <Button
@@ -142,9 +145,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleSeeProfile}>Go To Profile</Button>
+                  onClick={handleSeeProfile}
+                >
+                  Go To Profile
+                </Button>
                 <Button
                   startIcon={<LogoutIcon />}
                   variant="contained"
@@ -154,9 +160,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleLogOut}>Log Out</Button>
+                  onClick={handleLogOut}
+                >
+                  Log Out
+                </Button>
               </div>
             ) : (
               <div className="nav-bar" id="overlay">
@@ -168,9 +177,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleNewUser}>Create Profile</Button>
+                  onClick={handleNewUser}
+                >
+                  Create Profile
+                </Button>
                 <Button
                   startIcon={<LoginIcon />}
                   variant="contained"
@@ -180,9 +192,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleLogIn}>Log In</Button>
+                  onClick={handleLogIn}
+                >
+                  Log In
+                </Button>
               </div>
             )}
           </div>
@@ -238,47 +253,33 @@ function App() {
                 />
               }
             />
-            <Route
-              path="/createuser"
-              element={<NewUser />} />
+            <Route path="/createuser" element={<NewUser />} />
             <Route
               path="/login"
-              element={<LogIn
-                setAuth={setAuth}
-                setUsername={setUsername}
-              />} />
+              element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
+            />
             <Route
               path="/logout"
-              element={
-                <LogOut
-                  setAuth={setAuth}
-                  token={token} />}
+              element={<LogOut setAuth={setAuth} token={token} />}
             />
             <Route
               path="/profile"
-              element={<Profile
-                username={username}
-                latitude={latitude}
-                longitude={longitude}
-                token={token}
-                setLatitude={setLatitude}
-                setLongitude={setLongitude}
-              />}
-            />
-            <Route
-              path="/editprofile"
               element={
-                <EditProfile
+                <Profile
                   username={username}
+                  latitude={latitude}
+                  longitude={longitude}
                   token={token}
+                  setLatitude={setLatitude}
+                  setLongitude={setLongitude}
                 />
               }
             />
+            <Route
+              path="/editprofile"
+              element={<EditProfile username={username} token={token} />}
+            />
           </Routes>
-
-
-
-      
     </>
   );
 }

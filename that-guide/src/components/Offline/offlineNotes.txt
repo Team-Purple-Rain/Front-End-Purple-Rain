@@ -1,0 +1,5 @@
+    useEffect(()=>{axios.get(`https://api.mapbox.com/v4/rfrenia.ciiwbq8u/9/1/1.mvt`).then((res)=>console.log(res))})
+    
+    in theory this would be a way to get the vector tiles but this isn't working on insomnia rn for some reason
+
+    "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/[-77.043686,38.892035,-77.028923,38.904192]/400x400?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA"

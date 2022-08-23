@@ -65,26 +65,7 @@ export default function Profile() {
                 <h3> Emergency Contact: </h3>
             </div>
             <div className="results-box">
-                {/* <button onClick={seeAllHikeResults}>See Previous Hike Results</button> */}
-                <div>
-                    <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panel1bh-content"
-                            id="panel1bh-header"
-                        >
-                            <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                                Hike Results.
-                            </Typography>
-                            <Typography sx={{ color: 'text.secondary' }}>Click to see all previous hike results.</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Typography>
-                                <AllHikes />
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
+                <AllHikes />
             </div>
             <br />
             <br />

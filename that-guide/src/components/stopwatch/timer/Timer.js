@@ -44,7 +44,24 @@ export default function Timer(props) {
     }
   };
 
-  const OffLineLocalStorage = ()
+  const OffLineLocalStorage = (time) => {
+    if (!online) {
+      // let timeTraveled = time;
+      // console.log(timeTraveled);
+      // time = time.toString();
+      // time = time.slice(0, -3);
+      storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+      storageBank.push({
+        hike_session: 2,
+        created_at: moment().format(),
+        location: {
+          latitude: props.latitude,
+          longitude: props.longitude,
+        },
+      });
+      localStorage.setItem("hike", JSON.stringify(storageBank));
+    }
+  };
 
   const addToLocalStorage = (time) => {
     if (online) {
@@ -101,6 +118,8 @@ export default function Timer(props) {
       }
     }
   });
+
+  OffLineLocalStorage();
 
   return (
     <div className="timer">

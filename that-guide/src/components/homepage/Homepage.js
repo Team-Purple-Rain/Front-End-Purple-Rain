@@ -18,6 +18,7 @@ export default function Homepage({
   setSelectedDistance,
   latitude,
   longitude,
+  setGoalCoords
 }) {
   const [error, setError] = useState(null);
 
@@ -64,7 +65,8 @@ export default function Homepage({
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
-            <Map latitude={latitude} longitude={longitude} />
+            <Map latitude={latitude} longitude={longitude} setGoalCoords = {setGoalCoords}
+/>
           </div>
         </div>
         <div>

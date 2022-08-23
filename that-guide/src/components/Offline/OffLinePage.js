@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useInterval } from "use-interval";
 import axios from "axios";
+import Map from "../map/Map";
 
 export default function OffLinePage(props) {
   console.log(props);
@@ -97,11 +98,12 @@ export default function OffLinePage(props) {
   return (
     <div>
       <div>
-        <p>You're offline but we're still logging your hike!</p>
-        <p>
+        <div>You're offline but we're still logging your hike!</div>
+        <div>
           Your current coordinates are:
-          <p>Latitude:{latitude}</p>
-          <p>Longitude:{longitude}</p>
+          <div>Latitude:{latitude}</div>
+          <div>Longitude:{longitude}</div>
+          <Map latitude={latitude} longitude={longitude} />
           <props.StopWatch
             latitude={latitude}
             longitude={longitude}
@@ -116,7 +118,7 @@ export default function OffLinePage(props) {
             ID={ID}
             setID={setID}
           ></props.StopWatch>
-        </p>
+        </div>
       </div>
     </div>
   );

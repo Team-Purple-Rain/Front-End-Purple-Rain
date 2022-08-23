@@ -40,6 +40,7 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
+  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [])
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -51,7 +52,7 @@ function App() {
     "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
   const areYouLoggedIn = localStorage.getItem("log in");
-  console.log(areYouLoggedIn);
+  // console.log(areYouLoggedIn);
 
   const navigate = useNavigate();
 
@@ -196,6 +197,8 @@ function App() {
                   selectedDistance={selectedDistance}
                   latitude={latitude}
                   longitude={longitude}
+                  goalCoords = {goalCoords}
+                  setGoalCoords = {setGoalCoords}
                 />
               }
             />
@@ -209,6 +212,7 @@ function App() {
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
                   highestElevation={highestElevation}
+                  goalCoords = {goalCoords}
                 />
               }
             />

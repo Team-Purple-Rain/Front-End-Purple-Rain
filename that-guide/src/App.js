@@ -21,6 +21,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import ".//App.css"
+import Spinner from "react-spinkit";
 
 
 
@@ -78,7 +79,7 @@ function App() {
     navigate("/logout");
   };
 
-  setInterval(getLocation, 10000);
+  // setInterval(getLocation, 10000);
 
   useInterval(() => {
     async function getElevation() {
@@ -105,6 +106,7 @@ function App() {
       setElevation(`${roundedElevation} feet`);
     }
     getElevation();
+    getLocation();
   }, 7000);
 
 

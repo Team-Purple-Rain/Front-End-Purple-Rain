@@ -7,8 +7,8 @@ import Map from "../map/Map";
 import DestinationMap from "../map/DestinationMap";
 import axios from "axios";
 import moment from "moment";
-import LoadingScreen from "react-loading-screen";
 import Button from "@mui/material/Button";
+import Spinner from "react-spinkit";
 
 export default function StartHike({
   selectedDistance,
@@ -113,15 +113,15 @@ export default function StartHike({
 
   if (latitude === "") {
     return (
-      <LoadingScreen
-        loading={true}
-        bgColor="#f1f1f1"
-        spinnerColor="#9ee5f8"
-        textColor="#676767"
-        text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-      />
+      <div
+          style={{
+            display: "flex",
+            marginTop: "200px",
+            justifyContent: "space-between",}}>
+            <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+      </div>
     );
-  }
+}
 
   return (
     <>

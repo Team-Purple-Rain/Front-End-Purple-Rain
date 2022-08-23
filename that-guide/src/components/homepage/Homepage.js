@@ -5,13 +5,13 @@ import Map from "../map/Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Button from "@mui/material/Button";
-import LoadingScreen from "react-loading-screen"
 import TextField from '@mui/material/TextField';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Spinner from "react-spinkit";
 
 
 export default function Homepage({
@@ -51,15 +51,15 @@ export default function Homepage({
 
 
   if (latitude === "") {
-    return (
-      <LoadingScreen
-        loading={true}
-        bgColor="#f1f1f1"
-        spinnerColor="#9ee5f8"
-        textColor="#676767"
-        text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-      />
-    );
+      return (
+        <div
+            style={{
+              display: "flex",
+              marginTop: "200px",
+              justifyContent: "space-between",}}>
+              <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+        </div>
+      );
   }
 
 

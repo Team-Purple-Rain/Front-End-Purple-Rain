@@ -9,6 +9,20 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 function Results({ latitude, longitude }) {
   let { ID } = useParams();
   console.log(ID);
+  const [startLat, setStartLat] = useState(latitude);
+  const [startLong, setStartLong] = useState(longitude);
+  const [hikeUser, setHikeUser] = useState(null);
+  const endHike = useState(null);
+  const [endHikeLat, setEndHikeLat] = useState(latitude);
+  const [endHikeLong, setEndHikeLong] = useState(longitude);
+  const [distanceTraveled, setDistanceTraveled] = useState(null);
+  const [speed, setSpeed] = useState(null);
+  const [timeTraveled, setTimeTraveled] = useState(null);
+  const [elevationChange, setElevationChange] = useState(null);
+
+  let secondsElapsed = localStorage.getItem("time");
+  console.log(secondsElapsed);
+  let time = secondsElapsed / 60;
 
   const navigate = useNavigate();
   const handleResetSave = (event) => {
@@ -29,12 +43,43 @@ function Results({ latitude, longitude }) {
       });
   };
 
-
-
+  axios
+    .get(`https://thatguide.herokuapp.com/map/${ID}/`)
+    .then((res) => {
+      console.log(res);
+      setSpeed(res.data.avg_mph);
+      setElevationChange(res.data.elevation_gain);
+      setDistanceTraveled(res.data.distance_traveled);
+      setEndHikeLat(res.data.end_location.latitude);
+      setEndHikeLong(res.data.end_location.longitude);
+      setStartLat(res.data.start_location.latitude);
+      setStartLong(res.data.start_location.longitude);
+      setTimeTraveled(time);
+      setHikeUser(res.data.username)
+    })
 
   return (
     <>
       <div className="location-header">Your Hike Results</div>
+      <div className="results-stats">
+        <h3>Starting Location: {startLat}, {startLong}
+        </h3>
+        <h3>
+          Ending Location: {endHikeLat}, {endHikeLong}
+        </h3>
+        <h3>
+          Elevation Change: {elevationChange}
+        </h3>
+        <h3>Time Hiking: {timeTraveled}
+        </h3>
+        <h3>
+          Average Pace:
+          {speed}
+        </h3>
+        <h3>
+          Distance Hiked: {distanceTraveled}
+        </h3>
+      </div>
       {/* <Map latitude={latitude} longitude={longitude} /> */}
       <div className="results-buttons">
         <Button

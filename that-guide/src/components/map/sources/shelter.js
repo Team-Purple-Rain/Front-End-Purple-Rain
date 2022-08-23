@@ -928,7 +928,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Knot Maul Branch Shelter",
-        mile: "560.29999999999995",
+        mile: "560.3",
         elevation: "2880'",
         county: "Bland",
         state: "VA",
@@ -1942,7 +1942,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Eckville Shelter",
-        mile: "1234.4000000000001",
+        mile: "1234.4",
         elevation: "600'",
         county: "Berks",
         state: "PA",
@@ -1981,7 +1981,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "George W, Outerbridge Shelter",
-        mile: "1258.5999999999999",
+        mile: "1258.6",
         elevation: "1000'",
         county: "Lehigh",
         state: "PA",
@@ -3541,7 +3541,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "East Branch Lean-to",
-        mile: "2124.1999999999998",
+        mile: "2124.2",
         elevation: "1225'",
         county: "Piscataquis",
         state: "ME",
@@ -3554,7 +3554,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Cooper Brook Falls Lean-to",
-        mile: "2132.3000000000002",
+        mile: "2132.3",
         elevation: "880'",
         county: "Piscataquis",
         state: "ME",
@@ -3567,7 +3567,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Potaywadjo Spring Lean-to",
-        mile: "2143.6999999999998",
+        mile: "2143.7",
         elevation: "710'",
         county: "Piscataquis",
         state: "ME",
@@ -3580,7 +3580,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "Wadleigh Stream Lean-to",
-        mile: "2153.8000000000002",
+        mile: "2153.8",
         elevation: "685'",
         county: "Piscataquis",
         state: "ME",
@@ -3619,7 +3619,7 @@ export const shelter = {
       type: "Feature",
       properties: {
         title: "The Birches Shelters",
-        mile: "2186.8000000000002",
+        mile: "2186.8",
         elevation: "1080'",
         county: "Piscataquis",
         state: "ME",

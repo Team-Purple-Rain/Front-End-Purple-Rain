@@ -20,6 +20,8 @@ import AddIcon from '@mui/icons-material/Add';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import ".//App.css"
+
 
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
+  const [goalCoords, setGoalCoords] = useState([]);
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -50,7 +53,7 @@ function App() {
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
   const areYouLoggedIn = localStorage.getItem("log in");
-  console.log(areYouLoggedIn);
+  // console.log(areYouLoggedIn);
 
   const navigate = useNavigate();
 
@@ -113,8 +116,10 @@ function App() {
         <div className="load-screen">
           <div className="title-header">
             <div className="mountains">
-              <h3>Thru Hiker's Appalachian Trail Guide</h3>
-              <h4>Take on the trail, one hike at a time.</h4>
+              <div className="header-text">
+                <h3>Thru Hiker's Appalachian Trail Guide</h3>
+                </div>
+                <h4>Take on the trail, one hike at a time.</h4>
             </div>
         <h4>
           Your Location: {latitude}, {longitude}
@@ -187,6 +192,8 @@ function App() {
                   selectedDistance={selectedDistance}
                   latitude={latitude}
                   longitude={longitude}
+                  goalCoords = {goalCoords}
+                  setGoalCoords = {setGoalCoords}
                 />
               }
             />
@@ -200,6 +207,7 @@ function App() {
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
                   highestElevation={highestElevation}
+                  goalCoords = {goalCoords}
                 />
               }
             />

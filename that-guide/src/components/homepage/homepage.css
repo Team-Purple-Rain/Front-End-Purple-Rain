@@ -47,6 +47,12 @@ h3 {
   align-items: center;
 }
 
+.dropdown-options {
+  display: flex;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+}
+
 .nav-bar {
   text-align: center;
   display: flex;

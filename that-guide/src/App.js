@@ -45,7 +45,7 @@ function App() {
 
   // Token to get elevation on navbar.
   mapboxgl.accessToken =
-  "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
+    "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
   const areYouLoggedIn = localStorage.getItem("log in");
   console.log(areYouLoggedIn);
@@ -97,7 +97,7 @@ function App() {
       // console.log(elevationConversion);
       let roundedElevation = elevationConversion.toFixed(1);
 
-      setElevation(`${roundedElevation} feet`);
+      setElevation(roundedElevation);
     }
     getElevation();
   }, 7000);
@@ -111,12 +111,12 @@ function App() {
               <h3>Thru Hiker's Appalachian Trail Guide</h3>
               <h4>Take on the trail, one hike at a time.</h4>
             </div>
-        <h4>
-          Your Location: {latitude}, {longitude}
-        </h4>
-        <h4 className="elevation_div" id={elevation}>
-          Current Elevation: {elevation}
-        </h4>
+            <h4>
+              Your Location: {latitude}, {longitude}
+            </h4>
+            <h4 className="elevation_div" id={elevation}>
+              Current Elevation: {elevation} feet
+            </h4>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
                 <Button
@@ -194,6 +194,7 @@ function App() {
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
                   highestElevation={highestElevation}
+                  elevation={elevation}
                 />
               }
             />
@@ -248,7 +249,7 @@ function App() {
         </div>
 
       </div>
-      
+
     </>
   );
 }

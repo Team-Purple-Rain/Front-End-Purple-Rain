@@ -14,6 +14,7 @@ export default function StartHike({
   latitude,
   longitude,
   time,
+  elevation
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -28,9 +29,11 @@ export default function StartHike({
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
+  const [currentElevation, setCurrentElevation] = useState(elevation);
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
+  // const [currentElevation, setCurrentElevation] = useState(elevation);
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
   console.log(selectedDistance);
@@ -58,6 +61,7 @@ export default function StartHike({
           longitude: startLong,
         },
         end_location: endHike,
+        current_elevation: currentElevation,
         hike_user: hikeUser,
       })
       .then((res) => {
@@ -92,6 +96,7 @@ export default function StartHike({
         travel_time: timeTraveled,
         elevation_gain: elevationChange,
         hike_user: hikeUser,
+
       })
       .then((res) => {
         console.log("patched something");
@@ -106,7 +111,7 @@ export default function StartHike({
     navigate("/");
   };
 
-  console.log({ latitude }, { longitude });
+  console.log({ latitude }, { longitude }, { elevation });
 
   if (latitude === "") {
     return (

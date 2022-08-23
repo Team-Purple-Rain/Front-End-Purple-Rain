@@ -62,11 +62,15 @@ function Results({ latitude, longitude }) {
     <>
       <div className="location-header">Your Hike Results</div>
       <div className="results-stats">
-        <h3>Starting Location: {startLat}, {startLong}
-        </h3>
+        <h3>Starting Location:</h3><br />
         <h3>
-          Ending Location: {endHikeLat}, {endHikeLong}
-        </h3>
+          Latitude {startLat}, Longitude {startLong}, Elevation
+        </h3><br />
+        <h3>
+          Ending Location:</h3><br />
+        <h3>
+          Latitude {endHikeLat}, Longitude {endHikeLong}, Elevation
+        </h3><br />
         <h3>
           Elevation Change: {elevationChange}
         </h3>

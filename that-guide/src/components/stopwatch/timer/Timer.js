@@ -33,7 +33,7 @@ export default function Timer(props) {
       // triggers every second
       // i += 1000 * 30;
       // triggers event every 30 seconds
-      if (i === time) {
+      if (i === time && online) {
         i = i.toString();
         i = i.slice(0, -3);
         console.log(i);
@@ -41,13 +41,15 @@ export default function Timer(props) {
         console.log(time);
         localStorage.setItem("time", i);
       }
+      if (i === time && !online) {
+        OffLineLocalStorage(time);
+      }
     }
   };
 
-  const OffLineLocalStorage = (time) => {
+  const OffLineLocalStorage = () => {
+    // let time = props.time;
     if (!online) {
-      // let timeTraveled = time;
-      // console.log(timeTraveled);
       // time = time.toString();
       // time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
@@ -118,8 +120,6 @@ export default function Timer(props) {
       }
     }
   });
-
-  OffLineLocalStorage();
 
   return (
     <div className="timer">

@@ -8,7 +8,6 @@ function NewUser() {
     const handleReturnHome = (event) => {
         navigate("/");
     }
-    const returnHome = useNavigate();
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -26,8 +25,8 @@ function NewUser() {
                 // localStorage.setItem("log in", "true");
                 console.log(res);
                 localStorage.setItem("auth_token", res.data.auth_token);
-                alert("You created a new user! Please log in through the home screen to access all the card features!")
-                returnHome("/")
+                // alert("You created a new user! Please log in through the home screen to access all the card features!")
+                navigate("/login")
             })
             .catch((res) => {
                 let username_error = res.response.data.username;

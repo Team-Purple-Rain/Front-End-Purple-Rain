@@ -20,18 +20,21 @@ function Results({ latitude, longitude }) {
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
   const [elevationChange, setElevationChange] = useState(null);
-
+  const areYouLoggedIn = localStorage.getItem("log in");
   let time = localStorage.getItem("time");
   console.log(time);
 
-
-
-
   const navigate = useNavigate();
+
   const handleResetSave = (event) => {
     localStorage.clear();
-    navigate("/profile");
+    (areYouLoggedIn ? (
+      navigate("/profile")
+    ) : (
+      navigate("/")
+    ))
   };
+
   const handleClearData = () => {
     localStorage.clear();
     axios

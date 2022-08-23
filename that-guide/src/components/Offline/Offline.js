@@ -2,6 +2,7 @@ import { useBooleanState, usePrevious } from "webrix/hooks";
 import { useEffect } from "react";
 import OffLinePage from "./OffLinePage";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
+import Timer from "../stopwatch/timer/Timer";
 
 export default function Offline({ children }) {
   console.log(children);
@@ -27,7 +28,11 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
-            {!online ? <OffLinePage StopWatch={StopWatch} /> : <>{children}</>}
+            {!online ? (
+              <OffLinePage StopWatch={StopWatch} Timer={Timer} />
+            ) : (
+              <>{children}</>
+            )}
           </div>
         </div>
       </div>

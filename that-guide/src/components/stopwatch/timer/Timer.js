@@ -28,10 +28,10 @@ export default function Timer(props) {
   };
 
   const addToLocalStorage = (time) => {
-    let elevation = document.getElementsByClassName("elevation_div");
-    let timeTraveled = time;
-    console.log(timeTraveled);
-    elevation = elevation[0].id;
+    // let elevation = document.getElementsByClassName("elevation_div");
+    // let timeTraveled = time;
+    // console.log(timeTraveled);
+    // elevation = elevation[0].id;
     time = time.toString();
     time = time.slice(0, -3);
     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
@@ -42,7 +42,7 @@ export default function Timer(props) {
         latitude: props.latitude,
         longitude: props.longitude,
       },
-      elevation: elevation,
+      // elevation: elevation,
     });
     localStorage.setItem("hike", JSON.stringify(storageBank));
   };

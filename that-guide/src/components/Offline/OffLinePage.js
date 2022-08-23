@@ -10,6 +10,11 @@ export default function OffLinePage(props) {
   const [latitude, setLatitude] = useState("");
   const [elevation, setElevation] = useState("calculating...");
   const [mapSrc, setMapSrc] = useState("./basic_staticAT.png");
+  const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
+  const [isStarted, setIsStarted] = useState(false);
+  const [isStopped, setIsStopped] = useState(false);
+  const [ID, setID] = useState(null);
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -57,6 +62,38 @@ export default function OffLinePage(props) {
 
   setInterval(getLocation, 10000);
 
+  const handleStartHike = (event) => {
+    console.log("hello button");
+    setIsActive(true);
+    setIsPaused(false);
+    setIsStarted(true);
+    // axios
+    //   .post(`https://thatguide.herokuapp.com/map/`, {
+    //     start_location: {
+    //       latitude: startLat,
+    //       longitude: startLong,
+    //     },
+    //     end_location: endHike,
+    //     hike_user: hikeUser,
+    //   })
+    //   .then((res) => {
+    //     console.log("posted something");
+    //     console.log(res);
+    //     console.log(res.data.id);
+    //     setID(res.data.id);
+    //   });
+  };
+
+  const handlePauseResume = () => {
+    setIsPaused(!isPaused);
+  };
+
+  const handleStop = () => {
+    // console.log(ID);
+
+    setIsPaused(true);
+  };
+
   return (
     <div>
       <div>
@@ -65,7 +102,20 @@ export default function OffLinePage(props) {
           Your current coordinates are:
           <p>Latitude:{latitude}</p>
           <p>Longitude:{longitude}</p>
-          <props.StopWatch />
+          <props.StopWatch
+            latitude={latitude}
+            longitude={longitude}
+            handleStartHike={handleStartHike}
+            isActive={isActive}
+            isPaused={isPaused}
+            setIsActive={setIsActive}
+            setIsPaused={setIsPaused}
+            handlePauseResume={handlePauseResume}
+            isStarted={isStarted}
+            handleStop={handleStop}
+            ID={ID}
+            setID={setID}
+          ></props.StopWatch>
         </p>
       </div>
     </div>

@@ -2,8 +2,25 @@ import React from "react";
 import "./Timer.css";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import { useBooleanState, usePrevious } from "webrix/hooks";
 
 export default function Timer(props) {
+  const {
+    value: online,
+    setFalse: setOffline,
+    setTrue: setOnline,
+  } = useBooleanState(navigator.onLine);
+  const previousOnline = usePrevious(online);
+
+  useEffect(() => {
+    window.addEventListener("online", setOnline);
+    window.addEventListener("offline", setOffline);
+
+    return () => {
+      window.removeEventListener("online", setOnline);
+      window.removeEventListener("offline", setOffline);
+    };
+  }, []);
   const [startDataLogged, setStartDataLogged] = useState(false);
   const [setTimeTraveled] = useState(null);
   let storageBank = [];
@@ -27,24 +44,28 @@ export default function Timer(props) {
     }
   };
 
+  const OffLineLocalStorage = ()
+
   const addToLocalStorage = (time) => {
-    // let elevation = document.getElementsByClassName("elevation_div");
-    // let timeTraveled = time;
-    // console.log(timeTraveled);
-    // elevation = elevation[0].id;
-    time = time.toString();
-    time = time.slice(0, -3);
-    storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-    storageBank.push({
-      hike_session: 2,
-      created_at: moment().format(),
-      location: {
-        latitude: props.latitude,
-        longitude: props.longitude,
-      },
-      // elevation: elevation,
-    });
-    localStorage.setItem("hike", JSON.stringify(storageBank));
+    if (online) {
+      let elevation = document.getElementsByClassName("elevation_div");
+      let timeTraveled = time;
+      console.log(timeTraveled);
+      elevation = elevation[0].id;
+      time = time.toString();
+      time = time.slice(0, -3);
+      storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+      storageBank.push({
+        hike_session: 2,
+        created_at: moment().format(),
+        location: {
+          latitude: props.latitude,
+          longitude: props.longitude,
+        },
+        elevation: elevation,
+      });
+      localStorage.setItem("hike", JSON.stringify(storageBank));
+    }
   };
 
   const MakeInitialLog = () => {
@@ -66,18 +87,20 @@ export default function Timer(props) {
 
   logTime();
 
-  // useEffect(() => {
-  //   let elevation = document.getElementsByClassName("elevation_div");
-  //   elevation = elevation[0].id;
-  //   if (
-  //     elevation !== "calculating..." &&
-  //     props.time === 0 &&
-  //     startDataLogged === false
-  //   ) {
-  //     MakeInitialLog();
-  //     setStartDataLogged(true);
-  //   }
-  // });
+  useEffect(() => {
+    if (online) {
+      let elevation = document.getElementsByClassName("elevation_div");
+      elevation = elevation[0].id;
+      if (
+        elevation !== "calculating..." &&
+        props.time === 0 &&
+        startDataLogged === false
+      ) {
+        MakeInitialLog();
+        setStartDataLogged(true);
+      }
+    }
+  });
 
   return (
     <div className="timer">

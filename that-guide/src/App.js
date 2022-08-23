@@ -5,7 +5,10 @@ import axios from "axios";
 import Homepage from "./components/homepage/Homepage";
 import StartHike from "./components/StartHike/StartHike";
 import {
-  Routes, Route, BrowserRouter as Router, useNavigate,
+  Routes,
+  Route,
+  BrowserRouter as Router,
+  useNavigate,
 } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 import Results from "./components/results/results";
@@ -14,11 +17,11 @@ import NewUser from "./components/users/newUser";
 import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
 import EditProfile from "./components/profile/editProfile";
-import Button from "@mui/material/Button"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AddIcon from '@mui/icons-material/Add';
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
+import Button from "@mui/material/Button";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddIcon from "@mui/icons-material/Add";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -37,7 +40,7 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [goalCoords, setGoalCoords] = useState([])
+  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [])
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -62,7 +65,7 @@ function App() {
   };
 
   const handleSeeProfile = (event) => {
-    navigate("/profile")
+    navigate("/profile");
   };
   const handleNewUser = (event) => {
     navigate("/createuser");
@@ -116,7 +119,9 @@ function App() {
               Your Location: {latitude}, {longitude}
             </h4>
             <h4 className="elevation_div" id={elevation}>
+
               Current Elevation: {elevation} feet
+
             </h4>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
@@ -128,9 +133,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleSeeProfile}>Go To Profile</Button>
+                  onClick={handleSeeProfile}
+                >
+                  Go To Profile
+                </Button>
                 <Button
                   startIcon={<LogoutIcon />}
                   variant="contained"
@@ -140,9 +148,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleLogOut}>Log Out</Button>
+                  onClick={handleLogOut}
+                >
+                  Log Out
+                </Button>
               </div>
             ) : (
               <div className="nav-bar" id="overlay">
@@ -154,9 +165,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleNewUser}>Create Profile</Button>
+                  onClick={handleNewUser}
+                >
+                  Create Profile
+                </Button>
                 <Button
                   startIcon={<LoginIcon />}
                   variant="contained"
@@ -166,9 +180,12 @@ function App() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                   }}
-                  onClick={handleLogIn}>Log In</Button>
+                  onClick={handleLogIn}
+                >
+                  Log In
+                </Button>
               </div>
             )}
           </div>
@@ -213,47 +230,35 @@ function App() {
                 />
               }
             />
-            <Route
-              path="/createuser"
-              element={<NewUser />} />
+            <Route path="/createuser" element={<NewUser />} />
             <Route
               path="/login"
-              element={<LogIn
-                setAuth={setAuth}
-                setUsername={setUsername}
-              />} />
+              element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
+            />
             <Route
               path="/logout"
-              element={
-                <LogOut
-                  setAuth={setAuth}
-                  token={token} />}
+              element={<LogOut setAuth={setAuth} token={token} />}
             />
             <Route
               path="/profile"
-              element={<Profile
-                username={username}
-                latitude={latitude}
-                longitude={longitude}
-                token={token}
-                setLatitude={setLatitude}
-                setLongitude={setLongitude}
-              />}
-            />
-            <Route
-              path="/editprofile"
               element={
-                <EditProfile
+                <Profile
                   username={username}
+                  latitude={latitude}
+                  longitude={longitude}
                   token={token}
+                  setLatitude={setLatitude}
+                  setLongitude={setLongitude}
                 />
               }
             />
+            <Route
+              path="/editprofile"
+              element={<EditProfile username={username} token={token} />}
+            />
           </Routes>
         </div>
-
       </div>
-
     </>
   );
 }

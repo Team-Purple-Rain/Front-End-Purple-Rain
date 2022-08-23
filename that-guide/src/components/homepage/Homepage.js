@@ -1,18 +1,17 @@
-import * as React from 'react';
+import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Map from "../map/Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Button from "@mui/material/Button";
-import LoadingScreen from "react-loading-screen"
-import TextField from '@mui/material/TextField';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import LoadingScreen from "react-loading-screen";
+import TextField from "@mui/material/TextField";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function Homepage({
   selectedDistance,
@@ -72,31 +71,48 @@ export default function Homepage({
         </div>
         <div>
           <h4 className="options">How do you want to hike today?</h4>
-          <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+
+          <Accordion
+            expanded={expanded === "panel1"}
+            onChange={handleChange("panel1")}
+          >
+
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
             >
-              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+
+              <Typography sx={{ width: "33%", flexShrink: 0 }}>
                 Select a destination.
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>Choose your goal stop in the map above.</Typography>
+              <Typography sx={{ color: "text.secondary" }}>
+                Choose your goal stop in the map above.
+              </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Click your desired water or shelter stop in the map above to start your hike.
+                Click your desired water or shelter stop in the map above to
+                start your hike.
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+          <Accordion
+            expanded={expanded === "panel2"}
+            onChange={handleChange("panel2")}
+          >
+
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2bh-content"
               id="panel2bh-header"
             >
-              <Typography sx={{ width: '33%', flexShrink: 0 }}>Set a distance.</Typography>
-              <Typography sx={{ color: 'text.secondary' }}>
+
+              <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                Set a distance.
+              </Typography>
+              <Typography sx={{ color: "text.secondary" }}>
+
                 Choose a distance you want to hike in miles.
               </Typography>
             </AccordionSummary>
@@ -104,8 +120,12 @@ export default function Homepage({
               <Typography>
                 <div className="dropdown-options">
                   <h4>I want to hike</h4>
-                  <form id="select-distance" onSubmit={setSelectedDistance}>
-                  </form>
+
+                  <form
+                    id="select-distance"
+                    onSubmit={setSelectedDistance}
+                  ></form>
+
                   <div className="hike-starter-container">
                     <TextField
                       label="Type desired distance"
@@ -141,19 +161,24 @@ export default function Homepage({
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+
+          <Accordion
+            expanded={expanded === "panel3"}
+            onChange={handleChange("panel3")}
+          >
+
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel3bh-content"
               id="panel3bh-header"
             >
-              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+
+              <Typography sx={{ width: "33%", flexShrink: 0 }}>
                 Freeform hike.
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>
-                Choose this option to track a hike without a goal
-                distance. Hiking results will be shown after pressing "Stop
-                Hike."
+              <Typography sx={{ color: "text.secondary" }}>
+                Choose this option to track a hike without a goal distance.
+                Hiking results will be shown after pressing "Stop Hike."
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

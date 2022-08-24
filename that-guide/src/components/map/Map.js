@@ -32,10 +32,10 @@ export default function Map({
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
-  // const bounds = [
-  //   [-85.617648, 33.257538],
-  //   [-73.043655, 37.702501],
-  // ];
+  const bounds = [
+    [-87.828608, 30.528864],
+    [-62.377714, 50.682435]
+  ];
 
   useEffect(() => {
     // creating new map with style and center location
@@ -44,10 +44,10 @@ export default function Map({
       style: "mapbox://styles/rfrenia/cl6zh412n000614qw9xqdrr6n",
       center: [longitude, latitude],
       zoom: zoom,
-      // maxBounds: bounds,
+      maxBounds: bounds,
     });
 
-    // map.addControl(new mapboxgl.NavigationControl(), "top-right");
+    // adding a scale to the map
     const scale = new mapboxgl.ScaleControl({
       maxWidth: 80,
       unit: "imperial",

@@ -109,7 +109,7 @@ function App() {
       // console.log(elevationConversion);
       let roundedElevation = elevationConversion.toFixed(1);
 
-      setElevation(`${roundedElevation} feet`);
+      setElevation(roundedElevation);
     }
     getElevation();
     getLocation();
@@ -242,6 +242,7 @@ function App() {
                   selectedHikeType={selectedHikeType}
                   setSelectedHikeType={setSelectedHikeType}
                   destination={destination}
+                  elevation={elevation}
                 />
               }
             />

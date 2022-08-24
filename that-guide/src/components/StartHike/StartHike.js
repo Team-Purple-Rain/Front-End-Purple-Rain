@@ -9,6 +9,7 @@ import axios from "axios";
 import moment from "moment";
 import Button from "@mui/material/Button";
 import Spinner from "react-spinkit";
+import { timeout } from "workbox-core/_private";
 
 export default function StartHike({
   selectedDistance,
@@ -24,6 +25,7 @@ export default function StartHike({
   elevation,
   destinationType,
 }) {
+
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
@@ -41,50 +43,68 @@ export default function StartHike({
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
+  const hikeSession = ID;
   // const [currentElevation, setCurrentElevation] = useState(elevation);
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
   // console.log(selectedDistance);
   // console.log(goalCoords)
 
-  axios
-    .get(`https://thatguide.herokuapp.com/users/me/`, {
-      headers: {
-        Authorization: `Token ${token}`,
-      }
-    })
-    .then((res) => {
-      setHikeUser(res.data.id);
-      console.log(hikeUser);
-    })
+  // axios
+  //   .get(`https://thatguide.herokuapp.com/users/me/`, {
+  //     headers: {
+  //       Authorization: `Token ${token}`,
+  //     }
+  //   })
+  //   .then((res) => {
+  //     setHikeUser(res.data.id);
+  //     console.log(hikeUser);
+  //   })
 
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
-    axios
-      .post(`https://thatguide.herokuapp.com/map/`, {
-        start_location: {
-          latitude: startLat,
-          longitude: startLong,
-        },
-        end_location: endHike,
-        current_elevation: currentElevation,
-        hike_user: hikeUser,
-      })
-      .then((res) => {
-        console.log("posted something");
-        console.log(res);
-        console.log(res.data.id);
-        setID(res.data.id);
-      });
-  };
+    if (elevation != "calculating...") {
+      axios
+        .post(`https://thatguide.herokuapp.com/map/`, {
+          start_location: {
+            latitude: startLat,
+            longitude: startLong,
+          },
+          end_location: endHike,
+          current_elevation: currentElevation,
+          hike_user: hikeUser,
+        })
+        .then((res) => {
+          console.log("posted something");
+          setID(res.data.id);
+        });
+    }
+  }
+
+
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
     setIsPaused(!isPaused);
   };
+
+  const hitCheckpoint = () => {
+    // let checkTime = props.time;
+    // while (i <= 20000000) {
+    //   i += 1000 * 10;
+    axios
+      .post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+        location: {
+          latitude: latitude,
+          longitude: longitude
+        },
+        current_elevation: currentElevation,
+        hike_session: hikeSession
+      })
+  }
 
   const handleStop = () => {
     // console.log(ID);
@@ -125,16 +145,17 @@ export default function StartHike({
   if (latitude === "") {
     return (
       <div
-          style={{
-            display: "flex",
-            marginTop: "200px",
-            justifyContent: "space-between",}}>
-            <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+        style={{
+          display: "flex",
+          marginTop: "200px",
+          justifyContent: "space-between",
+        }}>
+        <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
       </div>
     );
-};
+  };
 
-console.log({destination})
+  console.log({ destination })
 
 
 
@@ -144,33 +165,34 @@ console.log({destination})
     <>
       <div>
         {hikeType === "Destination Hike"
-          ? <h3 className="options">Your hike to {destinationType}: {destination}</h3>
-        : <h3 className="options">Your Current {hikeType}</h3>}
 
-        </div>
-        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} handleStop={handleStop}/>
+          ? <h3 className="options">Your hike to {destinationType}: {destination}</h3>
+          : <h3 className="options">Your Current {hikeType}</h3>}
+
+      </div>
+      <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} handleStop={handleStop} />
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
           <div>
-          <h2>Goal distance: {selectedDistance} miles</h2>
-          <div className="distance-hiked">
-            <h4>Distance Hiked: (distance user has hiked)</h4>
-          </div>
-          <div className="distance-remaining">
-            <h4>
-              Distance Remaining: ({selectedDistance} miles - distance user
-              has hiked)
-            </h4>
-          </div>
-          </div>
-        ) : hikeType === "Freeform Hike" ? ( <div className="alert">
-          <h4>Your final stats will be displayed at the end of your hike.</h4>
-          </div>
-        ) : (
+            <h2>Goal distance: {selectedDistance} miles</h2>
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>
-            </div>)}
+            </div>
+            <div className="distance-remaining">
+              <h4>
+                Distance Remaining: ({selectedDistance} miles - distance user
+                has hiked)
+              </h4>
+            </div>
+          </div>
+        ) : hikeType === "Freeform Hike" ? (<div className="alert">
+          <h4>Your final stats will be displayed at the end of your hike.</h4>
+        </div>
+        ) : (
+          <div className="distance-hiked">
+            <h4>Distance Hiked: (distance user has hiked)</h4>
+          </div>)}
 
         <div className="whole-stats-container">
           <div className="right-container">
@@ -190,6 +212,7 @@ console.log({destination})
                 setID={setID}
               />
             </div>
+            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
           </div>
         </div>
         <Button

@@ -17,16 +17,14 @@ import NewUser from "./components/users/newUser";
 import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
 import EditProfile from "./components/profile/editProfile";
-import Button from "@mui/material/Button"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AddIcon from '@mui/icons-material/Add';
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import ".//App.css"
+import Button from "@mui/material/Button";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddIcon from "@mui/icons-material/Add";
+import LoginIcon from "@mui/icons-material/Login";
+import LogoutIcon from "@mui/icons-material/Logout";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import ".//App.css";
 import Spinner from "react-spinkit";
-
-
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -45,11 +43,17 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [0, 0])
-  const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
-  const [selectedHikeType, setSelectedHikeType] = useState(null)
-  const [destination, setDestination] = useLocalStorageState("destination", "")
-  const [destinationType, setDestinationType] = useLocalStorageState("destinationType", "")
+  const [goalCoords, setGoalCoords] = useLocalStorageState(
+    "goalCoords",
+    [0, 0]
+  );
+  const [hikeType, setHikeType] = useLocalStorageState("hikeType", "");
+  const [selectedHikeType, setSelectedHikeType] = useState(null);
+  const [destination, setDestination] = useLocalStorageState("destination", "");
+  const [destinationType, setDestinationType] = useLocalStorageState(
+    "destinationType",
+    ""
+  );
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -116,7 +120,6 @@ function App() {
     getLocation();
   }, 7000);
 
-
   return (
     <>
       <div className="background">
@@ -127,7 +130,9 @@ function App() {
                 <h3>Thru Hiker's Appalachian Trail Guide</h3>
               </div>
               <div>
-                <h4 className="header-style">Take on the trail, one hike at a time.</h4>
+                <h4 className="header-style">
+                  Take on the trail, one hike at a time.
+                </h4>
 
                 <h4 className="header-style">
                   Your Location: {latitude}, {longitude}
@@ -203,7 +208,6 @@ function App() {
               </div>
             )}
           </div>
-
         </div>
       </div>
       <Routes>
@@ -263,9 +267,6 @@ function App() {
         <Route
           path="/login"
           element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
-
-        />
-          }
         />
         <Route
           path="/starthike"

@@ -8,6 +8,7 @@ import { shelter } from "./sources/shelter";
 import myImage from "./mapIcons/smol.png";
 import waterImage from "./mapIcons/smolwater.png";
 import Button from "@mui/material/Button";
+import { useBooleanState, usePrevious } from "webrix/hooks";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
@@ -21,8 +22,25 @@ export default function Map({
   setHikeType,
   setSelectedHikeType,
   setDestination,
-  setDestinationType
+  setDestinationType,
 }) {
+  const {
+    value: online,
+    setFalse: setOffline,
+    setTrue: setOnline,
+  } = useBooleanState(navigator.onLine);
+  const previousOnline = usePrevious(online);
+
+  useEffect(() => {
+    window.addEventListener("online", setOnline);
+    window.addEventListener("offline", setOffline);
+
+    return () => {
+      window.removeEventListener("online", setOnline);
+      window.removeEventListener("offline", setOffline);
+    };
+  }, []);
+
   // console.log(latitude);
   // console.log(longitude);
   const navigate = useNavigate();
@@ -35,7 +53,7 @@ export default function Map({
 
   const bounds = [
     [-87.828608, 30.528864],
-    [-62.377714, 50.682435]
+    [-62.377714, 50.682435],
   ];
 
   useEffect(() => {
@@ -55,7 +73,6 @@ export default function Map({
     });
     map.addControl(scale);
     scale.setUnit("imperial");
-
     // adding navigation control box to map
     map.addControl(new mapboxgl.NavigationControl());
 
@@ -87,11 +104,11 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              (e.features[0].properties.latitude-.1),
+              e.features[0].properties.latitude - 0.1,
             ],
           });
-          
-          const title = e.features[0].properties.title
+
+          const title = e.features[0].properties.title;
           const coordinates = e.features[0].geometry.coordinates.slice();
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -119,7 +136,6 @@ export default function Map({
           });
         });
       });
-
 
       // change cursor when hovering over the icon
       map.on("mouseenter", "shelters", () => {
@@ -160,12 +176,12 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              (e.features[0].properties.latitude-.1),
+              e.features[0].properties.latitude - 0.1,
             ],
           });
 
           const coordinates = e.features[0].geometry.coordinates.slice();
-          const title = e.features[0].properties.title
+          const title = e.features[0].properties.title;
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -188,7 +204,8 @@ export default function Map({
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
             setDestination(title);
-            setDestinationType("Water Source")
+
+            setDestinationType("Water Source");
           });
         });
       });
@@ -233,30 +250,32 @@ export default function Map({
   }
 
   useInterval(() => {
-    async function getElevation() {
-      // Construct the API request.
-      const query = await fetch(
-        `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${longitude},${latitude}.json?layers=contour&radius=3&limit=10&access_token=${mapboxgl.accessToken}`,
-        { method: "GET" }
-      );
-      if (query.status !== 200) return;
-      const data = await query.json();
-      // Get all the returned features.
-      const allFeatures = data.features;
-      // console.log(allFeatures);
-      // For each returned feature, add elevation data to the elevations array.
-      const elevations = allFeatures.map((feature) => feature.properties.ele);
-      // console.log(elevations);
-      // In the elevations array, find the largest value.
-      const highestElevation = Math.max(...elevations);
+    if (online) {
+      async function getElevation() {
+        // Construct the API request.
+        const query = await fetch(
+          `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${longitude},${latitude}.json?layers=contour&radius=3&limit=10&access_token=${mapboxgl.accessToken}`,
+          { method: "GET" }
+        );
+        if (query.status !== 200) return;
+        const data = await query.json();
+        // Get all the returned features.
+        const allFeatures = data.features;
+        // console.log(allFeatures);
+        // For each returned feature, add elevation data to the elevations array.
+        const elevations = allFeatures.map((feature) => feature.properties.ele);
+        // console.log(elevations);
+        // In the elevations array, find the largest value.
+        const highestElevation = Math.max(...elevations);
 
-      const elevationConversion = highestElevation * 3.28;
-      // console.log(elevationConversion);
-      let roundedElevation = elevationConversion.toFixed(1);
+        const elevationConversion = highestElevation * 3.28;
+        // console.log(elevationConversion);
+        let roundedElevation = elevationConversion.toFixed(0);
 
-      setElevation(`${roundedElevation} feet`);
+        setElevation(roundedElevation);
+      }
+      getElevation();
     }
-    getElevation();
   }, 7000);
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));

@@ -25,7 +25,6 @@ export default function StartHike({
   elevation,
   destinationType,
 }) {
-
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
@@ -66,6 +65,7 @@ export default function StartHike({
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
+
     if (elevation != "calculating...") {
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
@@ -82,9 +82,7 @@ export default function StartHike({
           setID(res.data.id);
         });
     }
-  }
-
-
+  };
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
@@ -95,16 +93,15 @@ export default function StartHike({
     // let checkTime = props.time;
     // while (i <= 20000000) {
     //   i += 1000 * 10;
-    axios
-      .post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
-        location: {
-          latitude: latitude,
-          longitude: longitude
-        },
-        current_elevation: currentElevation,
-        hike_session: hikeSession
-      })
-  }
+    axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+      location: {
+        latitude: latitude,
+        longitude: longitude,
+      },
+      current_elevation: currentElevation,
+      hike_session: hikeSession,
+    });
+  };
 
   const handleStop = () => {
     // console.log(ID);
@@ -125,7 +122,6 @@ export default function StartHike({
         travel_time: timeTraveled,
         elevation_gain: elevationChange,
         hike_user: hikeUser,
-
       })
       .then((res) => {
         console.log("patched something");
@@ -149,28 +145,38 @@ export default function StartHike({
           display: "flex",
           marginTop: "200px",
           justifyContent: "space-between",
-        }}>
-        <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+        }}
+      >
+        <Spinner
+          name="circle"
+          style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }}
+        />
       </div>
     );
-  };
+  }
 
-  console.log({ destination })
+  console.log({ destination });
 
-
-
-  console.log(goalCoords)
+  console.log(goalCoords);
 
   return (
     <>
       <div>
-        {hikeType === "Destination Hike"
-
-          ? <h3 className="options">Your hike to {destinationType}: {destination}</h3>
-          : <h3 className="options">Your Current {hikeType}</h3>}
-
+        {hikeType === "Destination Hike" ? (
+          <h3 className="options">
+            Your hike to {destinationType}: {destination}
+          </h3>
+        ) : (
+          <h3 className="options">Your Current {hikeType}</h3>
+        )}
       </div>
-      <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} handleStop={handleStop} />
+      <DestinationMap
+        latitude={latitude}
+        longitude={longitude}
+        goalCoords={goalCoords}
+        handleStop={handleStop}
+      />
+      =
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
@@ -186,13 +192,15 @@ export default function StartHike({
               </h4>
             </div>
           </div>
-        ) : hikeType === "Freeform Hike" ? (<div className="alert">
-          <h4>Your final stats will be displayed at the end of your hike.</h4>
-        </div>
+        ) : hikeType === "Freeform Hike" ? (
+          <div className="alert">
+            <h4>Your final stats will be displayed at the end of your hike.</h4>
+          </div>
         ) : (
           <div className="distance-hiked">
             <h4>Distance Hiked: (distance user has hiked)</h4>
-          </div>)}
+          </div>
+        )}
 
         <div className="whole-stats-container">
           <div className="right-container">

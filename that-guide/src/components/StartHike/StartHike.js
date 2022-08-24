@@ -35,8 +35,8 @@ export default function StartHike({
   const [ID, setID] = useState(null);
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
-  console.log(selectedDistance);
-  console.log(goalCoords)
+  // console.log(selectedDistance);
+  // console.log(goalCoords)
 
   axios
     .get(`https://thatguide.herokuapp.com/users/me/`, {

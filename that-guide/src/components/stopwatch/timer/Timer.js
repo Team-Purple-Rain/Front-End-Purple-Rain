@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import { useBooleanState, usePrevious } from "webrix/hooks";
 
-
 export default function Timer(props) {
   const {
     value: online,
@@ -48,7 +47,6 @@ export default function Timer(props) {
     }
   };
 
-
   // const addToLocalStorage = (time) => {
   //   let elevation = document.getElementsByClassName("elevation_div");
   //   let timeTraveled = time;
@@ -83,7 +81,6 @@ export default function Timer(props) {
       localStorage.setItem("hike", JSON.stringify(storageBank));
     }
   };
-
 
   const addToLocalStorage = (time) => {
     if (online) {

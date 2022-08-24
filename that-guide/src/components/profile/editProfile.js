@@ -10,36 +10,40 @@ function EditProfile() {
     const handleDiscardChanges = (event) => {
         navigate("/profile");
     }
-    const [email, setEmail] = useState(null);
-    const [phone, setPhone] = useState(null);
     const [preferredPace, setPreferredPace] = useState(null);
     const [experience, setExperience] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [newEmail, setNewEmail] = useState(null);
+    const [newPhone, setNewPhone] = useState(null);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
+    const [newFirstName, setNewFirstName] = useState(null);
+    const [newLastName, setNewLastName] = useState(null);
 
-    //     axios
-    //         .get(`https://thatguide.herokuapp.com/users/me/`, {
-    //             headers: {
-    //                 Authorization: `Token ${token}`,
-    //             }
-    //         })
-    //         .then((res) => {
-    //             setEmail(res.data.email);
-    //             setPhone(res.data.phone);
-    //             setFirstName(res.data.first_name);
-    //             setLastName(res.data.last_name);
-    //         })
-    //     ;
+    axios
+        .get(`https://thatguide.herokuapp.com/users/me/`, {
+            headers: {
+                Authorization: `Token ${token}`,
+            }
+        })
+        .then((res) => {
+            setEmail(res.data.email);
+            setPhone(res.data.phone);
+            setFirstName(res.data.first_name);
+            setLastName(res.data.last_name);
+        })
+        ;
 
     const handleSaveChanges = (event) => {
         axios
             .patch(`https://thatguide.herokuapp.com/users/me/`, {
-                email: email,
-                phone: phone,
+                email: newEmail,
+                phone: newPhone,
                 pace_list: preferredPace,
                 experience_list: experience,
-                first_name: firstName,
-                last_name: lastName
+                first_name: newFirstName,
+                last_name: newLastName
             },
                 {
                     headers: {
@@ -66,20 +70,20 @@ function EditProfile() {
             <input
                 type="text"
                 name="first"
-                value={firstName}
-                // placeholder={firstName}
+                // value={firstName}
+                placeholder={firstName}
                 required
-                onChange={(event) => setFirstName(event.target.value)}
+                onChange={(event) => setNewFirstName(event.target.value)}
             />
             <br />
             <br />
             <label>Last Name  </label>
             <input
                 type="text"
-                // placeholder={lastName}
-                value={lastName}
+                placeholder={lastName}
+                // value={lastName}
                 required
-                onChange={(event) => setLastName(event.target.value)}
+                onChange={(event) => setNewLastName(event.target.value)}
             />
             <br />
             <br />
@@ -88,7 +92,7 @@ function EditProfile() {
                 type="text"
                 value={email}
                 placeholder={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(event) => setNewEmail(event.target.value)}
             />
             <br />
             <br />
@@ -97,7 +101,7 @@ function EditProfile() {
                 type="text"
                 placeholder={phone}
                 value={phone}
-                onChange={(event) => setPhone(event.target.value)}
+                onChange={(event) => setNewPhone(event.target.value)}
             />
             <br />
             <br />

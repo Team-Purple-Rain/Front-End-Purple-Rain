@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import { useBooleanState, usePrevious } from "webrix/hooks";
 
+
 export default function Timer(props) {
   const {
     value: online,
@@ -47,6 +48,24 @@ export default function Timer(props) {
     }
   };
 
+
+  // const addToLocalStorage = (time) => {
+  //   let elevation = document.getElementsByClassName("elevation_div");
+  //   let timeTraveled = time;
+  //   console.log(timeTraveled);
+  //   elevation = elevation[0].id;
+  //   time = time.toString();
+  //   time = time.slice(0, -3);
+  //   storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+  //   storageBank.push({
+  //     seconds_elapsed: time,
+  //     setTimestamp: moment().format("MMMM Do YYYY, h:mm:ss a"),
+  //     longitude: props.longitude,
+  //     latitude: props.latitude,
+  //     elevation: elevation,
+  //   });
+  //   localStorage.setItem("hike", JSON.stringify(storageBank));
+
   const OffLineLocalStorage = () => {
     // let time = props.time;
     if (!online) {
@@ -64,6 +83,7 @@ export default function Timer(props) {
       localStorage.setItem("hike", JSON.stringify(storageBank));
     }
   };
+
 
   const addToLocalStorage = (time) => {
     if (online) {

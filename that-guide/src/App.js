@@ -101,7 +101,7 @@ function App() {
       // console.log(elevationConversion);
       let roundedElevation = elevationConversion.toFixed(1);
 
-      setElevation(`${roundedElevation} feet`);
+      setElevation(roundedElevation);
     }
     getElevation();
   }, 7000);
@@ -119,7 +119,9 @@ function App() {
               Your Location: {latitude}, {longitude}
             </h4>
             <h4 className="elevation_div" id={elevation}>
-              Current Elevation: {elevation}
+
+              Current Elevation: {elevation} feet
+
             </h4>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
@@ -197,8 +199,8 @@ function App() {
                   selectedDistance={selectedDistance}
                   latitude={latitude}
                   longitude={longitude}
-                  goalCoords = {goalCoords}
-                  setGoalCoords = {setGoalCoords}
+                  goalCoords={goalCoords}
+                  setGoalCoords={setGoalCoords}
                 />
               }
             />
@@ -212,7 +214,8 @@ function App() {
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
                   highestElevation={highestElevation}
-                  goalCoords = {goalCoords}
+                  elevation={elevation}
+                  goalCoords={goalCoords}
                 />
               }
             />

@@ -65,21 +65,24 @@ export default function Homepage({
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
-            <Map latitude={latitude} longitude={longitude} setGoalCoords = {setGoalCoords}
-/>
+            <Map latitude={latitude} longitude={longitude} setGoalCoords={setGoalCoords}
+            />
           </div>
         </div>
         <div>
           <h4 className="options">How do you want to hike today?</h4>
+
           <Accordion
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
+
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
             >
+
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
                 Select a destination.
               </Typography>
@@ -98,15 +101,18 @@ export default function Homepage({
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
           >
+
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2bh-content"
               id="panel2bh-header"
             >
+
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
                 Set a distance.
               </Typography>
               <Typography sx={{ color: "text.secondary" }}>
+
                 Choose a distance you want to hike in miles.
               </Typography>
             </AccordionSummary>
@@ -114,10 +120,12 @@ export default function Homepage({
               <Typography>
                 <div className="dropdown-options">
                   <h4>I want to hike</h4>
+
                   <form
                     id="select-distance"
                     onSubmit={setSelectedDistance}
                   ></form>
+
                   <div className="hike-starter-container">
                     <TextField
                       label="Type desired distance"
@@ -153,15 +161,18 @@ export default function Homepage({
               </Typography>
             </AccordionDetails>
           </Accordion>
+
           <Accordion
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
+
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel3bh-content"
               id="panel3bh-header"
             >
+
               <Typography sx={{ width: "33%", flexShrink: 0 }}>
                 Freeform hike.
               </Typography>

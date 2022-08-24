@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./results.css"
 import Map from "../map/Map";
 import axios from "axios";
 import Button from "@mui/material/Button"
@@ -27,7 +28,7 @@ function Results({ latitude, longitude }) {
   const navigate = useNavigate();
 
   const handleResetSave = (event) => {
-    localStorage.clear();
+    // localStorage.clear();
     (areYouLoggedIn ? (
       navigate("/profile")
     ) : (
@@ -36,7 +37,7 @@ function Results({ latitude, longitude }) {
   };
 
   const handleClearData = () => {
-    localStorage.clear();
+    // localStorage.clear();
     axios
       .delete(`https://thatguide.herokuapp.com/map/${ID}/`, {
         headers: {
@@ -49,6 +50,13 @@ function Results({ latitude, longitude }) {
       });
   };
 
+const newTime = new Date(null);
+newTime.setSeconds(time); 
+const properTime = newTime.toISOString().substr(11, 8);
+
+console.log(properTime)
+
+
   axios
     .get(`https://thatguide.herokuapp.com/map/${ID}/`)
     .then((res) => {
@@ -60,27 +68,26 @@ function Results({ latitude, longitude }) {
       setEndHikeLong(res.data.end_location.longitude);
       setStartLat(res.data.start_location.latitude);
       setStartLong(res.data.start_location.longitude);
-      setTimeTraveled(moment(time).format("h:mm:ss"));
+      setTimeTraveled(properTime);
       setHikeUser(res.data.username);
       console.log(timeTraveled);
     })
 
   return (
     <>
-      <div className="location-header">Your Hike Results</div>
+      <div className="options">Your Hike Results</div>
       <div className="results-stats">
-        <h3>Starting Location:</h3><br />
-        <h3>
+        <h4>Start Location:</h4>
+        <h4>
           Latitude {startLat}, Longitude {startLong}, Elevation
-        </h3><br />
-        <h3>
-          Ending Location:</h3><br />
-        <h3>
+        </h4>
+        <h4>End Location:</h4>
+        <h4>
           Latitude {endHikeLat}, Longitude {endHikeLong}, Elevation
-        </h3><br />
-        <h3>
+        </h4>
+        <h4>
           Elevation Change: {elevationChange}
-        </h3>
+        </h4>
         <h4>Time Hiking: {timeTraveled}
         </h4>
         <h4>

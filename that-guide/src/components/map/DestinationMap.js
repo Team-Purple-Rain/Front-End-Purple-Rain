@@ -10,22 +10,24 @@ import waterImage from "./mapIcons/smolwater.png";
 import Button from "@mui/material/Button";
 import useLocalStorageState from "use-local-storage-state"
 
+
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
-  // Create a GeoJSON source with an empty lineString.
-  const geojson = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "LineString",
-          coordinates: [[]],
-        },
+// Create a GeoJSON source with an empty lineString.
+const geojson = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [[]],
       },
-    ],
-  };
+    },
+  ],
+};
 
 export default function DestinationMap({ latitude, longitude, goalCoords }) {
   const navigate = useNavigate();

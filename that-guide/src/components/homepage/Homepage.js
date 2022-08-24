@@ -21,6 +21,7 @@ export default function Homepage({
   latitude,
   longitude,
   setGoalCoords,
+  goalCoords,
   hikeType,
   setHikeType,
   selectedHikeType,
@@ -28,7 +29,7 @@ export default function Homepage({
   setDestination
 }) {
   const [error, setError] = useState(null);
-
+  console.log(goalCoords);
   const navigate = useNavigate();
 
   const handleSetDistance = (event) => {
@@ -50,22 +51,23 @@ export default function Homepage({
   };
 
   const [expanded, setExpanded] = React.useState(false);
-  
+
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
 
 
   if (latitude === "") {
-      return (
-        <div
-            style={{
-              display: "flex",
-              marginTop: "200px",
-              justifyContent: "space-between",}}>
-              <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
-        </div>
-      );
+    return (
+      <div
+        style={{
+          display: "flex",
+          marginTop: "200px",
+          justifyContent: "space-between",
+        }}>
+        <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+      </div>
+    );
   }
 
 
@@ -74,126 +76,128 @@ export default function Homepage({
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
-            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType} setDestination={setDestination} longitude={longitude} setGoalCoords = {setGoalCoords}
-/>
+            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType}
+              setDestination={setDestination} longitude={longitude} setGoalCoords={setGoalCoords}
+              goalCoords={goalCoords}
+            />
           </div>
         </div>
         <div>
-      <h4 className="options">How do you want to hike today?</h4>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Select a destination.
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Choose your goal stop in the map above.</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Click your desired water or shelter stop in the map above to start your hike.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Set a distance.</Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-            Choose a distance you want to hike in miles.
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          <div className="dropdown-options">
-            <h4>I want to hike</h4>
-            <form id="select-distance" onSubmit={setSelectedDistance}>
-            </form>
-            <div className="hike-starter-container">
-              <TextField
-                label="Type desired distance"
-                style={{
-                  borderRadius: 10,
-                  backgroundColor: "white",
-                  fontSize: "12px",
-                  margin: "15px",
-                }}
-                id="filled-basic"
-                variant="filled"
-                onChange={(e) => setSelectedDistance(e.target.value)}
-                onClick={() => {setHikeType("Mile-based Hike"); setSelectedHikeType("Mile-based Hike")}}
-              />
-              <h4>miles</h4>
-              <Button
-                style={{
-                  borderRadius: 35,
-                  backgroundColor: "#21b6ae",
-                  padding: "10px",
-                  fontSize: "12px",
-                  margin: "10px",
-                }}
-                variant="contained"
-                type="submit"
-                className="start-hike"
-                onClick={handleStartHike}
-                onSubmit={handleSetDistance}
-              >
-                Start Hike
-              </Button>
-            </div>
-          </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Freeform hike.
-          </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
-          Choose this option to track a hike without a goal
-              distance. Hiking results will be shown after pressing "Stop
-              Hike."
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          <div>
-            <div className="dropdown-options">
-              <h4>I just want to hike!</h4>
-            
-            <Button
-              style={{
-                borderRadius: 35,
-                backgroundColor: "#21b6ae",
-                padding: "10px",
-                fontSize: "12px",
-                margin: "10px",
-              }}
-              variant="contained"
-              type="submit"
-              className="start-hike"
-              onClick={() => {setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); handleStartHike()}}
+          <h4 className="options">How do you want to hike today?</h4>
+          <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1bh-content"
+              id="panel1bh-header"
             >
-              {" "}
-              Start Hike
-            </Button>
-            </div>
-          </div>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </div>
-  </div>
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                Select a destination.
+              </Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Choose your goal stop in the map above.</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                Click your desired water or shelter stop in the map above to start your hike.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2bh-content"
+              id="panel2bh-header"
+            >
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>Set a distance.</Typography>
+              <Typography sx={{ color: 'text.secondary' }}>
+                Choose a distance you want to hike in miles.
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <div className="dropdown-options">
+                  <h4>I want to hike</h4>
+                  <form id="select-distance" onSubmit={setSelectedDistance}>
+                  </form>
+                  <div className="hike-starter-container">
+                    <TextField
+                      label="Type desired distance"
+                      style={{
+                        borderRadius: 10,
+                        backgroundColor: "white",
+                        fontSize: "12px",
+                        margin: "15px",
+                      }}
+                      id="filled-basic"
+                      variant="filled"
+                      onChange={(e) => setSelectedDistance(e.target.value)}
+                      onClick={() => { setHikeType("Mile-based Hike"); setSelectedHikeType("Mile-based Hike") }}
+                    />
+                    <h4>miles</h4>
+                    <Button
+                      style={{
+                        borderRadius: 35,
+                        backgroundColor: "#21b6ae",
+                        padding: "10px",
+                        fontSize: "12px",
+                        margin: "10px",
+                      }}
+                      variant="contained"
+                      type="submit"
+                      className="start-hike"
+                      onClick={handleStartHike}
+                      onSubmit={handleSetDistance}
+                    >
+                      Start Hike
+                    </Button>
+                  </div>
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3bh-content"
+              id="panel3bh-header"
+            >
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                Freeform hike.
+              </Typography>
+              <Typography sx={{ color: 'text.secondary' }}>
+                Choose this option to track a hike without a goal
+                distance. Hiking results will be shown after pressing "Stop
+                Hike."
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+                <div>
+                  <div className="dropdown-options">
+                    <h4>I just want to hike!</h4>
+
+                    <Button
+                      style={{
+                        borderRadius: 35,
+                        backgroundColor: "#21b6ae",
+                        padding: "10px",
+                        fontSize: "12px",
+                        margin: "10px",
+                      }}
+                      variant="contained"
+                      type="submit"
+                      className="start-hike"
+                      onClick={() => { setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); handleStartHike() }}
+                    >
+                      {" "}
+                      Start Hike
+                    </Button>
+                  </div>
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </div>
+      </div>
     </>
   );
 }

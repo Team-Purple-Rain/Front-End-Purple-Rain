@@ -27,7 +27,7 @@ function Results({ latitude, longitude }) {
   const navigate = useNavigate();
 
   const handleResetSave = (event) => {
-    localStorage.clear();
+    // localStorage.clear();
     (areYouLoggedIn ? (
       navigate("/profile")
     ) : (
@@ -36,7 +36,7 @@ function Results({ latitude, longitude }) {
   };
 
   const handleClearData = () => {
-    localStorage.clear();
+    localStorage.clear("time", "");
     axios
       .delete(`https://thatguide.herokuapp.com/map/${ID}/`, {
         headers: {
@@ -115,8 +115,8 @@ function Results({ latitude, longitude }) {
               border: "1px solid white",
             }}
             onClick={handleClearData}>Delete Hike</Button>
+        </div>
       </div>
-    </div>
       {/* <Map latitude={latitude} longitude={longitude} /> */}
 
     </>

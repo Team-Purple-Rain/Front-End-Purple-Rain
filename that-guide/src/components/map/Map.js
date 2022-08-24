@@ -18,6 +18,7 @@ export default function Map({
   selectedDistance,
   setSelectedDistance,
   setGoalCoords,
+  goalCoords,
   setHikeType,
   setSelectedHikeType,
   setDestination
@@ -31,6 +32,7 @@ export default function Map({
   const [mapObject, setMapObject] = useState();
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
+  console.log(goalCoords);
 
   const bounds = [
     [-87.828608, 30.528864],
@@ -108,6 +110,7 @@ export default function Map({
           const btn = document.getElementById("btn");
           btn.addEventListener("click", () => {
             setGoalCoords(coordinates);
+            console.log(goalCoords);
             navigate("/starthike");
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");

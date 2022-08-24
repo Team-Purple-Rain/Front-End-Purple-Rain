@@ -116,8 +116,6 @@ function App() {
   }, 7000);
 
 
-
-
   return (
     <>
       <div className="background">

@@ -146,28 +146,26 @@ console.log({destination})
         <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords}/>
       <div className="second-location-header">
         <></>
-        {selectedDistance === "" ? (
-          ""
-        ) : (
+        {hikeType === "Mile-based Hike" ? (
           <div>
-            <h2>Goal distance: {selectedDistance} miles</h2>
+          <h2>Goal distance: {selectedDistance} miles</h2>
+          <div className="distance-hiked">
+            <h4>Distance Hiked: (distance user has hiked)</h4>
+          </div>
+          <div className="distance-remaining">
+            <h4>
+              Distance Remaining: ({selectedDistance} miles - distance user
+              has hiked)
+            </h4>
+          </div>
+          </div>
+        ) : hikeType === "Freeform Hike" ? ( <div className="alert">
+          <h4>Your final stats will be displayed at the end of your hike.</h4>
+          </div>
+        ) : (
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>
-            </div>
-            <div className="distance-remaining">
-              <h4>
-                Distance Remaining: ({selectedDistance} miles - distance user
-                has hiked)
-              </h4>
-            </div>
-            {/* <div className="miles-per-hour">
-              <h4>
-                MPH: ({selectedDistance} miles/time it takes for hiker to hike 1
-                mile){" "}
-              </h4>
-            </div> */}
-          </div>
-        )}
+            </div>)}
 
         <div className="whole-stats-container">
           <div className="right-container">

@@ -8,26 +8,28 @@ import { shelter } from "./sources/shelter";
 import myImage from "./mapIcons/smol.png";
 import waterImage from "./mapIcons/smolwater.png";
 import Button from "@mui/material/Button";
-import useLocalStorageState from "use-local-storage-state"
+import useLocalStorageState from "use-local-storage-state";
+import * as turf from "@turf/turf";
+import { AlignVerticalBottomTwoTone } from "@mui/icons-material";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
-  // Create a GeoJSON source with an empty lineString.
-  const geojson = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "LineString",
-          coordinates: [[]],
-        },
+// Create a GeoJSON source with an empty lineString.
+const geojson = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [[]],
       },
-    ],
-  };
+    },
+  ],
+};
 
-export default function DestinationMap({ latitude, longitude, goalCoords }) {
+export default function DestinationMap({ latitude, longitude, goalCoords, handleStop }) {
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -38,7 +40,7 @@ export default function DestinationMap({ latitude, longitude, goalCoords }) {
 
   const bounds = [
     [-87.828608, 30.528864],
-    [-62.377714, 50.682435]
+    [-62.377714, 50.682435],
   ];
 
   useEffect(() => {
@@ -71,6 +73,7 @@ export default function DestinationMap({ latitude, longitude, goalCoords }) {
         id: "line-animation",
         type: "line",
         source: "line",
+        minzoom: 8,
         layout: {
           "line-cap": "round",
           "line-join": "round",
@@ -164,6 +167,18 @@ export default function DestinationMap({ latitude, longitude, goalCoords }) {
     }
     getElevation();
   }, 7000);
+
+    // functions to check if User is near goal
+    function checkLat() {
+      const goalLat = goalCoords[1];
+      const goalLong = goalCoords[0];
+      if ((goalLat > latitude - .0005 && goalLat < latitude + .0005) && (goalLong > longitude - .0005 && goalLong < longitude + .0005)) {
+        alert("Congrats! You've reached the destination!");
+        handleStop();
+      }
+    }
+  
+    setInterval(checkLat(),30000)
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));

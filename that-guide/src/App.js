@@ -45,11 +45,16 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [])
+  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [0,0])
   const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
   const [selectedHikeType, setSelectedHikeType] = useState(null)
+<<<<<<< HEAD
   const [destination, setDestination] = useState("")
   console.log(goalCoords);
+=======
+  const [destination, setDestination] = useLocalStorageState("destination", "")
+
+>>>>>>> b434f74822a727e1ae0ae4323a5d3f6d5fc5e57e
   function success(position) {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);

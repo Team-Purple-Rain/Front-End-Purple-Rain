@@ -40,6 +40,7 @@ export default function Homepage({
   const handleStartHike = (event) => {
     navigate("/starthike");
     event.preventDefault();
+    setGoalCoords([0, 0])
     setError(null);
     console.log("You have started a hike.");
     if (selectedDistance) {
@@ -83,6 +84,7 @@ export default function Homepage({
           </div>
         </div>
         <div>
+
           <h4 className="options">How do you want to hike today?</h4>
           <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
             <AccordionSummary
@@ -186,18 +188,116 @@ export default function Homepage({
                       variant="contained"
                       type="submit"
                       className="start-hike"
-                      onClick={() => { setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); handleStartHike() }}
+                      onClick={() => { setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); setGoalCoords([0, 0]); handleStartHike() }}
                     >
-                      {" "}
-                      Start Hike
-                    </Button>
-                  </div>
+                      <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                        Select a destination.
+                      </Typography>
+                      <Typography sx={{ color: 'text.secondary' }}>Choose your goal stop in the map above.</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        Click your desired water or shelter stop in the map above to start your hike.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2bh-content"
+                      id="panel2bh-header"
+                    >
+                      <Typography sx={{ width: '33%', flexShrink: 0 }}>Set a distance.</Typography>
+                      <Typography sx={{ color: 'text.secondary' }}>
+                        Choose a distance you want to hike in miles.
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        <div className="dropdown-options">
+                          <h4>I want to hike</h4>
+                          <form id="select-distance" onSubmit={setSelectedDistance}>
+                          </form>
+                          <div className="hike-starter-container">
+                            <TextField
+                              label="Type desired distance"
+                              style={{
+                                borderRadius: 10,
+                                backgroundColor: "white",
+                                fontSize: "12px",
+                                margin: "15px",
+                              }}
+                              id="filled-basic"
+                              variant="filled"
+                              onChange={(e) => setSelectedDistance(e.target.value)}
+                              onClick={() => { setHikeType("Mile-based Hike"); setSelectedHikeType("Mile-based Hike") }}
+                            />
+                            <h4>miles</h4>
+                            <Button
+                              style={{
+                                borderRadius: 35,
+                                backgroundColor: "#21b6ae",
+                                padding: "10px",
+                                fontSize: "12px",
+                                margin: "10px",
+                              }}
+                              variant="contained"
+                              type="submit"
+                              className="start-hike"
+                              onClick={handleStartHike}
+                              onSubmit={handleSetDistance}
+                            >
+                              Start Hike
+                            </Button>
+                          </div>
+                        </div>
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel3bh-content"
+                      id="panel3bh-header"
+                    >
+                      <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                        Freeform hike.
+                      </Typography>
+                      <Typography sx={{ color: 'text.secondary' }}>
+                        Choose this option to track a hike without a goal
+                        distance. Hiking results will be shown after pressing "Stop
+                        Hike."
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        <div>
+                          <div className="dropdown-options">
+                            <h4>I just want to hike!</h4>
+
+                            <Button
+                              style={{
+                                borderRadius: 35,
+                                backgroundColor: "#21b6ae",
+                                padding: "10px",
+                                fontSize: "12px",
+                                margin: "10px",
+                              }}
+                              variant="contained"
+                              type="submit"
+                              className="start-hike"
+                              onClick={() => { setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); handleStartHike() }}
+                            >
+                              {" "}
+                              Start Hike
+                            </Button>
+                          </div>
+                        </div>
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
                 </div>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        </div>
-      </div>
-    </>
-  );
+              </div>
+            </>
+            );
 }

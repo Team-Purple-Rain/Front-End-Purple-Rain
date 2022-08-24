@@ -60,14 +60,14 @@ export default function Profile() {
 
     return (
         <>
-            <h1>Welcome back {username}, check out your hiking stats below!</h1>
             <div className="personal-info">
-                <h3>Name: {firstName} {lastName} </h3>
-                <h3>Email: {email}</h3>
-                <h3>Phone: {phone}</h3>
-                <h3>Experience: {experience}</h3>
-                <h3> Preferred Pace:  {preferredPace}</h3>
-                <h3> Emergency Contact: </h3>
+            <h3>Welcome back, {username}!</h3>
+                <h4>Name: {firstName} {lastName} </h4>
+                <h4>Email: {email}</h4>
+                <h4>Phone: {phone}</h4>
+                <h4>Experience: {experience}</h4>
+                <h4> Preferred Pace:  {preferredPace}</h4>
+                <h4> Emergency Contact: </h4>
             </div>
             <div className="results-box">
                 <AllHikes />

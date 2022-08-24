@@ -49,6 +49,7 @@ function App() {
   const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
   const [selectedHikeType, setSelectedHikeType] = useState(null)
   const [destination, setDestination] = useLocalStorageState("destination", "")
+  const [destinationType, setDestinationType] = useLocalStorageState("destinationType", "")
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -114,8 +115,6 @@ function App() {
     getElevation();
     getLocation();
   }, 7000);
-
-
 
 
   return (
@@ -204,6 +203,7 @@ function App() {
               </div>
             )}
           </div>
+
         </div>
       </div>
       <Routes>
@@ -223,9 +223,48 @@ function App() {
               setGoalCoords={setGoalCoords}
               setDestination={setDestination}
               destination={destination}
-              elevation={elevation}
-              setElevation={setElevation}
+              setDestinationType={setDestinationType}
             />
+          }
+        />
+        <Route
+          path="/starthike"
+          element={
+            <StartHike
+              selectedDistance={selectedDistance}
+              longitude={longitude}
+              latitude={latitude}
+              setLatitude={setLatitude}
+              setLongitude={setLongitude}
+              highestElevation={highestElevation}
+              goalCoords={goalCoords}
+              hikeType={hikeType}
+              setHikeType={setHikeType}
+              selectedHikeType={selectedHikeType}
+              setSelectedHikeType={setSelectedHikeType}
+              destination={destination}
+              elevation={elevation}
+              destinationType={destinationType}
+            />
+          }
+        />
+        <Route
+          path="/hikeresults/:ID"
+          element={
+            <Results
+              latitude={latitude}
+              longitude={longitude}
+              setID={setID}
+              ID={ID}
+            />
+          }
+        />
+        <Route path="/createuser" element={<NewUser />} />
+        <Route
+          path="/login"
+          element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
+
+        />
           }
         />
         <Route

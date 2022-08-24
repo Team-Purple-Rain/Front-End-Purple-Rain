@@ -10,7 +10,7 @@ import moment from "moment";
 
 
 
-function AllHikes({ latitude, longitude }) {
+function AllHikes({ latitude, longitude, hikeType }) {
 
     let token = localStorage.getItem("auth_token");
 
@@ -59,10 +59,9 @@ function AllHikes({ latitude, longitude }) {
     // length, map through length 
     //: moment().format("MMMM Do YYYY, h:mm:ss a")
 
-
     return (
         <>
-            <h1>All Hike Results</h1>
+            <h3>All Hike Results</h3>
             {hikeResults.map((individualHike) => (
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
@@ -71,26 +70,27 @@ function AllHikes({ latitude, longitude }) {
                         id="panel1bh-header"
                     >
                         <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                            Date of Hike
+                            Date of Hike: 
                         </Typography>
                         <Typography sx={{ color: 'text.secondary' }}>
-                            {individualHike.updated_at}
+                            {moment(individualHike.updated_at).format('MMMM Do YYYY, h:mm:ss a')}
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography>
-                            Starting Location
+                            Start Location:
                             <br />
                             Latitude:{individualHike.start_location.latitude}
                             <br />
                             Longitude:{individualHike.start_location.longitude}
                             <br />
                             <br />
-                            Ending Location
+                            End Location:
                             <br />
                             Latitude: {individualHike.end_location.latitude}
                             <br />
                             Longitude:{individualHike.end_location.longitude}
+                            <br />
                             <br />
                             Elevation Gain: {individualHike.elevation_gain}
                             <br />

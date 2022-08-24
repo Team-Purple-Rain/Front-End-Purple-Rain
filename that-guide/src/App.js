@@ -49,6 +49,7 @@ function App() {
   const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
   const [selectedHikeType, setSelectedHikeType] = useState(null)
   const [destination, setDestination] = useLocalStorageState("destination", "")
+  const [destinationType, setDestinationType] = useLocalStorageState("destinationType", "")
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -221,6 +222,7 @@ function App() {
                   setGoalCoords = {setGoalCoords}
                   setDestination={setDestination}
                   destination={destination}
+                  setDestinationType={setDestinationType}
                 />
               }
             />
@@ -241,6 +243,7 @@ function App() {
                   setSelectedHikeType={setSelectedHikeType}
                   destination={destination}
                   elevation={elevation}
+                  destinationType={destinationType}
                 />
               }
             />

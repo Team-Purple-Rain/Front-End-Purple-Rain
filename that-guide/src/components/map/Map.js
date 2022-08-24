@@ -20,7 +20,8 @@ export default function Map({
   setGoalCoords,
   setHikeType,
   setSelectedHikeType,
-  setDestination
+  setDestination,
+  setDestinationType
 }) {
   // console.log(latitude);
   // console.log(longitude);
@@ -86,7 +87,7 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude,
+              (e.features[0].properties.latitude-.1),
             ],
           });
           
@@ -113,7 +114,8 @@ export default function Map({
             navigate("/starthike");
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
-            setDestination(title)
+            setDestination(title);
+            setDestinationType("Shelter");
           });
         });
       });
@@ -158,7 +160,7 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude,
+              (e.features[0].properties.latitude-.1),
             ],
           });
 
@@ -185,8 +187,8 @@ export default function Map({
             navigate("/starthike");
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
-            setDestination(title)
-
+            setDestination(title);
+            setDestinationType("Water Source")
           });
         });
       });

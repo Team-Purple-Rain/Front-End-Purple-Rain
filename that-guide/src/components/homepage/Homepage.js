@@ -25,7 +25,8 @@ export default function Homepage({
   setHikeType,
   selectedHikeType,
   setSelectedHikeType,
-  setDestination
+  setDestination,
+  setDestinationType
 }) {
   const [error, setError] = useState(null);
 
@@ -76,7 +77,7 @@ export default function Homepage({
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
-            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType} setDestination={setDestination} longitude={longitude} setGoalCoords = {setGoalCoords}
+            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType} setDestination={setDestination} longitude={longitude} setGoalCoords = {setGoalCoords} setDestinationType={setDestinationType}
 />
           </div>
         </div>

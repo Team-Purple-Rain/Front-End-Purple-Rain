@@ -22,6 +22,7 @@ export default function StartHike({
   setSelectedHikeType,
   destination,
   elevation,
+  destinationType,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -135,15 +136,19 @@ export default function StartHike({
 
 console.log({destination})
 
+
+
+  console.log(goalCoords)
+
   return (
     <>
       <div>
         {hikeType === "Destination Hike"
-          ? <h3 className="options">Your hike to {destination}</h3> 
+          ? <h3 className="options">Your hike to {destinationType}: {destination}</h3>
         : <h3 className="options">Your Current {hikeType}</h3>}
 
         </div>
-        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords}/>
+        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} handleStop={handleStop}/>
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (

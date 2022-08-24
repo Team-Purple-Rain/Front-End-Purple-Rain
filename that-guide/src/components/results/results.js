@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./results.css"
 import Map from "../map/Map";
 import axios from "axios";
 import Button from "@mui/material/Button"
@@ -67,20 +68,19 @@ function Results({ latitude, longitude }) {
 
   return (
     <>
-      <div className="location-header">Your Hike Results</div>
+      <div className="options">Your Hike Results</div>
       <div className="results-stats">
-        <h3>Starting Location:</h3><br />
-        <h3>
+        <h4>Start Location:</h4>
+        <h4>
           Latitude {startLat}, Longitude {startLong}, Elevation
-        </h3><br />
-        <h3>
-          Ending Location:</h3><br />
-        <h3>
+        </h4>
+        <h4>End Location:</h4>
+        <h4>
           Latitude {endHikeLat}, Longitude {endHikeLong}, Elevation
-        </h3><br />
-        <h3>
+        </h4>
+        <h4>
           Elevation Change: {elevationChange}
-        </h3>
+        </h4>
         <h4>Time Hiking: {timeTraveled}
         </h4>
         <h4>

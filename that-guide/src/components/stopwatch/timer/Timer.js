@@ -81,7 +81,7 @@ export default function Timer(props) {
           latitude: props.latitude,
           longitude: props.longitude,
         },
-        elevation: elevation,
+        elevation: parseInt(elevation),
       });
       localStorage.setItem("hike", JSON.stringify(storageBank));
     }
@@ -98,7 +98,7 @@ export default function Timer(props) {
         latitude: props.latitude,
         longitude: props.longitude,
       },
-      elevation: elevation,
+      elevation: parseInt(elevation),
     });
     localStorage.setItem("hike", JSON.stringify(storageBank));
     console.log("intial log made");
@@ -126,15 +126,15 @@ export default function Timer(props) {
       <div className="all-digits">
         <h3 className="time-elapsed">Time Elapsed:</h3>
         <div className="right-aligned-digits">
-        <span className="digits" onChange={logTime}>
-          {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
-        </span>
-        <span className="digits">
-          {("0" + Math.floor((props.time / 1000) % 60)).slice(-2)}.
-        </span>
-        <span className="digits mili-sec">
-          {("0" + ((props.time / 10) % 100)).slice(-2)}
-        </span>
+          <span className="digits" onChange={logTime}>
+            {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
+          </span>
+          <span className="digits">
+            {("0" + Math.floor((props.time / 1000) % 60)).slice(-2)}.
+          </span>
+          <span className="digits mili-sec">
+            {("0" + ((props.time / 10) % 100)).slice(-2)}
+          </span>
         </div>
       </div>
     </div>

@@ -56,15 +56,6 @@ export default function Map({
   ];
 
   useEffect(() => {
-    if (!online) {
-      const map = new mapboxgl.Map({
-        container: mapContainer.current,
-        // style: "./Offline/style.json",
-        center: [longitude, latitude],
-        zoom: zoom,
-        maxBounds: bounds,
-      });
-    }
     // creating new map with style and center location
     const map = new mapboxgl.Map({
       container: mapContainer.current,

@@ -77,6 +77,7 @@ export default function StartHike({
         console.log(res);
         console.log(res.data.id);
         setID(res.data.id);
+        console.log(ID);
       });
   };
 

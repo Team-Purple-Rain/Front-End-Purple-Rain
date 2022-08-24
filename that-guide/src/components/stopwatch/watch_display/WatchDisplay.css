@@ -1,6 +1,6 @@
 .stop-watch {
 	width: 100%;
-	background-image: linear-gradient(to bottom right, rgba(103, 145, 189, 0.581), rgba(141, 155, 167, 0.296));
+	background-image: linear-gradient(to bottom right, rgb(0, 19, 39, .8), rgb(0, 24, 157, .8));
 	display: flex;
 	border: 2px solid white;
 	border-radius: 10px;

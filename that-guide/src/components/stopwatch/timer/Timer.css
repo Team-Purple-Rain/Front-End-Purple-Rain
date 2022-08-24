@@ -10,23 +10,28 @@
 
 .all-digits {
 	text-align: center;
-	font-size: calc(0.75em + 1vw);
+	font-size: calc(1em + 1vw);
+	font-family: 'Silkscreen', cursive;
 }
 
 .digits{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 3rem;
+	font-size: 4rem;
 	color: #f5f5f5;
 	text-align: center;
-	font-size: calc(0.75em + 1vw);
+	font-size: calc(2em + 1vw);
+	font-family: 'Silkscreen', cursive;
 }
 
 .mili-sec{
-	color: #843737;
+	color: #ff6b6b;
+	
 }
 
 .time-elapsed{
-	color: white;
+	color: rgb(69, 209, 241);
 	text-align: center;
+	font-family: 'Silkscreen', cursive;
+	font-size: calc(1em + 1vw);
 
 }

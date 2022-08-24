@@ -9,6 +9,7 @@ margin: 10px;
     align-items: center;
     justify-content: center;
     font-size: calc(0.75em + 1vw);
+    padding: 5px;
     
     }
     
@@ -40,9 +41,11 @@ margin: 10px;
     }
     
     .btn-one{
-        background-color: #3e8b58;
+        background-color: #48a065;
+        opacity: .95;
         margin: auto;
         padding: 2px;
+        font-family: 'Silkscreen', cursive;
     }
     .btn btn-one btn-start {
         margin: auto;

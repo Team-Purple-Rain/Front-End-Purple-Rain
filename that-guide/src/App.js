@@ -276,6 +276,8 @@ function App() {
                   token={token}
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
+                  hikeType={hikeType}
+                  setHikeType={setHikeType}
                 />
               }
             />

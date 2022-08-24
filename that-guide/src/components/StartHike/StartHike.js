@@ -159,9 +159,9 @@ console.log({destination})
             </h4>
           </div>
           </div>
-        ) : hikeType === "Freeform Hike" ? ( 
-          <h3>Your final stats will be displayed at the end of your hike.</h3>
-          
+        ) : hikeType === "Freeform Hike" ? ( <div className="alert">
+          <h4>Your final stats will be displayed at the end of your hike.</h4>
+          </div>
         ) : (
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>

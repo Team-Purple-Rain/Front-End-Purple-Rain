@@ -28,7 +28,7 @@ function Results({ latitude, longitude }) {
   const navigate = useNavigate();
 
   const handleResetSave = (event) => {
-    localStorage.clear();
+    // localStorage.clear();
     (areYouLoggedIn ? (
       navigate("/profile")
     ) : (
@@ -37,7 +37,7 @@ function Results({ latitude, longitude }) {
   };
 
   const handleClearData = () => {
-    localStorage.clear();
+    // localStorage.clear();
     axios
       .delete(`https://thatguide.herokuapp.com/map/${ID}/`, {
         headers: {

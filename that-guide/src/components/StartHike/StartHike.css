@@ -18,7 +18,7 @@
 .miles-per-hour {
     font-family: 'Playfair Display', serif;
     color: rgb(44, 43, 43);
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 1px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 0px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     font-weight: bold;
     margin: 10px;
     padding: 2px;
@@ -27,6 +27,10 @@
     border-radius: 5px;
     line-height: 1.4;
 
+}
+
+.alert {
+    font-style: italic;
 }
 
 button {
@@ -46,12 +50,12 @@ button {
     .second-location-header {
         font-family: 'Playfair Display', serif;
         color: rgb(62, 62, 62);
-        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 1px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 0px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
         font-weight: bold;
         margin: 10px;
         padding: 10px;
         text-align: center;
         border-radius: 2px;
         font-weight: bolder;
-        background-color:rgb(241, 246, 246);
+        background-color:rgba(243, 231, 224, 0.494);
     }

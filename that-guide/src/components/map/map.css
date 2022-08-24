@@ -1,4 +1,6 @@
 
+  
+  
   .current-stats {
     text-align: center;
     margin-top: 10px;
@@ -11,7 +13,7 @@
     line-height: .6;
     background-image: linear-gradient(to bottom right, rgb(15, 113, 111, .6), rgb(21, 144, 142, .6));
     font-family: 'Playfair Display', serif;
-    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 1px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 10px;
@@ -53,6 +55,8 @@
 
   .mapboxgl-popup {
     max-width: 200px;
+    text-align: center;
+    border-radius: 10px;
   }
 
   /* .mapboxgl-popup-content h4 {
@@ -72,4 +76,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  #btn {
+    border-radius: 15px;
+    padding: 5px;
+    font-weight: bold;
+    color: white;
+    background-color: #21b6ae;
   }

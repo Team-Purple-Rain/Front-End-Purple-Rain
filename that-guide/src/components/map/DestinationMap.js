@@ -8,17 +8,26 @@ import { shelter } from "./sources/shelter";
 import myImage from "./mapIcons/smol.png";
 import waterImage from "./mapIcons/smolwater.png";
 import Button from "@mui/material/Button";
+import useLocalStorageState from "use-local-storage-state"
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
-export default function DestinationMap({
-  latitude,
-  longitude,
-  goalCoords
-}) {
-  // console.log(latitude);
-  // console.log(longitude);
+  // Create a GeoJSON source with an empty lineString.
+  const geojson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [[]],
+        },
+      },
+    ],
+  };
+
+export default function DestinationMap({ latitude, longitude, goalCoords }) {
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -27,12 +36,11 @@ export default function DestinationMap({
   const [userMarker, setUserMarker] = useState();
   const [elevation, setElevation] = useState("calculating...");
 
-  // const bounds = [
-  //   [-85.617648, 33.257538],
-  //   [-73.043655, 37.702501],
-  // ];
+  const bounds = [
+    [-87.828608, 30.528864],
+    [-62.377714, 50.682435]
+  ];
 
-  console.log(goalCoords)
   useEffect(() => {
     // creating new map with style and center location
     const map = new mapboxgl.Map({
@@ -40,7 +48,7 @@ export default function DestinationMap({
       style: "mapbox://styles/rfrenia/cl6zh412n000614qw9xqdrr6n",
       center: [longitude, latitude],
       zoom: zoom,
-      // maxBounds: bounds,
+      maxBounds: bounds,
     });
 
     // adding scale and nav controls to map
@@ -51,6 +59,39 @@ export default function DestinationMap({
     map.addControl(scale);
     scale.setUnit("imperial");
     map.addControl(new mapboxgl.NavigationControl());
+
+    // adding a line layer that tracks movement
+    map.on("load", () => {
+      map.addSource("line", {
+        type: "geojson",
+        data: geojson,
+      });
+
+      map.addLayer({
+        id: "line-animation",
+        type: "line",
+        source: "line",
+        layout: {
+          "line-cap": "round",
+          "line-join": "round",
+        },
+        paint: {
+          "line-color": "blue",
+          "line-width": 5,
+          "line-opacity": 0.8,
+        },
+      });
+
+      animateLine();
+
+      //function to update map and animate line
+      function animateLine() {
+        // update the map
+        map.getSource("line").setData(geojson);
+        // Request the next frame of the animation.
+        requestAnimationFrame(animateLine);
+      }
+    });
 
     // creates a User Location Marker at device location
     const el = document.createElement("div");
@@ -71,6 +112,15 @@ export default function DestinationMap({
     setUserMarker(userMark);
     setMapObject(map);
   }, []);
+
+  function addLinePoints() {
+    // append new coordinates to the lineString
+    const x = longitude;
+    const y = latitude;
+    geojson.features[0].geometry.coordinates.push([x, y]);
+  }
+
+  setInterval(addLinePoints(), 3000);
 
   // function that updates the User marker's long lat
   function updateUserMarker() {

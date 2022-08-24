@@ -7,8 +7,8 @@ import Map from "../map/Map";
 import DestinationMap from "../map/DestinationMap";
 import axios from "axios";
 import moment from "moment";
-import LoadingScreen from "react-loading-screen";
 import Button from "@mui/material/Button";
+import Spinner from "react-spinkit";
 
 export default function StartHike({
   selectedDistance,
@@ -16,6 +16,12 @@ export default function StartHike({
   longitude,
   time,
   goalCoords,
+  hikeType,
+  setHikeType,
+  selectedHikeType,
+  setSelectedHikeType,
+  destination,
+  elevation,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -30,13 +36,15 @@ export default function StartHike({
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
+  const [currentElevation, setCurrentElevation] = useState(elevation);
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
+  // const [currentElevation, setCurrentElevation] = useState(elevation);
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
-  console.log(selectedDistance);
-  console.log(goalCoords);
+  // console.log(selectedDistance);
+  // console.log(goalCoords)
 
   axios
     .get(`https://thatguide.herokuapp.com/users/me/`, {
@@ -61,6 +69,7 @@ export default function StartHike({
           longitude: startLong,
         },
         end_location: endHike,
+        current_elevation: currentElevation,
         hike_user: hikeUser,
       })
       .then((res) => {
@@ -109,32 +118,41 @@ export default function StartHike({
     navigate("/");
   };
 
-  console.log({ latitude }, { longitude });
+  console.log({ latitude }, { longitude }, { elevation });
 
   if (latitude === "") {
     return (
-      <LoadingScreen
-        loading={true}
-        bgColor="#f1f1f1"
-        spinnerColor="#9ee5f8"
-        textColor="#676767"
-        text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-      />
+      <div
+        style={{
+          display: "flex",
+          marginTop: "200px",
+          justifyContent: "space-between",
+        }}
+      >
+        <Spinner
+          name="circle"
+          style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }}
+        />
+      </div>
     );
   }
+
+  console.log({ destination });
 
   return (
     <>
       <div>
-        <div className="location-header">
-          <h3>Your Current Hike</h3>
-        </div>
-        <DestinationMap
-          latitude={latitude}
-          longitude={longitude}
-          goalCoords={goalCoords}
-        />
+        {hikeType === "Destination Hike" ? (
+          <h3 className="options">Your hike to {destination}</h3>
+        ) : (
+          <h3 className="options">Your Current {hikeType}</h3>
+        )}
       </div>
+      <DestinationMap
+        latitude={latitude}
+        longitude={longitude}
+        goalCoords={goalCoords}
+      />
       <div className="second-location-header">
         <></>
         {selectedDistance === "" ? (

@@ -5,6 +5,7 @@ import axios from "axios";
 import Button from "@mui/material/Button"
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import moment from "moment";
 
 function Results({ latitude, longitude }) {
   let { ID } = useParams();
@@ -19,16 +20,21 @@ function Results({ latitude, longitude }) {
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
   const [elevationChange, setElevationChange] = useState(null);
-
-  let secondsElapsed = localStorage.getItem("time");
-  console.log(secondsElapsed);
-  let time = secondsElapsed / 60;
+  const areYouLoggedIn = localStorage.getItem("log in");
+  let time = localStorage.getItem("time");
+  console.log(time);
 
   const navigate = useNavigate();
+
   const handleResetSave = (event) => {
     localStorage.clear();
-    navigate("/profile");
+    (areYouLoggedIn ? (
+      navigate("/profile")
+    ) : (
+      navigate("/")
+    ))
   };
+
   const handleClearData = () => {
     localStorage.clear();
     axios
@@ -54,61 +60,65 @@ function Results({ latitude, longitude }) {
       setEndHikeLong(res.data.end_location.longitude);
       setStartLat(res.data.start_location.latitude);
       setStartLong(res.data.start_location.longitude);
-      setTimeTraveled(time);
-      setHikeUser(res.data.username)
+      setTimeTraveled(moment(time).format("h:mm:ss"));
+      setHikeUser(res.data.username);
+      console.log(timeTraveled);
     })
 
   return (
     <>
       <div className="location-header">Your Hike Results</div>
       <div className="results-stats">
-        <h3>Starting Location: {startLat}, {startLong}
-        </h3>
+        <h3>Starting Location:</h3><br />
         <h3>
-          Ending Location: {endHikeLat}, {endHikeLong}
-        </h3>
+          Latitude {startLat}, Longitude {startLong}, Elevation
+        </h3><br />
+        <h3>
+          Ending Location:</h3><br />
+        <h3>
+          Latitude {endHikeLat}, Longitude {endHikeLong}, Elevation
+        </h3><br />
         <h3>
           Elevation Change: {elevationChange}
         </h3>
-        <h3>Time Hiking: {timeTraveled}
-        </h3>
-        <h3>
+        <h4>Time Hiking: {timeTraveled}
+        </h4>
+        <h4>
           Average Pace:
           {speed}
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           Distance Hiked: {distanceTraveled}
-        </h3>
+        </h4>
+        <div className="results-buttons">
+          <Button
+            startIcon={<SaveIcon />}
+            variant="contained"
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#62b378",
+              padding: "10px",
+              fontSize: "calc(.7vw + .7vh + .5vmin)",
+              marginTop: "20px",
+              border: "1px solid white",
+            }}
+            onClick={handleResetSave}>Save Hike</Button>
+          <Button
+            startIcon={<DeleteOutlineIcon />}
+            variant="contained"
+            style={{
+              borderRadius: 10,
+              backgroundColor: "#d95252",
+              padding: "10px",
+              fontSize: "calc(.7vw + .7vh + .5vmin)",
+              marginTop: "20px",
+              border: "1px solid white",
+            }}
+            onClick={handleClearData}>Delete Hike</Button>
       </div>
+    </div>
       {/* <Map latitude={latitude} longitude={longitude} /> */}
-      <div className="results-buttons">
-        <Button
-          startIcon={<SaveIcon />}
-          variant="contained"
-          style={{
-            borderRadius: 10,
-            backgroundColor: "#62b378",
-            padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            border: "1px solid white",
-            float: "right"
-          }}
-          onClick={handleResetSave}>Save Hike</Button>
-        <Button
-          startIcon={<DeleteOutlineIcon />}
-          variant="contained"
-          style={{
-            borderRadius: 10,
-            backgroundColor: "#d95252",
-            padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            border: "1px solid white",
-            float: "right"
-          }}
-          onClick={handleClearData}>Delete Hike</Button>
-      </div>
+
     </>
   );
 }

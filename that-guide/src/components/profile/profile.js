@@ -3,7 +3,20 @@ import { useNavigate } from "react-router-dom";
 import Results from "../results/results";
 import axios from "axios";
 import Map from "../map/Map";
-import LoadingScreen from "react-loading-screen"
+import LoadingScreen from "react-loading-screen";
+import Spinner from "react-spinkit";
+import AllHikes from "../profile/allHikes.js";
+import TextField from '@mui/material/TextField';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HomeIcon from '@mui/icons-material/Home';
+import EditIcon from '@mui/icons-material/Edit';
+import Button from "@mui/material/Button"
+
+import * as React from 'react'
 
 export default function Profile() {
     let username = localStorage.getItem("username");
@@ -37,30 +50,16 @@ export default function Profile() {
     const handleEditProfile = (event) => {
         navigate("/editprofile");
     }
-
-    // console.log({latitude}, {longitude})
-
-    // if (latitude === "") {
-    //     return (
-    //       <LoadingScreen 
-    //       loading={true}
-    //           bgColor="#f1f1f1"
-    //           spinnerColor="#9ee5f8"
-    //           textColor="#676767"
-    //           text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-    //         />
-
-    //     )
-    //   }
+    const [expanded, setExpanded] = React.useState(false);
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
+    // const seeAllHikeResults = (event) => {
+    //     console.log("button clicked");
+    // }
 
     return (
         <>
-            {/* <div>
-            <div className="location-header">
-                <h3>Current Location</h3>
-            </div>
-            <Map latitude={latitude} longitude={longitude} />
-        </div> */}
             <h1>Welcome back {username}, check out your hiking stats below!</h1>
             <div className="personal-info">
                 <h3>Name: {firstName} {lastName} </h3>
@@ -71,11 +70,36 @@ export default function Profile() {
                 <h3> Emergency Contact: </h3>
             </div>
             <div className="results-box">
-                <h2>Results Go Here</h2>
-                <Results />
+                <AllHikes />
             </div>
-            <button onClick={handleEditProfile}>Edit Profile</button>
-            <button onClick={handleReturnHome}>Return Home</button>
+            <br />
+            <br />
+            <Button
+                startIcon={<EditIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "##de9835",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleEditProfile}>Edit Profile</Button>
+            <Button
+                startIcon={<HomeIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleReturnHome}>Return Home</Button>
+            <br />
+            <br />
         </>
     )
 }

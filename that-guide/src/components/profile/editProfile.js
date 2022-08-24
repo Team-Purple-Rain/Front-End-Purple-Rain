@@ -1,6 +1,26 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+// Material UI Imports below:
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import FilledInput from '@mui/material/FilledInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import MenuItem from '@mui/material/MenuItem';
+import Button from "@mui/material/Button"
+import SaveIcon from '@mui/icons-material/Save';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import "./profile.css";
+
 
 function EditProfile() {
 
@@ -10,36 +30,40 @@ function EditProfile() {
     const handleDiscardChanges = (event) => {
         navigate("/profile");
     }
-    const [email, setEmail] = useState(null);
-    const [phone, setPhone] = useState(null);
     const [preferredPace, setPreferredPace] = useState(null);
     const [experience, setExperience] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [newEmail, setNewEmail] = useState(null);
+    const [newPhone, setNewPhone] = useState(null);
     const [firstName, setFirstName] = useState(null);
     const [lastName, setLastName] = useState(null);
+    const [newFirstName, setNewFirstName] = useState(null);
+    const [newLastName, setNewLastName] = useState(null);
 
-    //     axios
-    //         .get(`https://thatguide.herokuapp.com/users/me/`, {
-    //             headers: {
-    //                 Authorization: `Token ${token}`,
-    //             }
-    //         })
-    //         .then((res) => {
-    //             setEmail(res.data.email);
-    //             setPhone(res.data.phone);
-    //             setFirstName(res.data.first_name);
-    //             setLastName(res.data.last_name);
-    //         })
-    //     ;
+    axios
+        .get(`https://thatguide.herokuapp.com/users/me/`, {
+            headers: {
+                Authorization: `Token ${token}`,
+            }
+        })
+        .then((res) => {
+            setEmail(res.data.email);
+            setPhone(res.data.phone);
+            setFirstName(res.data.first_name);
+            setLastName(res.data.last_name);
+        })
+        ;
 
     const handleSaveChanges = (event) => {
         axios
             .patch(`https://thatguide.herokuapp.com/users/me/`, {
-                email: email,
-                phone: phone,
+                email: newEmail,
+                phone: newPhone,
                 pace_list: preferredPace,
                 experience_list: experience,
-                first_name: firstName,
-                last_name: lastName
+                first_name: newFirstName,
+                last_name: newLastName
             },
                 {
                     headers: {
@@ -56,77 +80,173 @@ function EditProfile() {
             })
     }
 
+// MUI consts
+const experiences = [
+    {
+      value: 'beginner',
+      label: 'Beginner',
+    },
+    {
+      value: 'medium',
+      label: 'Moderate',
+    },
+    {
+      value: 'advanced',
+      label: 'Advanced',
+    },
+  ];
+
+
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const preferredPaces = [
+    {
+      value: 'leisure',
+      label: 'Leisure ( 20-30 minute mile / 2-3mph )',
+    },
+    {
+      value: 'powerwalk',
+      label: 'Powerwalk ( 12-15 minute mile / 4-5mph )',
+    },
+    {
+      value: 'chased by bear',
+      label: 'Chased By Bear ( 10 minute mile and faster / 6mph )',
+    },
+  ];
 
     return (
         <>
-            <h1>Edit Profile</h1>
-            <h2> Username:  {username} </h2>
-            <br />
-            <label>First Name  </label>
-            <input
-                type="text"
-                name="first"
-                value={firstName}
-                // placeholder={firstName}
-                required
-                onChange={(event) => setFirstName(event.target.value)}
-            />
-            <br />
-            <br />
-            <label>Last Name  </label>
-            <input
-                type="text"
+        <div className="personal-info">
+            <h3>Edit Profile</h3>
+            <h3> Username:  {username} </h3>
+                <br />
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+            <div>
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <OutlinedInput
+                    required
+                    id="outlined-required"
+                    type="text"
+                    name="first"
+                    aria-describedby="outlined-first-name-helper-text"
+                    value={firstName}
+                    // placeholder={firstName}
+                    onChange={(event) => setFirstName(event.target.value)}
+                />
+                <FormHelperText id="outlined-weight-helper-text">First Name</FormHelperText>
+                </FormControl>
+                
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <OutlinedInput
+                    required
+                    id="outlined-required"
+                    type="text"
                 // placeholder={lastName}
-                value={lastName}
-                required
-                onChange={(event) => setLastName(event.target.value)}
-            />
-            <br />
-            <br />
-            <label>Email  </label>
-            <input
-                type="text"
-                value={email}
-                placeholder={email}
-                onChange={(event) => setEmail(event.target.value)}
-            />
-            <br />
-            <br />
-            <label>Phone  </label>
-            <input
-                type="text"
-                placeholder={phone}
-                value={phone}
-                onChange={(event) => setPhone(event.target.value)}
-            />
-            <br />
-            <br />
-            <label>Experience Level  </label>
-            <select name="selectList" id="selectList"
-                value={experience}
-                onChange={(event) => setExperience(event.target.value)}
-            >
-                <option> Select Option </option>
-                <option value="beginner"> Beginner </option>
-                <option value="medium"> Moderate </option>
-                <option value="advanced"> Advanced </option>
-            </select>
-            <br />
-            <br />
-            <label>Preferred Hiking Pace  </label>
-            <select name="selectList" id="selectList"
-                value={preferredPace}
-                onChange={(event) => setPreferredPace(event.target.value)}
-            >
-                <option> Select Option </option>
-                <option value="leisure"> Leisure ( 20-30 minute mile / 2-3mph )</option>
-                <option value="powerwalk"> Powerwalk ( 12-15 minute mile / 4-5mph )</option>
-                <option value="chased by bear"> Chased By Bear ( 10 minute mile and faster / 6mph )</option>
-            </select>
-            <br />
-            <br />
-            <button onClick={handleSaveChanges}>Save Changes</button>
-            <button onClick={handleDiscardChanges}>Discard Changes</button>
+                    value={lastName}
+                    onChange={(event) => setLastName(event.target.value)}
+                />
+                <FormHelperText id="outlined-weight-helper-text">Last Name</FormHelperText>
+                </FormControl>
+                <br/>
+            </div>
+            <div>
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <OutlinedInput
+                    id="outlined-adornment-weight"
+                    type="text"
+                    value={email}
+                    placeholder={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                />
+                <FormHelperText id="outlined-weight-helper-text">Email</FormHelperText>
+                </FormControl>
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <OutlinedInput
+                    id="outlined-adornment-weight"
+                    type="text"
+                    placeholder={phone}
+                    value={phone}
+                    onChange={(event) => setPhone(event.target.value)}
+                />
+                <FormHelperText id="outlined-weight-helper-text">Phone Number</FormHelperText>
+                </FormControl>
+                <br/>
+            </div>
+            </Box>
+            <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+        <TextField
+            name="selectList" 
+            id="selectList"
+            select
+            label="Select"
+            helperText="Experience Level"
+            value={experience}
+            onChange={(event) => setExperience(event.target.value)}
+        >
+            {experiences.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+            name="selectList" 
+            id="selectList"
+            select
+            label="Select"
+            helperText="Preferred Hiking Pace"
+            value={preferredPace}
+            onChange={(event) => setPreferredPace(event.target.value)}
+        >
+            {preferredPaces.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </div>
+      </Box>
+      </div>
+      <div className="results-buttons">
+        <Button
+          startIcon={<SaveIcon />}
+          variant="contained"
+          style={{
+            borderRadius: 10,
+            backgroundColor: "#62b378",
+            padding: "10px",
+            fontSize: "calc(.7vw + .7vh + .5vmin)",
+            margin: "8px",
+            border: "1px solid white",
+            float: "left"
+          }}
+          onClick={handleSaveChanges}>Save Changes</Button>
+        <Button
+          startIcon={<DeleteOutlineIcon />}
+          variant="contained"
+          style={{
+            borderRadius: 10,
+            backgroundColor: "#d95252",
+            padding: "10px",
+            fontSize: "calc(.7vw + .7vh + .5vmin)",
+            margin: "8px",
+            border: "1px solid white",
+            float: "left"
+          }}
+          onClick={handleDiscardChanges}>Discard Changes</Button>
+      </div>
+
         </>
     )
 }

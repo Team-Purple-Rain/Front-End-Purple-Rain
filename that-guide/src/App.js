@@ -126,15 +126,18 @@ function App() {
             <div className="mountains">
               <div className="header-text">
                 <h3>Thru Hiker's Appalachian Trail Guide</h3>
-                </div>
-                <h4>Take on the trail, one hike at a time.</h4>
+              </div>
+            <div>
+                <h4 className="header-style">Take on the trail, one hike at a time.</h4>
+                
+                <h4 className="header-style">
+                  Your Location: {latitude}, {longitude}
+                </h4>
+                <h4 className="elevation_div" id={elevation}>
+                  Current Elevation: {elevation}
+                </h4>
             </div>
-            <h4>
-              Your Location: {latitude}, {longitude}
-            </h4>
-            <h4 className="elevation_div" id={elevation}>
-              Current Elevation: {elevation}
-            </h4>
+            </div>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
                 <Button

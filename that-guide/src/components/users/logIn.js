@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"
 import axios from "axios";
-import { LocalConvenienceStoreOutlined } from "@mui/icons-material";
 import "./users.css";
+import * as React from 'react';
+import Button from "@mui/material/Button"
+import TextField from '@mui/material/TextField';
+import LoginIcon from '@mui/icons-material/Login';
+import HomeIcon from '@mui/icons-material/Home';
 
 function LogIn({ setAuth, auth }) {
     const navigate = useNavigate();
@@ -51,35 +55,60 @@ function LogIn({ setAuth, auth }) {
     return (
         <>
         <div className="user-stats">
-            <h1>Log In</h1>
-            <label class="label is-large" htmlFor='username'>Username</label>
-            <input type="text"
-                id='username'
-                class="input is-primary is-rounded is-focused is-large"
-                required
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-            />
+            <h3>Log In</h3>
+            <TextField
+            required
+            id="outlined-required"
+            label="Username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            style={{
+                margin: "5px",
+            }}
+        />
+        <TextField
+            required
+            id="outlined-password-input"
+            label="Password"
+            type="password"
+            onChange={(event) => setPassword(event.target.value)}
+            style={{
+                margin: "5px",
+            }}
+        />
             <br />
             <br />
             <form>
-                <>
-                    <label class="label is-large" htmlFor='password'>Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        required
-                        value={password}
-                        class="input is-primary is-rounded is-focused is-large"
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
-                </>
-                <br />
-                <br />
-                <button class="button is-primary is-large is-hover" type="submit" onClick={(event) => handleSubmit(event)}> Log In</button>
+            <Button
+                  startIcon={<LoginIcon />}
+                  variant="contained"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#62b378",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white",
+
+                  }}
+                  onClick={(event) => handleSubmit(event)}>
+                
+                  Log In
+                </Button>
             </form>
             <br />
-            <button onClick={handleReturnHome}>Return Home</button>
+            <Button
+                startIcon={<HomeIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleReturnHome}>Return Home</Button>
             </div>
         </>
     )

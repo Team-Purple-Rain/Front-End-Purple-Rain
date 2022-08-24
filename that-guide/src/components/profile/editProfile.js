@@ -102,8 +102,8 @@ const experiences = [
     return (
         <>
         <div className="personal-info">
-            <h1>Edit Profile</h1>
-            <h2> Username:  {username} </h2>
+            <h3>Edit Profile</h3>
+            <h3> Username:  {username} </h3>
                 <br />
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             <div>
@@ -208,7 +208,7 @@ const experiences = [
             borderRadius: 10,
             backgroundColor: "#62b378",
             padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
+            fontSize: "calc(.7vw + .7vh + .5vmin)",
             margin: "8px",
             border: "1px solid white",
             float: "left"
@@ -221,7 +221,7 @@ const experiences = [
             borderRadius: 10,
             backgroundColor: "#d95252",
             padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
+            fontSize: "calc(.7vw + .7vh + .5vmin)",
             margin: "8px",
             border: "1px solid white",
             float: "left"

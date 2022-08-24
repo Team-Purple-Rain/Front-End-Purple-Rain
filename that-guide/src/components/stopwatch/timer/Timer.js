@@ -125,6 +125,7 @@ export default function Timer(props) {
     <div className="timer">
       <div className="all-digits">
         <h3 className="time-elapsed">Time Elapsed:</h3>
+        <div className="right-aligned-digits">
         <span className="digits" onChange={logTime}>
           {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
         </span>
@@ -134,6 +135,7 @@ export default function Timer(props) {
         <span className="digits mili-sec">
           {("0" + ((props.time / 10) % 100)).slice(-2)}
         </span>
+        </div>
       </div>
     </div>
   );

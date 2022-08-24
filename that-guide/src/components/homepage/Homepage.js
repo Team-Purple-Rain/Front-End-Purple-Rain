@@ -25,7 +25,8 @@ export default function Homepage({
   setHikeType,
   selectedHikeType,
   setSelectedHikeType,
-  setDestination
+  setDestination,
+  setDestinationType
 }) {
   const [error, setError] = useState(null);
 
@@ -72,10 +73,11 @@ export default function Homepage({
 
   return (
     <>
+    <div className ="entire-background">
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
-            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType} setDestination={setDestination} longitude={longitude} setGoalCoords = {setGoalCoords}
+            <Map latitude={latitude} setHikeType={setHikeType} setSelectedHikeType={setSelectedHikeType} setDestination={setDestination} longitude={longitude} setGoalCoords = {setGoalCoords} setDestinationType={setDestinationType}
 />
           </div>
         </div>
@@ -194,6 +196,7 @@ export default function Homepage({
         </AccordionDetails>
       </Accordion>
     </div>
+  </div>
   </div>
     </>
   );

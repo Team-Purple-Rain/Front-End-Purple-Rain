@@ -22,6 +22,7 @@ export default function Map({
   setHikeType,
   setSelectedHikeType,
   setDestination,
+  setDestinationType,
 }) {
   const {
     value: online,
@@ -103,7 +104,7 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude,
+              e.features[0].properties.latitude - 0.1,
             ],
           });
 
@@ -118,7 +119,7 @@ export default function Map({
             .setLngLat(coordinates)
             .setHTML(
               `<h4>${e.features[0].properties.title}</h4>
-              <p>Destination Type: Water Source</p>
+              <p>Destination Type: Shelter</p>
           <p>Mile Marker: ${e.features[0].properties.mile}</p>
           <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
               <button type="button" id="btn">Start Hike</button>`
@@ -131,6 +132,7 @@ export default function Map({
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
             setDestination(title);
+            setDestinationType("Shelter");
           });
         });
       });
@@ -174,7 +176,7 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude,
+              e.features[0].properties.latitude - 0.1,
             ],
           });
 
@@ -202,6 +204,8 @@ export default function Map({
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
             setDestination(title);
+
+            setDestinationType("Water Source");
           });
         });
       });

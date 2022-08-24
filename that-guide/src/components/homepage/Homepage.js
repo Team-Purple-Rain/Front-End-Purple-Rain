@@ -72,6 +72,7 @@ export default function Homepage({
 
   return (
     <>
+    <div className ="entire-background">
       <div className="load-screen">
         <div className="map-and-button">
           <div id="map">
@@ -194,6 +195,7 @@ export default function Homepage({
         </AccordionDetails>
       </Accordion>
     </div>
+  </div>
   </div>
     </>
   );

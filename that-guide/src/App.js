@@ -116,8 +116,6 @@ function App() {
   }, 7000);
 
 
-
-
   return (
     <>
       <div className="background">
@@ -276,8 +274,6 @@ function App() {
                   token={token}
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
-                  hikeType={hikeType}
-                  setHikeType={setHikeType}
                 />
               }
             />

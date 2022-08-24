@@ -1,10 +1,10 @@
 
 .header-text {
-  text-shadow: 3px 0px 7px rgba(16, 43, 61, 0.8), -3px 0px 7px rgba(21, 51, 81, 0.8), 0px 4px 7px rgba(11, 22, 39, 0.8);
+  text-shadow: 3px 0px 7px rgba(16, 43, 61, 0.4), -3px 0px 7px rgba(21, 51, 81, 0.4), 0px 4px 7px rgba(11, 22, 39, 0.8);
   font-weight: bold;
 }
 
 .header-style, .elevation_div {
-  text-shadow: 3px 0px 7px rgba(16, 43, 61, 0.8), -3px 0px 7px rgba(21, 51, 81, 0.8), 0px 4px 7px rgba(11, 22, 39, 0.8);
+  text-shadow: 3px 0px 7px rgba(16, 43, 61, 0.4), -3px 0px 7px rgba(21, 51, 81, 0.4), 0px 4px 7px rgba(11, 22, 39, 0.5);
   font-weight: bold;
 }

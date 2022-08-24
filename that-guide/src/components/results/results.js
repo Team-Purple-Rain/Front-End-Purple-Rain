@@ -50,6 +50,13 @@ function Results({ latitude, longitude }) {
       });
   };
 
+const newTime = new Date(null);
+newTime.setSeconds(time); 
+const properTime = newTime.toISOString().substr(11, 8);
+
+console.log(properTime)
+
+
   axios
     .get(`https://thatguide.herokuapp.com/map/${ID}/`)
     .then((res) => {
@@ -61,7 +68,7 @@ function Results({ latitude, longitude }) {
       setEndHikeLong(res.data.end_location.longitude);
       setStartLat(res.data.start_location.latitude);
       setStartLong(res.data.start_location.longitude);
-      setTimeTraveled(moment(time).format("h:mm:ss"));
+      setTimeTraveled(properTime);
       setHikeUser(res.data.username);
       console.log(timeTraveled);
     })

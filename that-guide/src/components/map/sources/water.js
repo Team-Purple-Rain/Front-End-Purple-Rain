@@ -4,7 +4,7 @@ export const water = {
     {
       type: "Feature",
       properties: {
-        title: "Water near Black Gap Shelter",
+        title: "Black Gap Shelter",
         latitude: 34.61768,
         longitude: -84.19871,
         mile: 1.5,
@@ -230,7 +230,7 @@ export const water = {
     {
       type: "Feature",
       properties: {
-        title: "Water near Brown Gap Shelter",
+        title: "Brown Gap Shelter",
         latitude: 35.774331,
         longitude: -83.003983,
         mile: "251.6",
@@ -549,7 +549,7 @@ export const water = {
     {
       type: "Feature",
       properties: {
-        title: "Nearby Stream",
+        title: "Stream",
         latitude: 37.379208,
         longitude: -80.246414,
         mile: "689.6",
@@ -571,7 +571,7 @@ export const water = {
     {
       type: "Feature",
       properties: {
-        title: "Nearby Brook",
+        title: "Brook",
         latitude: 37.365833,
         longitude: -80.145314,
         mile: "704",
@@ -604,7 +604,7 @@ export const water = {
     {
       type: "Feature",
       properties: {
-        title: "Nearby Stream",
+        title: "Stream",
         latitude: 37.419208,
         longitude: -79.785537,
         mile: "741.3",
@@ -670,7 +670,7 @@ export const water = {
     {
       type: "Feature",
       properties: {
-        title: "Nearby spring",
+        title: "Spring",
         latitude: 37.806362,
         longitude: -79.162756,
         mile: "818",

@@ -148,7 +148,7 @@ console.log({destination})
         : <h3 className="options">Your Current {hikeType}</h3>}
 
         </div>
-        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} handleStop={handleStop}/>
+        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} handleStop={handleStop} destination={destination}/>
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (

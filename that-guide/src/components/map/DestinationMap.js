@@ -29,7 +29,7 @@ const geojson = {
   ],
 };
 
-export default function DestinationMap({ latitude, longitude, goalCoords, handleStop }) {
+export default function DestinationMap({ latitude, longitude, goalCoords, handleStop, destination }) {
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -108,8 +108,20 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
     const element = document.createElement("div");
     element.className = "goal-marker";
 
+    element.addEventListener('click', () => {
+      map.flyTo({
+        center: goalCoords
+      })
+    })
+    
     const goalMark = new mapboxgl.Marker(element)
       .setLngLat(goalCoords)
+      .setPopup(
+        new mapboxgl.Popup({offset: 25})
+          .setHTML(
+            `<h4>${destination}</h4>
+            <p>Coordinates: ${goalCoords} </p>`
+      ))
       .addTo(map);
 
     setUserMarker(userMark);

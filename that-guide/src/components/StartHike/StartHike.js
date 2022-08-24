@@ -15,7 +15,7 @@ export default function StartHike({
   latitude,
   longitude,
   time,
-  goalCoords
+  goalCoords,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -36,18 +36,18 @@ export default function StartHike({
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
   console.log(selectedDistance);
-  console.log(goalCoords)
+  console.log(goalCoords);
 
   axios
     .get(`https://thatguide.herokuapp.com/users/me/`, {
       headers: {
         Authorization: `Token ${token}`,
-      }
+      },
     })
     .then((res) => {
       setHikeUser(res.data.id);
       console.log(hikeUser);
-    })
+    });
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -129,7 +129,11 @@ export default function StartHike({
         <div className="location-header">
           <h3>Your Current Hike</h3>
         </div>
-        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords}/>
+        <DestinationMap
+          latitude={latitude}
+          longitude={longitude}
+          goalCoords={goalCoords}
+        />
       </div>
       <div className="second-location-header">
         <></>
@@ -157,7 +161,6 @@ export default function StartHike({
         )}
 
         <div className="whole-stats-container">
-          <div className="left-container"></div>
           <div className="right-container">
             <div className="time-remaining">
               <StopWatch

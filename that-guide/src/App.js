@@ -45,7 +45,7 @@ function App() {
   const map = useRef(null);
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
-  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [0,0])
+  const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [0, 0])
   const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
   const [selectedHikeType, setSelectedHikeType] = useState(null)
   const [destination, setDestination] = useLocalStorageState("destination", "")
@@ -126,16 +126,16 @@ function App() {
               <div className="header-text">
                 <h3>Thru Hiker's Appalachian Trail Guide</h3>
               </div>
-            <div>
+              <div>
                 <h4 className="header-style">Take on the trail, one hike at a time.</h4>
-                
+
                 <h4 className="header-style">
                   Your Location: {latitude}, {longitude}
                 </h4>
                 <h4 className="elevation_div" id={elevation}>
-                  Current Elevation: {elevation}
+                  Current Elevation: {elevation} feet
                 </h4>
-            </div>
+              </div>
             </div>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
@@ -203,88 +203,129 @@ function App() {
               </div>
             )}
           </div>
-          </div>
-          </div>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Homepage
-                  setSelectedDistance={setSelectedDistance}
-                  selectedDistance={selectedDistance}
-                  hikeType={hikeType}
-                  setHikeType={setHikeType}
-                  selectedHikeType={selectedHikeType}
-                  setSelectedHikeType={setSelectedHikeType}
-                  latitude={latitude}
-                  longitude={longitude}
-                  goalCoords = {goalCoords}
-                  setGoalCoords = {setGoalCoords}
-                  setDestination={setDestination}
-                  destination={destination}
-                  setDestinationType={setDestinationType}
-                />
-              }
+
+        </div>
+      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Homepage
+              setSelectedDistance={setSelectedDistance}
+              selectedDistance={selectedDistance}
+              hikeType={hikeType}
+              setHikeType={setHikeType}
+              selectedHikeType={selectedHikeType}
+              setSelectedHikeType={setSelectedHikeType}
+              latitude={latitude}
+              longitude={longitude}
+              goalCoords={goalCoords}
+              setGoalCoords={setGoalCoords}
+              setDestination={setDestination}
+              destination={destination}
+              setDestinationType={setDestinationType}
             />
-            <Route
-              path="/starthike"
-              element={
-                <StartHike
-                  selectedDistance={selectedDistance}
-                  longitude={longitude}
-                  latitude={latitude}
-                  setLatitude={setLatitude}
-                  setLongitude={setLongitude}
-                  highestElevation={highestElevation}
-                  goalCoords = {goalCoords}
-                  hikeType={hikeType}
-                  setHikeType={setHikeType}
-                  selectedHikeType={selectedHikeType}
-                  setSelectedHikeType={setSelectedHikeType}
-                  destination={destination}
-                  elevation={elevation}
-                  destinationType={destinationType}
-                />
-              }
+          }
+        />
+        <Route
+          path="/starthike"
+          element={
+            <StartHike
+              selectedDistance={selectedDistance}
+              longitude={longitude}
+              latitude={latitude}
+              setLatitude={setLatitude}
+              setLongitude={setLongitude}
+              highestElevation={highestElevation}
+              goalCoords={goalCoords}
+              hikeType={hikeType}
+              setHikeType={setHikeType}
+              selectedHikeType={selectedHikeType}
+              setSelectedHikeType={setSelectedHikeType}
+              destination={destination}
+              elevation={elevation}
+              destinationType={destinationType}
             />
-            <Route
-              path="/hikeresults/:ID"
-              element={
-                <Results
-                  latitude={latitude}
-                  longitude={longitude}
-                  setID={setID}
-                  ID={ID}
-                />
-              }
+          }
+        />
+        <Route
+          path="/hikeresults/:ID"
+          element={
+            <Results
+              latitude={latitude}
+              longitude={longitude}
+              setID={setID}
+              ID={ID}
             />
-            <Route path="/createuser" element={<NewUser />} />
-            <Route
-              path="/login"
-              element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
+          }
+        />
+        <Route path="/createuser" element={<NewUser />} />
+        <Route
+          path="/login"
+          element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
+
+        />
+          }
+        />
+        <Route
+          path="/starthike"
+          element={
+            <StartHike
+              selectedDistance={selectedDistance}
+              longitude={longitude}
+              latitude={latitude}
+              setLatitude={setLatitude}
+              setLongitude={setLongitude}
+              highestElevation={highestElevation}
+              goalCoords={goalCoords}
+              hikeType={hikeType}
+              setHikeType={setHikeType}
+              selectedHikeType={selectedHikeType}
+              setSelectedHikeType={setSelectedHikeType}
+              destination={destination}
+              elevation={elevation}
+              setElevation={setElevation}
             />
-            <Route
-              path="/logout"
-              element={<LogOut setAuth={setAuth} token={token} />}
+          }
+        />
+        <Route
+          path="/hikeresults/:ID"
+          element={
+            <Results
+              latitude={latitude}
+              longitude={longitude}
+              setID={setID}
+              ID={ID}
             />
-            <Route
-              path="/profile"
-              element={
-                <Profile
-                  username={username}
-                  latitude={latitude}
-                  longitude={longitude}
-                  token={token}
-                  setLatitude={setLatitude}
-                  setLongitude={setLongitude}
-                />
-              }
+          }
+        />
+        <Route path="/createuser" element={<NewUser />} />
+        <Route
+          path="/login"
+          element={<LogIn setAuth={setAuth} setUsername={setUsername} />}
+        />
+        <Route
+          path="/logout"
+          element={<LogOut setAuth={setAuth} token={token} />}
+        />
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              username={username}
+              latitude={latitude}
+              longitude={longitude}
+              token={token}
+              setLatitude={setLatitude}
+              setLongitude={setLongitude}
             />
-            <Route
-              path="/editprofile"
-              element={<EditProfile username={username} token={token} />}
-            />
-          </Routes>
+          }
+        />
+        <Route
+          path="/editprofile"
+          element={<EditProfile username={username} token={token} />}
+        />
+      </Routes>
     </>
   );
 }

@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import "./users.css";
+import Button from "@mui/material/Button"
+import LogoutIcon from '@mui/icons-material/Logout';
+import HomeIcon from '@mui/icons-material/Home';
 
 function LogOut() {
     let token = localStorage.getItem("auth_token");
@@ -30,11 +33,33 @@ function LogOut() {
     }
     return (
         <>
-            <h1>Wanna Log out?!</h1>
-            <button class="button is-danger is-outlined has-text-link is-light is-large"
-                type="submit"
-                onClick={handleLogOut}> Log Out</button>
-            <button onClick={handleReturnHome}>Return Home</button>
+        <div className="user-stats">
+            <h3>Log Out?</h3>
+            <Button
+                startIcon={<HomeIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleReturnHome}>No, Return Home</Button>
+                            <Button
+                  startIcon={<LogoutIcon />}
+                  variant="contained"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#d95252",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                  }}
+                  onClick={handleLogOut}>Yes, Log Out</Button>
+            </div>
         </>
     )
 }

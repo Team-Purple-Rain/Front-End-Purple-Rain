@@ -7,16 +7,21 @@ import Map from "../map/Map";
 import DestinationMap from "../map/DestinationMap";
 import axios from "axios";
 import moment from "moment";
-import LoadingScreen from "react-loading-screen";
 import Button from "@mui/material/Button";
+import Spinner from "react-spinkit";
 
 export default function StartHike({
   selectedDistance,
   latitude,
   longitude,
   time,
+  goalCoords,
+  hikeType,
+  setHikeType,
+  selectedHikeType,
+  setSelectedHikeType,
+  destination,
   elevation,
-  goalCoords
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -118,24 +123,27 @@ export default function StartHike({
 
   if (latitude === "") {
     return (
-      <LoadingScreen
-        loading={true}
-        bgColor="#f1f1f1"
-        spinnerColor="#9ee5f8"
-        textColor="#676767"
-        text="Gathering location data for the Thru Hiker's Appalachian Trail Guide..."
-      />
+      <div
+          style={{
+            display: "flex",
+            marginTop: "200px",
+            justifyContent: "space-between",}}>
+            <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+      </div>
     );
-  }
+};
+
+console.log({destination})
 
   return (
     <>
       <div>
-        <div className="location-header">
-          <h3>Your Current Hike</h3>
+        {hikeType === "Destination Hike"
+          ? <h3 className="options">Your hike to {destination}</h3> 
+        : <h3 className="options">Your Current {hikeType}</h3>}
+
         </div>
-        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords} />
-      </div>
+        <DestinationMap latitude={latitude} longitude={longitude} goalCoords={goalCoords}/>
       <div className="second-location-header">
         <></>
         {selectedDistance === "" ? (
@@ -162,7 +170,6 @@ export default function StartHike({
         )}
 
         <div className="whole-stats-container">
-          <div className="left-container"></div>
           <div className="right-container">
             <div className="time-remaining">
               <StopWatch

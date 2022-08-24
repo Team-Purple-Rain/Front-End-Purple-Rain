@@ -4,6 +4,7 @@ import Results from "../results/results";
 import axios from "axios";
 import Map from "../map/Map";
 import LoadingScreen from "react-loading-screen";
+import Spinner from "react-spinkit";
 import AllHikes from "../profile/allHikes.js";
 import TextField from '@mui/material/TextField';
 import Accordion from '@mui/material/Accordion';
@@ -11,6 +12,10 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HomeIcon from '@mui/icons-material/Home';
+import EditIcon from '@mui/icons-material/Edit';
+import Button from "@mui/material/Button"
+
 import * as React from 'react'
 
 export default function Profile() {
@@ -69,8 +74,30 @@ export default function Profile() {
             </div>
             <br />
             <br />
-            <button onClick={handleEditProfile}>Edit Profile</button>
-            <button onClick={handleReturnHome}>Return Home</button>
+            <Button
+                startIcon={<EditIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "##de9835",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleEditProfile}>Edit Profile</Button>
+            <Button
+                startIcon={<HomeIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleReturnHome}>Return Home</Button>
             <br />
             <br />
         </>

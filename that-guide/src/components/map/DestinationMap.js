@@ -8,6 +8,7 @@ import { shelter } from "./sources/shelter";
 import myImage from "./mapIcons/smol.png";
 import waterImage from "./mapIcons/smolwater.png";
 import Button from "@mui/material/Button";
+import useLocalStorageState from "use-local-storage-state"
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";

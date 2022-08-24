@@ -1,6 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import "./users.css";
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl'
+import AddIcon from '@mui/icons-material/Add';
+import Button from "@mui/material/Button"
+import TextField from '@mui/material/TextField';
+import LoginIcon from '@mui/icons-material/Login';
+import HomeIcon from '@mui/icons-material/Home';
 
 
 function NewUser() {
@@ -47,32 +58,68 @@ function NewUser() {
 
     return (
         <>
-            <h1 class="subtitle is-3 is-flex is-aligned-self-center is-spaced ">Create Your Account</h1>
-            <br />
-            <div>
-                <label class="label is-large" htmlFor="username"> Username</label>
-                <input
-                    id="username"
+        <div className="user-stats">
+        <h3 class="subtitle is-3 is-flex is-aligned-self-center is-spaced ">Create Your Account</h3>
+        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <OutlinedInput
+                    required
+                    id="outlined-required"
                     type="text"
-                    class="input is-primary is-rounded is-focused is-large"
+                    name="first"
+                    aria-describedby="outlined-username-helper-text"
+                    value={username}
+                    // placeholder={firstName}
                     onChange={(event) => setUsername(event.target.value)}
                 />
-            </div>
-            <div>
-                <label class="label is-large" htmlFor="password"> Password</label>
-                <input
-                    id="password"
+                <FormHelperText id="outlined-weight-helper-text">Username</FormHelperText>
+                </FormControl>
+            
+            <br />
+            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                <OutlinedInput
+                    required
+                    id="outlined-required"
                     type="password"
-                    class="input is-primary is-rounded is-focused is-large"
+                    name="first"
+                    aria-describedby="outlined-username-helper-text"
+                    htmlFor="password"
+                    value={password}
+                    // placeholder={firstName}
                     onChange={(event) => setPassword(event.target.value)}
                 />
-            </div>
+                <FormHelperText id="outlined-weight-helper-text">Password</FormHelperText>
+                </FormControl>
             <br />
-            <button class="button is-primary is-large is-hover" type="submit" onClick={(event) => handleNewUser(event)}>
-                {" "}
-                Create Account
-            </button>
-            <button onClick={handleReturnHome}>Return Home</button>
+            <Button
+                  startIcon={<LoginIcon />}
+                  variant="contained"
+                  type="submit"
+                  style={{
+                    borderRadius: 10,
+                    backgroundColor: "#62b378",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white",
+
+                  }}
+                  oonClick={(event) => handleNewUser(event)}>
+                
+                  Create Account
+                </Button>
+            <Button
+                startIcon={<HomeIcon />}
+                variant="contained"
+                style={{
+                    borderRadius: 10,
+                    backgroundColor: "#21b6ae",
+                    padding: "10px",
+                    fontSize: "calc(.7vw + .7vh + .5vmin)",
+                    margin: "8px",
+                    border: "1px solid white"
+                    }}
+                onClick={handleReturnHome}>Return Home</Button>
+        </div>
         </>
 
     )

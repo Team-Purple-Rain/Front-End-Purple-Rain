@@ -17,11 +17,16 @@ import NewUser from "./components/users/newUser";
 import LogIn from "./components/users/logIn";
 import LogOut from "./components/users/logout";
 import EditProfile from "./components/profile/editProfile";
-import Button from "@mui/material/Button";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AddIcon from "@mui/icons-material/Add";
-import LoginIcon from "@mui/icons-material/Login";
-import LogoutIcon from "@mui/icons-material/Logout";
+import Button from "@mui/material/Button"
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddIcon from '@mui/icons-material/Add';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import ".//App.css"
+import Spinner from "react-spinkit";
+
+
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -41,6 +46,9 @@ function App() {
   const [zoom, setZoom] = useState(15);
   const [mapObject, setMapObject] = useState();
   const [goalCoords, setGoalCoords] = useLocalStorageState('goalCoords', [])
+  const [hikeType, setHikeType] = useLocalStorageState("hikeType", "")
+  const [selectedHikeType, setSelectedHikeType] = useState(null)
+  const [destination, setDestination] = useState("")
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -77,7 +85,7 @@ function App() {
     navigate("/logout");
   };
 
-  setInterval(getLocation, 10000);
+  // setInterval(getLocation, 10000);
 
   useInterval(() => {
     async function getElevation() {
@@ -104,7 +112,11 @@ function App() {
       setElevation(roundedElevation);
     }
     getElevation();
+    getLocation();
   }, 7000);
+
+
+
 
   return (
     <>
@@ -112,17 +124,20 @@ function App() {
         <div className="load-screen">
           <div className="title-header">
             <div className="mountains">
-              <h3>Thru Hiker's Appalachian Trail Guide</h3>
-              <h4>Take on the trail, one hike at a time.</h4>
+              <div className="header-text">
+                <h3>Thru Hiker's Appalachian Trail Guide</h3>
+              </div>
+            <div>
+                <h4 className="header-style">Take on the trail, one hike at a time.</h4>
+                
+                <h4 className="header-style">
+                  Your Location: {latitude}, {longitude}
+                </h4>
+                <h4 className="elevation_div" id={elevation}>
+                  Current Elevation: {elevation}
+                </h4>
             </div>
-            <h4>
-              Your Location: {latitude}, {longitude}
-            </h4>
-            <h4 className="elevation_div" id={elevation}>
-
-              Current Elevation: {elevation} feet
-
-            </h4>
+            </div>
             {areYouLoggedIn ? (
               <div className="nav-bar" id="overlay">
                 <Button
@@ -189,7 +204,8 @@ function App() {
               </div>
             )}
           </div>
-
+          </div>
+          </div>
           <Routes>
             <Route
               path="/"
@@ -197,10 +213,16 @@ function App() {
                 <Homepage
                   setSelectedDistance={setSelectedDistance}
                   selectedDistance={selectedDistance}
+                  hikeType={hikeType}
+                  setHikeType={setHikeType}
+                  selectedHikeType={selectedHikeType}
+                  setSelectedHikeType={setSelectedHikeType}
                   latitude={latitude}
                   longitude={longitude}
-                  goalCoords={goalCoords}
-                  setGoalCoords={setGoalCoords}
+                  goalCoords = {goalCoords}
+                  setGoalCoords = {setGoalCoords}
+                  setDestination={setDestination}
+                  destination={destination}
                 />
               }
             />
@@ -214,8 +236,13 @@ function App() {
                   setLatitude={setLatitude}
                   setLongitude={setLongitude}
                   highestElevation={highestElevation}
+                  goalCoords = {goalCoords}
+                  hikeType={hikeType}
+                  setHikeType={setHikeType}
+                  selectedHikeType={selectedHikeType}
+                  setSelectedHikeType={setSelectedHikeType}
+                  destination={destination}
                   elevation={elevation}
-                  goalCoords={goalCoords}
                 />
               }
             />
@@ -257,8 +284,6 @@ function App() {
               element={<EditProfile username={username} token={token} />}
             />
           </Routes>
-        </div>
-      </div>
     </>
   );
 }

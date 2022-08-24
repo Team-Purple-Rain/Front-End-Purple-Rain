@@ -9,6 +9,7 @@ import axios from "axios";
 import moment from "moment";
 import Button from "@mui/material/Button";
 import Spinner from "react-spinkit";
+import { timeout } from "workbox-core/_private";
 
 export default function StartHike({
   selectedDistance,
@@ -41,50 +42,65 @@ export default function StartHike({
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
+  const hikeSession = ID;
   // const [currentElevation, setCurrentElevation] = useState(elevation);
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
   // console.log(selectedDistance);
   // console.log(goalCoords)
 
-  axios
-    .get(`https://thatguide.herokuapp.com/users/me/`, {
-      headers: {
-        Authorization: `Token ${token}`,
-      },
-    })
-    .then((res) => {
-      setHikeUser(res.data.id);
-      console.log(hikeUser);
-    });
+  // axios
+  //   .get(`https://thatguide.herokuapp.com/users/me/`, {
+  //     headers: {
+  //       Authorization: `Token ${token}`,
+  //     }
+  //   })
+  //   .then((res) => {
+  //     setHikeUser(res.data.id);
+  //     console.log(hikeUser);
+  //   })
 
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
-    axios
-      .post(`https://thatguide.herokuapp.com/map/`, {
-        start_location: {
-          latitude: startLat,
-          longitude: startLong,
-        },
-        end_location: endHike,
-        current_elevation: currentElevation,
-        hike_user: hikeUser,
-      })
-      .then((res) => {
-        console.log("posted something");
-        console.log(res);
-        console.log(res.data.id);
-        setID(res.data.id);
-        console.log(ID);
-      });
+
+    if (elevation != "calculating...") {
+      axios
+        .post(`https://thatguide.herokuapp.com/map/`, {
+          start_location: {
+            latitude: startLat,
+            longitude: startLong,
+          },
+          end_location: endHike,
+          current_elevation: currentElevation,
+          hike_user: hikeUser,
+        })
+        .then((res) => {
+          console.log("posted something");
+          setID(res.data.id);
+        });
+    }
   };
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
     setIsPaused(!isPaused);
+  };
+
+  const hitCheckpoint = () => {
+    // let checkTime = props.time;
+    // while (i <= 20000000) {
+    //   i += 1000 * 10;
+    axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+      location: {
+        latitude: latitude,
+        longitude: longitude,
+      },
+      current_elevation: currentElevation,
+      hike_session: hikeSession,
+    });
   };
 
   const handleStop = () => {
@@ -160,6 +176,7 @@ export default function StartHike({
         goalCoords={goalCoords}
         handleStop={handleStop}
       />
+      =
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
@@ -203,6 +220,7 @@ export default function StartHike({
                 setID={setID}
               />
             </div>
+            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
           </div>
         </div>
         <Button

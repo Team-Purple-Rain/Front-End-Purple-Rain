@@ -39,6 +39,7 @@ export default function Homepage({
   const handleStartHike = (event) => {
     navigate("/starthike");
     event.preventDefault();
+    setGoalCoords([0,0])
     setError(null);
     console.log("You have started a hike.");
     if (selectedDistance) {
@@ -182,7 +183,7 @@ export default function Homepage({
               variant="contained"
               type="submit"
               className="start-hike"
-              onClick={() => {setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); handleStartHike()}}
+              onClick={() => {setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); setGoalCoords([0,0]); handleStartHike()}}
             >
               {" "}
               Start Hike

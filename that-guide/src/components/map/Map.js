@@ -116,6 +116,7 @@ export default function Map({
             ],
           });
 
+          const title = e.features[0].properties.title;
           const coordinates = e.features[0].geometry.coordinates.slice();
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -126,6 +127,7 @@ export default function Map({
             .setLngLat(coordinates)
             .setHTML(
               `<h4>${e.features[0].properties.title}</h4>
+              <p>Destination Type: Water Source</p>
           <p>Mile Marker: ${e.features[0].properties.mile}</p>
           <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
               <button type="button" id="btn">Start Hike</button>`
@@ -137,7 +139,7 @@ export default function Map({
             navigate("/starthike");
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
-            setDestination(e.features[0].properties.title);
+            setDestination(title);
           });
         });
       });
@@ -186,6 +188,7 @@ export default function Map({
           });
 
           const coordinates = e.features[0].geometry.coordinates.slice();
+          const title = e.features[0].properties.title;
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -195,6 +198,7 @@ export default function Map({
             .setLngLat(coordinates)
             .setHTML(
               `<h4>${e.features[0].properties.title}</h4>
+              <p>Destination Type: Water Source</p>
         <p>Mile Marker: ${e.features[0].properties.mile}</p>
         <p>Coordinates: ${e.features[0].properties.latitude},${e.features[0].properties.longitude}</p>           
         <button type="button" id="btn">Start Hike</button>`
@@ -206,7 +210,7 @@ export default function Map({
             navigate("/starthike");
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
-            setDestination(e.features[0].properties.title);
+            setDestination(title);
           });
         });
       });

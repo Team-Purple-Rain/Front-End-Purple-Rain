@@ -3,7 +3,8 @@ import { useEffect, useState, useRef } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useInterval } from "use-interval";
 import axios from "axios";
-import Map from "../map/Map";
+import { OfflineMap } from "./OfflineMap";
+import "leaflet.offline";
 
 export default function OffLinePage(props) {
   console.log(props);
@@ -22,10 +23,6 @@ export default function OffLinePage(props) {
     setLongitude(position.coords.longitude);
   }
 
-  // Token to get elevation on navbar.
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
-
   const getLocation = () => {
     if (!navigator.geolocation) {
       alert("This device doesn't support location services.");
@@ -41,21 +38,6 @@ export default function OffLinePage(props) {
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
-    // axios
-    //   .post(`https://thatguide.herokuapp.com/map/`, {
-    //     start_location: {
-    //       latitude: startLat,
-    //       longitude: startLong,
-    //     },
-    //     end_location: endHike,
-    //     hike_user: hikeUser,
-    //   })
-    //   .then((res) => {
-    //     console.log("posted something");
-    //     console.log(res);
-    //     console.log(res.data.id);
-    //     setID(res.data.id);
-    //   });
   };
 
   const handlePauseResume = () => {
@@ -76,7 +58,8 @@ export default function OffLinePage(props) {
           Your current coordinates are:
           <div>Latitude:{latitude}</div>
           <div>Longitude:{longitude}</div>
-          <Map latitude={latitude} longitude={longitude} />
+          <div id="offline_map"></div>
+          <OfflineMap />
           <props.StopWatch
             latitude={latitude}
             longitude={longitude}

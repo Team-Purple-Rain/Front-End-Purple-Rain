@@ -25,6 +25,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import ".//App.css";
 import Spinner from "react-spinkit";
+import { useBooleanState, usePrevious } from "webrix/hooks";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -54,6 +55,22 @@ function App() {
     "destinationType",
     ""
   );
+  const {
+    value: online,
+    setFalse: setOffline,
+    setTrue: setOnline,
+  } = useBooleanState(navigator.onLine);
+  const previousOnline = usePrevious(online);
+
+  useEffect(() => {
+    window.addEventListener("online", setOnline);
+    window.addEventListener("offline", setOffline);
+
+    return () => {
+      window.removeEventListener("online", setOnline);
+      window.removeEventListener("offline", setOffline);
+    };
+  }, []);
 
   function success(position) {
     setLatitude(position.coords.latitude);
@@ -93,30 +110,32 @@ function App() {
   // setInterval(getLocation, 10000);
 
   useInterval(() => {
-    async function getElevation() {
-      // Construct the API request.
-      const query = await fetch(
-        `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${longitude},${latitude}.json?layers=contour&radius=3&limit=10&access_token=${mapboxgl.accessToken}`,
-        { method: "GET" }
-      );
-      if (query.status !== 200) return;
-      const data = await query.json();
-      // Get all the returned features.
-      const allFeatures = data.features;
-      // console.log(allFeatures);
-      // For each returned feature, add elevation data to the elevations array.
-      const elevations = allFeatures.map((feature) => feature.properties.ele);
-      // console.log(elevations);
-      // In the elevations array, find the largest value.
-      const highestElevation = Math.max(...elevations);
+    if (online) {
+      async function getElevation() {
+        // Construct the API request.
+        const query = await fetch(
+          `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${longitude},${latitude}.json?layers=contour&radius=3&limit=10&access_token=${mapboxgl.accessToken}`,
+          { method: "GET" }
+        );
+        if (query.status !== 200) return;
+        const data = await query.json();
+        // Get all the returned features.
+        const allFeatures = data.features;
+        // console.log(allFeatures);
+        // For each returned feature, add elevation data to the elevations array.
+        const elevations = allFeatures.map((feature) => feature.properties.ele);
+        // console.log(elevations);
+        // In the elevations array, find the largest value.
+        const highestElevation = Math.max(...elevations);
 
-      const elevationConversion = highestElevation * 3.28;
-      // console.log(elevationConversion);
-      let roundedElevation = elevationConversion.toFixed(1);
+        const elevationConversion = highestElevation * 3.28;
+        // console.log(elevationConversion);
+        let roundedElevation = elevationConversion.toFixed(1);
 
-      setElevation(roundedElevation);
+        setElevation(roundedElevation);
+        getElevation();
+      }
     }
-    getElevation();
     getLocation();
   }, 7000);
 

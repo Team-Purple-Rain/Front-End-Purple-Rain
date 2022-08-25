@@ -5,7 +5,6 @@ import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Timer from "../stopwatch/timer/Timer";
 
 export default function Offline({ children }) {
-  console.log(children);
   const {
     value: online,
     setFalse: setOffline,

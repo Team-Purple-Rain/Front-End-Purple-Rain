@@ -130,7 +130,7 @@ function App() {
 
         const elevationConversion = highestElevation * 3.28;
         // console.log(elevationConversion);
-        let roundedElevation = elevationConversion.toFixed(1);
+        let roundedElevation = elevationConversion.toFixed(0);
 
         setElevation(roundedElevation);
         getElevation();

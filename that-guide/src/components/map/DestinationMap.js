@@ -23,7 +23,7 @@ const geojson = {
       type: "Feature",
       geometry: {
         type: "LineString",
-        coordinates: [[-78.648384, 35.795848]],
+        coordinates: [[0,0]],
       },
     },
   ], tolerance: 3.5

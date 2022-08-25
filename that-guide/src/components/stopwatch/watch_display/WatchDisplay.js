@@ -16,6 +16,7 @@ function StopWatch({
   ID,
   setID,
   finalTime,
+  hikeSession,
 }) {
   const [time, setTime] = useState(0);
 
@@ -42,6 +43,7 @@ function StopWatch({
           latitude={latitude}
           longitude={longitude}
           ID={ID}
+          hikeSession={hikeSession}
         />
         <WatchButtons
           active={isActive}
@@ -54,6 +56,7 @@ function StopWatch({
           ID={ID}
           time={time}
           setID={setID}
+          hikeSession={hikeSession}
         />
       </div>
     </>

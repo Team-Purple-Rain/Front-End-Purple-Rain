@@ -3628,6 +3628,19 @@ export const shelter = {
       },
       geometry: { type: "Point", coordinates: [-68.99905, 45.88675] },
     },
+    {
+      type: "Feature",
+      properties: {
+        title: "Cameron Village Shelter",
+        mile: "9999",
+        elevation: "999'",
+        county: "Wake",
+        state: "NC",
+        latitude: 35.792434,
+        longitude: -78.647319,
+      },
+      geometry: { type: "Point", coordinates: [-78.647319, 35.792434] },
+    },
   ],
 };
 

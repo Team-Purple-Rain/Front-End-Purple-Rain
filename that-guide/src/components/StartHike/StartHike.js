@@ -240,6 +240,7 @@ export default function StartHike({
                 handleStop={handleStop}
                 ID={ID}
                 setID={setID}
+                hikeSession={hikeSession}
               />
             </div>
             <button onClick={hitCheckpoint}>Checkpoint Hit</button>

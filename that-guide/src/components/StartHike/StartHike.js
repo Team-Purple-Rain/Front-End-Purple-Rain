@@ -106,6 +106,13 @@ export default function StartHike({
     });
   };
 
+  const sendToBackEnd = () => {
+    const data = localStorage.getItem("hike");
+    if (data) {
+      console.log(data);
+    }
+  };
+
   const handleStop = () => {
     // console.log(ID);
     console.log(
@@ -140,7 +147,10 @@ export default function StartHike({
         console.log("patched something");
         navigate(`/hikeresults/${ID}`);
       });
+    // .then(sendToBackEnd());
   };
+
+  sendToBackEnd();
 
   const navigate = useNavigate();
 

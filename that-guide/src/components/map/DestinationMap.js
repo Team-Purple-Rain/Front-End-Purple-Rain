@@ -23,10 +23,10 @@ const geojson = {
       type: "Feature",
       geometry: {
         type: "LineString",
-        coordinates: [[]],
+        coordinates: [[-78.648384, 35.795848]],
       },
     },
-  ],
+  ], tolerance: 3.5
 };
 
 export default function DestinationMap({ destination, latitude, longitude, goalCoords, handleStop }) {
@@ -86,10 +86,11 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
         layout: {
           "line-cap": "round",
           "line-join": "round",
+          'visibility': 'visible'
         },
         paint: {
           "line-color": "blue",
-          "line-width": 5,
+          "line-width": 15,
           "line-opacity": 0.8,
         },
       });

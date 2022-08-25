@@ -66,7 +66,7 @@ export default function StartHike({
     setIsPaused(false);
     setIsStarted(true);
 
-    if (elevation != "calculating...") {
+    if (elevation !== "calculating...") {
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
           start_location: {

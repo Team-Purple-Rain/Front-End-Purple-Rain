@@ -5,8 +5,8 @@ import moment from "moment";
 import { useBooleanState, usePrevious } from "webrix/hooks";
 
 export default function Timer(props) {
-  console.log(props.ID);
-  console.log(props.hikeSession);
+  // console.log(props.ID);
+  // console.log(props.hikeSession);
   const {
     value: online,
     setFalse: setOffline,

@@ -74,7 +74,7 @@ export default function StartHike({
             longitude: startLong,
           },
           end_location: endHike,
-          current_elevation: currentElevation,
+          current_elevation: parseInt(currentElevation),
           hike_user: hikeUser,
         })
         .then((res) => {
@@ -98,7 +98,7 @@ export default function StartHike({
         latitude: latitude,
         longitude: longitude,
       },
-      current_elevation: currentElevation,
+      current_elevation: parseInt(currentElevation),
       hike_session: hikeSession,
     });
   };
@@ -136,7 +136,7 @@ export default function StartHike({
     navigate("/");
   };
 
-  console.log({ latitude }, { longitude }, { elevation });
+  console.log({ latitude }, { longitude }, { currentElevation });
 
   if (latitude === "") {
     return (

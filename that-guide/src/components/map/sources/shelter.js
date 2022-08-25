@@ -3636,10 +3636,10 @@ export const shelter = {
         elevation: "999'",
         county: "Wake",
         state: "NC",
-        latitude: 35.7933,
-        longitude: -78.651816,
+        latitude: 35.792434,
+        longitude: -78.647319,
       },
-      geometry: { type: "Point", coordinates: [-68.99905, 45.88675] },
+      geometry: { type: "Point", coordinates: [-78.647319, 35.792434] },
     },
   ],
 };

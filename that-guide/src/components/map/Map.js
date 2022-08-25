@@ -115,8 +115,8 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude - 0.1,
-            ],
+              e.features[0].properties.latitude - 0.01,
+            ], zoom: 12
           });
 
           const title = e.features[0].properties.title;

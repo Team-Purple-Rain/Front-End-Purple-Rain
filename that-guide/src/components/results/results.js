@@ -32,7 +32,7 @@ function Results({ latitude, longitude }) {
     (areYouLoggedIn ? (
       navigate("/profile")
     ) : (
-      navigate("/")
+      navigate("/createuser")
     ))
   };
 
@@ -50,11 +50,11 @@ function Results({ latitude, longitude }) {
       });
   };
 
-const newTime = new Date(null);
-newTime.setSeconds(time); 
-const properTime = newTime.toISOString().substr(11, 8);
+  const newTime = new Date(null);
+  newTime.setSeconds(time);
+  const properTime = newTime.toISOString().substr(11, 8);
 
-console.log(properTime)
+  console.log(properTime)
 
 
   axios
@@ -79,19 +79,20 @@ console.log(properTime)
       <div className="results-stats">
         <h4>Start Location:</h4>
         <h4>
-          Latitude {startLat}, Longitude {startLong}, Elevation
+          Latitude {startLat}, Longitude {startLong}
         </h4>
         <h4>End Location:</h4>
         <h4>
-          Latitude {endHikeLat}, Longitude {endHikeLong}, Elevation
+          Latitude {endHikeLat}, Longitude {endHikeLong}
         </h4>
         <h4>
-          Elevation Change: {elevationChange}
+          Elevation Gain: {elevationChange}
         </h4>
         <h4>Time Hiking: {timeTraveled}
         </h4>
         <h4>
           Average Pace:
+          {/* {speed / timeTraveled} */}
           {speed}
         </h4>
         <h4>
@@ -122,8 +123,8 @@ console.log(properTime)
               border: "1px solid white",
             }}
             onClick={handleClearData}>Delete Hike</Button>
+        </div>
       </div>
-    </div>
       {/* <Map latitude={latitude} longitude={longitude} /> */}
 
     </>

@@ -29,12 +29,11 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
-            <OfflineMap />
-            {/* {!online ? (
+            {!online ? (
               <OffLinePage StopWatch={StopWatch} Timer={Timer} />
             ) : (
               <>{children}</>
-            )} */}
+            )}
           </div>
         </div>
       </div>

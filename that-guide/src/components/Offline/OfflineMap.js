@@ -13,7 +13,7 @@ export const OfflineMap = ({ longitude, latitude }) => {
   const [map, setMap] = useState(null);
 
   // L.tileLayer(
-  //   "https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/6/24/18?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA",
+  //   "https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/0/0/0?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA",
   //   {
   //     attribution:
   //       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -30,33 +30,34 @@ export const OfflineMap = ({ longitude, latitude }) => {
       setMap(map);
     }
     if (map) {
-      const layer = L.tileLayerOffline(
-        "https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/0/0/0?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA",
+      const layer = L.tileLayer(
+        "https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/6/18/23?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA",
         {
           attribution:
             '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
           minZoom: 0,
         }
       );
-      const tileLayerOffline = generateOfflineTilelayer();
+      // const tileLayerOffline = generateOfflineTilelayer();
 
-      tileLayerOffline.addTo(map);
-      layer.addTo(map);
+      // tileLayerOffline.addTo(map);
+      // layer.addTo(map);
 
-      const controlSaveTiles = generateControlSavetiles(tileLayerOffline, {
-        zoomlevels: [13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
-      });
+      // const controlSaveTiles = generateControlSavetiles(tileLayerOffline, {
+      //   zoomlevels: [13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
+      // });
 
-      controlSaveTiles.addTo(map);
+      // controlSaveTiles.addTo(map);
     }
   }, [map]);
 
   return (
     <>
+      {/* <div id="offline_map"></div> */}
       <MapContainer
         style={{ width: "100vw", height: "20vh" }}
-        center={[63.446827, 10.421906]}
-        zoom={0}
+        center={[18, 23]}
+        zoom={6}
         scrollWheelZoom={false}
         whenCreated={setMap}
       ></MapContainer>

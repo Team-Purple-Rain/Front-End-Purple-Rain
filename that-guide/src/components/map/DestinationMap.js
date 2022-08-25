@@ -29,7 +29,7 @@ const geojson = {
   ],
 };
 
-export default function DestinationMap({ latitude, longitude, goalCoords, handleStop }) {
+export default function DestinationMap({ destination, latitude, longitude, goalCoords, handleStop }) {
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -62,6 +62,15 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
     scale.setUnit("imperial");
     map.addControl(new mapboxgl.NavigationControl());
 
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showUserHeading: true
+      }))
+
     // adding a line layer that tracks movement
     map.on("load", () => {
       map.addSource("line", {
@@ -73,7 +82,7 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
         id: "line-animation",
         type: "line",
         source: "line",
-        minzoom: 8,
+        minzoom: 2,
         layout: {
           "line-cap": "round",
           "line-join": "round",
@@ -97,22 +106,35 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
     });
 
     // creates a User Location Marker at device location
-    const el = document.createElement("div");
-    el.className = "user-marker";
+    // const el = document.createElement("div");
+    // el.className = "user-marker";
 
-    const userMark = new mapboxgl.Marker(el)
-      .setLngLat([longitude, latitude])
-      .addTo(map);
+    // const userMark = new mapboxgl.Marker()
+    //   .setLngLat([longitude, latitude])
+    //   .addTo(map);
 
     // creates a goal marker at goal location
     const element = document.createElement("div");
     element.className = "goal-marker";
 
+    element.addEventListener('click', () => {
+      map.flyTo({
+        center: goalCoords
+      })
+    })
+
     const goalMark = new mapboxgl.Marker(element)
       .setLngLat(goalCoords)
+      .setPopup(
+        new mapboxgl.Popup({offset: 25})
+          .setHTML(
+            `<h4>${destination}</h4>
+            <p>Coordinates: ${goalCoords}</p>`
+          )
+      )
       .addTo(map);
 
-    setUserMarker(userMark);
+    // setUserMarker(userMark);
     setMapObject(map);
   }, []);
 
@@ -124,15 +146,16 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
   }
 
   setInterval(addLinePoints(), 3000);
+  console.log(geojson)
 
   // function that updates the User marker's long lat
-  function updateUserMarker() {
-    if (mapObject) {
-      userMarker.setLngLat([longitude, latitude]);
-    }
-  }
+  // function updateUserMarker() {
+  //   if (mapObject) {
+  //     userMarker.setLngLat([longitude, latitude]);
+  //   }
+  // }
 
-  updateUserMarker();
+  // updateUserMarker();
 
   // function to re-center map around User
   function setMapCenter(coords) {
@@ -169,7 +192,7 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
   }, 7000);
 
     // functions to check if User is near goal
-    function checkLat() {
+    function checkCoords() {
       const goalLat = goalCoords[1];
       const goalLong = goalCoords[0];
       if ((goalLat > latitude - .0005 && goalLat < latitude + .0005) && (goalLong > longitude - .0005 && goalLong < longitude + .0005)) {
@@ -178,7 +201,7 @@ export default function DestinationMap({ latitude, longitude, goalCoords, handle
       }
     }
   
-    setInterval(checkLat(),30000)
+    setInterval(checkCoords(),30000)
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));

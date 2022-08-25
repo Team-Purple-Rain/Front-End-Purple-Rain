@@ -15,19 +15,6 @@ import { AlignVerticalBottomTwoTone } from "@mui/icons-material";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
-// Create a GeoJSON source with an empty lineString.
-const geojson = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "LineString",
-        coordinates: [[]],
-      },
-    },
-  ], tolerance: 3.5
-};
 
 export default function DestinationMap({ destination, latitude, longitude, goalCoords, handleStop }) {
   const navigate = useNavigate();
@@ -42,6 +29,20 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
     [-87.828608, 30.528864],
     [-62.377714, 50.682435],
   ];
+
+  // Create a GeoJSON source with an empty lineString.
+const geojson = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [[(longitude-.00001),(latitude-.00001)]],
+      },
+    },
+  ], tolerance: 3.5
+};
 
   useEffect(() => {
     // creating new map with style and center location

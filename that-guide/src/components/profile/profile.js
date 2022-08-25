@@ -60,7 +60,10 @@ export default function Profile() {
 
     return (
         <>
-        
+            <div className="profile-title">
+                <h3>Welcome back, {username}.</h3>
+            </div>
+            <br />
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -69,9 +72,9 @@ export default function Profile() {
               >
 
                 <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                  Welcome back, {username}.
+                  Your profile
                 </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>Click here for your info.</Typography>
+                <Typography sx={{ color: 'text.secondary' }}>Click to see your info.</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
@@ -86,6 +89,29 @@ export default function Profile() {
                 </Typography>
               </AccordionDetails>
             </Accordion>
+            <br />
+        <div className="profile-title">
+            <h3>Your Hikes</h3>
+        </div>
+            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                  All Hikes
+                </Typography>
+                <Typography sx={{ color: 'text.secondary' }}>Click to see your hikes.</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                        <AllHikes />
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <br />
+        <div className="profile-buttons">
             <Button
                 startIcon={<EditIcon />}
                 variant="contained"
@@ -96,7 +122,6 @@ export default function Profile() {
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
                     border: "1px solid white",
-                    float: "center",
                     }}
                 onClick={handleEditProfile}>Edit Profile</Button>
             <Button
@@ -111,13 +136,7 @@ export default function Profile() {
                     border: "1px solid white",
                     }}
                 onClick={handleReturnHome}>Return Home</Button>
-            <br />
-            <br />
-            <br />
-            <div className="results-box">
-                <AllHikes />
             </div>
-            <br />
             <br />
             <br />
         </>

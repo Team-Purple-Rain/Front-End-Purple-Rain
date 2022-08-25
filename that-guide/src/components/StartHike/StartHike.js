@@ -109,6 +109,10 @@ export default function StartHike({
     const data = localStorage.getItem("hike");
     if (data) {
       console.log(data);
+      console.log(hikeSession);
+      axios
+        .post(`https://thatguide.herokuapp.com/map/${hikeSession}/bulk/`, data)
+        .then((res) => console.log(res));
     }
   };
 
@@ -150,8 +154,6 @@ export default function StartHike({
       });
     // .then(sendToBackEnd());
   };
-
-  sendToBackEnd();
 
   const navigate = useNavigate();
 
@@ -261,6 +263,7 @@ export default function StartHike({
         >
           Return Home
         </Button>
+        <button onClick={sendToBackEnd}>Send To Back End</button>
       </div>
     </>
   );

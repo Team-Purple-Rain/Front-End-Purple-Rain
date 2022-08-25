@@ -60,8 +60,6 @@ export default function StartHike({
   //     console.log(hikeUser);
   //   })
 
-
-
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
@@ -97,15 +95,25 @@ export default function StartHike({
     // let checkTime = props.time;
     // while (i <= 20000000) {
     //   i += 1000 * 10;
-    axios
-      .post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
-        location: {
-          latitude: latitude,
-          longitude: longitude,
-        },
-        elevation: parseInt(currentElevation),
-        hike_session: hikeSession,
-      });
+    axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+      location: {
+        latitude: latitude,
+        longitude: longitude,
+      },
+      elevation: parseInt(currentElevation),
+      hike_session: hikeSession,
+    });
+  };
+
+  const sendToBackEnd = () => {
+    const data = localStorage.getItem("hike");
+    if (data) {
+      console.log(data);
+      console.log(hikeSession);
+      axios
+        .post(`https://thatguide.herokuapp.com/map/${hikeSession}/bulk/`, data)
+        .then((res) => console.log(res));
+    }
   };
 
   let finalTime = localStorage.getItem("time");
@@ -144,6 +152,7 @@ export default function StartHike({
         console.log("patched something");
         navigate(`/hikeresults/${ID}`);
       });
+    // .then(sendToBackEnd());
   };
 
   const navigate = useNavigate();
@@ -234,6 +243,7 @@ export default function StartHike({
                 handleStop={handleStop}
                 ID={ID}
                 setID={setID}
+                hikeSession={hikeSession}
               />
             </div>
             <button onClick={hitCheckpoint}>Checkpoint Hit</button>
@@ -253,6 +263,7 @@ export default function StartHike({
         >
           Return Home
         </Button>
+        <button onClick={sendToBackEnd}>Send To Back End</button>
       </div>
     </>
   );

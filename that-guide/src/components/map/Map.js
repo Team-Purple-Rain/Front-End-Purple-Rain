@@ -116,7 +116,8 @@ export default function Map({
             center: [
               e.features[0].properties.longitude,
               e.features[0].properties.latitude - 0.01,
-            ], zoom: 12
+            ],
+            zoom: 12,
           });
 
           const title = e.features[0].properties.title;
@@ -288,6 +289,7 @@ export default function Map({
       getElevation();
     }
   }, 7000);
+  console.log(elevation);
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));

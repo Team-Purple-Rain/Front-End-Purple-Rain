@@ -60,6 +60,8 @@ export default function StartHike({
   //     console.log(hikeUser);
   //   })
 
+  let finalTime = localStorage.getItem("time");
+
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
@@ -80,6 +82,7 @@ export default function StartHike({
         .then((res) => {
           console.log("posted something");
           setID(res.data.id);
+          console.log(res);
         });
     }
   };
@@ -111,6 +114,16 @@ export default function StartHike({
     setIsPaused(true);
     setIsActive(false);
     setIsStopped(!isStopped);
+    console.log(finalTime);
+    //console logs "time" correctly
+    setTimeTraveled(finalTime);
+    console.log(timeTraveled);
+    //console logs null
+    setCurrentElevation(elevation);
+    // setEndHikeLat(latitude);
+    // setEndHikeLong(longitude);
+    // setDistanceTraveled(500);
+    // setSpeed(distanceTraveled / timeTraveled)
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
         end_location: {
@@ -126,7 +139,6 @@ export default function StartHike({
       .then((res) => {
         console.log("patched something");
         navigate(`/hikeresults/${ID}`);
-        console.log("results page");
       });
   };
 

@@ -23,7 +23,6 @@ function Results({ latitude, longitude }) {
   const [elevationChange, setElevationChange] = useState(null);
   const areYouLoggedIn = localStorage.getItem("log in");
   let time = localStorage.getItem("time");
-  console.log(time);
 
   const navigate = useNavigate();
 
@@ -53,9 +52,6 @@ function Results({ latitude, longitude }) {
   const newTime = new Date(null);
   newTime.setSeconds(time);
   const properTime = newTime.toISOString().substr(11, 8);
-
-  console.log(properTime)
-
 
   axios
     .get(`https://thatguide.herokuapp.com/map/${ID}/`)

@@ -23,13 +23,20 @@ const geojson = {
       type: "Feature",
       geometry: {
         type: "LineString",
-        coordinates: [[]],
+        coordinates: [[0,0]],
       },
     },
   ],
+  tolerance: 3.5,
 };
 
-export default function DestinationMap({ destination, latitude, longitude, goalCoords, handleStop }) {
+export default function DestinationMap({
+  destination,
+  latitude,
+  longitude,
+  goalCoords,
+  handleStop,
+}) {
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -65,16 +72,18 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
     map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
-          enableHighAccuracy: true
+          enableHighAccuracy: true,
         },
         trackUserLocation: true,
-        showUserHeading: true
-      }))
+        showUserHeading: true,
+      })
+    );
 
     // adding a line layer that tracks movement
     map.on("load", () => {
       map.addSource("line", {
         type: "geojson",
+        lineMetrics: true,
         data: geojson,
       });
 
@@ -86,11 +95,13 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
         layout: {
           "line-cap": "round",
           "line-join": "round",
+          visibility: "visible",
         },
         paint: {
           "line-color": "blue",
-          "line-width": 5,
+          "line-width": 15,
           "line-opacity": 0.8,
+          "line-trim-offset": [0,.999999], 
         },
       });
 
@@ -117,36 +128,25 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
     const element = document.createElement("div");
     element.className = "goal-marker";
 
-    element.addEventListener('click', () => {
+    element.addEventListener("click", () => {
       map.flyTo({
-        center: goalCoords
-      })
-    })
+        center: goalCoords,
+      });
+    });
 
     const goalMark = new mapboxgl.Marker(element)
       .setLngLat(goalCoords)
       .setPopup(
-        new mapboxgl.Popup({offset: 25})
-          .setHTML(
-            `<h4>${destination}</h4>
+        new mapboxgl.Popup({ offset: 25 }).setHTML(
+          `<h4>${destination}</h4>
             <p>Coordinates: ${goalCoords}</p>`
-          )
+        )
       )
       .addTo(map);
 
     // setUserMarker(userMark);
     setMapObject(map);
   }, []);
-
-  function addLinePoints() {
-    // append new coordinates to the lineString
-    const x = longitude;
-    const y = latitude;
-    geojson.features[0].geometry.coordinates.push([x, y]);
-  }
-
-  setInterval(addLinePoints(), 3000);
-  console.log(geojson)
 
   // function that updates the User marker's long lat
   // function updateUserMarker() {
@@ -156,6 +156,16 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
   // }
 
   // updateUserMarker();
+
+  function addLinePoints() {
+    // append new coordinates to the lineString
+    const x = longitude;
+    const y = latitude;
+    geojson.features[0].geometry.coordinates.push([x, y]);
+    console.log(geojson);
+  }
+
+  setInterval(addLinePoints(), 3000);
 
   // function to re-center map around User
   function setMapCenter(coords) {
@@ -191,17 +201,22 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
     getElevation();
   }, 7000);
 
-    // functions to check if User is near goal
-    function checkCoords() {
-      const goalLat = goalCoords[1];
-      const goalLong = goalCoords[0];
-      if ((goalLat > latitude - .0005 && goalLat < latitude + .0005) && (goalLong > longitude - .0005 && goalLong < longitude + .0005)) {
-        alert("Congrats! You've reached the destination!");
-        handleStop();
-      }
+  // functions to check if User is near goal
+  function checkCoords() {
+    const goalLat = goalCoords[1];
+    const goalLong = goalCoords[0];
+    if (
+      goalLat > latitude - 0.0005 &&
+      goalLat < latitude + 0.0005 &&
+      goalLong > longitude - 0.0005 &&
+      goalLong < longitude + 0.0005
+    ) {
+      alert("Congrats! You've reached the destination!");
+      handleStop();
     }
-  
-    setInterval(checkCoords(),30000)
+  }
+
+  setInterval(checkCoords, 30000);
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));

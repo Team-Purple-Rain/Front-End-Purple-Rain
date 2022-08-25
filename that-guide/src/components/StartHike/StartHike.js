@@ -37,7 +37,7 @@ export default function StartHike({
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
-  const [timeTraveled, setTimeTraveled] = useState(null);
+  const [timeTraveled, setTimeTraveled] = useState(0);
   const [currentElevation, setCurrentElevation] = useState(elevation);
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
@@ -59,8 +59,6 @@ export default function StartHike({
   //     setHikeUser(res.data.id);
   //     console.log(hikeUser);
   //   })
-
-  let finalTime = localStorage.getItem("time");
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -90,6 +88,7 @@ export default function StartHike({
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
     setIsPaused(!isPaused);
+    setTimeTraveled(finalTime);
   };
 
   const hitCheckpoint = () => {
@@ -101,7 +100,7 @@ export default function StartHike({
         latitude: latitude,
         longitude: longitude,
       },
-      current_elevation: parseInt(currentElevation),
+      elevation: parseInt(currentElevation),
       hike_session: hikeSession,
     });
   };
@@ -112,6 +111,8 @@ export default function StartHike({
       console.log(data);
     }
   };
+
+  let finalTime = localStorage.getItem("time");
 
   const handleStop = () => {
     // console.log(ID);

@@ -85,7 +85,7 @@ export default function StartHike({
     }
   };
 
-  const handlePauseResume = () => {
+  const handlePauseResume = (time) => {
     console.log(`time at pause in milliseconds is ${time}`);
     setIsPaused(!isPaused);
     setTimeTraveled(finalTime);
@@ -244,6 +244,7 @@ export default function StartHike({
                 ID={ID}
                 setID={setID}
                 hikeSession={hikeSession}
+                time={time}
               />
             </div>
             <button onClick={hitCheckpoint}>Checkpoint Hit</button>

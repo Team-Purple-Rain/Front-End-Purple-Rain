@@ -201,7 +201,6 @@ export default function StartHike({
         goalCoords={goalCoords}
         handleStop={handleStop}
       />
-      =
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
@@ -249,7 +248,8 @@ export default function StartHike({
             <button onClick={hitCheckpoint}>Checkpoint Hit</button>
           </div>
         </div>
-        <Button
+      </div>
+      <Button
           variant="contained"
           style={{
             borderRadius: 50,
@@ -257,6 +257,7 @@ export default function StartHike({
             padding: "10px",
             fontSize: "calc(.5vw + .5vh + .5vmin)",
             margin: "8px",
+            float: "right",
             border: "1px solid white",
           }}
           onClick={handleReturnHome}
@@ -264,7 +265,6 @@ export default function StartHike({
           Return Home
         </Button>
         <button onClick={sendToBackEnd}>Send To Back End</button>
-      </div>
     </>
   );
 }

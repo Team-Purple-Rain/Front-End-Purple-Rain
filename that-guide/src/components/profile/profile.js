@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
 import EditIcon from '@mui/icons-material/Edit';
-import Button from "@mui/material/Button"
+import Button from "@mui/material/Button";
 
 import * as React from 'react'
 
@@ -60,8 +60,22 @@ export default function Profile() {
 
     return (
         <>
-            <div className="personal-info">
-            <h3>Welcome back, {username}!</h3>
+        
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+
+                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                  Welcome back, {username}.
+                </Typography>
+                <Typography sx={{ color: 'text.secondary' }}>Click here for your info.</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                <div className="personal-info">
                 <h4>Name: {firstName} {lastName} </h4>
                 <h4>Email: {email}</h4>
                 <h4>Phone: {phone}</h4>
@@ -69,11 +83,9 @@ export default function Profile() {
                 <h4> Preferred Pace:  {preferredPace}</h4>
                 <h4> Emergency Contact: </h4>
             </div>
-            <div className="results-box">
-                <AllHikes />
-            </div>
-            <br />
-            <br />
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
             <Button
                 startIcon={<EditIcon />}
                 variant="contained"
@@ -83,7 +95,8 @@ export default function Profile() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
+                    float: "center",
                     }}
                 onClick={handleEditProfile}>Edit Profile</Button>
             <Button
@@ -95,9 +108,16 @@ export default function Profile() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                     }}
                 onClick={handleReturnHome}>Return Home</Button>
+            <br />
+            <br />
+            <br />
+            <div className="results-box">
+                <AllHikes />
+            </div>
+            <br />
             <br />
             <br />
         </>

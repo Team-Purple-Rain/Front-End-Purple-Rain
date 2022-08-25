@@ -1,34 +1,42 @@
-import { getStorageInfo, downloadTile } from "leaflet.offline";
 import { useState, useEffect } from "react";
-import L from "leaflet.offline";
+import L from "leaflet";
 import "leaflet.offline";
 import { AddToDrive } from "@mui/icons-material";
+import { LeafletOffline } from "leaflet.offline";
+import { generateOfflineTilelayer } from "./LeafletOffline/TileLayerOffline";
+import { generateControlSavetiles } from "./LeafletOffline/ControlSaveTiles";
+import { MapContainer } from "react-leaflet";
 
 export const OfflineMap = () => {
-  const [map, setMap] = useState(<div id="offline_map"></div>);
-
+  const [map, setMap] = useState("");
   useEffect(() => {
-    const map = L.map("offline_map").setView([0, 0]);
+    if (map) {
+      const tileLayerOffline = generateOfflineTilelayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+          minZoom: 0,
+        }
+      );
 
-    const tileLayerOffline = L.tileLayer
-      .offline("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 18,
-        useCache: true,
-      })
-      .addTo(map);
+      tileLayerOffline.addTo(map);
 
-    // tileLayerOffline.addTo(map);
-    const controlSaveTiles = L.control
-      .savetiles(tileLayerOffline, {
+      const controlSaveTiles = generateControlSavetiles(tileLayerOffline, {
         zoomlevels: [13, 14, 15, 16], // optional zoomlevels to save, default current zoomlevel
-      })
-      .addTo(map);
+      });
 
-    // controlSaveTiles.addTo(map);
+      controlSaveTiles.addTo(map);
+    }
   }, [map]);
+
   return (
-    <>
-      <div id="offline_map">{map}</div>
-    </>
+    <MapContainer
+      style={{ width: "100vw", height: "20vh" }}
+      center={[63.446827, 10.421906]}
+      zoom={0}
+      scrollWheelZoom={false}
+      whenCreated={setMap}
+    ></MapContainer>
   );
 };

@@ -107,7 +107,7 @@ function App() {
     navigate("/logout");
   };
 
-  // setInterval(getLocation, 10000);
+  setInterval(getLocation, 10000);
 
   useInterval(() => {
     if (online) {
@@ -133,11 +133,11 @@ function App() {
         let roundedElevation = elevationConversion.toFixed(0);
 
         setElevation(roundedElevation);
-        getElevation();
       }
+      getElevation();
     }
-    getLocation();
   }, 7000);
+  console.log(elevation);
 
   return (
     <>

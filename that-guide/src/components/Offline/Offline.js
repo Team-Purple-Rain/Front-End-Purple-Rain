@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Timer from "../stopwatch/timer/Timer";
 import L from "leaflet";
+import { OfflineMap } from "./OfflineMap";
 
 export default function Offline({ children }) {
   const {
@@ -12,17 +13,6 @@ export default function Offline({ children }) {
     setTrue: setOnline,
   } = useBooleanState(navigator.onLine);
   const previousOnline = usePrevious(online);
-
-  useEffect(() => {
-    let map = L.map("offline_map").setView([51.505, -0.09], 13);
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/0/0/0?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA",
-      {
-        maxZoom: 19,
-        attribution: "© OpenStreetMap",
-      }
-    ).addTo(map);
-  });
 
   useEffect(() => {
     window.addEventListener("online", setOnline);
@@ -37,14 +27,11 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
-            {/* {!online ? ( */}
-            <div id="offline_map"></div>
-            {/* {!online ? (
+            {!online ? (
               <OffLinePage StopWatch={StopWatch} Timer={Timer} />
             ) : (
               <>{children}</>
             )}
-            )} */}
           </div>
         </div>
       </div>

@@ -58,7 +58,6 @@ export default function OffLinePage(props) {
           Your current coordinates are:
           <div>Latitude:{latitude}</div>
           <div>Longitude:{longitude}</div>
-          <div id="offline_map"></div>
           <OfflineMap longitude={longitude} latitude={latitude} />
           <props.StopWatch
             latitude={latitude}

@@ -110,20 +110,20 @@ export default function Timer(props) {
 
   logTime();
 
-  // useEffect(() => {
-  //   if (online) {
-  //     let elevation = document.getElementsByClassName("elevation_div");
-  //     elevation = elevation[0].id;
-  //     if (
-  //       elevation !== "calculating..." &&
-  //       props.time === 0 &&
-  //       startDataLogged === false
-  //     ) {
-  //       MakeInitialLog();
-  //       setStartDataLogged(true);
-  //     }
-  //   }
-  // });
+  useEffect(() => {
+    if (online) {
+      let elevation = document.getElementsByClassName("elevation_div");
+      elevation = elevation[0].id;
+      if (
+        elevation !== "calculating..." &&
+        props.time === 0 &&
+        startDataLogged === false
+      ) {
+        MakeInitialLog();
+        setStartDataLogged(true);
+      }
+    }
+  });
 
   return (
     <div className="timer">

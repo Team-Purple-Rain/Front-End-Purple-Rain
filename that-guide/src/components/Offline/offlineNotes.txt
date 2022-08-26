@@ -51,3 +51,23 @@
         "elevation": "360.8"
     }
 ]
+https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/6/19/22?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA
+^ this returns a zoomed out image of our offline map
+
+https://tools.geofabrik.de/map/#6/34.0718/-82.0736&type=Geofabrik_Standard&grid=1
+^slippy map coordinate tool w/ zoom in capability
+
+x,y,z coordinates of each part of offline map we'd like to show
+
+19,22,6
+19,23,6
+18,23,6
+18,24,6
+17,24,6
+17,25,6
+
+
+
+
+
+

@@ -5,6 +5,8 @@ import moment from "moment";
 import { useBooleanState, usePrevious } from "webrix/hooks";
 
 export default function Timer(props) {
+  console.log(props.ID);
+  console.log(props.hikeSession);
   const {
     value: online,
     setFalse: setOffline,
@@ -54,7 +56,7 @@ export default function Timer(props) {
       // time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
       storageBank.push({
-        hike_session: 2,
+        hike_session: props.id,
         time_logged: moment().format(),
         location: {
           latitude: props.latitude,
@@ -67,15 +69,33 @@ export default function Timer(props) {
 
   const addToLocalStorage = (time) => {
     if (online) {
-      let elevation = document.getElementsByClassName("elevation_div");
+      // let elevation = document.getElementsByClassName("elevation_div");
       let timeTraveled = time;
       console.log(timeTraveled);
-      elevation = elevation[0].id;
+      // elevation = elevation[0].id;
       time = time.toString();
       time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
       storageBank.push({
-        hike_session: 2,
+        hike_session: props.hikeSession,
+        time_logged: moment().format(),
+        location: {
+          latitude: props.latitude,
+          longitude: props.longitude,
+        },
+        // elevation: parseInt(elevation),
+      });
+      localStorage.setItem("hike", JSON.stringify(storageBank));
+    }
+  };
+
+  const MakeInitialLog = () => {
+    if (props.hikeSession) {
+      let elevation = document.getElementsByClassName("elevation_div");
+      elevation = elevation[0].id;
+      storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+      storageBank.push({
+        hike_session: props.hikeSession,
         time_logged: moment().format(),
         location: {
           latitude: props.latitude,
@@ -84,24 +104,8 @@ export default function Timer(props) {
         elevation: parseInt(elevation),
       });
       localStorage.setItem("hike", JSON.stringify(storageBank));
+      console.log("intial log made");
     }
-  };
-
-  const MakeInitialLog = () => {
-    let elevation = document.getElementsByClassName("elevation_div");
-    elevation = elevation[0].id;
-    storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-    storageBank.push({
-      hike_session: 2,
-      time_logged: moment().format(),
-      location: {
-        latitude: props.latitude,
-        longitude: props.longitude,
-      },
-      elevation: parseInt(elevation),
-    });
-    localStorage.setItem("hike", JSON.stringify(storageBank));
-    console.log("intial log made");
   };
 
   logTime();

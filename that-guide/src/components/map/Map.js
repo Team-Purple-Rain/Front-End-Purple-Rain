@@ -76,6 +76,17 @@ export default function Map({
     // adding navigation control box to map
     map.addControl(new mapboxgl.NavigationControl());
 
+    // adding user marker to map
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true,
+        },
+        trackUserLocation: true,
+        showUserHeading: true,
+      })
+    );
+
     // adding shelter source markers to map
     map.on("load", () => {
       map.loadImage(myImage, (error, image) => {
@@ -104,8 +115,9 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude - 0.1,
+              e.features[0].properties.latitude - 0.01,
             ],
+            zoom: 12,
           });
 
           const title = e.features[0].properties.title;
@@ -219,28 +231,35 @@ export default function Map({
       map.on("mouseleave", "water-sources", () => {
         map.getCanvas().style.cursor = "";
       });
+
+      function toggleButton() {
+        var button = document.getElementsByClassName("mapboxgl-ctrl-geolocate");
+        button[0].click();
+      }
+
+      toggleButton()
     });
 
     // creates a User Location Marker at device location
-    const el = document.createElement("div");
-    el.className = "user-marker";
+    // const el = document.createElement("div");
+    // el.className = "user-marker";
 
-    const userMark = new mapboxgl.Marker(el)
-      .setLngLat([longitude, latitude])
-      .addTo(map);
+    // const userMark = new mapboxgl.Marker(el)
+    //   .setLngLat([longitude, latitude])
+    //   .addTo(map);
 
-    setUserMarker(userMark);
+    // setUserMarker(userMark);
     setMapObject(map);
   }, []);
 
   // function that updates the User marker's long lat
-  function updateUserMarker() {
-    if (mapObject) {
-      userMarker.setLngLat([longitude, latitude]);
-    }
-  }
+  // function updateUserMarker() {
+  //   if (mapObject) {
+  //     userMarker.setLngLat([longitude, latitude]);
+  //   }
+  // }
 
-  updateUserMarker();
+  // updateUserMarker();
 
   // function to re-center map around User
   function setMapCenter(coords) {
@@ -277,6 +296,7 @@ export default function Map({
       getElevation();
     }
   }, 7000);
+  console.log(elevation);
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));

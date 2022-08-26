@@ -1,19 +1,18 @@
-import * as React from 'react';
+import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Map from "../map/Map";
 import "./homepage.css";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Button from "@mui/material/Button";
-import TextField from '@mui/material/TextField';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import TextField from "@mui/material/TextField";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Spinner from "react-spinkit";
-import useLocalStorageState from 'use-local-storage-state';
-
+import useLocalStorageState from "use-local-storage-state";
 
 export default function Homepage({
   selectedDistance,
@@ -28,7 +27,7 @@ export default function Homepage({
   selectedHikeType,
   setSelectedHikeType,
   setDestination,
-  setDestinationType
+  setDestinationType,
 }) {
   const [error, setError] = useState(null);
 
@@ -42,9 +41,9 @@ export default function Homepage({
   const handleStartHike = (event) => {
     navigate("/starthike");
     event.preventDefault();
-    setGoalCoords([0, 0])
+    setGoalCoords([0, 0]);
     setError(null);
-    // setElevation(elevation);
+    setElevation(elevation);
     console.log("You have started a hike.");
     if (selectedDistance) {
       console.log(selectedDistance);
@@ -60,7 +59,6 @@ export default function Homepage({
     setExpanded(isExpanded ? panel : false);
   };
 
-
   if (latitude === "") {
     return (
       <div
@@ -68,12 +66,15 @@ export default function Homepage({
           display: "flex",
           marginTop: "200px",
           justifyContent: "space-between",
-        }}>
-        <Spinner name="circle" style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }} />
+        }}
+      >
+        <Spinner
+          name="circle"
+          style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }}
+        />
       </div>
     );
   }
-
 
   return (
     <>
@@ -81,42 +82,55 @@ export default function Homepage({
         <div className="load-screen">
           <div className="map-and-button">
             <div id="map">
-
-              <Map latitude={latitude} setHikeType={setHikeType}
-                setSelectedHikeType={setSelectedHikeType} setDestination={setDestination}
-                longitude={longitude} setGoalCoords={setGoalCoords} setDestinationType={setDestinationType}
+              <Map
+                latitude={latitude}
+                setHikeType={setHikeType}
+                setSelectedHikeType={setSelectedHikeType}
+                setDestination={setDestination}
+                longitude={longitude}
+                setGoalCoords={setGoalCoords}
+                setDestinationType={setDestinationType}
               />
-
             </div>
           </div>
           <div>
             <h4 className="options">How do you want to hike today?</h4>
-            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <Accordion
+              expanded={expanded === "panel1"}
+              onChange={handleChange("panel1")}
+            >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
-
-                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                <Typography sx={{ width: "33%", flexShrink: 0 }}>
                   Select a destination.
                 </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>Choose your goal stop in the map above.</Typography>
+                <Typography sx={{ color: "text.secondary" }}>
+                  Choose your goal stop in the map above.
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Click your desired water or shelter stop in the map above to start your hike.
+                  Click your desired water or shelter stop in the map above to
+                  start your hike.
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+            <Accordion
+              expanded={expanded === "panel2"}
+              onChange={handleChange("panel2")}
+            >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2bh-content"
                 id="panel2bh-header"
               >
-                <Typography sx={{ width: '33%', flexShrink: 0 }}>Set a distance.</Typography>
-                <Typography sx={{ color: 'text.secondary' }}>
+                <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                  Set a distance.
+                </Typography>
+                <Typography sx={{ color: "text.secondary" }}>
                   Choose a distance you want to hike in miles.
                 </Typography>
               </AccordionSummary>
@@ -124,8 +138,10 @@ export default function Homepage({
                 <Typography>
                   <div className="dropdown-options">
                     <h4>I want to hike</h4>
-                    <form id="select-distance" onSubmit={setSelectedDistance}>
-                    </form>
+                    <form
+                      id="select-distance"
+                      onSubmit={setSelectedDistance}
+                    ></form>
                     <div className="hike-starter-container">
                       <TextField
                         label="Type desired distance"
@@ -138,7 +154,10 @@ export default function Homepage({
                         id="filled-basic"
                         variant="filled"
                         onChange={(e) => setSelectedDistance(e.target.value)}
-                        onClick={() => { setHikeType("Mile-based Hike"); setSelectedHikeType("Mile-based Hike") }}
+                        onClick={() => {
+                          setHikeType("Mile-based Hike");
+                          setSelectedHikeType("Mile-based Hike");
+                        }}
                       />
                       <h4>miles</h4>
                       <Button
@@ -162,19 +181,21 @@ export default function Homepage({
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+            <Accordion
+              expanded={expanded === "panel3"}
+              onChange={handleChange("panel3")}
+            >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel3bh-content"
                 id="panel3bh-header"
               >
-                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                <Typography sx={{ width: "33%", flexShrink: 0 }}>
                   Freeform hike.
                 </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>
-                  Choose this option to track a hike without a goal
-                  distance. Hiking results will be shown after pressing "Stop
-                  Hike."
+                <Typography sx={{ color: "text.secondary" }}>
+                  Choose this option to track a hike without a goal distance.
+                  Hiking results will be shown after pressing "Stop Hike."
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -194,7 +215,12 @@ export default function Homepage({
                         variant="contained"
                         type="submit"
                         className="start-hike"
-                        onClick={() => { setHikeType("Freeform Hike"); setSelectedHikeType("Freeform Hike"); setGoalCoords([0, 0]); handleStartHike() }}
+                        onClick={() => {
+                          setHikeType("Freeform Hike");
+                          setSelectedHikeType("Freeform Hike");
+                          setGoalCoords([0, 0]);
+                          handleStartHike();
+                        }}
                       >
                         {" "}
                         Start Hike

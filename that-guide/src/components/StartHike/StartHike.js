@@ -60,8 +60,6 @@ export default function StartHike({
   //     console.log(hikeUser);
   //   })
 
-
-
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
@@ -97,15 +95,25 @@ export default function StartHike({
     // let checkTime = props.time;
     // while (i <= 20000000) {
     //   i += 1000 * 10;
-    axios
-      .post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
-        location: {
-          latitude: latitude,
-          longitude: longitude,
-        },
-        elevation: parseInt(currentElevation),
-        hike_session: hikeSession,
-      });
+    axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+      location: {
+        latitude: latitude,
+        longitude: longitude,
+      },
+      elevation: parseInt(currentElevation),
+      hike_session: hikeSession,
+    });
+  };
+
+  const sendToBackEnd = () => {
+    const data = localStorage.getItem("hike");
+    if (data) {
+      console.log(data);
+      console.log(hikeSession);
+      axios
+        .post(`https://thatguide.herokuapp.com/map/${hikeSession}/bulk/`, data)
+        .then((res) => console.log(res));
+    }
   };
 
   let finalTime = localStorage.getItem("time");
@@ -126,9 +134,6 @@ export default function StartHike({
     setCurrentElevation(elevation);
     setEndHikeLat(latitude);
     setEndHikeLong(longitude);
-
-
-
     //initial axios patch for end hike
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
@@ -140,136 +145,145 @@ export default function StartHike({
         hike_user: hikeUser,
       })
       .then((res) => {
-        setTimeout(() => {
-          axios.get(`https://thatguide.herokuapp.com/map/${ID}/`, {
-          })
-            .then((res) => {
-              console.log(res);
-              setDistanceTraveled(res.data.distance_traveled);
-              setSpeed(distanceTraveled / timeTraveled);
-            })
-            .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
-              avg_mph: speed
-            })
-            .then((res) => {
-              console.log("patched something");
-              navigate(`/hikeresults/${ID}`);
-            });
-        }, 1000);
-        console.log("first patch");
+        console.log("patched something");
+        navigate(`/hikeresults/${ID}`);
+      });
+    setTimeout(() => {
+      axios.get(`https://thatguide.herokuapp.com/map/${ID}/`, {
       })
+        .then((res) => {
+          console.log(res);
+          setDistanceTraveled(res.data.distance_traveled);
+          setSpeed(distanceTraveled / timeTraveled);
+        })
+        .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
+          avg_mph: speed
+        })
+        .then((res) => {
+          console.log("patched something");
+          navigate(`/hikeresults/${ID}`);
+        });
+    }, 1000);
+    console.log("first patch");
     // BELOW IS WAHT I WANT TO ADD ON TO THE REQUEST 
 
   }
 
-  const navigate = useNavigate();
+  // .then(sendToBackEnd());
+};
 
-  const handleReturnHome = (event) => {
-    navigate("/");
-  };
 
-  console.log({ latitude }, { longitude }, { currentElevation });
+const navigate = useNavigate();
 
-  if (latitude === "") {
-    return (
-      <div
-        style={{
-          display: "flex",
-          marginTop: "200px",
-          justifyContent: "space-between",
-        }}
-      >
-        <Spinner
-          name="circle"
-          style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }}
-        />
-      </div>
-    );
-  }
+const handleReturnHome = (event) => {
+  navigate("/");
+};
 
-  console.log({ destination });
+console.log({ latitude }, { longitude }, { currentElevation });
 
-  console.log(goalCoords);
-
+if (latitude === "") {
   return (
-    <>
-      <div>
-        {hikeType === "Destination Hike" ? (
-          <h3 className="options">
-            Your hike to {destinationType}: {destination}
-          </h3>
-        ) : (
-          <h3 className="options">Your Current {hikeType}</h3>
-        )}
-      </div>
-      <DestinationMap
-        latitude={latitude}
-        longitude={longitude}
-        goalCoords={goalCoords}
-        handleStop={handleStop}
+    <div
+      style={{
+        display: "flex",
+        marginTop: "200px",
+        justifyContent: "space-between",
+      }}
+    >
+      <Spinner
+        name="circle"
+        style={{ width: 100, height: 100, color: "#32a889", margin: "auto" }}
       />
-      =
-      <div className="second-location-header">
-        <></>
-        {hikeType === "Mile-based Hike" ? (
-          <div>
-            <h2>Goal distance: {selectedDistance} miles</h2>
-            <div className="distance-hiked">
-              <h4>Distance Hiked: (distance user has hiked)</h4>
-            </div>
-            <div className="distance-remaining">
-              <h4>
-                Distance Remaining: ({selectedDistance} miles - distance user
-                has hiked)
-              </h4>
-            </div>
-          </div>
-        ) : hikeType === "Freeform Hike" ? (
-          <div className="alert">
-            <h4>Your final stats will be displayed at the end of your hike.</h4>
-          </div>
-        ) : (
+    </div>
+  );
+}
+
+console.log({ destination });
+
+console.log(goalCoords);
+
+return (
+  <>
+    <div>
+      {hikeType === "Destination Hike" ? (
+        <h3 className="options">
+          Your hike to {destinationType}: {destination}
+        </h3>
+      ) : (
+        <h3 className="options">Your Current {hikeType}</h3>
+      )}
+    </div>
+    <DestinationMap
+      latitude={latitude}
+      longitude={longitude}
+      goalCoords={goalCoords}
+      handleStop={handleStop}
+      destination={destination}
+    />
+    =
+    <div className="second-location-header">
+      <></>
+      {hikeType === "Mile-based Hike" ? (
+        <div>
+          <h2>Goal distance: {selectedDistance} miles</h2>
           <div className="distance-hiked">
             <h4>Distance Hiked: (distance user has hiked)</h4>
           </div>
-        )}
-
-        <div className="whole-stats-container">
-          <div className="right-container">
-            <div className="time-remaining">
-              <StopWatch
-                latitude={latitude}
-                longitude={longitude}
-                handleStartHike={handleStartHike}
-                isActive={isActive}
-                isPaused={isPaused}
-                setIsActive={setIsActive}
-                setIsPaused={setIsPaused}
-                handlePauseResume={handlePauseResume}
-                isStarted={isStarted}
-                handleStop={handleStop}
-                ID={ID}
-                setID={setID}
-              />
-            </div>
-            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
+          <div className="distance-remaining">
+            <h4>
+              Distance Remaining: ({selectedDistance} miles - distance user
+              has hiked)
+            </h4>
           </div>
         </div>
-        <Button
-          variant="contained"
-          style={{
-            borderRadius: 50,
-            backgroundColor: "#21b6ae",
-            padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            border: "1px solid white",
-          }}
-          onClick={handleReturnHome}
-        >
-          Return Home
-        </Button>
+      ) : hikeType === "Freeform Hike" ? (
+        <div className="alert">
+          <h4>Your final stats will be displayed at the end of your hike.</h4>
+        </div>
+      ) : (
+        <div className="distance-hiked">
+          <h4>Distance Hiked: (distance user has hiked)</h4>
+        </div>
+      )}
+
+      <div className="whole-stats-container">
+        <div className="right-container">
+          <div className="time-remaining">
+            <StopWatch
+              latitude={latitude}
+              longitude={longitude}
+              handleStartHike={handleStartHike}
+              isActive={isActive}
+              isPaused={isPaused}
+              setIsActive={setIsActive}
+              setIsPaused={setIsPaused}
+              handlePauseResume={handlePauseResume}
+              isStarted={isStarted}
+              handleStop={handleStop}
+              ID={ID}
+              setID={setID}
+              hikeSession={hikeSession}
+            />
+          </div>
+          <button onClick={hitCheckpoint}>Checkpoint Hit</button>
+        </div>
       </div>
-    </>
-  );
+      <Button
+        variant="contained"
+        style={{
+          borderRadius: 50,
+          backgroundColor: "#21b6ae",
+          padding: "10px",
+          fontSize: "calc(.5vw + .5vh + .5vmin)",
+          margin: "8px",
+          border: "1px solid white",
+        }}
+        onClick={handleReturnHome}
+      >
+        Return Home
+      </Button>
+      <button onClick={sendToBackEnd}>Send To Back End</button>
+    </div>
+  </>
+);
 }

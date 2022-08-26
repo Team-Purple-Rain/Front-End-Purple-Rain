@@ -15,8 +15,28 @@ import { AlignVerticalBottomTwoTone } from "@mui/icons-material";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
+// Creating a geojson file to populate line
+const geojson = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      geometry: {
+        type: "LineString",
+        coordinates: [[0,0]],
+      },
+    },
+  ],
+  tolerance: 3.5,
+};
 
-export default function DestinationMap({ destination, latitude, longitude, goalCoords, handleStop }) {
+export default function DestinationMap({
+  destination,
+  latitude,
+  longitude,
+  goalCoords,
+  handleStop,
+}) {
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -30,19 +50,6 @@ export default function DestinationMap({ destination, latitude, longitude, goalC
     [-62.377714, 50.682435],
   ];
 
-  // Create a GeoJSON source with an empty lineString.
-const geojson = {
-  type: "FeatureCollection",
-  features: [
-    {
-      type: "Feature",
-      geometry: {
-        type: "LineString",
-        coordinates: [[(longitude-.00001),(latitude-.00001)]],
-      },
-    },
-  ], tolerance: 3.5
-};
 
   useEffect(() => {
     // creating new map with style and center location
@@ -63,19 +70,22 @@ const geojson = {
     scale.setUnit("imperial");
     map.addControl(new mapboxgl.NavigationControl());
 
+    // adding user location marker/tracking
     map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
-          enableHighAccuracy: true
+          enableHighAccuracy: true,
         },
         trackUserLocation: true,
-        showUserHeading: true
-      }))
+        showUserHeading: true,
+      })
+    );
 
     // adding a line layer that tracks movement
     map.on("load", () => {
       map.addSource("line", {
         type: "geojson",
+        lineMetrics: true,
         data: geojson,
       });
 
@@ -87,12 +97,12 @@ const geojson = {
         layout: {
           "line-cap": "round",
           "line-join": "round",
-          'visibility': 'visible'
+          visibility: "visible",
         },
         paint: {
           "line-color": "blue",
-          "line-width": 15,
-          "line-opacity": 0.8,
+          "line-width": 12,
+          "line-opacity": 0.8, 
         },
       });
 
@@ -105,6 +115,13 @@ const geojson = {
         // Request the next frame of the animation.
         requestAnimationFrame(animateLine);
       }
+
+      function toggleButton() {
+        var button = document.getElementsByClassName("mapboxgl-ctrl-geolocate");
+        button[0].click();
+      }
+
+      toggleButton()
     });
 
     // creates a User Location Marker at device location
@@ -113,26 +130,25 @@ const geojson = {
 
     // const userMark = new mapboxgl.Marker()
     //   .setLngLat([longitude, latitude])
-    //   .addTo(map);
+    //   .addTo(map); }*
 
     // creates a goal marker at goal location
     const element = document.createElement("div");
     element.className = "goal-marker";
 
-    element.addEventListener('click', () => {
+    element.addEventListener("click", () => {
       map.flyTo({
-        center: goalCoords
-      })
-    })
+        center: goalCoords,
+      });
+    });
 
     const goalMark = new mapboxgl.Marker(element)
       .setLngLat(goalCoords)
       .setPopup(
-        new mapboxgl.Popup({offset: 25})
-          .setHTML(
-            `<h4>${destination}</h4>
+        new mapboxgl.Popup({ offset: 25 }).setHTML(
+          `<h4>${destination}</h4>
             <p>Coordinates: ${goalCoords}</p>`
-          )
+        )
       )
       .addTo(map);
 
@@ -140,24 +156,32 @@ const geojson = {
     setMapObject(map);
   }, []);
 
+  // functions to populate geoJSON points for line
   function addLinePoints() {
     // append new coordinates to the lineString
     const x = longitude;
     const y = latitude;
-    geojson.features[0].geometry.coordinates.push([x, y]);
+    const p = geojson.features[0].geometry.coordinates
+    p.push([x, y],[x, y], [x, y], [x, y], [x, y], [x, y], [x, y]);
+    return p
+    }
+
+  useEffect(() => {
+  addLinePoints()
+  console.log(geojson) 
+  },[longitude,latitude])
+
+  addLinePoints()
+
+  function shift() {
+    const p = geojson.features[0].geometry.coordinates
+    p.shift()
+    console.log("hello")
+    return p
   }
 
-  setInterval(addLinePoints(), 3000);
-  console.log(geojson)
-
-  // function that updates the User marker's long lat
-  // function updateUserMarker() {
-  //   if (mapObject) {
-  //     userMarker.setLngLat([longitude, latitude]);
-  //   }
-  // }
-
-  // updateUserMarker();
+  setTimeout(() => {
+    shift()},500)
 
   // function to re-center map around User
   function setMapCenter(coords) {
@@ -166,6 +190,7 @@ const geojson = {
     }
   }
 
+  // function to get Elevation
   useInterval(() => {
     async function getElevation() {
       // Construct the API request.
@@ -193,20 +218,45 @@ const geojson = {
     getElevation();
   }, 7000);
 
-    // functions to check if User is near goal
-    function checkCoords() {
-      const goalLat = goalCoords[1];
-      const goalLong = goalCoords[0];
-      if ((goalLat > latitude - .0005 && goalLat < latitude + .0005) && (goalLong > longitude - .0005 && goalLong < longitude + .0005)) {
-        alert("Congrats! You've reached the destination!");
-        handleStop();
-      }
+  // functions to check if User is near goal
+  function checkCoords() {
+    const goalLat = goalCoords[1];
+    const goalLong = goalCoords[0];
+    if (
+      goalLat > latitude - 0.00020 &&
+      goalLat < latitude + 0.00020 &&
+      goalLong > longitude - 0.00020 &&
+      goalLong < longitude + 0.00020
+    ) {
+      alert("Congrats! You've reached the destination!");
+      handleStop();
     }
-  
-    setInterval(checkCoords(),30000)
+  }
+
+    // function that updates the User marker's long lat
+  // function updateUserMarker() {
+  //   if (mapObject) {
+  //     userMarker.setLngLat([longitude, latitude]);
+  //   }
+  // }
+
+  // updateUserMarker();
+
+  // function addLinePoints() {
+  //   // append new coordinates to the lineString
+  //   const x = longitude;
+  //   const y = latitude;
+  //   geojson.features[0].geometry.coordinates.push([x, y]);
+  //   console.log(geojson);
+  // }
+
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));
+
+  
+
+  setInterval(checkCoords, 20000);
 
   return (
     <>
@@ -233,3 +283,9 @@ const geojson = {
     </>
   );
 }
+
+
+
+
+
+

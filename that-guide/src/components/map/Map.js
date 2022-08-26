@@ -231,6 +231,13 @@ export default function Map({
       map.on("mouseleave", "water-sources", () => {
         map.getCanvas().style.cursor = "";
       });
+
+      function toggleButton() {
+        var button = document.getElementsByClassName("mapboxgl-ctrl-geolocate");
+        button[0].click();
+      }
+
+      toggleButton()
     });
 
     // creates a User Location Marker at device location

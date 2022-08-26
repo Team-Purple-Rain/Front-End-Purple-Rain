@@ -200,6 +200,7 @@ export default function StartHike({
         longitude={longitude}
         goalCoords={goalCoords}
         handleStop={handleStop}
+        destination={destination}
       />
       =
       <div className="second-location-header">

@@ -136,6 +136,7 @@ function App() {
       }
       getElevation();
     }
+    getLocation();
   }, 7000);
   console.log(elevation);
 

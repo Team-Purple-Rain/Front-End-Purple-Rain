@@ -110,6 +110,8 @@ export default function StartHike({
 
   let finalTime = localStorage.getItem("time");
 
+
+  const [patchDistance, setPatchDistance] = useState(null);
   const handleStop = () => {
     // console.log(ID);
     console.log(
@@ -119,32 +121,46 @@ export default function StartHike({
     setIsActive(false);
     setIsStopped(!isStopped);
     console.log(finalTime);
-    //console logs "time" correctly
     setTimeTraveled(finalTime);
     console.log(timeTraveled);
-    //console logs null
     setCurrentElevation(elevation);
-    // setEndHikeLat(latitude);
-    // setEndHikeLong(longitude);
-    // setDistanceTraveled(500);
-    // setSpeed(distanceTraveled / timeTraveled)
+    setEndHikeLat(latitude);
+    setEndHikeLong(longitude);
+
+
+
+    //initial axios patch for end hike
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
         end_location: {
           latitude: endHikeLat,
           longitude: endHikeLong,
         },
-        distance_traveled: distanceTraveled,
-        avg_mph: speed,
         travel_time: timeTraveled,
-        elevation_gain: elevationChange,
         hike_user: hikeUser,
       })
       .then((res) => {
-        console.log("patched something");
-        navigate(`/hikeresults/${ID}`);
-      });
-  };
+        setTimeout(() => {
+          axios.get(`https://thatguide.herokuapp.com/map/${ID}/`, {
+          })
+            .then((res) => {
+              console.log(res);
+              setDistanceTraveled(res.data.distance_traveled);
+              setSpeed(distanceTraveled / timeTraveled);
+            })
+            .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
+              avg_mph: speed
+            })
+            .then((res) => {
+              console.log("patched something");
+              navigate(`/hikeresults/${ID}`);
+            });
+        }, 1000);
+        console.log("first patch");
+      })
+    // BELOW IS WAHT I WANT TO ADD ON TO THE REQUEST 
+
+  }
 
   const navigate = useNavigate();
 

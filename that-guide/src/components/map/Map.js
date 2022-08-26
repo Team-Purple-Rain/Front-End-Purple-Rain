@@ -115,9 +115,9 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude - 0.01,
+              e.features[0].properties.latitude - 0.002,
             ],
-            zoom: 12,
+            zoom: 15,
           });
 
           const title = e.features[0].properties.title;
@@ -188,8 +188,8 @@ export default function Map({
           map.flyTo({
             center: [
               e.features[0].properties.longitude,
-              e.features[0].properties.latitude - 0.1,
-            ],
+              e.features[0].properties.latitude - 0.002,
+            ], zoom: 15,
           });
 
           const coordinates = e.features[0].geometry.coordinates.slice();
@@ -216,7 +216,6 @@ export default function Map({
             setHikeType("Destination Hike");
             setSelectedHikeType("Destination Hike");
             setDestination(title);
-
             setDestinationType("Water Source");
           });
         });
@@ -237,7 +236,7 @@ export default function Map({
         button[0].click();
       }
 
-      toggleButton()
+      toggleButton();
     });
 
     // creates a User Location Marker at device location

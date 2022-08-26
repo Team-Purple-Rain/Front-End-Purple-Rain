@@ -152,12 +152,15 @@ function App() {
                 <h4 className="header-style">
                   Take on the trail, one hike at a time.
                 </h4>
-
                 <h4 className="header-style">
-                  Your Location: {latitude}, {longitude}
+                  {latitude === ""
+                    ? "Your Location: Calculating..."
+                    : `Your Location: ${latitude}, ${longitude}`}
                 </h4>
                 <h4 className="elevation_div" id={elevation}>
-                  Current Elevation: {elevation} feet
+                  {elevation === "calculating..."
+                    ? "Current Elevation: Calculating..."
+                    : `Current Elevation: ${elevation} feet`}
                 </h4>
               </div>
             </div>

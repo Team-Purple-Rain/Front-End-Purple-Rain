@@ -194,6 +194,7 @@ export default function StartHike({
           </h3>
         ) : (
           <>
+
             <h3 className="options">Your Current {hikeType}</h3>
 
           </>
@@ -257,9 +258,10 @@ export default function StartHike({
             <h4>Distance Hiked: (distance user has hiked)</h4>
           </div>
         )}
+
+
       </div>
       <Button
-
         variant="contained"
         style={{
           borderRadius: 50,
@@ -275,6 +277,7 @@ export default function StartHike({
         Return Home
       </Button>
       <button onClick={sendToBackEnd}>Send To Back End</button>
+
     </>
   );
 }

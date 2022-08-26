@@ -107,7 +107,9 @@ function App() {
     navigate("/logout");
   };
 
+
   setInterval(getLocation, 10000);
+
 
 
   useInterval(() => {

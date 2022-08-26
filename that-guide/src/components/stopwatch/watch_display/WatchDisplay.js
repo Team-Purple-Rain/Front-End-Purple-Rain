@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./WatchDisplay.css";
 import Timer from "../timer/Timer";
 import WatchButtons from "../watch_buttons/WatchButtons";
-import axios from "axios";
 
 function StopWatch({
   latitude,

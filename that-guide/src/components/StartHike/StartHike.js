@@ -234,7 +234,7 @@ export default function StartHike({
         {hikeType === "Mile-based Hike" ? (
           <div>
             
-            <h2>Goal distance: {selectedDistance} miles</h2>
+            <h3>Goal distance: {selectedDistance} miles</h3>
             
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>

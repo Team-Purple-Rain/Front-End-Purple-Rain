@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
 import EditIcon from '@mui/icons-material/Edit';
-import Button from "@mui/material/Button"
+import Button from "@mui/material/Button";
 
 import * as React from 'react'
 
@@ -60,8 +60,25 @@ export default function Profile() {
 
     return (
         <>
-            <div className="personal-info">
-            <h3>Welcome back, {username}!</h3>
+            <div className="profile-title">
+                <h3>Welcome back, {username}.</h3>
+            </div>
+            <br />
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+
+                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                  Your profile
+                </Typography>
+                <Typography sx={{ color: 'text.secondary' }}>Click to see your info.</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                <div className="personal-info">
                 <h4>Name: {firstName} {lastName} </h4>
                 <h4>Email: {email}</h4>
                 <h4>Phone: {phone}</h4>
@@ -69,11 +86,32 @@ export default function Profile() {
                 <h4> Preferred Pace:  {preferredPace}</h4>
                 <h4> Emergency Contact: </h4>
             </div>
-            <div className="results-box">
-                <AllHikes />
-            </div>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
             <br />
+        <div className="profile-title">
+            <h3>Your Hikes</h3>
+        </div>
+            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <Typography sx={{ width: '33%', flexShrink: 0 }}>
+                  All Hikes
+                </Typography>
+                <Typography sx={{ color: 'text.secondary' }}>Click to see your hikes.</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                        <AllHikes />
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
             <br />
+        <div className="profile-buttons">
             <Button
                 startIcon={<EditIcon />}
                 variant="contained"
@@ -83,7 +121,7 @@ export default function Profile() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                     }}
                 onClick={handleEditProfile}>Edit Profile</Button>
             <Button
@@ -95,9 +133,10 @@ export default function Profile() {
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",
-                    border: "1px solid white"
+                    border: "1px solid white",
                     }}
                 onClick={handleReturnHome}>Return Home</Button>
+            </div>
             <br />
             <br />
         </>

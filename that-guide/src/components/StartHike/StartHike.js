@@ -187,47 +187,26 @@ export default function StartHike({
   return (
     <>
       <div>
+
         {hikeType === "Destination Hike" ? (
           <h3 className="options">
             Your hike to {destinationType}: {destination}
           </h3>
         ) : (
-          <h3 className="options">Your Current {hikeType}</h3>
+          <>
+            <h3 className="options">Your Current {hikeType}</h3>
+
+          </>
         )}
       </div>
-      <DestinationMap
-        latitude={latitude}
-        longitude={longitude}
-        goalCoords={goalCoords}
-        handleStop={handleStop}
-        destination={destination}
-      />
-      =
-      <div className="second-location-header">
-        <></>
-        {hikeType === "Mile-based Hike" ? (
-          <div>
-            <h2>Goal distance: {selectedDistance} miles</h2>
-            <div className="distance-hiked">
-              <h4>Distance Hiked: (distance user has hiked)</h4>
-            </div>
-            <div className="distance-remaining">
-              <h4>
-                Distance Remaining: ({selectedDistance} miles - distance user
-                has hiked)
-              </h4>
-            </div>
-          </div>
-        ) : hikeType === "Freeform Hike" ? (
-          <div className="alert">
-            <h4>Your final stats will be displayed at the end of your hike.</h4>
-          </div>
-        ) : (
-          <div className="distance-hiked">
-            <h4>Distance Hiked: (distance user has hiked)</h4>
-          </div>
-        )}
 
+      <div className="map-and-timer">
+        <DestinationMap
+          latitude={latitude}
+          longitude={longitude}
+          goalCoords={goalCoords}
+          handleStop={handleStop}
+        />
         <div className="whole-stats-container">
           <div className="right-container">
             <div className="time-remaining">
@@ -248,25 +227,54 @@ export default function StartHike({
               />
             </div>
             <button onClick={hitCheckpoint}>Checkpoint Hit</button>
-
           </div>
         </div>
-        <Button
-          variant="contained"
-          style={{
-            borderRadius: 50,
-            backgroundColor: "#21b6ae",
-            padding: "10px",
-            fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            border: "1px solid white",
-          }}
-          onClick={handleReturnHome}
-        >
-          Return Home
-        </Button>
-        <button onClick={sendToBackEnd}>Send To Back End</button>
       </div>
+
+      <div className="second-location-header">
+        <></>
+        {hikeType === "Mile-based Hike" ? (
+          <div>
+
+            <h3>Goal distance: {selectedDistance} miles</h3>
+
+            <div className="distance-hiked">
+              <h4>Distance Hiked: (distance user has hiked)</h4>
+            </div>
+            <div className="distance-remaining">
+              <h4>
+                Distance Remaining: ({selectedDistance} miles - distance user
+                has hiked)
+              </h4>
+            </div>
+          </div>
+        ) : hikeType === "Freeform Hike" ? (
+          <div className="alert">
+            <h4>Your final stats will be displayed at the end of your hike.</h4>
+          </div>
+        ) : (
+          <div className="distance-hiked">
+            <h4>Distance Hiked: (distance user has hiked)</h4>
+          </div>
+        )}
+      </div>
+      <Button
+
+        variant="contained"
+        style={{
+          borderRadius: 50,
+          backgroundColor: "#21b6ae",
+          padding: "10px",
+          // fontSize: "calc(.5vw + .5vh + .5vmin)",
+          margin: "8px",
+          float: "center",
+          border: "1px solid white",
+        }}
+        onClick={handleReturnHome}
+      >
+        Return Home
+      </Button>
+      <button onClick={sendToBackEnd}>Send To Back End</button>
     </>
   );
 }

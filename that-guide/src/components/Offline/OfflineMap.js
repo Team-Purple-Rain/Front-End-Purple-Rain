@@ -3,7 +3,6 @@ import L from "leaflet";
 import "leaflet.offline";
 import { generateOfflineTilelayer } from "./LeafletOffline/TileLayerOffline";
 import { generateControlSavetiles } from "./LeafletOffline/ControlSaveTiles";
-import { MapContainer } from "react-leaflet";
 import "./Offline.css";
 import { LocationCity } from "@mui/icons-material";
 import AT_GEOJSON from "./features.json";

@@ -61,7 +61,6 @@ function AllHikes({ latitude, longitude, hikeType }) {
 
     return (
         <>
-            <h3>All Hike Results</h3>
             {hikeResults.map((individualHike) => (
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
@@ -69,8 +68,8 @@ function AllHikes({ latitude, longitude, hikeType }) {
                         aria-controls="panel1bh-content"
                         id="panel1bh-header"
                     >
-                        <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                            Date of Hike: 
+                        <Typography sx={{ width: '43%', flexShrink: 0 }}>
+                            Date of Hike:  
                         </Typography>
                         <Typography sx={{ color: 'text.secondary' }}>
                             {moment(individualHike.updated_at).format('MMMM Do YYYY, h:mm:ss a')}

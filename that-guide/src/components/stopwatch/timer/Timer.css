@@ -1,41 +1,40 @@
 .timer{
-	text-align: right;
+	text-align: left;
 	width: 100%;
-	line-height: 1.2;
+	/* line-height: 1.2; */
 	display: flex;
-	height: 12%;
+	/* height: 12%; */
 	justify-content: center;
 }
 
 .all-digits {
-	text-align: right;
+	text-align: left;
 	font-size: calc(1em + 1vw);
 	font-family: 'Silkscreen', cursive;
 }
 
 .digits{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 4rem;
-	color: #f5f5f5;
-	text-align: right;
-	font-size: calc(2em + 1vw);
-	font-family: 'Silkscreen', cursive;
+	font-size: 6rem;
+	color: black;
+	text-align: left;
+	font-family: 'Alumni Sans Pinstripe', sans-serif;
 }
 
 .mili-sec{
-	color: #ff6b6b;
+	color: #000000;
 	
 }
 
 .time-elapsed{
-	color: rgb(69, 209, 241);
-	text-align: center;
-	font-family: 'Silkscreen', cursive;
-	font-size: calc(1em + 1vw);
+	color: rgb(0, 0, 0);
+	text-align: left;
+	font-family: 'Alumni Sans Pinstripe', sans-serif;
+	font-size: calc(2em + 1vw);
 
 }
 .right-aligned-digits {
-	text-align: right;
-	align-items: right;
-	margin-right: auto;
+	text-align: left;
+	align-items: left;
+	margin-left: auto;
 }

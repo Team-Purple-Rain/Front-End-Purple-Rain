@@ -19,7 +19,7 @@ function Results({ latitude, longitude }) {
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
-  const [timeTraveled, setTimeTraveled] = useState(null);
+  const [timeTraveled, setTimeTraveled] = useState("");
   const [elevationChange, setElevationChange] = useState(null);
   const areYouLoggedIn = localStorage.getItem("log in");
   let time = localStorage.getItem("time");

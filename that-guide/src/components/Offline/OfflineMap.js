@@ -36,13 +36,7 @@ export const OfflineMap = ({ longitude, latitude }) => {
   return (
     <>
       {longitude !== "loading..." ? (
-        <Map
-          width={800}
-          height={600}
-          latitude={longitude}
-          longitude={latitude}
-          zoom={4}
-        />
+        <Map width={800} height={600} />
       ) : (
         <div>Calculating Offline Data</div>
       )}

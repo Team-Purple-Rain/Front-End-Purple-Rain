@@ -5,8 +5,8 @@ import moment from "moment";
 import { useBooleanState, usePrevious } from "webrix/hooks";
 
 export default function Timer(props) {
-  console.log(props.ID);
-  console.log(props.hikeSession);
+  // console.log(props.ID);
+  // console.log(props.hikeSession);
   const {
     value: online,
     setFalse: setOffline,
@@ -128,17 +128,16 @@ export default function Timer(props) {
   return (
     <div className="timer">
       <div className="all-digits">
-        <h3 className="time-elapsed">Time Elapsed:</h3>
         <div className="right-aligned-digits">
           <span className="digits" onChange={logTime}>
             {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
           </span>
           <span className="digits">
-            {("0" + Math.floor((props.time / 1000) % 60)).slice(-2)}.
+            {("0" + Math.floor((props.time / 1000) % 60)).slice(-2)}
           </span>
-          <span className="digits mili-sec">
+          {/* <span className="digits mili-sec">
             {("0" + ((props.time / 10) % 100)).slice(-2)}
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

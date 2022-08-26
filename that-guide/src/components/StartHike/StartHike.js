@@ -199,6 +199,7 @@ export default function StartHike({
           </>
         )}
       </div>
+
         <div className="map-and-timer">
           <DestinationMap
             latitude={latitude}
@@ -229,6 +230,7 @@ export default function StartHike({
               </div>
             </div>
           </div>
+
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
@@ -256,28 +258,7 @@ export default function StartHike({
           </div>
         )}
 
-        {/* <div className="whole-stats-container">
-          <div className="right-container">
-            <div className="time-remaining">
-              <StopWatch
-                latitude={latitude}
-                longitude={longitude}
-                handleStartHike={handleStartHike}
-                isActive={isActive}
-                isPaused={isPaused}
-                setIsActive={setIsActive}
-                setIsPaused={setIsPaused}
-                handlePauseResume={handlePauseResume}
-                isStarted={isStarted}
-                handleStop={handleStop}
-                ID={ID}
-                setID={setID}
-                hikeSession={hikeSession}
-              />
-            </div>
-            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
-          </div>
-        </div> */}
+
       </div>
       <Button
           variant="contained"

@@ -104,7 +104,7 @@ export default function Homepage({
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
-                <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                <Typography sx={{ width: "30%", flexShrink: 0 }}>
                   Select a destination.
                 </Typography>
                 <Typography sx={{ color: "text.secondary" }}>
@@ -127,7 +127,7 @@ export default function Homepage({
                 aria-controls="panel2bh-content"
                 id="panel2bh-header"
               >
-                <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                <Typography sx={{ width: "30%", flexShrink: 0 }}>
                   Set a distance.
                 </Typography>
                 <Typography sx={{ color: "text.secondary" }}>
@@ -190,7 +190,7 @@ export default function Homepage({
                 aria-controls="panel3bh-content"
                 id="panel3bh-header"
               >
-                <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                <Typography sx={{ width: "30%", flexShrink: 0 }}>
                   Freeform hike.
                 </Typography>
                 <Typography sx={{ color: "text.secondary" }}>

@@ -107,7 +107,7 @@ function App() {
     navigate("/logout");
   };
 
-  setInterval(getLocation, 10000);
+  setInterval(getLocation, 7000);
 
   useInterval(() => {
     if (online) {
@@ -167,7 +167,7 @@ function App() {
                   variant="contained"
                   style={{
                     borderRadius: 10,
-                    backgroundColor: "#21b6ae",
+                    backgroundColor: "##de9835",
                     padding: "10px",
                     fontSize: "calc(.7vw + .7vh + .5vmin)",
                     margin: "8px",

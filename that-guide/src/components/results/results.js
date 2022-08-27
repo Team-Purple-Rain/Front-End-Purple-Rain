@@ -77,6 +77,16 @@ function Results({ latitude, longitude }) {
     <>
       <div className="options">Your Hike Results</div>
       <div className="results-stats">
+        <h4>Time Hiking: {properTime}
+        </h4>
+        <h4>
+          Distance Hiked: {distanceTraveled}
+        </h4>
+        <h4>
+          Average Pace:
+          {distanceTraveled / timeTraveled} miles per hour
+          {/* {distanceTraveled / timeTraveled} */}
+        </h4>
         <h4>Start Location:</h4>
         <h4>
           Latitude {startLat}, Longitude {startLong}
@@ -85,22 +95,12 @@ function Results({ latitude, longitude }) {
         <h4>
           Latitude {endHikeLat}, Longitude {endHikeLong}
         </h4>
+
         <h4>
-          Elevation Gain: {elevationGain}
+          Elevation Gain: {elevationGain} feet
         </h4>
         <h4>
-          Elevation Loss: {elevationLoss}
-        </h4>
-        <h4>Time Hiking: {properTime}
-        </h4>
-        <h4>
-          Average Pace:
-          {distanceTraveled / timeTraveled}
-          <br />
-          {/* {distanceTraveled / timeTraveled} */}
-        </h4>
-        <h4>
-          Distance Hiked: {distanceTraveled}
+          Elevation Loss: {elevationLoss} feet
         </h4>
         <div className="results-buttons">
           <Button

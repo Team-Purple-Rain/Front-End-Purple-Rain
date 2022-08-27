@@ -146,7 +146,7 @@ export default function StartHike({
         avg_mph: speed,
         travel_time: finalTime,
         elevation_gain: elevationChange,
-        hike_user: hikeUser,
+        // hike_user: hikeUser,
       })
       .then((res) => {
         console.log("patched something");

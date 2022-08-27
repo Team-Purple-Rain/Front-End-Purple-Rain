@@ -105,6 +105,10 @@ export default function StartHike({
     });
   };
 
+  if (ID !== null) {
+    setInterval(hitCheckpoint, 5000)
+  }
+
   const sendToBackEnd = () => {
     const data = localStorage.getItem("hike");
     if (data) {

@@ -26,7 +26,6 @@ function NewUser() {
         console.log("clicked button")
         event.preventDefault();
         console.log(username);
-        console.log(password);
         axios
             .post(`https://thatguide.herokuapp.com/auth/users/`, {
                 username: username,

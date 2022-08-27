@@ -37,7 +37,6 @@ export default function StartHike({
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
-  const [timeTraveled, setTimeTraveled] = useState("");
   const [currentElevation, setCurrentElevation] = useState(elevation);
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
@@ -115,8 +114,6 @@ export default function StartHike({
     }
   };
 
-  let finalTime = localStorage.getItem("time");
-
   const handleStop = () => {
     // console.log(ID);
     console.log(
@@ -125,15 +122,11 @@ export default function StartHike({
     setIsPaused(true);
     setIsActive(false);
     setIsStopped(!isStopped);
-    console.log(finalTime);
-    //console logs "time" correctly
-    setTimeTraveled(finalTime);
-    console.log(timeTraveled);
-    //console logs null
+    let finalTime = localStorage.getItem("time");
     setCurrentElevation(elevation);
-    // setEndHikeLat(latitude);
-    // setEndHikeLong(longitude);
-    // setDistanceTraveled(500);
+    setEndHikeLat(latitude);
+    setEndHikeLong(longitude);
+    setDistanceTraveled(500);
     // setSpeed(distanceTraveled / timeTraveled)
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
@@ -143,15 +136,14 @@ export default function StartHike({
         },
         distance_traveled: distanceTraveled,
         avg_mph: speed,
-        travel_time: timeTraveled,
+        travel_time: finalTime,
         elevation_gain: elevationChange,
-        hike_user: hikeUser,
+        // hike_user: hikeUser,
       })
       .then((res) => {
         console.log("patched something");
         navigate(`/hikeresults/${ID}`);
-      })
-      .then(console.log(timeTraveled));
+      });
     // .then(sendToBackEnd());
   };
 

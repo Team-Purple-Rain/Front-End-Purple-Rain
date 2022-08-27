@@ -30,7 +30,7 @@ export default function Timer(props) {
   const logTime = () => {
     let time = props.time;
     while (i <= 2000000000) {
-      i += 1000 * 5;
+      i += 1000;
       // triggers every second
       // i += 1000 * 30;
       // triggers event every 30 seconds

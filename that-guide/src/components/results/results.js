@@ -19,7 +19,7 @@ function Results({ latitude, longitude }) {
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
-  const [timeTraveled, setTimeTraveled] = useState(null);
+  const [timeTraveled, setTimeTraveled] = useState("");
   const [elevationChange, setElevationChange] = useState(null);
   const areYouLoggedIn = localStorage.getItem("log in");
   let time = localStorage.getItem("time");
@@ -57,7 +57,6 @@ function Results({ latitude, longitude }) {
     .get(`https://thatguide.herokuapp.com/map/${ID}/`)
     .then((res) => {
       console.log(res);
-      setSpeed(res.data.avg_mph);
       setElevationChange(res.data.elevation_gain);
       setDistanceTraveled(res.data.distance_traveled);
       setEndHikeLat(res.data.end_location.latitude);
@@ -66,7 +65,9 @@ function Results({ latitude, longitude }) {
       setStartLong(res.data.start_location.longitude);
       setTimeTraveled(properTime);
       setHikeUser(res.data.username);
+      setSpeed(distanceTraveled / time);
       console.log(timeTraveled);
+      console.log(speed);
     })
 
   return (
@@ -88,8 +89,8 @@ function Results({ latitude, longitude }) {
         </h4>
         <h4>
           Average Pace:
-          {/* {speed / timeTraveled} */}
-          {speed}
+          {speed}<br />
+          {/* {distanceTraveled / timeTraveled} */}
         </h4>
         <h4>
           Distance Hiked: {distanceTraveled}

@@ -37,7 +37,7 @@ export default function StartHike({
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
-  const [timeTraveled, setTimeTraveled] = useState(0);
+  const [timeTraveled, setTimeTraveled] = useState("");
   const [currentElevation, setCurrentElevation] = useState(elevation);
   const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
@@ -88,7 +88,6 @@ export default function StartHike({
   const handlePauseResume = (time) => {
     console.log(`time at pause in milliseconds is ${time}`);
     setIsPaused(!isPaused);
-    setTimeTraveled(finalTime);
   };
 
   const hitCheckpoint = () => {
@@ -151,7 +150,8 @@ export default function StartHike({
       .then((res) => {
         console.log("patched something");
         navigate(`/hikeresults/${ID}`);
-      });
+      })
+      .then(console.log(timeTraveled));
     // .then(sendToBackEnd());
   };
 
@@ -187,57 +187,54 @@ export default function StartHike({
   return (
     <>
       <div>
-        
         {hikeType === "Destination Hike" ? (
           <h3 className="options">
             Your hike to {destinationType}: {destination}
           </h3>
         ) : (
           <>
-          <h3 className="options">Your Current {hikeType}</h3>
-          
+            <h3 className="options">Your Current {hikeType}</h3>
           </>
         )}
       </div>
 
-        <div className="map-and-timer">
-          <DestinationMap
-            latitude={latitude}
-            longitude={longitude}
-            goalCoords={goalCoords}
-            handleStop={handleStop}
-          />
-          <div className="whole-stats-container">
-              <div className="right-container">
-                <div className="time-remaining">
-                  <StopWatch
-                    latitude={latitude}
-                    longitude={longitude}
-                    handleStartHike={handleStartHike}
-                    isActive={isActive}
-                    isPaused={isPaused}
-                    setIsActive={setIsActive}
-                    setIsPaused={setIsPaused}
-                    handlePauseResume={handlePauseResume}
-                    isStarted={isStarted}
-                    handleStop={handleStop}
-                    ID={ID}
-                    setID={setID}
-                    hikeSession={hikeSession}
-                  />
-                </div>
-                <button onClick={hitCheckpoint}>Checkpoint Hit</button>
-              </div>
+      <div className="map-and-timer">
+        <DestinationMap
+          latitude={latitude}
+          longitude={longitude}
+          goalCoords={goalCoords}
+          handleStop={handleStop}
+        />
+        <div className="whole-stats-container">
+          <div className="right-container">
+            <div className="time-remaining">
+              <StopWatch
+                latitude={latitude}
+                longitude={longitude}
+                handleStartHike={handleStartHike}
+                isActive={isActive}
+                isPaused={isPaused}
+                setIsActive={setIsActive}
+                setIsPaused={setIsPaused}
+                handlePauseResume={handlePauseResume}
+                isStarted={isStarted}
+                handleStop={handleStop}
+                ID={ID}
+                setID={setID}
+                hikeSession={hikeSession}
+              />
             </div>
+            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
           </div>
+        </div>
+      </div>
 
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
           <div>
-            
             <h3>Goal distance: {selectedDistance} miles</h3>
-            
+
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>
             </div>
@@ -257,52 +254,23 @@ export default function StartHike({
             <h4>Distance Hiked: (distance user has hiked)</h4>
           </div>
         )}
-
-<<<<<<< HEAD
-        <div className="whole-stats-container">
-          <div className="right-container">
-            <div className="time-remaining">
-              <StopWatch
-                latitude={latitude}
-                longitude={longitude}
-                handleStartHike={handleStartHike}
-                isActive={isActive}
-                isPaused={isPaused}
-                setIsActive={setIsActive}
-                setIsPaused={setIsPaused}
-                handlePauseResume={handlePauseResume}
-                isStarted={isStarted}
-                handleStop={handleStop}
-                ID={ID}
-                setID={setID}
-                hikeSession={hikeSession}
-                time={time}
-              />
-            </div>
-            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
-          </div>
-        </div>
-        <Button
-=======
-
       </div>
       <Button
->>>>>>> f9ae99b6e0727a8b6dfacbc0b31ca3120c9909f7
-          variant="contained"
-          style={{
-            borderRadius: 50,
-            backgroundColor: "#21b6ae",
-            padding: "10px",
-            // fontSize: "calc(.5vw + .5vh + .5vmin)",
-            margin: "8px",
-            float: "center",
-            border: "1px solid white",
-          }}
-          onClick={handleReturnHome}
-        >
-          Return Home
-        </Button>
-        <button onClick={sendToBackEnd}>Send To Back End</button>
+        variant="contained"
+        style={{
+          borderRadius: 50,
+          backgroundColor: "#21b6ae",
+          padding: "10px",
+          // fontSize: "calc(.5vw + .5vh + .5vmin)",
+          margin: "8px",
+          float: "center",
+          border: "1px solid white",
+        }}
+        onClick={handleReturnHome}
+      >
+        Return Home
+      </Button>
+      <button onClick={sendToBackEnd}>Send To Back End</button>
     </>
   );
 }

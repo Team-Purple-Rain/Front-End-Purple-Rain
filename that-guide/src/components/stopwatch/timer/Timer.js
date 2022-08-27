@@ -24,7 +24,6 @@ export default function Timer(props) {
     };
   }, []);
   const [startDataLogged, setStartDataLogged] = useState(false);
-  const [setTimeTraveled] = useState(null);
   let storageBank = [];
   let i = 0;
 

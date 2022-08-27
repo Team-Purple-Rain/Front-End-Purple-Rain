@@ -19,25 +19,24 @@ function NewUser() {
     const handleReturnHome = (event) => {
         navigate("/");
     }
-
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [token, setToken] = useState('')
     const [error, setError] = useState([])
     const handleNewUser = (event) => {
+        console.log("clicked button")
         event.preventDefault();
+        console.log(username);
         axios
             .post(`https://thatguide.herokuapp.com/auth/users/`, {
                 username: username,
-                password: password,
-                headers: { Authorization: `Token ${token}` }
+                password: password
             })
             .then((res) => {
                 // localStorage.setItem("log in", "true");
                 console.log(res);
-                localStorage.setItem("auth_token", res.data.auth_token);
+                // localStorage.setItem("auth_token", res.data.auth_token);
                 // alert("You created a new user! Please log in through the home screen to access all the card features!")
-                navigate("/login")
+                navigate("/login");
             })
             .catch((res) => {
                 let username_error = res.response.data.username;
@@ -58,68 +57,68 @@ function NewUser() {
 
     return (
         <>
-        <div className="user-stats">
-        <h3 class="subtitle is-3 is-flex is-aligned-self-center is-spaced ">Create Your Account</h3>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                <OutlinedInput
-                    required
-                    id="outlined-required"
-                    type="text"
-                    name="first"
-                    aria-describedby="outlined-username-helper-text"
-                    value={username}
-                    // placeholder={firstName}
-                    onChange={(event) => setUsername(event.target.value)}
-                />
-                <FormHelperText id="outlined-weight-helper-text">Username</FormHelperText>
+            <div className="user-stats">
+                <h3 class="subtitle is-3 is-flex is-aligned-self-center is-spaced ">Create Your Account</h3>
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                    <OutlinedInput
+                        required
+                        id="outlined-required"
+                        type="text"
+                        name="first"
+                        aria-describedby="outlined-username-helper-text"
+                        value={username}
+                        // placeholder={firstName}
+                        onChange={(event) => setUsername(event.target.value)}
+                    />
+                    <FormHelperText id="outlined-weight-helper-text">Username</FormHelperText>
                 </FormControl>
-            
-            <br />
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                <OutlinedInput
-                    required
-                    id="outlined-required"
-                    type="password"
-                    name="first"
-                    aria-describedby="outlined-username-helper-text"
-                    htmlFor="password"
-                    value={password}
-                    // placeholder={firstName}
-                    onChange={(event) => setPassword(event.target.value)}
-                />
-                <FormHelperText id="outlined-weight-helper-text">Password</FormHelperText>
-                </FormControl>
-            <br />
-            <Button
-                  startIcon={<LoginIcon />}
-                  variant="contained"
-                  type="submit"
-                  style={{
-                    borderRadius: 10,
-                    backgroundColor: "#62b378",
-                    padding: "10px",
-                    fontSize: "calc(.7vw + .7vh + .5vmin)",
-                    margin: "8px",
-                    border: "1px solid white",
 
-                  }}
-                  oonClick={(event) => handleNewUser(event)}>
-                
-                  Create Account
-                </Button>
-            <Button
-                startIcon={<HomeIcon />}
-                variant="contained"
-                style={{
-                    borderRadius: 10,
-                    backgroundColor: "#21b6ae",
-                    padding: "10px",
-                    fontSize: "calc(.7vw + .7vh + .5vmin)",
-                    margin: "8px",
-                    border: "1px solid white"
+                <br />
+                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+                    <OutlinedInput
+                        required
+                        id="outlined-required"
+                        type="password"
+                        name="first"
+                        aria-describedby="outlined-username-helper-text"
+                        htmlFor="password"
+                        value={password}
+                        // placeholder={firstName}
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
+                    <FormHelperText id="outlined-weight-helper-text">Password</FormHelperText>
+                </FormControl>
+
+                <br />
+                <Button
+                    startIcon={<LoginIcon />}
+                    variant="contained"
+                    type="submit"
+                    style={{
+                        borderRadius: 10,
+                        backgroundColor: "#62b378",
+                        padding: "10px",
+                        fontSize: "calc(.7vw + .7vh + .5vmin)",
+                        margin: "8px",
+                        border: "1px solid white",
+
                     }}
-                onClick={handleReturnHome}>Return Home</Button>
-        </div>
+                    onClick={handleNewUser}>
+                    Create Account
+                </Button>
+                <Button
+                    startIcon={<HomeIcon />}
+                    variant="contained"
+                    style={{
+                        borderRadius: 10,
+                        backgroundColor: "#21b6ae",
+                        padding: "10px",
+                        fontSize: "calc(.7vw + .7vh + .5vmin)",
+                        margin: "8px",
+                        border: "1px solid white"
+                    }}
+                    onClick={handleReturnHome}>Return Home</Button>
+            </div>
         </>
 
     )

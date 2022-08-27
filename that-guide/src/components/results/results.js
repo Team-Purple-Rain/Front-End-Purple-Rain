@@ -15,12 +15,14 @@ function Results({ latitude, longitude }) {
   const [startLong, setStartLong] = useState(longitude);
   const [hikeUser, setHikeUser] = useState(null);
   const endHike = useState(null);
+  const [elevationGain, setElevationGain] = useState(null);
+  const [elevationLoss, setElevationLoss] = useState(null);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState("");
-  const [elevationChange, setElevationChange] = useState(null);
+
   const areYouLoggedIn = localStorage.getItem("log in");
   let time = localStorage.getItem("time");
 
@@ -57,15 +59,16 @@ function Results({ latitude, longitude }) {
     .get(`https://thatguide.herokuapp.com/map/${ID}/`)
     .then((res) => {
       console.log(res);
-      setElevationChange(res.data.elevation_gain);
+      setElevationGain(res.data.elevation_gain);
       setDistanceTraveled(res.data.distance_traveled);
       setEndHikeLat(res.data.end_location.latitude);
       setEndHikeLong(res.data.end_location.longitude);
       setStartLat(res.data.start_location.latitude);
       setStartLong(res.data.start_location.longitude);
-      setTimeTraveled(properTime);
+      setTimeTraveled(time / 60);
       setHikeUser(res.data.username);
-      setSpeed(distanceTraveled / time);
+      setElevationLoss(res.data.elevation_loss);
+      // setSpeed(distanceTraveled / time);
       console.log(timeTraveled);
       console.log(speed);
     })
@@ -83,13 +86,17 @@ function Results({ latitude, longitude }) {
           Latitude {endHikeLat}, Longitude {endHikeLong}
         </h4>
         <h4>
-          Elevation Gain: {elevationChange}
+          Elevation Gain: {elevationGain}
         </h4>
-        <h4>Time Hiking: {timeTraveled}
+        <h4>
+          Elevation Loss: {elevationLoss}
+        </h4>
+        <h4>Time Hiking: {properTime}
         </h4>
         <h4>
           Average Pace:
-          {speed}<br />
+          {distanceTraveled / timeTraveled}
+          <br />
           {/* {distanceTraveled / timeTraveled} */}
         </h4>
         <h4>

@@ -69,7 +69,7 @@ function AllHikes({ latitude, longitude, hikeType }) {
                         id="panel1bh-header"
                     >
                         <Typography sx={{ width: '43%', flexShrink: 0 }}>
-                            Date of Hike:  
+                            Date of Hike:
                         </Typography>
                         <Typography sx={{ color: 'text.secondary' }}>
                             {moment(individualHike.updated_at).format('MMMM Do YYYY, h:mm:ss a')}
@@ -91,13 +91,15 @@ function AllHikes({ latitude, longitude, hikeType }) {
                             Longitude:{individualHike.end_location.longitude}
                             <br />
                             <br />
-                            Elevation Gain: {individualHike.elevation_gain}
+                            Elevation Gain: {individualHike.elevation_gain} ft
+                            <br />
+                            Elevation Loss: {individualHike.elevation_loss}ft
                             <br />
                             Distance Hiked: {individualHike.distance_traveled}
                             <br />
                             Time Hiking: {individualHike.travel_time}
                             <br />
-                            Average Pace: {individualHike.avg_mph}
+                            Average Pace: {individualHike.avg_mph} mph
                         </Typography>
                     </AccordionDetails>
                 </Accordion>

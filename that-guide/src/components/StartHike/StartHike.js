@@ -28,11 +28,9 @@ export default function StartHike({
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
-  // console.log(selectedDistance);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
   // const [hikeUser, setHikeUser] = useState(null);
-  const endHike = useState(null);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
@@ -43,23 +41,8 @@ export default function StartHike({
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
-  // const [currentElevation, setCurrentElevation] = useState(elevation);
-  // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
   // let hikeUser = localStorage.getItem("username")
-  // console.log(selectedDistance);
-  // console.log(goalCoords)
-
-  // axios
-  //   .get(`https://thatguide.herokuapp.com/users/me/`, {
-  //     headers: {
-  //       Authorization: `Token ${token}`,
-  //     }
-  //   })
-  //   .then((res) => {
-  //     setHikeUser(res.data.id);
-  //     console.log(hikeUser);
-  //   })
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -74,9 +57,7 @@ export default function StartHike({
             latitude: startLat,
             longitude: startLong,
           },
-          // end_location: endHike,
           current_elevation: parseInt(currentElevation)
-          // hike_user: hikeUser,
         })
         .then((res) => {
           console.log("posted something");
@@ -93,9 +74,6 @@ export default function StartHike({
   };
 
   const hitCheckpoint = () => {
-    // let checkTime = props.time;
-    // while (i <= 20000000) {
-    //   i += 1000 * 10;
     axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
       location: {
         latitude: latitude,
@@ -224,7 +202,6 @@ export default function StartHike({
                 hikeSession={hikeSession}
               />
             </div>
-            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
           </div>
         </div>
       </div>
@@ -273,7 +250,6 @@ export default function StartHike({
       >
         Return Home
       </Button>
-      <button onClick={sendToBackEnd}>Send To Back End</button>
     </>
   );
 }

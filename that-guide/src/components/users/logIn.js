@@ -16,12 +16,13 @@ function LogIn({ setAuth, auth }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [token, setToken] = useState('')
-    const [error, setError] = useState([])
+    const [error, setError] = useState(null)
     const [areYouLoggedIn, setAreYouLoggedIn] = useState(false)
     const [data, setData] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setError(null)
         axios
             .post(`https://thatguide.herokuapp.com/auth/token/login`, {
                 username: username,
@@ -37,9 +38,8 @@ function LogIn({ setAuth, auth }) {
                 console.log(username);
                 navigate("/");
             })
-            .catch((res) => {
-                let error = res.response.data.non_field_errors;
-                setError(error);
+            .catch((error) => {
+                setError(error.message);
             })
     }
 
@@ -56,6 +56,8 @@ function LogIn({ setAuth, auth }) {
         <>
         <div className="user-stats">
             <h3>Log In</h3>
+            {error && <div className='error'>{error}</div>}
+            <br/>
             <TextField
             required
             id="outlined-required"

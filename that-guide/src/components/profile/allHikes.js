@@ -49,7 +49,6 @@ function AllHikes({ latitude, longitude, hikeType }) {
     // const newTime = new Date(null);
     // newTime.setSeconds(time);
     // const properTime = newTime.toISOString().substr(11, 8);
-    console.log(time)
 
 
     return (

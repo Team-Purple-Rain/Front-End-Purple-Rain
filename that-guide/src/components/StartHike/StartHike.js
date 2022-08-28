@@ -84,19 +84,19 @@ export default function StartHike({
     // let checkTime = props.time;
     // while (i <= 20000000) {
     //   i += 1000 * 10;
-    axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
-      location: {
-        latitude: latitude,
-        longitude: longitude,
-      },
-      elevation: parseInt(currentElevation),
-      hike_session: hikeSession,
-    });
+    if (ID !== null && window.location.href.indexOf("start") != -1) {
+      axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+        location: {
+          latitude: latitude,
+          longitude: longitude,
+        },
+        elevation: parseInt(currentElevation),
+        hike_session: hikeSession,
+      });
+    }
   };
 
-  if (ID !== null) {
-    setInterval(hitCheckpoint, 5000)
-  }
+  setInterval(hitCheckpoint, 5000);
 
   const sendToBackEnd = () => {
     const data = localStorage.getItem("hike");
@@ -108,7 +108,6 @@ export default function StartHike({
         .then((res) => console.log(res));
     }
   };
-
 
   const handleStop = () => {
     // console.log(ID);
@@ -173,7 +172,6 @@ export default function StartHike({
   return (
     <>
       <div>
-
         {hikeType === "Destination Hike" ? (
           <h3 className="options">
             Your hike to {destinationType}: {destination}
@@ -181,7 +179,6 @@ export default function StartHike({
         ) : (
           <>
             <h3 className="options">Your Current {hikeType}</h3>
-
           </>
         )}
       </div>
@@ -212,7 +209,6 @@ export default function StartHike({
                 hikeSession={hikeSession}
               />
             </div>
-            <button onClick={hitCheckpoint}>Checkpoint Hit</button>
           </div>
         </div>
       </div>
@@ -221,7 +217,6 @@ export default function StartHike({
         <></>
         {hikeType === "Mile-based Hike" ? (
           <div>
-
             <h3>Goal distance: {selectedDistance} miles</h3>
             <div className="alert">
             <h5>
@@ -249,8 +244,6 @@ export default function StartHike({
             <h4>Distance Hiked: (distance user has hiked)</h4>
           </div>
         )}
-
-
       </div>
       <Button
         variant="contained"

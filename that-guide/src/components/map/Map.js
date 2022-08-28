@@ -261,11 +261,11 @@ export default function Map({
   // updateUserMarker();
 
   // function to re-center map around User
-  function setMapCenter(coords) {
-    if (mapObject) {
-      mapObject.flyTo(coords);
-    }
-  }
+  // function setMapCenter(coords) {
+  //   if (mapObject) {
+  //     mapObject.flyTo(coords);
+  //   }
+  // }
 
   useInterval(() => {
     if (online) {
@@ -305,7 +305,7 @@ export default function Map({
       <div className="big-map-container">
         <div ref={mapContainer} className="map-container"></div>
         <div className="location-button">
-          <Button
+          {/* <Button
             variant="contained"
             style={{
               borderRadius: 35,
@@ -319,7 +319,7 @@ export default function Map({
             }
           >
             Return to Current Location
-          </Button>
+          </Button> */}
         </div>
       </div>
     </>

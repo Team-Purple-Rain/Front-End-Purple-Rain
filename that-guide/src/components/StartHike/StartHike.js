@@ -130,11 +130,6 @@ export default function StartHike({
     setIsActive(false);
     setIsStopped(!isStopped);
     let finalTime = localStorage.getItem("time");
-    console.log(finalTime);
-    //console logs "time" correctly
-    setTimeTraveled(3840);
-    console.log(timeTraveled);
-    //console logs null
     setCurrentElevation(elevation);
     setEndHikeLat(latitude);
     setEndHikeLong(longitude);
@@ -150,13 +145,11 @@ export default function StartHike({
         avg_mph: speed,
         travel_time: finalTime,
         elevation_gain: elevationChange,
-        // hike_user: hikeUser,
       })
       .then((res) => {
         console.log("patched something");
         navigate(`/hikeresults/${ID}`);
       });
-    // .then(sendToBackEnd());
   };
 
   const navigate = useNavigate();

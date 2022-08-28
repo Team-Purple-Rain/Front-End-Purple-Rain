@@ -49,17 +49,6 @@ export default function StartHike({
   // console.log(selectedDistance);
   // console.log(goalCoords)
 
-  // axios
-  //   .get(`https://thatguide.herokuapp.com/users/me/`, {
-  //     headers: {
-  //       Authorization: `Token ${token}`,
-  //     }
-  //   })
-  //   .then((res) => {
-  //     setHikeUser(res.data.id);
-  //     console.log(hikeUser);
-  //   })
-
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
@@ -234,7 +223,11 @@ export default function StartHike({
           <div>
 
             <h3>Goal distance: {selectedDistance} miles</h3>
-
+            <div className="alert">
+            <h5>
+              *Walk at least one mile to return current hike stats.*
+            </h5>
+          </div>
             <div className="distance-hiked">
               <h4>Distance Hiked: (distance user has hiked)</h4>
             </div>
@@ -247,7 +240,9 @@ export default function StartHike({
           </div>
         ) : hikeType === "Freeform Hike" ? (
           <div className="alert">
-            <h4>Your final stats will be displayed at the end of your hike.</h4>
+            <h4>*Your final stats will be displayed at the end of your hike.* <br/>
+              {/* *Walk at least one mile to return current hike stats!* */}
+            </h4>
           </div>
         ) : (
           <div className="distance-hiked">

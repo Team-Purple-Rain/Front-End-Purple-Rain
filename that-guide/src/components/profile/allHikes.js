@@ -43,16 +43,23 @@ function AllHikes({ latitude, longitude, hikeType }) {
                 setHikeResults(res.data);
                 console.log(hikeResults);
                 setTime(res.data.travel_time);
+                let averagePace = (res.data.distance_traveled) / (((res.data.travel_time)/60)/60)
+                if (averagePace === NaN) {
+                    return "Not enough information to determine pace."
+                }
             })
     }, [])
+
 
     // const newTime = new Date(null);
     // newTime.setSeconds(time);
     // const properTime = newTime.toISOString().substr(11, 8);
 
+    // let averagePace = (individualHike.distance_traveled) / (((individualHike.travel_time) / 60) / 60)
 
     return (
         <>
+        
             {hikeResults.map((individualHike) => (
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
@@ -75,26 +82,27 @@ function AllHikes({ latitude, longitude, hikeType }) {
                             Time Hiking: {(individualHike.travel_time) / 60} minutes
                             <br />
                             {/* {properTime} */}
-                            Average Pace: {(individualHike.distance_traveled) / (((individualHike.travel_time) / 60) / 60)} mph
+                            Average Pace:
+                            {(individualHike.distance_traveled) / (((individualHike.travel_time) / 60) / 60)} mph
                             <br />
                             <br />
                             Elevation Gain: {individualHike.elevation_gain} ft
                             <br />
-                            Elevation Loss: {individualHike.elevation_loss}ft
+                            Elevation Loss: {individualHike.elevation_loss} ft
                             <br />
                             <br />
                             Start Location:
                             <br />
-                            Latitude:{individualHike.start_location.latitude}
+                            Latitude: {individualHike.start_location.latitude}
                             <br />
-                            Longitude:{individualHike.start_location.longitude}
+                            Longitude: {individualHike.start_location.longitude}
                             <br />
                             <br />
                             End Location:
                             <br />
                             Latitude: {individualHike.end_location.latitude}
                             <br />
-                            Longitude:{individualHike.end_location.longitude}
+                            Longitude: {individualHike.end_location.longitude}
                             <br />
                             <br />
                         </Typography>

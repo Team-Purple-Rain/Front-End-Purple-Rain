@@ -73,7 +73,7 @@ export default function StartHike({
             latitude: startLat,
             longitude: startLong,
           },
-          end_location: endHike,
+          // end_location: endHike,
           current_elevation: parseInt(currentElevation),
           hike_user: hikeUser,
         })

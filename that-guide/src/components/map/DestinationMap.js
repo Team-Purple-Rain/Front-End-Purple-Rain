@@ -184,11 +184,11 @@ export default function DestinationMap({
     shift()},500)
 
   // function to re-center map around User
-  function setMapCenter(coords) {
-    if (mapObject) {
-      mapObject.flyTo(coords);
-    }
-  }
+  // function setMapCenter(coords) {
+  //   if (mapObject) {
+  //     mapObject.flyTo(coords);
+  //   }
+  // }
 
   // function to get Elevation
   useInterval(() => {
@@ -261,8 +261,10 @@ export default function DestinationMap({
   return (
     <>
       <div className="big-map-container">
+
         <div ref={mapContainer} className="map-container">
           </div>
+
         </div>
     </>
   );

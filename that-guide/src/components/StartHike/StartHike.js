@@ -31,7 +31,7 @@ export default function StartHike({
   // console.log(selectedDistance);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
-  const [hikeUser, setHikeUser] = useState(null);
+  // const [hikeUser, setHikeUser] = useState(null);
   const endHike = useState(null);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
@@ -46,6 +46,7 @@ export default function StartHike({
   // const [currentElevation, setCurrentElevation] = useState(elevation);
   // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
+  // let hikeUser = localStorage.getItem("username")
   // console.log(selectedDistance);
   // console.log(goalCoords)
 
@@ -74,8 +75,8 @@ export default function StartHike({
             longitude: startLong,
           },
           // end_location: endHike,
-          current_elevation: parseInt(currentElevation),
-          hike_user: hikeUser,
+          current_elevation: parseInt(currentElevation)
+          // hike_user: hikeUser,
         })
         .then((res) => {
           console.log("posted something");

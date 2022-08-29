@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import L, { marker } from "leaflet";
-import "leaflet.offline";
 import "./Offline.css";
 import { LocationCity } from "@mui/icons-material";
 import * as AT_GEOJSON from "./jsons/AT.json";
@@ -9,6 +8,7 @@ import * as SHELTERS from "./jsons/shelters.json";
 import * as WATER from "./jsons/water.json";
 import tentMarker from "./icons/smol.png";
 import waterDrop from "./icons/smolwater.png";
+import hiker from "./icons/hiker.png";
 
 export const OfflineMap = ({ longitude, latitude }) => {
   const [map, setMap] = useState(null);
@@ -16,9 +16,14 @@ export const OfflineMap = ({ longitude, latitude }) => {
   const lat = latitude;
 
   useEffect(() => {
+    const container = L.DomUtil.get("offline_map");
+
+    if (container != null) {
+      container._leaflet_id = null;
+    }
+
     if (long && lat !== "loading...") {
       let map = L.map("offline_map").setView([lat, long], 30);
-      if (map.current) return;
       if (map) {
         let line_layer = new L.GeoJSON(AT_GEOJSON, {
           style: { color: "#000080", weight: 1 },
@@ -55,7 +60,7 @@ export const OfflineMap = ({ longitude, latitude }) => {
         }).addTo(map);
 
         let hikerIcon = L.icon({
-          iconUrl: "/icons/hiker.png",
+          iconUrl: hiker,
           iconSize: [10, 10],
         });
         L.marker([lat, long], { icon: hikerIcon }).addTo(map);

@@ -1,17 +1,13 @@
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import { useEffect, useState, useRef } from "react";
-import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { useInterval } from "use-interval";
 import axios from "axios";
 import { OfflineMap } from "./OfflineMap";
 import "leaflet.offline";
 
 export default function OffLinePage(props) {
-  console.log(props);
   const [longitude, setLongitude] = useState("loading...");
   const [latitude, setLatitude] = useState("loading...");
-  const [elevation, setElevation] = useState("calculating...");
-  const [mapSrc, setMapSrc] = useState("./basic_staticAT.png");
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);

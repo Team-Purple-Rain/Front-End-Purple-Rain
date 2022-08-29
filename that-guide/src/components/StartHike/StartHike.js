@@ -114,10 +114,11 @@ export default function StartHike({
     // setTimeTraveled(finalTime);
   };
 
+  // function to check if you're at your destination/send info to BE
   const hitCheckpoint = () => {
-    // let checkTime = props.time;
-    // while (i <= 20000000) {
-    //   i += 1000 * 10;
+    const goalLat = goalCoords[1];
+    const goalLong = goalCoords[0];
+
     if (ID !== null && window.location.href.indexOf("start") != -1) {
       axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
         location: {
@@ -127,6 +128,16 @@ export default function StartHike({
         elevation: parseInt(currentElevation),
         hike_session: hikeSession,
       });
+    }
+
+    if (
+      goalLat > latitude - 0.00020 &&
+      goalLat < latitude + 0.00020 &&
+      goalLong > longitude - 0.00020 &&
+      goalLong < longitude + 0.00020 && ID !== null && window.location.href.indexOf("start") != -1
+    ) {
+      alert("Congrats! You've reached the destination!");
+      handleStop();
     }
   };
 
@@ -178,7 +189,7 @@ export default function StartHike({
 
   // console.log({ latitude }, { longitude }, { currentElevation });
 
-  if (latitude === "") {
+  if (elevation === "calculating...") {
     return (
       <div
         style={{

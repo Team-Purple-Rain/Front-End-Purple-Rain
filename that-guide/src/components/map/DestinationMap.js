@@ -147,8 +147,7 @@ export default function DestinationMap({
       .setLngLat(goalCoords)
       .setPopup(
         new mapboxgl.Popup({ offset: 25 }).setHTML(
-          `<h4>${destination}</h4>
-            <p>Coordinates: ${goalCoords}</p>`
+          `<h5>Destination Coordinates: ${goalCoords}</h5>`
         )
       )
       .addTo(map);
@@ -218,19 +217,21 @@ export default function DestinationMap({
   }, 7000);
 
   // functions to check if User is near goal
-  function checkCoords() {
-    const goalLat = goalCoords[1];
-    const goalLong = goalCoords[0];
-    if (
-      goalLat > latitude - 0.00020 &&
-      goalLat < latitude + 0.00020 &&
-      goalLong > longitude - 0.00020 &&
-      goalLong < longitude + 0.00020
-    ) {
-      alert("Congrats! You've reached the destination!");
-      handleStop();
-    }
-  }
+  // function checkCoords() {
+  //   const goalLat = goalCoords[1];
+  //   const goalLong = goalCoords[0];
+  //   if (
+  //     goalLat > latitude - 0.00020 &&
+  //     goalLat < latitude + 0.00020 &&
+  //     goalLong > longitude - 0.00020 &&
+  //     goalLong < longitude + 0.00020
+  //   ) {
+  //     alert("Congrats! You've reached the destination!");
+  //     handleStop();
+  //   }
+  // }
+
+  // setInterval(checkCoords, 20000);
 
     // function that updates the User marker's long lat
   // function updateUserMarker() {
@@ -255,7 +256,6 @@ export default function DestinationMap({
 
   
 
-  setInterval(checkCoords, 20000);
 
   return (
     <>

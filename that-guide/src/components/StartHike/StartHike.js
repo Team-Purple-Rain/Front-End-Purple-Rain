@@ -105,7 +105,11 @@ export default function StartHike({
     setIsPaused(!isPaused);
   };
 
+  // function to check if you're at your destination/send info to BE
   const hitCheckpoint = () => {
+
+    const goalLat = goalCoords[1];
+    const goalLong = goalCoords[0];
     if (ID !== null && window.location.href.indexOf("start") != -1) {
       axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
         location: {
@@ -171,7 +175,7 @@ export default function StartHike({
   };
 
 
-  if (latitude === "") {
+  if (elevation === "calculating...") {
     return (
       <div
         style={{

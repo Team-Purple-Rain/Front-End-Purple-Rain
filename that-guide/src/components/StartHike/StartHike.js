@@ -24,6 +24,7 @@ export default function StartHike({
   destination,
   elevation,
   destinationType
+
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -39,6 +40,7 @@ export default function StartHike({
   const [currentElevation, setCurrentElevation] = useState(elevation);
   const [distanceCheckpoint, setDistanceCheckpoint] = useState(null)
   // const [elevationChange, setElevationChange] = useState(null);
+
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
@@ -52,6 +54,7 @@ export default function StartHike({
       setIsActive(true);
       setIsPaused(false);
       setIsStarted(true);
+
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
           start_location: {
@@ -79,6 +82,7 @@ export default function StartHike({
             longitude: startLong,
           },
           current_elevation: parseInt(currentElevation)
+
         })
         .then((res) => {
           console.log("posted something");
@@ -88,17 +92,22 @@ export default function StartHike({
     }
   };
 
-  // button that tells the user how far they have traveled so far
+// button that tells the user how far they have traveled so far
   const handleDistanceCheckpoint = () => {
+    if (ID !== null && window.location.href.indexOf("start") != -1)
     axios.get(`https://thatguide.herokuapp.com/map/${ID}/`, {
     })
-      .then((res) => {
-        console.log(res.data.distance_traveled);
-        setDistanceCheckpoint(res.data.distance_traveled);
-        return distanceCheckpoint;
-      });
+    .then((res) => {
+      console.log(res.data.distance_traveled);
+      setDistanceCheckpoint(res.data.distance_traveled);
+      return distanceCheckpoint;
+    }); 
   }
+    setInterval(handleDistanceCheckpoint, 5000)
+
   const distanceRemaining = selectedDistance - distanceCheckpoint
+
+
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
@@ -230,21 +239,18 @@ export default function StartHike({
           </div>
         </div>
       </div>
-
       <div className="second-location-header">
         <></>
         {hikeType === "Mile-based Hike" ? (
           <div>
             <h3>Goal distance: {selectedDistance} miles</h3>
             <div className="alert">
-              <h5>
-                *Walk at least one mile to return current hike stats.*
-              </h5>
-            </div>
+            <h5>
+              *Walk at least one mile to return current hike stats.*
+            </h5>
+          </div>
             <div className="distance-hiked">
-              <h4>Distance Hiked: {distanceCheckpoint} miles <br />
-                <button className="checkpoint-button"
-                  onClick={handleDistanceCheckpoint}>Distance Hiked</button>
+              <h4>Distance Hiked: {distanceCheckpoint} miles <br/>
               </h4>
             </div>
             <div className="distance-remaining">
@@ -255,25 +261,30 @@ export default function StartHike({
           </div>
         ) : hikeType === "Freeform Hike" ? (
           <>
-            <div className="alert">
-              <h4>*Your final stats will be displayed at the end of your hike.* <br />
-                {/* *Walk at least one mile to return current hike stats!* */}
-              </h4>
-            </div>
-            <div className="distance-hiked">
-              <h4>Distance Hiked: {distanceCheckpoint} miles <br />
-                <button className="checkpoint-button"
-                  onClick={handleDistanceCheckpoint}>Distance Hiked</button>
-              </h4>
-            </div>
-          </>
-        ) : (
-          <div className="distance-hiked">
-            <h4>Distance Hiked: {distanceCheckpoint} miles <br />
-              <button className="checkpoint-button"
-                onClick={handleDistanceCheckpoint}>Distance Hiked</button>
+          <div className="alert">
+            <h4>*Your final stats will be displayed at the end of your hike.* <br/>
+              {/* *Walk at least one mile to return current hike stats!* */}
             </h4>
           </div>
+           <div className="distance-hiked">
+            <h4>Distance Hiked: {distanceCheckpoint} miles <br/>
+                {/* <button className="checkpoint-button"
+                        onClick={handleDistanceCheckpoint}>Distance Hiked</button> */}
+              </h4>
+              </div>
+              </>
+        ) : (
+          <>
+          <div className="distance-hiked">
+            <h4>Distance Hiked: {distanceCheckpoint} miles <br/>
+                {/* <button className="checkpoint-button"
+                        onClick={handleDistanceCheckpoint}>Distance Hiked</button> */}
+              </h4>
+          </div>
+          <div className="miles-per-hour">
+            <h4>Miles per hour: mph</h4>
+          </div>
+          </>
         )}
       </div>
       <Button

@@ -15,11 +15,11 @@ function Results({ latitude, longitude }) {
   const [startLong, setStartLong] = useState(longitude);
   const [hikeUser, setHikeUser] = useState(null);
   const endHike = useState(null);
-  const [elevationGain, setElevationGain] = useState(null);
-  const [elevationLoss, setElevationLoss] = useState(null);
+  const [elevationGain, setElevationGain] = useState(0);
+  const [elevationLoss, setElevationLoss] = useState(0);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
-  const [distanceTraveled, setDistanceTraveled] = useState(null);
+  const [distanceTraveled, setDistanceTraveled] = useState(0);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState("");
 
@@ -80,7 +80,7 @@ function Results({ latitude, longitude }) {
         <h4>Time Hiking: {properTime}
         </h4>
         <h4>
-          Distance Hiked: {distanceTraveled}
+          Distance Hiked: {distanceTraveled} miles
         </h4>
         <h4>
           Average Pace:

@@ -24,24 +24,26 @@ export default function StartHike({
   destination,
   elevation,
   destinationType,
+  areYouLoggedIn
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
-  // const [hikeUser, setHikeUser] = useState(null);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [distanceTraveled, setDistanceTraveled] = useState(null);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState(null);
   const [currentElevation, setCurrentElevation] = useState(elevation);
-  const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
   let token = localStorage.getItem("auth_token");
+  const [loggedIn, setLoggedIn] = useState(false);
+  const hikeUser = localStorage.getItem("username");
+  
   // let hikeUser = localStorage.getItem("username")
 
   const handleStartHike = (event) => {
@@ -50,22 +52,44 @@ export default function StartHike({
     setIsPaused(false);
     setIsStarted(true);
 
-    if (elevation != "calculating...") {
+    if (elevation != "calculating..." ) {
+    //   axios
+    //     .post(`https://thatguide.herokuapp.com/map/`, {
+    //       start_location: {
+    //         latitude: startLat,
+    //         longitude: startLong,
+    //       },
+    //       current_elevation: parseInt(currentElevation)
+    //     })
+    //     .then((res) => {
+    //       console.log("posted something");
+    //       setID(res.data.id);
+    //       console.log(res);
+    //     });
+    // } else if (elevation != "calculating..." && areYouLoggedIn === true){
+
       axios
-        .post(`https://thatguide.herokuapp.com/map/`, {
+        .post(`https://thatguide.herokuapp.com/map/`, 
+        {
+          headers: {
+              Authorization: `Token ${token}`,
+              "Content-Type": "application/json",
+          },          
           start_location: {
-            latitude: startLat,
-            longitude: startLong,
-          },
-          current_elevation: parseInt(currentElevation)
-        })
+              latitude: startLat,
+              longitude: startLong,
+            },
+            current_elevation: parseInt(currentElevation), 
+      })
         .then((res) => {
           console.log("posted something");
           setID(res.data.id);
           console.log(res);
         });
-    }
-  };
+    }  
+    };
+
+
 
   const handlePauseResume = () => {
     console.log(`time at pause in milliseconds is ${time}`);
@@ -74,16 +98,6 @@ export default function StartHike({
   };
 
   const hitCheckpoint = () => {
-<<<<<<< HEAD
-    axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
-      location: {
-        latitude: latitude,
-        longitude: longitude,
-      },
-      elevation: parseInt(currentElevation),
-      hike_session: hikeSession,
-    });
-=======
     // let checkTime = props.time;
     // while (i <= 20000000) {
     //   i += 1000 * 10;
@@ -97,7 +111,7 @@ export default function StartHike({
         hike_session: hikeSession,
       });
     }
->>>>>>> a73c54d957de1649bfb16b145b6f4141a14bfa53
+
   };
 
   setInterval(hitCheckpoint, 5000);
@@ -125,18 +139,14 @@ export default function StartHike({
     setCurrentElevation(elevation);
     setEndHikeLat(latitude);
     setEndHikeLong(longitude);
-    setDistanceTraveled(500);
-    // setSpeed(distanceTraveled / timeTraveled)
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
         end_location: {
           latitude: endHikeLat,
           longitude: endHikeLong,
         },
-        distance_traveled: distanceTraveled,
-        avg_mph: speed,
         travel_time: finalTime,
-        elevation_gain: elevationChange,
+        hike_user: hikeUser
       })
       .then((res) => {
         console.log("patched something");

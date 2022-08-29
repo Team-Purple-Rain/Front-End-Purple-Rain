@@ -25,7 +25,7 @@ export default function StartHike({
   elevation,
   destinationType,
   areYouLoggedIn,
-}) {
+}) {git 
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);

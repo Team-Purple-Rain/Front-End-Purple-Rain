@@ -143,6 +143,8 @@ function App() {
   }, 7000);
   // console.log(elevation);
 
+  
+
   return (
     <>
       <div className="background">

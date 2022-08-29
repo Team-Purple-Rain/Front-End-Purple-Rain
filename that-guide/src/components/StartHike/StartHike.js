@@ -52,10 +52,11 @@ export default function StartHike({
 
   const handleStartHike = (event) => {
     console.log("hello button");
-    setIsActive(true);
-    setIsPaused(false);
-    setIsStarted(true);
+
     if (elevation != "calculating..." && token != null) {
+      setIsActive(true);
+      setIsPaused(false);
+      setIsStarted(true);
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
           start_location: {
@@ -73,13 +74,21 @@ export default function StartHike({
           console.log(res);
         });
     } else if (elevation != "calculating..." && token === null) {
+      setIsActive(true);
+      setIsPaused(false);
+      setIsStarted(true);
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
           start_location: {
             latitude: startLat,
             longitude: startLong,
           },
-          current_elevation: parseInt(currentElevation),
+          current_elevation: parseInt(currentElevation)
+        })
+        .then((res) => {
+          console.log("posted something");
+          setID(res.data.id);
+          console.log(res);
         })
     }
   };

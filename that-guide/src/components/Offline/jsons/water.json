@@ -1,0 +1,2091 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Black Gap Shelter",
+          "latitude": 34.61768,
+          "longitude": -84.19871,
+          "mile": 1.5,
+          "state": "GA"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-84.19871, 34.61768]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Hawk Mountain",
+          "latitude": 34.664756,
+          "longitude": -84.138261,
+          "mile": "7.9",
+          "state": "GA"
+        },
+        "geometry": { 
+          "type": "Point", 
+          "coordinates": [-84.138261, 34.664756] 
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Justus Creek",
+          "latitude": 34.659838,
+          "longitude": -84.062287,
+          "mile": "14.3",
+          "state": "GA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.062287, 34.659838] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream south of Dockery Lake Trail",
+          "latitude": 34.7079121,
+          "longitude": -83.984961,
+          "mile": "22.8",
+          "state": "GA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.984961, 34.7079121] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Small stream near Unicoi Gap",
+          "latitude": 34.798201,
+          "longitude": -83.738085,
+          "mile": "53.1",
+          "state": "GA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.738085, 34.798201] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Deep Gap",
+          "latitude": 34.883714,
+          "longitude": -83.646048,
+          "mile": "65.599999999999994",
+          "state": "GA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.646048, 34.883714] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Plumorchard Gap",
+          "latitude": 34.945817,
+          "longitude": -83.592659,
+          "mile": "73.7",
+          "state": "GA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.592659, 34.945817] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near sassafras gap",
+          "latitude": 35.004833,
+          "longitude": -83.581075,
+          "mile": "80.7",
+          "state": "NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.581075, 35.004833] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near beech gap (kilby creek)",
+          "latitude": 35.013111,
+          "longitude": -83.520048,
+          "mile": "90.3",
+          "state": "NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.520048, 35.013111] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Long branch Shelter",
+          "latitude": 35.072747,
+          "longitude": -83.500029,
+          "mile": "102.2",
+          "state": "NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.500029, 35.072747] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring Near Wesser Bald",
+          "latitude": 35.280896,
+          "longitude": -83.580881,
+          "mile": "130.80000000000001",
+          "state": "NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.580881, 35.280896] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near the Jump-up",
+          "latitude": 35.342426,
+          "longitude": -83.641435,
+          "mile": "141",
+          "state": "NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.641435, 35.342426] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Sassafras Gap Shelter",
+          "latitude": 35.330353,
+          "longitude": -83.665962,
+          "mile": "143.80000000000001",
+          "state": "NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.665962, 35.330353] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Cody Gap",
+          "latitude": 35.392216,
+          "longitude": -83.764287,
+          "mile": "155.9",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.764287, 35.392216] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ekaneetlee Gap Spring",
+          "latitude": 35.535018,
+          "longitude": -83.810762,
+          "mile": "176",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.810762, 35.535018] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Mollies Ridge Shelter",
+          "latitude": 34.798201,
+          "longitude": -83.738085,
+          "mile": "177",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.738085, 34.798201] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Derrick Knob Shelter",
+          "latitude": 35.566972,
+          "longitude": -83.641226,
+          "mile": "189.8",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.641226, 35.566972] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Mt Collins Shelter",
+          "latitude": 35.593978,
+          "longitude": -83.473398,
+          "mile": "202.8",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.473398, 35.593978] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring at Trim-Corner Knob Shelter",
+          "latitude": 35.693302,
+          "longitude": -83.262062,
+          "mile": "223.4",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.262062, 35.693302] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream north of Davenport Gap",
+          "latitude": 35.769978,
+          "longitude": -83.122587,
+          "mile": "240",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.122587, 35.769978] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brown Gap Shelter",
+          "latitude": 35.774331,
+          "longitude": -83.003983,
+          "mile": "251.6",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.003983, 35.774331] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Roaring Fork",
+          "latitude": 35.805236,
+          "longitude": -82.948963,
+          "mile": "257",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.948963, 35.805236] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Blood River",
+          "latitude": 35.876136,
+          "longitude": -82.863838,
+          "mile": "271",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.863838, 35.876136] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Rich Mountain",
+          "latitude": 35.927918,
+          "longitude": -82.802616,
+          "mile": "283.3",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.802616, 35.927918] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Paint Creek",
+          "latitude": 35.971579,
+          "longitude": -82.777431,
+          "mile": "291",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.777431, 35.971579] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sugar Loaf Branch",
+          "latitude": 35.996379,
+          "longitude": -82.607279,
+          "mile": "312",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.607279, 35.996379] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Bald Mountain Shelter",
+          "latitude": 35.995116,
+          "longitude": -82.480134,
+          "mile": "327",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.480134, 35.995116] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Curly Maple Gap Shelter",
+          "latitude": 36.104059,
+          "longitude": -82.397417,
+          "mile": "349",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.397417, 36.104059] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Beauty Spot",
+          "latitude": 36.117271,
+          "longitude": -82.325208,
+          "mile": "355",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.325208, 36.117271] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Cherry Gap Shelter",
+          "latitude": 36.130394,
+          "longitude": -82.265657,
+          "mile": "361.4",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.265657, 36.130394] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Roan High Knob Shelter",
+          "latitude": 36.102995,
+          "longitude": -82.132532,
+          "mile": "379",
+          "state": "TN/NC"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.132532, 36.102995] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring north of Doll Flats",
+          "latitude": 36.147437,
+          "longitude": -82.009564,
+          "mile": "392",
+          "state": "TN"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.009564, 36.147437] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Laurel Fork",
+          "latitude": 36.269851,
+          "longitude": -82.12806,
+          "mile": "420",
+          "state": "TN"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.12806, 36.269851] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring north of Doll Flats",
+          "latitude": 36.356211,
+          "longitude": -82.074611,
+          "mile": "435",
+          "state": "TN"
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.074611, 36.356211] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring south of Iron Mountain Shelter",
+          "latitude": 36.437682,
+          "longitude": -81.993384,
+          "mile": "444",
+          "state": "TN"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.993384, 36.437682] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring at Low Gap",
+          "latitude": 36.539788,
+          "longitude": -81.94939,
+          "mile": "455",
+          "state": "TN"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.94939, 36.539788] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Lost Mountain Shelter",
+          "latitude": 36.644061,
+          "longitude": -81.655868,
+          "mile": "486",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.655868, 36.644061] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring at Thomas Knob Shelter",
+          "latitude": 36.656793,
+          "longitude": -81.534834,
+          "mile": "499",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.534834, 36.656793] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Big Wilson Creek",
+          "latitude": 36.655212,
+          "longitude": -81.498402,
+          "mile": "504",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.498402, 36.655212] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brook near Hurricane Mountain Shelter",
+          "latitude": 36.718798,
+          "longitude": -81.485829,
+          "mile": "514",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.485829, 36.718798] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Trimpi Shelter",
+          "latitude": 36.749371,
+          "longitude": -81.481899,
+          "mile": "524",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.481899, 36.749371] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Reed Creek",
+          "latitude": 36.950544,
+          "longitude": -81.363284,
+          "mile": "553",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.363284, 36.950544] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring along Walker Gap Rd",
+          "latitude": 37.051218,
+          "longitude": -81.385535,
+          "mile": "571",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.385535, 37.051218] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hunting Camp Creek",
+          "latitude": 37.087879,
+          "longitude": -81.249592,
+          "mile": "580",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.249592, 37.087879] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Jenny Knob Shelter",
+          "latitude": 37.161532,
+          "longitude": -80.967718,
+          "mile": "603",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.967718, 37.161532] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Dismal Creek",
+          "latitude": 37.183294,
+          "longitude": -80.897949,
+          "mile": "618",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.897949, 37.183294] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Rice Field Shelter",
+          "latitude": 37.375215,
+          "longitude": -80.758139,
+          "mile": "643",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.758139, 37.375215] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pine Swamp Branch",
+          "latitude": 37.422055,
+          "longitude": -80.60533,
+          "mile": "656",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.60533, 37.422055] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Laurel Creek",
+          "latitude": 37.360212,
+          "longitude": -80.420074,
+          "mile": "674",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.420074, 37.360212] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream",
+          "latitude": 37.379208,
+          "longitude": -80.246414,
+          "mile": "689.6",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.246414, 37.379208] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "McAfee Run (near Dragon's Tooth)",
+          "latitude": 37.375758,
+          "longitude": -80.165556,
+          "mile": "703",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.165556, 37.375758] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brook",
+          "latitude": 37.365833,
+          "longitude": -80.145314,
+          "mile": "704",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.145314, 37.365833] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream at Lamberts Meadow Shelter",
+          "latitude": 37.434846,
+          "longitude": -79.987144,
+          "mile": "720",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.987144, 37.434846] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cistern at Fullhardt Knob Shelter",
+          "latitude": 37.399139,
+          "longitude": -79.853998,
+          "mile": "734",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.853998, 37.399139] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream",
+          "latitude": 37.419208,
+          "longitude": -79.785537,
+          "mile": "741.3",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.785537, 37.419208] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Boxed Spring at Bobblets Gap Shelter",
+          "latitude": 37.467187,
+          "longitude": -79.699997,
+          "mile": "748",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.699997, 37.467187] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Small stream",
+          "latitude": 37.53268,
+          "longitude": -79.598765,
+          "mile": "760",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.598765, 37.53268] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring at Thunder Hill Shelter",
+          "latitude": 37.529011,
+          "longitude": -79.504446,
+          "mile": "771.9",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.504446, 37.529011] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream at Johns Hollow Shelter",
+          "latitude": 37.612869,
+          "longitude": -79.391749,
+          "mile": "788.1",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.391749, 37.612869] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brown Mountain Creek",
+          "latitude": 37.697896,
+          "longitude": -79.271979,
+          "mile": "806.1",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.271979, 37.697896] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring",
+          "latitude": 37.806362,
+          "longitude": -79.162756,
+          "mile": "818",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.162756, 37.806362] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream at The Priest Shelter",
+          "latitude": 37.819642,
+          "longitude": -79.062702,
+          "mile": "829.1",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.062702, 37.819642] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Harpers Creek",
+          "latitude": 37.855115,
+          "longitude": -79.001207,
+          "mile": "836",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.001207, 37.855115] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Calf Mountain Shelter",
+          "latitude": 38.086799,
+          "longitude": -78.78245,
+          "mile": "871",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.78245, 38.086799] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Blackrock Hut",
+          "latitude": 38.214728,
+          "longitude": -78.743608,
+          "mile": "884",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.743608, 38.214728] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Box Spring",
+          "latitude": 38.345654,
+          "longitude": -78.553686,
+          "mile": "906.3",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.553686, 38.345654] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Pass Mountain Hut",
+          "latitude": 38.676586,
+          "longitude": -78.319144,
+          "mile": "945",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.319144, 38.676586] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Manassas Gap Shelter",
+          "latitude": 38.930376,
+          "longitude": -78.033052,
+          "mile": "982",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.033052, 38.930376] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream",
+          "latitude": 39.017787,
+          "longitude": -77.968153,
+          "mile": "992.8",
+          "state": "VA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.968153, 39.017787] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring .2 miles south of David Lesser Shelter",
+          "latitude": 39.221445,
+          "longitude": -77.776757,
+          "mile": "1016.7",
+          "state": "VA/WV"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.776757, 39.221445] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Water on Steep 0.4 `mile` trail in front of Ed Garvey Shelter",
+          "latitude": 39.356362,
+          "longitude": -77.663915,
+          "mile": "1032.3",
+          "state": "MD"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.663915, 39.356362] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring .5 miles east of Trail",
+          "latitude": 39.440042,
+          "longitude": -77.644161,
+          "mile": "1039.5999999999999",
+          "state": "MD"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.644161, 39.440042] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Black Rock Creek",
+          "latitude": 39.573756,
+          "longitude": -77.5896,
+          "mile": "1051",
+          "state": "MD"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.5896, 39.573756] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring",
+          "latitude": 39.643539,
+          "longitude": -77.537809,
+          "mile": "1059.5999999999999",
+          "state": "MD"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.537809, 39.643539] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Buena Vista Rd.",
+          "latitude": 39.723008,
+          "longitude": -77.501579,
+          "mile": "1068",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.501579, 39.723008] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Old Forge Picnic Area",
+          "latitude": 39.795392,
+          "longitude": -77.485668,
+          "mile": "1074.0999999999999",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.485668, 39.795392] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring 100yds west of Milesburn Cabin",
+          "latitude": 39.978836,
+          "longitude": -77.451637,
+          "mile": "1092",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.451637, 39.978836] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring 75 yrds North of Birch Run Shelter",
+          "latitude": 39.98501,
+          "longitude": -77.418668,
+          "mile": "1094",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.418668, 39.98501] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream Near Woodrow Road",
+          "latitude": 40.027612,
+          "longitude": -77.360625,
+          "mile": "1100",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.360625, 40.027612] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Water source near James Fry Shelter",
+          "latitude": 40.066169,
+          "longitude": -77.206522,
+          "mile": "1111.9000000000001",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.206522, 40.066169] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Alec Kennedy Shelter",
+          "latitude": 40.110558,
+          "longitude": -77.105542,
+          "mile": "1119",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.105542, 40.110558] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Old Stone House Road",
+          "latitude": 40.211874,
+          "longitude": -77.109183,
+          "mile": "1129.7",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.109183, 40.211874] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Darlington Shelter",
+          "latitude": 40.307052,
+          "longitude": -77.081516,
+          "mile": "1142",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.081516, 40.307052] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Clarks Ferry Shelter",
+          "latitude": 40.39181,
+          "longitude": -76.993504,
+          "mile": "1153",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.993504, 40.39181] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Peters Mountain Shelter",
+          "latitude": 40.426924,
+          "longitude": -76.87966,
+          "mile": "1160",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.87966, 40.426924] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring",
+          "latitude": 40.451291,
+          "longitude": -76.77577,
+          "mile": "1167",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.77577, 40.451291] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rausch Creek",
+          "latitude": 40.494553,
+          "longitude": -76.59399,
+          "mile": "1179",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.59399, 40.494553] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream",
+          "latitude": 40.494553,
+          "longitude": -76.59399,
+          "mile": "1183",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.59399, 40.494553] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near William Penn Shelter",
+          "latitude": 40.495377,
+          "longitude": -76.414008,
+          "mile": "1191",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.414008, 40.495377] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Water near Hertline Campsite",
+          "latitude": 40.509756,
+          "longitude": -76.275712,
+          "mile": "1201",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.275712, 40.509756] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sand Spring Trail",
+          "latitude": 40.542421,
+          "longitude": -76.146402,
+          "mile": "1210",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.146402, 40.542421] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Water near Windsor Furnace shelter",
+          "latitude": 40.589974,
+          "longitude": -75.943724,
+          "mile": "1225",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.943724, 40.589974] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Panther Creek",
+          "latitude": 40.638404,
+          "longitude": -75.959393,
+          "mile": "1233",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.959393, 40.638404] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Allentown Hiking Club Shelter",
+          "latitude": 40.682445,
+          "longitude": -75.872314,
+          "mile": "1242",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.872314, 40.682445] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Bake Oven Knob Shelter",
+          "latitude": 40.750208,
+          "longitude": -75.732755,
+          "mile": "1251",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.732755, 40.750208] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring Near Wolf Rocks",
+          "latitude": 40.935328,
+          "longitude": -75.201098,
+          "mile": "1286",
+          "state": "PA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.201098, 40.935328] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sunfish Pond",
+          "latitude": 41.002178,
+          "longitude": -75.077261,
+          "mile": "1300",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.077261, 41.002178] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Beaver Pond",
+          "latitude": 41.048076,
+          "longitude": -74.973511,
+          "mile": "1309",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.973511, 41.048076] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Blue Mountain Lakes Road",
+          "latitude": 41.090523,
+          "longitude": -74.911031,
+          "mile": "1313",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.911031, 41.090523] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Nearby Spring",
+          "latitude": 41.148621,
+          "longitude": -74.845533,
+          "mile": "1319",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.845533, 41.148621] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "High Point State Park Headquarters",
+          "latitude": 41.305435,
+          "longitude": -74.670929,
+          "mile": "1339",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.670929, 41.305435] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lott Rd",
+          "latitude": 41.296864,
+          "longitude": -74.562309,
+          "mile": "1349",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.562309, 41.296864] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Footbridge Stream",
+          "latitude": 41.296864,
+          "longitude": -74.562309,
+          "mile": "1362",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.562309, 41.296864] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Longhouse Creek",
+          "latitude": 41.196397,
+          "longitude": -74.355039,
+          "mile": "1368",
+          "state": "NJ"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.355039, 41.196397] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brook near Cat Rocks",
+          "latitude": 41.261733,
+          "longitude": -74.270275,
+          "mile": "1376",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.270275, 41.261733] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Orange Turnpike",
+          "latitude": 41.269201,
+          "longitude": -74.181065,
+          "mile": "1385",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.181065, 41.269201] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rocky Swamp Brook",
+          "latitude": 41.27724,
+          "longitude": -74.066931,
+          "mile": "1395",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.066931, 41.27724] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Copper Mine Brook",
+          "latitude": 41.329413,
+          "longitude": -73.952838,
+          "mile": "1409.6",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.952838, 41.329413] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brook near Canopus Hill Rd.",
+          "latitude": 41.386981,
+          "longitude": -73.879506,
+          "mile": "1418",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.879506, 41.386981] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Canopus Lake",
+          "latitude": 41.461109,
+          "longitude": -73.836179,
+          "mile": "1428",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.836179, 41.461109] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hand Pump at Morgan Stewart Shelter",
+          "latitude": 41.564392,
+          "longitude": -73.691544,
+          "mile": "1439",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.691544, 41.564392] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hand Pump at Wiley Shelter",
+          "latitude": 41.637909,
+          "longitude": -73.532584,
+          "mile": "1456",
+          "state": "NY"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.532584, 41.637909] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Thayer Brook",
+          "latitude": 41.721261,
+          "longitude": -73.499649,
+          "mile": "1467",
+          "state": "CT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.499649, 41.721261] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stony Brook",
+          "latitude": 41.783707,
+          "longitude": -73.41381,
+          "mile": "1476",
+          "state": "CT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.41381, 41.783707] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hatch Brook",
+          "latitude": 41.838141446341901,
+          "longitude": -73.392521090485999,
+          "mile": "1481",
+          "state": "CT"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-73.392521090485999, 41.838141446341901]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pine Swamp Brook",
+          "latitude": 41.879832,
+          "longitude": -73.385094,
+          "mile": "1488",
+          "state": "CT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.385094, 41.879832] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Limestone Spring Lean-to",
+          "latitude": 41.9752,
+          "longitude": -73.391516,
+          "mile": "1499",
+          "state": "CT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.391516, 41.9752] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sages Ravine",
+          "latitude": 42.051806,
+          "longitude": -73.442152,
+          "mile": "1510",
+          "state": "CT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.442152, 42.051806] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Guilder Pond",
+          "latitude": 42.10892,
+          "longitude": -73.435621,
+          "mile": "1516",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.435621, 42.10892] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tom Leonard Lean-To",
+          "latitude": 42.164912,
+          "longitude": -73.306194,
+          "mile": "1531",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.306194, 42.164912] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "East Brook",
+          "latitude": 42.233123,
+          "longitude": -73.247779,
+          "mile": "1539",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.247779, 42.233123] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cooper Brook",
+          "latitude": 42.27905,
+          "longitude": -73.184326,
+          "mile": "1550",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.184326, 42.27905] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Finerty Pond",
+          "latitude": 42.312699,
+          "longitude": -73.165479,
+          "mile": "1557",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.165479, 42.312699] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Barton Brook",
+          "latitude": 42.458113,
+          "longitude": -73.162067,
+          "mile": "1570",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.162067, 42.458113] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gore Pond",
+          "latitude": 42.523562,
+          "longitude": -73.154882,
+          "mile": "1578",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.154882, 42.523562] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Mark Neopel Shelter",
+          "latitude": 42.608529,
+          "longitude": -73.184141,
+          "mile": "1587",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.184141, 42.608529] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pattison Road",
+          "latitude": 42.686989,
+          "longitude": -73.159861,
+          "mile": "1595",
+          "state": "MA"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.159861, 42.686989] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Seth Warner Shelter",
+          "latitude": 42.74673,
+          "longitude": -73.150356,
+          "mile": "1601",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.150356, 42.74673] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Goddard Shelter",
+          "latitude": 42.974228,
+          "longitude": -73.07241,
+          "mile": "1625",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.07241, 42.974228] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Story Spring Shelter",
+          "latitude": 43.050662,
+          "longitude": -73.0129,
+          "mile": "1631",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.0129, 43.050662] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spruce Peak Shelter",
+          "latitude": 43.007499,
+          "longitude": -73.047539,
+          "mile": "1652",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.047539, 43.007499] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Peru Peak Shelter",
+          "latitude": 43.301528,
+          "longitude": -72.956069,
+          "mile": "1665",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.956069, 43.301528] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring at Little Rock Pond",
+          "latitude": 43.40297,
+          "longitude": -72.954746,
+          "mile": "1672",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.954746, 43.40297] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bully Brook",
+          "latitude": 43.449529,
+          "longitude": -72.938164,
+          "mile": "1678",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.938164, 43.449529] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gould Brook",
+          "latitude": 43.541442,
+          "longitude": -72.859187,
+          "mile": "1690",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.859187, 43.541442] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pico Camp",
+          "latitude": 43.638745,
+          "longitude": -72.831026,
+          "mile": "1701",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.831026, 43.638745] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring at Stony Brook Shelter",
+          "latitude": 43.687134,
+          "longitude": -72.732666,
+          "mile": "1713",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.732666, 43.687134] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Barnard Brook",
+          "latitude": 43.67204,
+          "longitude": -72.553373,
+          "mile": "1731",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.553373, 43.67204] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Happy HIll shelter",
+          "latitude": 43.724005,
+          "longitude": -72.365567,
+          "mile": "1746.2",
+          "state": "VT"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.365567, 43.724005] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Velvet Rocks Shelter",
+          "latitude": 43.702403,
+          "longitude": -72.264779,
+          "mile": "1753",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.264779, 43.702403] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Moose Mountain SHelter",
+          "latitude": 43.727072,
+          "longitude": -72.149245,
+          "mile": "1763",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.149245, 43.727072] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jacobs Brook",
+          "latitude": 43.857904,
+          "longitude": -72.023648,
+          "mile": "1777",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.023648, 43.857904] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brackett Brook",
+          "latitude": 43.877324,
+          "longitude": -71.997379,
+          "mile": "1781",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.997379, 43.877324] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Oliverian Brook",
+          "latitude": 43.991216,
+          "longitude": -71.900444,
+          "mile": "1795",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.900444, 43.991216] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Beaver Brook shelter",
+          "latitude": 44.032755,
+          "longitude": -71.811348,
+          "mile": "1801",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.811348, 44.032755] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Eliza Brook",
+          "latitude": 44.098355,
+          "longitude": -71.740331,
+          "mile": "1810",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.740331, 44.098355] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Liberty Springs",
+          "latitude": 44.11732,
+          "longitude": -71.64975,
+          "mile": "1821",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.64975, 44.11732] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring near Garfield Ridge Campsite",
+          "latitude": 44.190578,
+          "longitude": -71.609609,
+          "mile": "1829",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.609609, 44.190578] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Guyot Shelter",
+          "latitude": 44.160947,
+          "longitude": -71.535146,
+          "mile": "1836",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.535146, 44.160947] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ethan Pond",
+          "latitude": 44.176736,
+          "longitude": -71.427954,
+          "mile": "1845",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.427954, 44.176736] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mizpah Spring Hut",
+          "latitude": 44.219287,
+          "longitude": -71.369901,
+          "mile": "1855",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.369901, 44.219287] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Madison Spring Hut",
+          "latitude": 44.327925,
+          "longitude": -71.284577,
+          "mile": "1867",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.284577, 44.327925] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Carter Notch Hut",
+          "latitude": 44.260786,
+          "longitude": -71.195024,
+          "mile": "1880",
+          "state": "NH"
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.195024, 44.260786] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Trident Col Campsite",
+          "latitude": 44.441911199776399,
+          "longitude": -71.136799040032997,
+          "mile": "1902",
+          "state": "NH"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-71.136799040032997, 44.441911199776399]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Speck Pond",
+          "latitude": 44.562649909306003,
+          "longitude": -70.971047929908195,
+          "mile": "1922",
+          "state": "ME"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-70.971047929908195, 44.562649909306003]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Frye Notch",
+          "latitude": 44.628,
+          "longitude": -70.899683,
+          "mile": "1932",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.899683, 44.628] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Surplus Pond",
+          "latitude": 44.673504227279999,
+          "longitude": -70.863917098145393,
+          "mile": "1939",
+          "state": "ME"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-70.863917098145393, 44.673504227279999]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sawyer Brook",
+          "latitude": 44.712651,
+          "longitude": -70.814643,
+          "mile": "1944",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.814643, 44.712651] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bemis Mountain Lean to",
+          "latitude": 44.81024,
+          "longitude": -70.755906,
+          "mile": "1956",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.755906, 44.81024] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Moxie Pond",
+          "latitude": 44.846422,
+          "longitude": -70.684852,
+          "mile": "1962",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.684852, 44.846422] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "South Pond",
+          "latitude": 44.867322,
+          "longitude": -70.559238,
+          "mile": "1971",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.559238, 44.867322] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Eddy Pond",
+          "latitude": 44.91769,
+          "longitude": -70.52357,
+          "mile": "1977",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.52357, 44.91769] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Orbeton Stream",
+          "latitude": 44.97296,
+          "longitude": -70.407059,
+          "mile": "1987",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.407059, 44.97296] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Crocker Circue",
+          "latitude": 45.041239,
+          "longitude": -70.362328,
+          "mile": "1998",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.362328, 45.041239] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stratton Brook",
+          "latitude": 45.11359,
+          "longitude": -70.349447,
+          "mile": "2006",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.349447, 45.11359] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Horns Pond Lean to",
+          "latitude": 45.144233,
+          "longitude": -70.331217,
+          "mile": "2011",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.331217, 45.144233] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bog Brook",
+          "latitude": 45.134401,
+          "longitude": -70.167741,
+          "mile": "2021",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.167741, 45.134401] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "West Carry Pond",
+          "latitude": 45.158634,
+          "longitude": -70.101062,
+          "mile": "2029",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.101062, 45.158634] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "East Carry Pond",
+          "latitude": 45.185617,
+          "longitude": -70.05728,
+          "mile": "2032",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.05728, 45.185617] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pierce Pond Stream",
+          "latitude": 45.240986,
+          "longitude": -70.033518,
+          "mile": "2040",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.033518, 45.240986] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bald Mountain Brook",
+          "latitude": 45.25887,
+          "longitude": -69.801448,
+          "mile": "2057.6999999999998",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.801448, 45.25887] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bald Mountain Pond",
+          "latitude": 45.270483,
+          "longitude": -69.744909,
+          "mile": "2060",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.744909, 45.270483] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Horseshoe Canyon Lean to",
+          "latitude": 45.282823,
+          "longitude": -69.627457,
+          "mile": "2070",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.627457, 45.282823] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spectacle Pond",
+          "latitude": 45.341581,
+          "longitude": -69.523185,
+          "mile": "2079",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.523185, 45.341581] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Leeman Brook",
+          "latitude": 45.351887,
+          "longitude": -69.499385,
+          "mile": "2082",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.499385, 45.351887] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Big Wilson Stream",
+          "latitude": 45.398079,
+          "longitude": -69.469502,
+          "mile": "2089",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.469502, 45.398079] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Long Pond Stream",
+          "latitude": 45.417321,
+          "longitude": -69.41986,
+          "mile": "2094",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.41986, 45.417321] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cloud Pond",
+          "latitude": 45.418102,
+          "longitude": -69.358562,
+          "mile": "2098",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.358562, 45.418102] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Henderson Brook",
+          "latitude": 45.473997,
+          "longitude": -69.294794,
+          "mile": "2109",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.294794, 45.473997] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gulf Hagas Brook",
+          "latitude": 45.528667,
+          "longitude": -69.316666,
+          "mile": "2115",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.316666, 45.528667] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Logan Brook",
+          "latitude": 45.561636,
+          "longitude": -69.23499,
+          "mile": "2124",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.23499, 45.561636] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "East Branch Pleasant River",
+          "latitude": 45.596608,
+          "longitude": -69.193698,
+          "mile": "2129",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.193698, 45.596608] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cooper Brook",
+          "latitude": 45.622705,
+          "longitude": -69.12227,
+          "mile": "2132",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.12227, 45.622705] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mud Brook",
+          "latitude": 45.665519,
+          "longitude": -68.989713,
+          "mile": "2140",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-68.989713, 45.665519] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Twitchell Brook",
+          "latitude": 45.712256,
+          "longitude": -69.012718,
+          "mile": "2146",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.012718, 45.712256] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Crescent Pond",
+          "latitude": 45.770312,
+          "longitude": -69.178621,
+          "mile": "2159",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.178621, 45.770312] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pollywog Stream",
+          "latitude": 45.779425,
+          "longitude": -69.172858,
+          "mile": "2161",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.172858, 45.779425] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stream near Pitman Pond",
+          "latitude": 45.820439,
+          "longitude": -69.002224,
+          "mile": "2163",
+          "state": "ME"
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.002224, 45.820439] }
+      }
+    ]
+  }

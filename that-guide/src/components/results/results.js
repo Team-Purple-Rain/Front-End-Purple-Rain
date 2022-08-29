@@ -77,31 +77,37 @@ function Results({ latitude, longitude }) {
     <>
       <div className="options">Your Hike Results</div>
       <div className="results-stats">
-        <h4>Time Hiking: {properTime}
-        </h4>
-        <h4>
-          Distance Hiked: {distanceTraveled} miles
-        </h4>
-        <h4>
-          Average Pace:
-          {distanceTraveled / timeTraveled} miles per hour
-          {/* {distanceTraveled / timeTraveled} */}
-        </h4>
-        <h4>Start Location:</h4>
-        <h4>
-          Latitude {startLat}, Longitude {startLong}
-        </h4>
-        <h4>End Location:</h4>
-        <h4>
-          Latitude {endHikeLat}, Longitude {endHikeLong}
-        </h4>
 
-        <h4>
-          Elevation Gain: {elevationGain} feet
-        </h4>
-        <h4>
-          Elevation Loss: {elevationLoss} feet
-        </h4>
+        <div className="small-container">
+            <h4>Time Hiking: {properTime}
+            </h4>
+            <h4>
+              Distance Hiked: {distanceTraveled} miles
+            </h4>
+            <h4>
+              Average Pace: {distanceTraveled / timeTraveled} miles per hour
+              {/* {distanceTraveled / timeTraveled} */}
+            </h4>
+        </div>
+        <div className="small-container">
+            <h4>Start Coordinates:</h4>
+            <h4>
+              {startLat}, {startLong}
+            </h4>
+            <h4>End Coordinates:</h4>
+            <h4>
+              {endHikeLat}, {endHikeLong}
+            </h4>
+        </div>
+        <div className="small-container">
+            <h4>
+              Elevation Gain: {elevationGain} feet
+            </h4>
+            <h4>
+              Elevation Loss: {elevationLoss} feet
+            </h4>
+        </div>
+
         <div className="results-buttons">
           <Button
             startIcon={<SaveIcon />}

@@ -8,8 +8,8 @@ import "leaflet.offline";
 
 export default function OffLinePage(props) {
   console.log(props);
-  const [longitude, setLongitude] = useState("");
-  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("loading...");
+  const [latitude, setLatitude] = useState("loading...");
   const [elevation, setElevation] = useState("calculating...");
   const [mapSrc, setMapSrc] = useState("./basic_staticAT.png");
   const [isActive, setIsActive] = useState(false);
@@ -32,6 +32,11 @@ export default function OffLinePage(props) {
   };
 
   setInterval(getLocation, 10000);
+  useEffect(() => {
+    if (latitude) {
+      console.log(latitude);
+    }
+  });
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -58,7 +63,12 @@ export default function OffLinePage(props) {
           Your current coordinates are:
           <div>Latitude:{latitude}</div>
           <div>Longitude:{longitude}</div>
-          <OfflineMap longitude={longitude} latitude={latitude} />
+          <OfflineMap
+            longitude={longitude}
+            latitude={latitude}
+            setLatitude={setLatitude}
+            setLongitude={longitude}
+          />
           <props.StopWatch
             latitude={latitude}
             longitude={longitude}

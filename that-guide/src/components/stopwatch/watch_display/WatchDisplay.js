@@ -17,6 +17,8 @@ function StopWatch({
   setID,
   finalTime,
   hikeSession,
+  timeTraveled,
+  setTimeTraveled,
 }) {
   const [time, setTime] = useState(0);
 
@@ -57,6 +59,8 @@ function StopWatch({
           time={time}
           setID={setID}
           hikeSession={hikeSession}
+          timeTraveled={timeTraveled}
+          setTimeTraveled={setTimeTraveled}
         />
       </div>
     </>

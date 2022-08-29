@@ -67,7 +67,7 @@ export default function Timer(props) {
   };
 
   const addToLocalStorage = (time) => {
-    if (online) {
+    if (!online) {
       let elevation = document.getElementsByClassName("elevation_div");
       let timeTraveled = time;
       console.log(timeTraveled);

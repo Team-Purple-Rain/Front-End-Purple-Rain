@@ -33,7 +33,7 @@ export default function OffLinePage(props) {
 
   setInterval(getLocation, 10000);
   useEffect(() => {
-    if (latitude) {
+    if (latitude !== "loading...") {
       console.log(latitude);
     }
   });

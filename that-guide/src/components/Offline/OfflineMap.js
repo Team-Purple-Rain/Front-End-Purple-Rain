@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import L from "leaflet";
+import L, { marker } from "leaflet";
 import "leaflet.offline";
 import "./Offline.css";
 import { LocationCity } from "@mui/icons-material";
@@ -7,6 +7,8 @@ import * as AT_GEOJSON from "./jsons/AT.json";
 import * as EAST_US from "./jsons/east_usa.json";
 import * as SHELTERS from "./jsons/shelters.json";
 import * as WATER from "./jsons/water.json";
+import tentMarker from "./icons/smol.png";
+import waterDrop from "./icons/smolwater.png";
 
 export const OfflineMap = ({ longitude, latitude }) => {
   const [map, setMap] = useState(null);
@@ -25,23 +27,30 @@ export const OfflineMap = ({ longitude, latitude }) => {
           style: { color: "#000000", weight: 1, opacity: 0.5 },
         }).addTo(map);
         map.fitBounds(line_layer.getBounds());
-        let shelter_layer = new L.GeoJSON(SHELTERS).addTo(map);
-        let water_layer = new L.GeoJSON(WATER).addTo(map);
 
-        if (shelter_layer) {
-          L.Icon.Default.prototype.options.iconUrl = "/icons.smol.png";
-        }
-        if (water_layer) {
-          L.Icon.Default.prototype.options.iconUrl = "/icons.smolwater.png";
-        }
+        const shelterIcon = new L.Icon({
+          iconUrl: tentMarker,
+          iconSize: [10, 10],
+        });
+
+        const waterIcon = new L.Icon({
+          iconUrl: waterDrop,
+          iconSize: [10, 10],
+        });
+        let shelter_layer = new L.GeoJSON(SHELTERS, {
+          pointToLayer: (feature, latlng) => {
+            return L.marker(latlng, { icon: shelterIcon });
+          },
+        }).addTo(map);
+        let water_layer = new L.GeoJSON(WATER, {
+          pointToLayer: (feature, latlng) => {
+            return L.marker(latlng, { icon: waterIcon });
+          },
+        }).addTo(map);
+
         let hikerIcon = L.icon({
           iconUrl: "/icons/hiker.png",
-
-          iconSize: [10, 10], // size of the icon
-          // shadowSize: [50, 64], // size of the shadow
-          // iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-          // shadowAnchor: [4, 62], // the same for the shadow
-          // popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+          iconSize: [10, 10],
         });
         L.marker([lat, long], { icon: hikerIcon }).addTo(map);
       }

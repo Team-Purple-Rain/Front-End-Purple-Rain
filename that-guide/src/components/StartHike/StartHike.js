@@ -28,23 +28,17 @@ export default function StartHike({
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
-  // console.log(selectedDistance);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
-  // const [distanceTraveled, setDistanceTraveled] = useState(null);
-  // const [speed, setSpeed] = useState(null);
-  // const [timeTraveled, setTimeTraveled] = useState(null);
   const [currentElevation, setCurrentElevation] = useState(elevation);
   const [distanceCheckpoint, setDistanceCheckpoint] = useState(null)
-  // const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
-  // const [currentElevation, setCurrentElevation] = useState(elevation);
-  // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
+  console.log(time);
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -98,17 +92,13 @@ export default function StartHike({
         return distanceCheckpoint;
       });
   }
-  const distanceRemaining = selectedDistance - distanceCheckpoint
+  const distanceRemaining = selectedDistance - distanceCheckpoint;
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
-    // setTimeTraveled(finalTime);
   };
 
   const hitCheckpoint = () => {
-    // let checkTime = props.time;
-    // while (i <= 20000000) {
-    //   i += 1000 * 10;
     if (ID !== null && window.location.href.indexOf("start") != -1) {
       axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
         location: {
@@ -120,7 +110,6 @@ export default function StartHike({
       });
     }
   };
-
   setInterval(hitCheckpoint, 5000);
 
   const sendToBackEnd = () => {
@@ -135,7 +124,6 @@ export default function StartHike({
   };
 
   const handleStop = () => {
-    // console.log(ID);
     console.log(
       "this will update the rest of the information that was unavailable at the start"
     );
@@ -146,7 +134,6 @@ export default function StartHike({
     setCurrentElevation(elevation);
     setEndHikeLat(latitude);
     setEndHikeLong(longitude);
-
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
         end_location: {
@@ -167,7 +154,6 @@ export default function StartHike({
     navigate("/");
   };
 
-  // console.log({ latitude }, { longitude }, { currentElevation });
 
   if (latitude === "") {
     return (

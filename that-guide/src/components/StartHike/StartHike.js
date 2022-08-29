@@ -43,7 +43,7 @@ export default function StartHike({
   let token = localStorage.getItem("auth_token");
   const [loggedIn, setLoggedIn] = useState(false);
   const hikeUser = localStorage.getItem("username");
-  
+
   // let hikeUser = localStorage.getItem("username")
 
   const handleStartHike = (event) => {
@@ -52,42 +52,46 @@ export default function StartHike({
     setIsPaused(false);
     setIsStarted(true);
 
-    if (elevation != "calculating..." ) {
-    //   axios
-    //     .post(`https://thatguide.herokuapp.com/map/`, {
-    //       start_location: {
-    //         latitude: startLat,
-    //         longitude: startLong,
-    //       },
-    //       current_elevation: parseInt(currentElevation)
-    //     })
-    //     .then((res) => {
-    //       console.log("posted something");
-    //       setID(res.data.id);
-    //       console.log(res);
-    //     });
-    // } else if (elevation != "calculating..." && areYouLoggedIn === true){
-
+    if (elevation != "calculating...") {
+      //   axios
+      //     .post(`https://thatguide.herokuapp.com/map/`, {
+      //       start_location: {
+      //         latitude: startLat,
+      //         longitude: startLong,
+      //       },
+      //       current_elevation: parseInt(currentElevation)
+      //     })
+      //     .then((res) => {
+      //       console.log("posted something");
+      //       setID(res.data.id);
+      //       console.log(res);
+      //     });
+      // } else if (elevation != "calculating..." && areYouLoggedIn === true){
+      console.log(token);
+      console.log(startLat);
+      console.log(startLong);
+      console.log(currentElevation);
       axios
-        .post(`https://thatguide.herokuapp.com/map/`, 
-        {
-          headers: {
-              Authorization: `Token ${token}`,
-              "Content-Type": "application/json",
-          },          
-          start_location: {
+        .post(`https://thatguide.herokuapp.com/map/`,
+          {
+            start_location: {
               latitude: startLat,
               longitude: startLong,
             },
-            current_elevation: parseInt(currentElevation), 
-      })
+            current_elevation: parseInt(currentElevation),
+          },
+          {
+            headers: {
+              Authorization: `Token ${token}`
+            }
+          })
         .then((res) => {
           console.log("posted something");
           setID(res.data.id);
           console.log(res);
         });
-    }  
-    };
+    }
+  };
 
 
 

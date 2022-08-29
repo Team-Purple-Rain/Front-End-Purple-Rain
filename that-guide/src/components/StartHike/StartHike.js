@@ -39,7 +39,7 @@ export default function StartHike({
   const [ID, setID] = useState(null);
   const hikeSession = ID;
   let token = localStorage.getItem("auth_token");
-  console.log(time);
+  let timeTraveled = localStorage.getItem("time");
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -99,7 +99,7 @@ export default function StartHike({
   setInterval(handleDistanceCheckpoint, 5000)
 
   const distanceRemaining = selectedDistance - distanceCheckpoint
-
+  const speed = distanceCheckpoint / (timeTraveled / 60)
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
@@ -240,6 +240,7 @@ export default function StartHike({
             <div className="distance-remaining">
               <h4>
                 Distance Remaining: {distanceRemaining} miles
+                <br /> Current Pace: {speed} mph
               </h4>
             </div>
           </div>
@@ -251,7 +252,8 @@ export default function StartHike({
               </h4>
             </div>
             <div className="distance-hiked">
-              <h4>Distance Hiked: {distanceCheckpoint} miles <br />
+              <h4>Distance Hiked: {distanceCheckpoint} miles
+                <br /> Current Pace: {speed} mph
                 {/* <button className="checkpoint-button"
                         onClick={handleDistanceCheckpoint}>Distance Hiked</button> */}
               </h4>
@@ -260,13 +262,14 @@ export default function StartHike({
         ) : (
           <>
             <div className="distance-hiked">
-              <h4>Distance Hiked: {distanceCheckpoint} miles <br />
+              <h4>Distance Hiked: {distanceCheckpoint} miles
+                <br />
                 {/* <button className="checkpoint-button"
                         onClick={handleDistanceCheckpoint}>Distance Hiked</button> */}
               </h4>
             </div>
             <div className="miles-per-hour">
-              <h4>Miles per hour: mph</h4>
+              <h4>Miles per hour: {speed} mph</h4>
             </div>
           </>
         )}

@@ -88,8 +88,6 @@ export default function StartHike({
     }
   };
 
-  console.log(goalCoords)
-
   // button that tells the user how far they have traveled so far
   const handleDistanceCheckpoint = () => {
     axios.get(`https://thatguide.herokuapp.com/map/${ID}/`, {

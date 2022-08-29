@@ -302,25 +302,10 @@ export default function Map({
 
   return (
     <>
-      <div className="big-map-container">
-        <div ref={mapContainer} className="map-container"></div>
-        <div className="location-button">
-          {/* <Button
-            variant="contained"
-            style={{
-              borderRadius: 35,
-              backgroundColor: "#21b6ae",
-              padding: "10px",
-              fontSize: "12px",
-              margin: "10px",
-            }}
-            onClick={() =>
-              setMapCenter({ center: [longitude, latitude], zoom: 15 })
-            }
-          >
-            Return to Current Location
-          </Button> */}
-        </div>
+      <div  className="big-map-container">
+
+        <div ref={mapContainer} className="map-container">
+       </div>
       </div>
     </>
   );

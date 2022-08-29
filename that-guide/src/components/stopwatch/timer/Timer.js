@@ -50,7 +50,7 @@ export default function Timer(props) {
 
   const OffLineLocalStorage = () => {
     // let time = props.time;
-    if (online) {
+    if (!online) {
       // time = time.toString();
       // time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];

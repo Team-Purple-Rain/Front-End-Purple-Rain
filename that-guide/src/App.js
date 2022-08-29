@@ -34,6 +34,10 @@ function App() {
     setToken(token);
     setUsername(username);
   };
+  const [loggedIn, setLoggedIn] = useState(false);
+  const isLoggedIn = username && token;
+  console.log(isLoggedIn);
+
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");

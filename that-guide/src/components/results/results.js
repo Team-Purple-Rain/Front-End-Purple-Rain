@@ -15,11 +15,11 @@ function Results({ latitude, longitude }) {
   const [startLong, setStartLong] = useState(longitude);
   const [hikeUser, setHikeUser] = useState(null);
   const endHike = useState(null);
-  const [elevationGain, setElevationGain] = useState(null);
-  const [elevationLoss, setElevationLoss] = useState(null);
+  const [elevationGain, setElevationGain] = useState(0);
+  const [elevationLoss, setElevationLoss] = useState(0);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
-  const [distanceTraveled, setDistanceTraveled] = useState(null);
+  const [distanceTraveled, setDistanceTraveled] = useState(0);
   const [speed, setSpeed] = useState(null);
   const [timeTraveled, setTimeTraveled] = useState("");
 
@@ -77,6 +77,7 @@ function Results({ latitude, longitude }) {
     <>
       <div className="options">Your Hike Results</div>
       <div className="results-stats">
+
         <div className="small-container">
             <h4>Time Hiking: {properTime}
             </h4>
@@ -106,6 +107,7 @@ function Results({ latitude, longitude }) {
               Elevation Loss: {elevationLoss} feet
             </h4>
         </div>
+
         <div className="results-buttons">
           <Button
             startIcon={<SaveIcon />}

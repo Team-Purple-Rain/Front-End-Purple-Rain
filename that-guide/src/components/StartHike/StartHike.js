@@ -24,11 +24,11 @@ export default function StartHike({
   destination,
   elevation,
   destinationType,
+  areYouLoggedIn,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
-  // console.log(selectedDistance);
   const [startLat, setStartLat] = useState(latitude);
   const [startLong, setStartLong] = useState(longitude);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
@@ -41,12 +41,11 @@ export default function StartHike({
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
-  // const [currentElevation, setCurrentElevation] = useState(elevation);
-  // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
-  let areYouLoggedIn = localStorage.getItem("login");
-  // console.log(selectedDistance);
-  // console.log(goalCoords)
+  const [loggedIn, setLoggedIn] = useState(false);
+  const hikeUser = localStorage.getItem("username");
+
+  // let hikeUser = localStorage.getItem("username")
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -54,7 +53,25 @@ export default function StartHike({
     setIsPaused(false);
     setIsStarted(true);
 
-    if (elevation != "calculating..." && areYouLoggedIn != "true") {
+    if (elevation != "calculating...") {
+      //   axios
+      //     .post(`https://thatguide.herokuapp.com/map/`, {
+      //       start_location: {
+      //         latitude: startLat,
+      //         longitude: startLong,
+      //       },
+      //       current_elevation: parseInt(currentElevation)
+      //     })
+      //     .then((res) => {
+      //       console.log("posted something");
+      //       setID(res.data.id);
+      //       console.log(res);
+      //     });
+      // } else if (elevation != "calculating..." && areYouLoggedIn === true){
+      console.log(token);
+      console.log(startLat);
+      console.log(startLong);
+      console.log(currentElevation);
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
           start_location: {
@@ -141,7 +158,6 @@ export default function StartHike({
     setCurrentElevation(elevation);
     setEndHikeLat(latitude);
     setEndHikeLong(longitude);
-
     axios
       .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
         end_location: {
@@ -149,6 +165,7 @@ export default function StartHike({
           longitude: endHikeLong,
         },
         travel_time: finalTime,
+        hike_user: hikeUser,
       })
       .then((res) => {
         console.log("patched something");
@@ -284,8 +301,27 @@ export default function StartHike({
                 Distance Hiked
               </button>
             </h4>
+
+            <div className="distance-hiked">
+              <h4>Distance Hiked: (distance user has hiked)</h4>
+            </div>
+            <div className="distance-remaining">
+              <h4>
+                Distance Remaining: ({selectedDistance} miles - distance user
+                has hiked)
+              </h4>
+            </div>
           </div>
-        )}
+        )}{" "}
+        : hikeType === "Freeform Hike" ? (
+        <div className="alert">
+          <h4>Your final stats will be displayed at the end of your hike.</h4>
+        </div>
+        ) : (
+        <div className="distance-hiked">
+          <h4>Distance Hiked: (distance user has hiked)</h4>
+        </div>
+        )
       </div>
       <Button
         variant="contained"
@@ -302,7 +338,6 @@ export default function StartHike({
       >
         Return Home
       </Button>
-      <button onClick={sendToBackEnd}>Send To Back End</button>
     </>
   );
 }

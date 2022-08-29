@@ -17,7 +17,9 @@
     width: 90%;
     height: auto;
 }
-.distance-hiked, .distance-remaining, 
+
+.distance-hiked,
+.distance-remaining,
 .miles-per-hour {
     font-family: 'Playfair Display', serif;
     color: rgb(44, 43, 43);
@@ -39,7 +41,7 @@
 button {
     padding: 4px;
     margin: 8px;
-    
+
 }
 
 .starthike-map {
@@ -49,15 +51,15 @@ button {
     /* width: 300px; */
     margin-left: auto;
     margin-right: auto;
-    }
-    
-    .second-location-header {
-        font-family: 'Playfair Display', serif;
-        color: rgb(62, 62, 62);
-        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 0px, rgba(6, 24, 44, 0.3) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-        font-weight: bold;
-        padding: 10px;
-        text-align: center;
-        border-radius: 2px;
-        font-weight: bolder;
-    }
+}
+
+.second-location-header {
+    font-family: 'Playfair Display', serif;
+    color: rgb(62, 62, 62);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 0px, rgba(6, 24, 44, 0.3) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    font-weight: bolder;
+}

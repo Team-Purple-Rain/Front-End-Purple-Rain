@@ -116,6 +116,15 @@ export default function StartHike({
         hike_session: hikeSession,
       });
     }
+    if (
+      goalLat > latitude - 0.00020 &&
+      goalLat < latitude + 0.00020 &&
+      goalLong > longitude - 0.00020 &&
+      goalLong < longitude + 0.00020 && ID !== null && window.location.href.indexOf("start") != -1
+    ) {
+      alert("Congrats! You've reached the destination!");
+      handleStop();
+    }
   };
   setInterval(hitCheckpoint, 5000);
 

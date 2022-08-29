@@ -23,7 +23,7 @@ export default function StartHike({
   setSelectedHikeType,
   destination,
   elevation,
-  destinationType,
+  destinationType
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -33,29 +33,29 @@ export default function StartHike({
   const [startLong, setStartLong] = useState(longitude);
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
-  const [distanceTraveled, setDistanceTraveled] = useState(null);
-  const [speed, setSpeed] = useState(null);
-  const [timeTraveled, setTimeTraveled] = useState(null);
+  // const [distanceTraveled, setDistanceTraveled] = useState(null);
+  // const [speed, setSpeed] = useState(null);
+  // const [timeTraveled, setTimeTraveled] = useState(null);
   const [currentElevation, setCurrentElevation] = useState(elevation);
   const [distanceCheckpoint, setDistanceCheckpoint] = useState(null)
-  const [elevationChange, setElevationChange] = useState(null);
+  // const [elevationChange, setElevationChange] = useState(null);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
-  // const [currentElevation, setCurrentElevation] = useState(elevation);
-  // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
-  let areYouLoggedIn = localStorage.getItem("login");
-  // console.log(selectedDistance);
-  // console.log(goalCoords)
+  // const [areYouLoggedIn, setAreYouLoggedIn] = useState(false);
+  // if (token === "auth_token") {
+  //   setAreYouLoggedIn(true)
+  // } else {
+  // };
+  // console.log(areYouLoggedIn);
 
   const handleStartHike = (event) => {
     console.log("hello button");
     setIsActive(true);
     setIsPaused(false);
     setIsStarted(true);
-
-    if (elevation != "calculating...") {
+    if (elevation != "calculating..." && token != null) {
       axios
         .post(`https://thatguide.herokuapp.com/map/`, {
           start_location: {
@@ -72,6 +72,15 @@ export default function StartHike({
           setID(res.data.id);
           console.log(res);
         });
+    } else if (elevation != "calculating..." && token === null) {
+      axios
+        .post(`https://thatguide.herokuapp.com/map/`, {
+          start_location: {
+            latitude: startLat,
+            longitude: startLong,
+          },
+          current_elevation: parseInt(currentElevation),
+        })
     }
   };
 

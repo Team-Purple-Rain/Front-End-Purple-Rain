@@ -32,6 +32,11 @@ export default function OffLinePage(props) {
   };
 
   setInterval(getLocation, 10000);
+  useEffect(() => {
+    if (latitude) {
+      console.log(latitude);
+    }
+  });
 
   const handleStartHike = (event) => {
     console.log("hello button");

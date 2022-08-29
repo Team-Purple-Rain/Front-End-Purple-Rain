@@ -50,7 +50,7 @@ export default function Timer(props) {
 
   const OffLineLocalStorage = () => {
     // let time = props.time;
-    if (!online) {
+    if (online) {
       // time = time.toString();
       // time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
@@ -68,10 +68,10 @@ export default function Timer(props) {
 
   const addToLocalStorage = (time) => {
     if (online) {
-      // let elevation = document.getElementsByClassName("elevation_div");
+      let elevation = document.getElementsByClassName("elevation_div");
       let timeTraveled = time;
       console.log(timeTraveled);
-      // elevation = elevation[0].id;
+      elevation = elevation[0].id;
       time = time.toString();
       time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
@@ -82,7 +82,7 @@ export default function Timer(props) {
           latitude: props.latitude,
           longitude: props.longitude,
         },
-        // elevation: parseInt(elevation),
+        elevation: parseInt(elevation),
       });
       localStorage.setItem("hike", JSON.stringify(storageBank));
     }

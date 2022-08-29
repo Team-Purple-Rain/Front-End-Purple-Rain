@@ -27,18 +27,11 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
+            {/* <OffLinePage StopWatch={StopWatch} Timer={Timer} /> */}
             {!online ? (
               <OffLinePage StopWatch={StopWatch} Timer={Timer} />
             ) : (
-              <>
-                <a href="https://fieldmaps.arcgis.app/?itemID=e5f6d52b22ea4ee5966693b0f0c73e02&referenceContext=open&portalURL=https%3A%2F%2FliBuQQceys2oY8Bm.maps.arcgis.com">
-                  click here for map
-                </a>
-                <a href="https://api.mapbox.com/styles/v1/rfrenia/cl73goh2i001x15mokh6g1wsc/tiles/6/18/24?access_token=pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA">
-                  click here mapbox api
-                </a>
-                {children}
-              </>
+              <>{children}</>
             )}
           </div>
         </div>

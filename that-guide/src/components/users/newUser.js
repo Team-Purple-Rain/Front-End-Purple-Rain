@@ -59,6 +59,7 @@ function NewUser() {
         <>
             <div className="user-stats">
                 <h3 class="subtitle is-3 is-flex is-aligned-self-center is-spaced ">Create Your Account</h3>
+                
                 <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
                     <OutlinedInput
                         required
@@ -90,6 +91,8 @@ function NewUser() {
                 </FormControl>
 
                 <br />
+                {error && <div className="error">{error}</div>}
+                <br/>
                 <Button
                     startIcon={<LoginIcon />}
                     variant="contained"

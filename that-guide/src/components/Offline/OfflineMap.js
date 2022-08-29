@@ -1,15 +1,29 @@
 import { useState, useEffect } from "react";
 import L from "leaflet";
 import "leaflet.offline";
-import { generateOfflineTilelayer } from "./LeafletOffline/TileLayerOffline";
-import { generateControlSavetiles } from "./LeafletOffline/ControlSaveTiles";
 import "./Offline.css";
 import { LocationCity } from "@mui/icons-material";
-import AT_GEOJSON from "./features.json";
-import Map from "react-offline-map";
+import * as AT_GEOJSON from "./jsons/AT.json";
+import * as USA from "./jsons/usa.json";
+// import Map from "react-offline-map";
 
 export const OfflineMap = ({ longitude, latitude }) => {
   const [map, setMap] = useState(null);
+  const long = longitude;
+  const lat = latitude;
+
+  useEffect(() => {
+    if (long && lat !== "loading...") {
+      let map = L.map("offline_map").setView([lat, long], 13);
+      if (map) {
+        let line_layer = new L.GeoJSON(AT_GEOJSON).addTo(map);
+        let usa_map = new L.GeoJSON(USA).addTo(map);
+        map.fitBounds(line_layer.getBounds());
+
+        // let style_layer = new L.GeoJSON(STYLE).addTo(map);
+      }
+    }
+  });
 
   // useEffect(() => {
   //   let map = L.map("offline_map").setView([51.505, -0.09], 13);
@@ -35,11 +49,11 @@ export const OfflineMap = ({ longitude, latitude }) => {
 
   return (
     <>
-      {longitude !== "loading..." ? (
+      {/* {longitude !== "loading..." ? (
         <Map width={800} height={600} />
       ) : (
         <div>Calculating Offline Data</div>
-      )}
+      )} */}
 
       <div id="offline_map"></div>
     </>

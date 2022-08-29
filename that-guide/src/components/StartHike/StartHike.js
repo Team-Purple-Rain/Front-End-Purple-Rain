@@ -42,17 +42,12 @@ export default function StartHike({
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
+  // const [currentElevation, setCurrentElevation] = useState(elevation);
+  // let username = localStorage.getItem("username");
   let token = localStorage.getItem("auth_token");
-  // const [areYouLoggedIn, setAreYouLoggedIn] = useState(false);
-  // if (token === "auth_token") {
-  //   setAreYouLoggedIn(true)
-  // } else {
-  // };
-  // console.log(areYouLoggedIn);
 
   const handleStartHike = (event) => {
     console.log("hello button");
-
     if (elevation != "calculating..." && token != null) {
       setIsActive(true);
       setIsPaused(false);
@@ -105,9 +100,7 @@ export default function StartHike({
   }
   const distanceRemaining = selectedDistance - distanceCheckpoint
 
-
   const handlePauseResume = () => {
-    console.log(`time at pause in milliseconds is ${time}`);
     setIsPaused(!isPaused);
     // setTimeTraveled(finalTime);
   };
@@ -174,7 +167,7 @@ export default function StartHike({
     navigate("/");
   };
 
-  console.log({ latitude }, { longitude }, { currentElevation });
+  // console.log({ latitude }, { longitude }, { currentElevation });
 
   if (latitude === "") {
     return (
@@ -193,10 +186,6 @@ export default function StartHike({
     );
   }
 
-
-  console.log({ destination });
-
-  console.log(goalCoords);
 
   return (
     <>

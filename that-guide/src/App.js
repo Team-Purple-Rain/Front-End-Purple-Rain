@@ -36,7 +36,7 @@ function App() {
   };
   const [loggedIn, setLoggedIn] = useState(false);
   const isLoggedIn = username && token;
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -141,7 +141,7 @@ function App() {
       getElevation();
     }
   }, 7000);
-  console.log(elevation);
+  // console.log(elevation);
 
   return (
     <>

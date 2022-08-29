@@ -75,6 +75,7 @@ export default function DestinationMap({
       new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true,
+          maximumAge: 10000
         },
         trackUserLocation: true,
         showUserHeading: true,
@@ -168,7 +169,6 @@ export default function DestinationMap({
 
   useEffect(() => {
   addLinePoints()
-  console.log(geojson) 
   },[longitude,latitude])
 
   addLinePoints()
@@ -176,7 +176,6 @@ export default function DestinationMap({
   function shift() {
     const p = geojson.features[0].geometry.coordinates
     p.shift()
-    console.log("hello")
     return p
   }
 

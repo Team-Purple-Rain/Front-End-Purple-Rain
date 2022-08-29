@@ -81,6 +81,7 @@ export default function Map({
       new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true,
+          maximumAge: 10000
         },
         trackUserLocation: true,
         showUserHeading: true,
@@ -295,7 +296,7 @@ export default function Map({
       getElevation();
     }
   }, 7000);
-  console.log(elevation);
+  // console.log(elevation);
 
   // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
   // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));

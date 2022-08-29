@@ -3639,7 +3639,7 @@ export const shelter = {
         latitude: 35.792434,
         longitude: -78.647319,
       },
-      geometry: { type: "Point", coordinates: [-78.647319, 35.792434] },
+      geometry: { type: "Point", coordinates: [-78.647775, 35.793144] },
     },
   ],
 };

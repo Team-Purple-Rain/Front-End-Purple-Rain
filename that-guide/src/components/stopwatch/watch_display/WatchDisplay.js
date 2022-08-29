@@ -26,8 +26,8 @@ function StopWatch({
     let interval = null;
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
-        setTime((time) => time + 10);
-      }, 10);
+        setTime((time) => time + 1000);
+      }, 1000);
     } else {
       clearInterval(interval);
     }

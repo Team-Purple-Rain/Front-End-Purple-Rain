@@ -37,9 +37,9 @@ export default function Timer(props) {
       if (i === time && online) {
         i = i.toString();
         i = i.slice(0, -3);
-        console.log(i);
+        // console.log(i);
         addToLocalStorage(time);
-        console.log(time);
+        // console.log(time);
         localStorage.setItem("time", i);
       }
       if (i === time && !online) {

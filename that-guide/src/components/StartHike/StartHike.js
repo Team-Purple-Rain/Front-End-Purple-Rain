@@ -111,14 +111,18 @@ export default function StartHike({
     const goalLat = goalCoords[1];
     const goalLong = goalCoords[0];
     if (ID !== null && window.location.href.indexOf("start") != -1) {
-      axios.post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
-        location: {
-          latitude: latitude,
-          longitude: longitude,
-        },
-        elevation: parseInt(currentElevation),
-        hike_session: hikeSession,
-      });
+      axios
+        .post(`https://thatguide.herokuapp.com/map/${ID}/checkpoint/`, {
+          location: {
+            latitude: latitude,
+            longitude: longitude,
+          },
+          elevation: parseInt(currentElevation),
+          hike_session: hikeSession,
+        })
+        .then((res) => {
+          console.log(res);
+        })
     }
     if (
       goalLat > latitude - 0.00020 &&

@@ -7,13 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import moment from 'moment';
 
 function IndividualHike(props) {
-    const { distance, times, speed, elevationGain, elevationLoss, startingLat, startingLong, endingLat, endingLong, date } = props;
-
-    // if (speed === NaN) {
-    //     return "Not enough information to determine pace"
-    // };
-
-    let token = localStorage.getItem("auth_token");
+    const { times, elevationGain, elevationLoss, date } = props;
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -40,32 +34,16 @@ function IndividualHike(props) {
                 <AccordionDetails>
                     <Typography>
 
-                        Distance Hiked: {distance} miles
-                        <br />
-                        Time Hiking: {timeHikingRounded} minutes
-                        <br />
-                        Average Pace: {speed} mph
+                        Time Hiking: {times / 60} minutes
+
                         <br />
                         <br />
                         Elevation Gain: {elevationGain} ft
                         <br />
                         Elevation Loss: {elevationLoss} ft
                         <br />
-                        <br />
-                        Start Location:
-                        <br />
-                        Latitude: {startingLat}
-                        <br />
-                        Longitude: {startingLong}
-                        <br />
-                        <br />
-                        End Location:
-                        <br />
-                        Latitude: {endingLat}
-                        <br />
-                        Longitude: {endingLong}
-                        <br />
-                        <br />
+
+
                     </Typography>
                 </AccordionDetails>
             </Accordion>

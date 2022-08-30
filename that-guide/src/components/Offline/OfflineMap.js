@@ -16,57 +16,64 @@ export const OfflineMap = ({ longitude, latitude }) => {
   const lat = latitude;
 
   useEffect(() => {
-    // const container = L.DomUtil.get("offline_map");
+    const container = L.DomUtil.get("offline_map");
 
-    // if (container != null) {
-    //   container._leaflet_id = null;
+    if (container != null) {
+      container._leaflet_id = null;
+    }
+
+    // if (long && lat !== "loading...") {
+    const map = L.map("offline_map");
+    if (map) {
+      let line_layer = new L.GeoJSON(AT_GEOJSON, {
+        style: { color: "#000080", weight: 1 },
+      }).addTo(map);
+      let east_usa = new L.GeoJSON(EAST_US, {
+        style: { color: "#000000", weight: 1, opacity: 0.5 },
+      }).addTo(map);
+      map.fitBounds(line_layer.getBounds());
+
+      const shelterIcon = new L.Icon({
+        iconUrl: tentMarker,
+        iconSize: [10, 10],
+      });
+
+      const waterIcon = new L.Icon({
+        iconUrl: waterDrop,
+        iconSize: [10, 10],
+      });
+      let shelter_layer = new L.GeoJSON(SHELTERS, {
+        pointToLayer: (feature, latlng) => {
+          return L.marker(latlng, { icon: shelterIcon });
+        },
+        onEachFeature: (feature = {}, layer) => {
+          layer.bindPopup(`Shelter: ${feature.properties.title}`);
+        },
+      }).addTo(map);
+      let water_layer = new L.GeoJSON(WATER, {
+        pointToLayer: (feature, latlng) => {
+          return L.marker(latlng, { icon: waterIcon });
+        },
+        onEachFeature: (feature = {}, layer) => {
+          layer.bindPopup(`Water Source: ${feature.properties.title}`);
+        },
+      }).addTo(map);
+    }
     // }
+  });
 
-    if (long && lat !== "loading...") {
-      let map = L.map("offline_map").setView([lat, long], 30);
-      if (map) {
-        let line_layer = new L.GeoJSON(AT_GEOJSON, {
-          style: { color: "#000080", weight: 1 },
-        }).addTo(map);
-        let east_usa = new L.GeoJSON(EAST_US, {
-          style: { color: "#000000", weight: 1, opacity: 0.5 },
-        }).addTo(map);
-        map.fitBounds(line_layer.getBounds());
-
-        const shelterIcon = new L.Icon({
-          iconUrl: tentMarker,
-          iconSize: [10, 10],
-        });
-
-        const waterIcon = new L.Icon({
-          iconUrl: waterDrop,
-          iconSize: [10, 10],
-        });
-        let shelter_layer = new L.GeoJSON(SHELTERS, {
-          pointToLayer: (feature, latlng) => {
-            return L.marker(latlng, { icon: shelterIcon });
-          },
-          onEachFeature: (feature = {}, layer) => {
-            layer.bindPopup(`Shelter: ${feature.properties.title}`);
-          },
-        }).addTo(map);
-        let water_layer = new L.GeoJSON(WATER, {
-          pointToLayer: (feature, latlng) => {
-            return L.marker(latlng, { icon: waterIcon });
-          },
-          onEachFeature: (feature = {}, layer) => {
-            layer.bindPopup(`Water Source: ${feature.properties.title}`);
-          },
-        }).addTo(map);
-
-        let hikerIcon = L.icon({
-          iconUrl: hiker,
-          iconSize: [10, 10],
-        });
+  useEffect(() => {
+    if (map) {
+      let hikerIcon = L.icon({
+        iconUrl: hiker,
+        iconSize: [10, 10],
+      });
+      if (long & (lat !== "loading...")) {
         L.marker([lat, long], { icon: hikerIcon }).addTo(map);
       }
+      map.panTo(new L.LatLng([lat, long]));
     }
-  }, [lat, long]);
+  });
 
   return (
     <>

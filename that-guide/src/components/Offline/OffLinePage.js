@@ -7,8 +7,8 @@ import "leaflet.offline";
 import "./Offline.css";
 
 export default function OffLinePage(props) {
-  const [longitude, setLongitude] = useState("loading...");
-  const [latitude, setLatitude] = useState("loading...");
+  const [longitude, setLongitude] = useState(0);
+  const [latitude, setLatitude] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [isStarted, setIsStarted] = useState(false);
@@ -17,7 +17,9 @@ export default function OffLinePage(props) {
 
   function success(position) {
     setLatitude(position.coords.latitude);
+    console.log(position.coords.latitude);
     setLongitude(position.coords.longitude);
+    console.log(position.coords.longitude);
   }
 
   const getLocation = () => {
@@ -28,12 +30,14 @@ export default function OffLinePage(props) {
     }
   };
 
-  setInterval(getLocation, 10000);
-  useEffect(() => {
-    if (latitude !== "loading...") {
-      console.log(latitude);
-    }
-  });
+  useInterval(() => {
+    getLocation();
+    console.log(latitude);
+    console.log(longitude);
+    console.log("hello");
+  }, 10000);
+
+  // setInterval(getLocation, 10000);
 
   const handleStartHike = (event) => {
     console.log("hello button");

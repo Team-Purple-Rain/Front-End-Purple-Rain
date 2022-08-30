@@ -8,7 +8,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import moment from "moment";
 
-function Results({ latitude, longitude }) {
+function Results({ latitude, longitude, goalCoords, hikeType }) {
   let { ID } = useParams();
   console.log(ID);
 
@@ -65,11 +65,28 @@ function Results({ latitude, longitude }) {
 
   });
 
+  let endCoords = (localStorage.getItem("goalCoords"))
+  // console.log(endCoords[1])
+
+let destinationType = localStorage.getItem("destinationType")
+let destination = localStorage.getItem("destination")
+console.log(destination)
+console.log(destinationType)
+console.log(hikeType)
+
+
+
   return (
     <>
-      <div className="options">Your Hike Results</div>
+      <div className="options">Hike Results</div>
       <div className="results-stats">
+      {hikeType === "Destination Hike" ? (
+          <h2>
+            You completed a hike to {destination}.
+          </h2>
+        ) : ("")}
         <div className="small-container">
+
           <h4>Time Hiking: {properTime}</h4>
 
         </div>
@@ -78,7 +95,10 @@ function Results({ latitude, longitude }) {
           <h4>Elevation Gain: {elevationGain} feet</h4>
           <h4>Elevation Loss: {elevationLoss} feet</h4>
         </div>
-
+        <div className="small-container">
+          <h4>Start Coordinates: {latitude}, {longitude}</h4>
+          <h4>End Coordinates: {endCoords} </h4>
+        </div>
         <div className="results-buttons">
           <Button
             startIcon={<SaveIcon />}

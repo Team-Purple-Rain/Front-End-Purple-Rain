@@ -72,41 +72,8 @@ export default function Timer(props) {
     }
   };
 
-  // const MakeInitialLog = () => {
-  //   if (props.hikeSession) {
-  //     let elevation = document.getElementsByClassName("elevation_div");
-  //     elevation = elevation[0].id;
-  //     storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-  //     storageBank.push({
-  //       hike_session: props.hikeSession,
-  //       time_logged: moment().format(),
-  //       location: {
-  //         latitude: props.latitude,
-  //         longitude: props.longitude,
-  //       },
-  //       elevation: parseInt(elevation),
-  //     });
-  //     localStorage.setItem("hike", JSON.stringify(storageBank));
-  //     console.log("intial log made");
-  //   }
-  // };
-
   logTime();
 
-  // useEffect(() => {
-  //   if (!props.online) {
-  //     let elevation = document.getElementsByClassName("elevation_div");
-  //     elevation = elevation[0].id;
-  //     if (
-  //       elevation !== "calculating..." &&
-  //       props.time === 0 &&
-  //       startDataLogged === false
-  //     ) {
-  //       MakeInitialLog();
-  //       setStartDataLogged(true);
-  //     }
-  //   }
-  // });
 
   return (
     <div className="timer">

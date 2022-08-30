@@ -25,6 +25,9 @@ export default function StartHike({
   elevation,
   destinationType,
   online,
+  mileMarker,
+  state,
+  startCoords
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -140,7 +143,7 @@ export default function StartHike({
       handleStop();
     }
   };
-  setInterval(hitCheckpoint, 30000);
+  setInterval(hitCheckpoint, 5000);
 
   const sendToBackEnd = () => {
     const data = localStorage.getItem("hike");

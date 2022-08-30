@@ -56,6 +56,10 @@ function App() {
     "destinationType",
     ""
   );
+  const [mileMarker, setMileMarker] = useLocalStorageState("milemarker", "")
+  const [state, setState] = useLocalStorageState("state", "")
+  const [startCoords, setStartCoords] = useLocalStorageState("startCoords", [0,0])
+
   const {
     value: online,
     setFalse: setOffline,
@@ -248,6 +252,9 @@ function App() {
               destination={destination}
               setDestinationType={setDestinationType}
               online={online}
+              setMileMarker={setMileMarker}
+              setState={setState}
+              setStartCoords={setStartCoords}
             />
           }
         />
@@ -269,6 +276,9 @@ function App() {
               elevation={elevation}
               destinationType={destinationType}
               online={online}
+              mileMarker={mileMarker}
+              state={state}
+              startCoords={startCoords}
             />
           }
         />

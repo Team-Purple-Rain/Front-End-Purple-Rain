@@ -266,7 +266,7 @@ export const water = {
         title: "Spring near Rich Mountain",
         latitude: 35.927918,
         longitude: -82.802616,
-        mile: "283.3",
+        mile: 283.3,
         state: "TN/NC",
       },
       geometry: { type: "Point", coordinates: [-82.802616, 35.927918] },

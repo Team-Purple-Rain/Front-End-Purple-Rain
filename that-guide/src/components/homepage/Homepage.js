@@ -27,6 +27,9 @@ export default function Homepage({
   setDestination,
   setDestinationType,
   online,
+  setMileMarker,
+  setState,
+  setStartCoords,
 }) {
   const [error, setError] = useState(null);
 
@@ -80,6 +83,9 @@ export default function Homepage({
                 setGoalCoords={setGoalCoords}
                 setDestinationType={setDestinationType}
                 online={online}
+                setMileMarker={setMileMarker}
+                setState={setState}
+                setStartCoords={setStartCoords}
               />
             </div>
           </div>
@@ -145,6 +151,7 @@ export default function Homepage({
                           setHikeType("Freeform Hike");
                           setSelectedHikeType("Freeform Hike");
                           setGoalCoords([0, 0]);
+                          setStartCoords([longitude,latitude]);
                           handleStartHike();
                         }}
                       >

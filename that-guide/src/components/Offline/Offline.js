@@ -90,10 +90,9 @@ function OffLinePage(props) {
     });
     const container = L.DomUtil.get("offline_map");
     console.log(container._leaflet_id);
-    // if (container != null) {
-    //   container._leaflet_id = null;
-    //   console.log(container._leaflet_id);
-    // }
+    if (container != null) {
+      container._leaflet_id = null;
+    }
     let line_layer = new L.GeoJSON(AT_GEOJSON, {
       style: { color: "#000080", weight: 1 },
     }).addTo(map);
@@ -132,7 +131,7 @@ function OffLinePage(props) {
     if (long && lat !== 0) {
       L.marker([lat, long], { icon: hikerIcon }).addTo(map);
     }
-  }, [lat, long]);
+  }, []);
 
   useInterval(() => {
     getLocation();

@@ -1,5 +1,29 @@
+h3 {
+    text-align: center;
+}
 #offline_map{
-    border:2px solid black;
+
     height: 400px;
-    width: 400px;
+    width: 345px;
+    margin: auto;
+    margin-bottom: 10px;
+
+}
+.offline-stats {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(0, 0, 0);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 0px, rgba(6, 24, 44, 0.3) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    font-weight: bold;
+    margin: 5px;
+    padding: 2px;
+    background-color: white;
+    opacity: .8;
+    border-radius: 5px;
+    line-height: 1.4;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    /* margin: auto; */
+
 }

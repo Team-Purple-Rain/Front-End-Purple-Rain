@@ -76,8 +76,7 @@ function AllHikes({ latitude, longitude, hikeType }) {
                             Time Hiking: {(individualHike.travel_time) / 60} minutes
                             <br />
                             {/* {properTime} */}
-                            Average Pace:
-                            {(individualHike.distance_traveled) / (((individualHike.travel_time) / 60) / 60)} mph
+                            Average Pace: {(individualHike.distance_traveled) / (((individualHike.travel_time) / 60) / 60)} mph
                             <br />
                             <br />
                             Elevation Gain: {individualHike.elevation_gain} ft

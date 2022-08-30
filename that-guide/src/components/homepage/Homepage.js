@@ -137,7 +137,6 @@ export default function Homepage({
               <AccordionDetails>
                 <Typography>
                   <div className="dropdown-options">
-                    <h4>I want to hike</h4>
                     <form
                       id="select-distance"
                       onSubmit={setSelectedDistance}
@@ -149,14 +148,15 @@ export default function Homepage({
                           borderRadius: 10,
                           backgroundColor: "white",
                           fontSize: "12px",
-                          margin: "15px",
+                          margin: "5px",
                         }}
                         id="filled-basic"
                         variant="filled"
+                        type="number"
                         onChange={(e) => setSelectedDistance(e.target.value)}
                         onClick={() => {
-                          setHikeType("Mile-based Hike");
-                          setSelectedHikeType("Mile-based Hike");
+                          setHikeType("Mile Hike");
+                          setSelectedHikeType("Mile Hike");
                         }}
                       />
                       <h4>miles</h4>

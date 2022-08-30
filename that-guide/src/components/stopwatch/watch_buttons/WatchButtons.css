@@ -23,7 +23,7 @@ margin: 10px;
     }
     
     .btn {
-    font-family: 'Playfair Display', serif;
+        font-family: 'Montserrat', sans-serif;
     line-height: 1.2;
     width: 90%;
     height: 5vh;
@@ -45,7 +45,7 @@ margin: 10px;
         opacity: .95;
         margin: auto;
         padding: 2px;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Montserrat', sans-serif;
     }
     .btn btn-one btn-start {
         margin: auto;

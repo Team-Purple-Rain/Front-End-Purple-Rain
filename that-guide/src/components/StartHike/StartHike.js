@@ -202,19 +202,11 @@ export default function StartHike({
           </h3>
         ) : (
           <>
-            <h3 className="options">Your Current {hikeType}</h3>
+            <h3 className="options">Your {selectedDistance} {hikeType}</h3>
           </>
         )}
       </div>
-
-      <div className="map-and-timer">
-        <DestinationMap
-          latitude={latitude}
-          longitude={longitude}
-          goalCoords={goalCoords}
-          handleStop={handleStop}
-        />
-        <div className="whole-stats-container">
+      <div className="whole-stats-container">
           <div className="right-container">
             <div className="time-remaining">
               <StopWatch
@@ -235,12 +227,9 @@ export default function StartHike({
             </div>
           </div>
         </div>
-      </div>
-      <div className="second-location-header">
-        <></>
-        {hikeType === "Mile-based Hike" ? (
+        <div className="second-location-header">
+        {hikeType === "Mile Hike" ? (
           <div>
-            <h3>Goal distance: {selectedDistance} miles</h3>
             <div className="alert">
               <h5>
                 *Walk at least one mile to return current hike stats.*
@@ -287,22 +276,30 @@ export default function StartHike({
           </>
         )}
       </div>
+      <div className="map-and-timer">
+        <DestinationMap
+          latitude={latitude}
+          longitude={longitude}
+          goalCoords={goalCoords}
+          handleStop={handleStop}
+        />
+
+      </div>
+
       <Button
         variant="contained"
         style={{
           borderRadius: 50,
           backgroundColor: "#21b6ae",
           padding: "10px",
-          // fontSize: "calc(.5vw + .5vh + .5vmin)",
           margin: "8px",
-          float: "center",
+          float: "right",
           border: "1px solid white",
         }}
         onClick={handleReturnHome}
       >
         Return Home
       </Button>
-      <button onClick={sendToBackEnd}>Send To Back End</button>
     </>
   );
 }

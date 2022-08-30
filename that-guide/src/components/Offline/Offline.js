@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Timer from "../stopwatch/timer/Timer";
 import L from "leaflet";
+import { OfflineMap } from "./OfflineMap";
+import "./Offline.css";
 
 export default function Offline({ children }) {
   const {

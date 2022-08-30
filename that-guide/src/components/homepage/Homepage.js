@@ -108,7 +108,6 @@ export default function Homepage({
                 </Typography>
               </AccordionDetails>
             </Accordion>
-
             <Accordion
               expanded={expanded === "panel3"}
               onChange={handleChange("panel3")}

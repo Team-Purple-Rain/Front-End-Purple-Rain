@@ -1,0 +1,3646 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Black Gap Shelter",
+          "mile": "1.5",
+          "elevation": "3300'",
+          "county": "Gilmer",
+          "state": "GA",
+          "latitude": 34.61768,
+          "longitude": -84.19871
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.19871, 34.61768] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Springer Mountain Shelter",
+          "mile": "0.2",
+          "elevation": "3730'",
+          "county": "Fannin",
+          "state": "GA",
+          "latitude": 34.62946,
+          "longitude": -84.19268
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.19268, 34.62946] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stover Creek Shelter",
+          "mile": "2.8",
+          "elevation": "2930'",
+          "county": "Fannin",
+          "state": "GA",
+          "latitude": 34.65029,
+          "longitude": -84.19719
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.19719, 34.65029] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hawk Mountain Shelter",
+          "mile": "8.1",
+          "elevation": "3200'",
+          "county": "Union",
+          "state": "GA",
+          "latitude": 34.66603,
+          "longitude": -84.13631
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.13631, 34.66603] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gooch Mountain Shelter",
+          "mile": "15.7",
+          "elevation": "3000'",
+          "county": "Union",
+          "state": "GA",
+          "latitude": 34.65565,
+          "longitude": -84.04994
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.04994, 34.65565] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Woods Hole Shelter",
+          "mile": "27.5",
+          "elevation": "3600'",
+          "county": "Union",
+          "state": "GA",
+          "latitude": 34.73724,
+          "longitude": -83.95495
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.95495, 34.73724] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Blood Mountain Shelter",
+          "mile": "28.7",
+          "elevation": "4450'",
+          "county": "Lumpkin",
+          "state": "GA",
+          "latitude": 34.74002,
+          "longitude": -83.93743
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.93743, 34.74002] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Low Gap Shelter",
+          "mile": "42.6",
+          "elevation": "3050'",
+          "county": "White",
+          "state": "GA",
+          "latitude": 34.77624,
+          "longitude": -83.8245
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.8245, 34.77624] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Blue Mountain Shelter",
+          "mile": "50.1",
+          "elevation": "3900'",
+          "county": "Towns",
+          "state": "GA",
+          "latitude": 34.81724,
+          "longitude": -83.76667
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.76667, 34.81724] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tray Mountain Shelter",
+          "mile": "58.2",
+          "elevation": "4200'",
+          "county": "Habersham",
+          "state": "GA",
+          "latitude": 34.80413,
+          "longitude": -83.67677
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.67677, 34.80413] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Deep Gap Shelter",
+          "mile": "65.6",
+          "elevation": "3550'",
+          "county": "Rabun",
+          "state": "GA",
+          "latitude": 34.88248,
+          "longitude": -83.64591
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.64591, 34.88248] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Plum Orchard Gap Shelter",
+          "mile": "73.7",
+          "elevation": "3050'",
+          "county": "Towns",
+          "state": "GA",
+          "latitude": 34.94594,
+          "longitude": -83.58828
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.58828, 34.94594] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Muskrat Creek Shelter",
+          "mile": "81",
+          "elevation": "4600'",
+          "county": "Clay",
+          "state": "NC",
+          "latitude": 35.02071,
+          "longitude": -83.58144
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.58144, 35.02071] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Standing Indian Shelter",
+          "mile": "85.9",
+          "elevation": "4760'",
+          "county": "Macon",
+          "state": "NC",
+          "latitude": 35.04197,
+          "longitude": -83.54806
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.54806, 35.04197] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Carter Gap Shelter -Old",
+          "mile": "93.5",
+          "elevation": "4550'",
+          "county": "Macon",
+          "state": "NC",
+          "latitude": 34.65565,
+          "longitude": -84.04994
+        },
+        "geometry": { "type": "Point", "coordinates": [-84.04994, 34.65565] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Carter Gap Shelter -New",
+          "mile": "93.5",
+          "elevation": "4540'",
+          "county": "Clay",
+          "state": "NC",
+          "latitude": 34.99902,
+          "longitude": -83.49408
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.49408, 34.99902] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Long Branch Shelter",
+          "mile": "102.2",
+          "elevation": "4437'",
+          "county": "Union",
+          "state": "NC",
+          "latitude": 35.06997,
+          "longitude": -83.49815
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.49815, 35.06997] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rock Gap Shelter",
+          "mile": "105.6",
+          "elevation": "3760'",
+          "county": "Macon",
+          "state": "NC",
+          "latitude": 35.09158,
+          "longitude": -83.52303
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.52303, 35.09158] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Silver Bald Shelter",
+          "mile": "113.1",
+          "elevation": "4600'",
+          "county": "Macon",
+          "state": "NC",
+          "latitude": 35.14421,
+          "longitude": -83.57247
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.57247, 35.14421] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wayah Shelter",
+          "mile": "120.4",
+          "elevation": "4749'",
+          "county": "Macon",
+          "state": "NC",
+          "latitude": 35.18945,
+          "longitude": -83.5644
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.5644, 35.18945] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wesser Bald Shelter",
+          "mile": "131",
+          "elevation": "4115'",
+          "county": "Macon",
+          "state": "NC",
+          "latitude": 35.28248,
+          "longitude": -83.58211
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.58211, 35.28248] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "A Rufus Morgan Shelter",
+          "mile": "135.9",
+          "elevation": "2300'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.32427,
+          "longitude": -83.59018
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.59018, 35.32427] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sassafras Gap Shelter",
+          "mile": "143.6",
+          "elevation": "4330'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.33086,
+          "longitude": -83.66688
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.66688, 35.33086] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sassafras Gap Shelter",
+          "mile": "143.8",
+          "elevation": "4330'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.33086,
+          "longitude": -83.66688
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.66688, 35.33086] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brown Fork Gap Shelter",
+          "mile": "152.9",
+          "elevation": "3800'",
+          "county": "Graham",
+          "state": "NC",
+          "latitude": 35.37427,
+          "longitude": -83.73392
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.73392, 35.37427] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cable Gap Shelter",
+          "mile": "159.2",
+          "elevation": "2880'",
+          "county": "Graham",
+          "state": "NC",
+          "latitude": 35.41523,
+          "longitude": -83.77342
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.77342, 35.41523] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Fontana Dam Shelter",
+          "mile": "165.9",
+          "elevation": "1775'",
+          "county": "Graham",
+          "state": "NC",
+          "latitude": 35.44849,
+          "longitude": -83.79398
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.79398, 35.44849] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mollies Ridge Shelter",
+          "mile": "177.7",
+          "elevation": "4570'",
+          "county": "Blount",
+          "state": "TN",
+          "latitude": 35.54587,
+          "longitude": -83.79349
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.79349, 35.54587] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Russell Field Shelter",
+          "mile": "180.8",
+          "elevation": "4360'",
+          "county": "Blount",
+          "state": "TN",
+          "latitude": 35.5619,
+          "longitude": -83.7669
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.7669, 35.5619] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spence Field Shelter",
+          "mile": "183.7",
+          "elevation": "4915'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.5617,
+          "longitude": -83.7322
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.7322, 35.5617] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Derrick Knob Shelter",
+          "mile": "189.8",
+          "elevation": "4880'",
+          "county": "Sevier",
+          "state": "TN",
+          "latitude": 35.56635,
+          "longitude": -83.64179
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.64179, 35.56635] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Silers Bald Shelter",
+          "mile": "195.5",
+          "elevation": "5460'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.5643,
+          "longitude": -83.56822
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.56822, 35.5643] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Double Spring Gap Shelter",
+          "mile": "197.2",
+          "elevation": "5505'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.56527,
+          "longitude": -83.54273
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.54273, 35.56527] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mt. Collins Shelter",
+          "mile": "202.8",
+          "elevation": "5870'",
+          "county": "Sevier",
+          "state": "TN",
+          "latitude": 35.59384,
+          "longitude": -83.47129
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.47129, 35.59384] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Icewater Spring Shelter",
+          "mile": "210.8",
+          "elevation": "5920'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.62979,
+          "longitude": -83.38627
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.38627, 35.62979] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pecks Corner Shelter",
+          "mile": "218.2",
+          "elevation": "5280'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.65083,
+          "longitude": -83.30848
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.30848, 35.65083] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tricorner Knob Shelter",
+          "mile": "223.4",
+          "elevation": "5920'",
+          "county": "Swain",
+          "state": "NC",
+          "latitude": 35.69375,
+          "longitude": -83.25653
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.25653, 35.69375] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Davenport Gap Shelter",
+          "mile": "238",
+          "elevation": "2600'",
+          "county": "Cocke",
+          "state": "TN",
+          "latitude": 35.7693,
+          "longitude": -83.1234
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.1234, 35.7693] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Groundhog Creek Shelter",
+          "mile": "248.7",
+          "elevation": "2850'",
+          "county": "Haywood",
+          "state": "NC",
+          "latitude": 35.78184,
+          "longitude": -83.02632
+        },
+        "geometry": { "type": "Point", "coordinates": [-83.02632, 35.78184] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Roaring Fork Shelter",
+          "mile": "257",
+          "elevation": "3590'",
+          "county": "Madison",
+          "state": "NC",
+          "latitude": 35.805,
+          "longitude": -82.94978
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.94978, 35.805] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Walnut Mountain Shelter",
+          "mile": "261.8",
+          "elevation": "4260'",
+          "county": "Cocke",
+          "state": "TN",
+          "latitude": 35.8365,
+          "longitude": -82.93649
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.93649, 35.8365] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Deer Park Mountain Shelter",
+          "mile": "271.7",
+          "elevation": "2330'",
+          "county": "Madison",
+          "state": "NC",
+          "latitude": 35.87595,
+          "longitude": -82.86125
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.86125, 35.87595] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spring Mountain Shelter",
+          "mile": "285.9",
+          "elevation": "3300'",
+          "county": "Greene",
+          "state": "TN",
+          "latitude": 35.95177,
+          "longitude": -82.79007
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.79007, 35.95177] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Little Laurel Shelter",
+          "mile": "294.5",
+          "elevation": "3620'",
+          "county": "Madison",
+          "state": "NC",
+          "latitude": 36.01509,
+          "longitude": -82.73591
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.73591, 36.01509] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jerry Cabin",
+          "mile": "301.8",
+          "elevation": "4150'",
+          "county": "Madison",
+          "state": "NC",
+          "latitude": 36.05655,
+          "longitude": -82.65712
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.65712, 36.05655] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Flint Mountain Shelter",
+          "mile": "308.5",
+          "elevation": "3570'",
+          "county": "Madison",
+          "state": "NC",
+          "latitude": 36.03486,
+          "longitude": -82.59663
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.59663, 36.03486] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hogback Ridge Shelter",
+          "mile": "317.3",
+          "elevation": "4255'",
+          "county": "Madison",
+          "state": "NC",
+          "latitude": 35.96408,
+          "longitude": -82.58713
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.58713, 35.96408] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Curley Maple Gap Shelter",
+          "mile": "348.5",
+          "elevation": "3070'",
+          "county": "Unicoi",
+          "state": "TN",
+          "latitude": 36.10432,
+          "longitude": -82.39684
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.39684, 36.10432] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cherry Gap Shelter",
+          "mile": "361.3",
+          "elevation": "3900'",
+          "county": "Unicoi",
+          "state": "TN",
+          "latitude": 36.12924,
+          "longitude": -82.26412
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.26412, 36.12924] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Clyde Smith Shelter",
+          "mile": "370.4",
+          "elevation": "4400'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.14852,
+          "longitude": -82.16118
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.16118, 36.14852] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Roan High Knob Shelter",
+          "mile": "378.9",
+          "elevation": "6275'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.10506,
+          "longitude": -82.12222
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.12222, 36.10506] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stan Murray Shelter",
+          "mile": "384.1",
+          "elevation": "5050'",
+          "county": "Avery",
+          "state": "NC",
+          "latitude": 36.11236,
+          "longitude": -82.06571
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.06571, 36.11236] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Overmountain Shelter",
+          "mile": "386",
+          "elevation": "4550'",
+          "county": "Avery",
+          "state": "NC",
+          "latitude": 36.12348,
+          "longitude": -82.05428
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.05428, 36.12348] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mountaineer Falls Shelter",
+          "mile": "404",
+          "elevation": "3200'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.2202,
+          "longitude": -81.98569
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.98569, 36.2202] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Moreland Gap Shelter",
+          "mile": "413.6",
+          "elevation": "3815'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.22014,
+          "longitude": -82.08831
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.08831, 36.22014] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Watauga Lake Shelter",
+          "mile": "430.4",
+          "elevation": "2130'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.31398,
+          "longitude": -82.1294
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.1294, 36.31398] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Vandeventer Shelter",
+          "mile": "437.6",
+          "elevation": "3620'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.36707,
+          "longitude": -82.05877
+        },
+        "geometry": { "type": "Point", "coordinates": [-82.05877, 36.36707] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Iron Mountain Shelter",
+          "mile": "444.4",
+          "elevation": "4125'",
+          "county": "Johnson",
+          "state": "TN",
+          "latitude": 36.4354,
+          "longitude": -81.99095
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.99095, 36.4354] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Double Springs Shelter",
+          "mile": "452.1",
+          "elevation": "4060'",
+          "county": "Carter",
+          "state": "TN",
+          "latitude": 36.50911,
+          "longitude": -81.98605
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.98605, 36.50911] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Abingdon Gap Shelter",
+          "mile": "460.4",
+          "elevation": "3785'",
+          "county": "Johnson",
+          "state": "TN",
+          "latitude": 36.58094,
+          "longitude": -81.90188
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.90188, 36.58094] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "The Place",
+          "mile": "470.6",
+          "elevation": "1928'",
+          "county": "Washington",
+          "state": "VA",
+          "latitude": 36.63389,
+          "longitude": -81.78728
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.78728, 36.63389] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Saunders Shelter",
+          "mile": "479.6",
+          "elevation": "3310'",
+          "county": "Washington",
+          "state": "VA",
+          "latitude": 36.63776,
+          "longitude": -81.71347
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.71347, 36.63776] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lost Mountain Shelter",
+          "mile": "486.6",
+          "elevation": "3360'",
+          "county": "Washington",
+          "state": "VA",
+          "latitude": 36.64419,
+          "longitude": -81.65591
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.65591, 36.64419] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Thomas Knob Shelter",
+          "mile": "499",
+          "elevation": "5400'",
+          "county": "Grayson",
+          "state": "VA",
+          "latitude": 36.65659,
+          "longitude": -81.53524
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.53524, 36.65659] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wise Shelter",
+          "mile": "504.1",
+          "elevation": "4460'",
+          "county": "Grayson",
+          "state": "VA",
+          "latitude": 36.654,
+          "longitude": -81.49836
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.49836, 36.654] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Old Orchard Shelter",
+          "mile": "510.1",
+          "elevation": "4050'",
+          "county": "Grayson",
+          "state": "VA",
+          "latitude": 36.68313,
+          "longitude": -81.51121
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.51121, 36.68313] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hurricane Mountain Shelter",
+          "mile": "515",
+          "elevation": "3850'",
+          "county": "Grayson",
+          "state": "VA",
+          "latitude": 36.71535,
+          "longitude": -81.50951
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.50951, 36.71535] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Trimpi Shelter",
+          "mile": "524.2",
+          "elevation": "2900'",
+          "county": "Smyth",
+          "state": "VA",
+          "latitude": 36.74939,
+          "longitude": -81.48041
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.48041, 36.74939] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Partnership Shelter",
+          "mile": "534",
+          "elevation": "3360'",
+          "county": "Smyth",
+          "state": "VA",
+          "latitude": 36.80953,
+          "longitude": -81.42237
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.42237, 36.80953] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Chatfield Shelter",
+          "mile": "541",
+          "elevation": "3150'",
+          "county": "Smyth",
+          "state": "VA",
+          "latitude": 36.85002,
+          "longitude": -81.36317
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.36317, 36.85002] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Davis Path camp",
+          "mile": "548.4",
+          "elevation": "2840'",
+          "county": "Smyth",
+          "state": "VA",
+          "latitude": 36.91451,
+          "longitude": -81.37672
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.37672, 36.91451] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Knot Maul Branch Shelter",
+          "mile": "560.3",
+          "elevation": "2880'",
+          "county": "Bland",
+          "state": "VA",
+          "latitude": 37.0008,
+          "longitude": -81.40446
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.40446, 37.0008] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Chestnut Knob Shelter",
+          "mile": "569.7",
+          "elevation": "4409",
+          "county": "Tazewell",
+          "state": "VA",
+          "latitude": 37.05773,
+          "longitude": -81.39933
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.39933, 37.05773] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jenkins Shelter",
+          "mile": "580.4",
+          "elevation": "2500'",
+          "county": "Bland",
+          "state": "VA",
+          "latitude": 37.0934,
+          "longitude": -81.24762
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.24762, 37.0934] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Helveys Mill Shelter",
+          "mile": "593.9",
+          "elevation": "3090'",
+          "county": "Bland",
+          "state": "VA",
+          "latitude": 37.13078,
+          "longitude": -81.10295
+        },
+        "geometry": { "type": "Point", "coordinates": [-81.10295, 37.13078] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jenny Knob Shelter",
+          "mile": "603.6",
+          "elevation": "2800'",
+          "county": "Bland",
+          "state": "VA",
+          "latitude": 37.15504,
+          "longitude": -80.98013
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.98013, 37.15504] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wapiti Shelter",
+          "mile": "618.1",
+          "elevation": "2640'",
+          "county": "Giles",
+          "state": "VA",
+          "latitude": 37.22386,
+          "longitude": -80.82402
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.82402, 37.22386] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Docs Knob Shelter",
+          "mile": "627.6",
+          "elevation": "3555'",
+          "county": "Giles",
+          "state": "VA",
+          "latitude": 37.27031,
+          "longitude": -80.83615
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.83615, 37.27031] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rice Field Shelter",
+          "mile": "643.7",
+          "elevation": "3375'",
+          "county": "Giles",
+          "state": "VA",
+          "latitude": 37.37485,
+          "longitude": -80.75834
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.75834, 37.37485] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pine Swamp Branch Shelter",
+          "mile": "656.3",
+          "elevation": "2530'",
+          "county": "Giles",
+          "state": "VA",
+          "latitude": 37.42204,
+          "longitude": -80.6084
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.6084, 37.42204] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bailey Gap Shelter",
+          "mile": "660.2",
+          "elevation": "3525'",
+          "county": "Giles",
+          "state": "VA",
+          "latitude": 37.40095,
+          "longitude": -80.57702
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.57702, 37.40095] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "War Spur Shelter",
+          "mile": "669",
+          "elevation": "2340'",
+          "county": "Giles",
+          "state": "VA",
+          "latitude": 37.39757,
+          "longitude": -80.47382
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.47382, 37.39757] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Laurel Creek Shelter",
+          "mile": "674.8",
+          "elevation": "2720'",
+          "county": "Craig",
+          "state": "VA",
+          "latitude": 37.35896,
+          "longitude": -80.42068
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.42068, 37.35896] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sarver Hollow Shelter",
+          "mile": "681.2",
+          "elevation": "3000'",
+          "county": "Montgomery",
+          "state": "VA",
+          "latitude": 37.35469,
+          "longitude": -80.33741
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.33741, 37.35469] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Niday Shelter",
+          "mile": "687.2",
+          "elevation": "1800'",
+          "county": "Craig",
+          "state": "VA",
+          "latitude": 37.38765,
+          "longitude": -80.26403
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.26403, 37.38765] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pickle Branch Shelter",
+          "mile": "697.3",
+          "elevation": "1845'",
+          "county": "Craig",
+          "state": "VA",
+          "latitude": 37.38015,
+          "longitude": -80.1846
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.1846, 37.38015] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Johns Spring Shelter",
+          "mile": "710.9",
+          "elevation": "1980'",
+          "county": "Roanoke",
+          "state": "VA",
+          "latitude": 37.38537,
+          "longitude": -80.07402
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.07402, 37.38537] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Catawba Mountain Shelter",
+          "mile": "711.9",
+          "elevation": "2580'",
+          "county": "Roanoke",
+          "state": "NC",
+          "latitude": 37.38818,
+          "longitude": -80.05714
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.05714, 37.38818] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Campbell Shelter",
+          "mile": "714.3",
+          "elevation": "2580'",
+          "county": "Roanoke",
+          "state": "VA",
+          "latitude": 37.39082,
+          "longitude": -80.02921
+        },
+        "geometry": { "type": "Point", "coordinates": [-80.02921, 37.39082] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lamberts Meadow Shelter",
+          "mile": "720.3",
+          "elevation": "2080'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.43461,
+          "longitude": -79.98754
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.98754, 37.43461] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Fullhardt Knob Shelter",
+          "mile": "734.7",
+          "elevation": "2670'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.39852,
+          "longitude": -79.85366
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.85366, 37.39852] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wilson Creek Shelter",
+          "mile": "740.9",
+          "elevation": "1830'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.41935,
+          "longitude": -79.78558
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.78558, 37.41935] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bobblets Gap Shelter",
+          "mile": "748.2",
+          "elevation": "1920'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.46712,
+          "longitude": -79.70121
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.70121, 37.46712] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cove Mountain Shelter",
+          "mile": "754.7",
+          "elevation": "1925'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.51162,
+          "longitude": -79.65071
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.65071, 37.51162] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bryant Ridge Shelter",
+          "mile": "761.7",
+          "elevation": "1320'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.53015,
+          "longitude": -79.58557
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.58557, 37.53015] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cornelius Creek Shelter",
+          "mile": "766.6",
+          "elevation": "3145'",
+          "county": "Botetourt",
+          "state": "VA",
+          "latitude": 37.49401,
+          "longitude": -79.54703
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.54703, 37.49401] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Thunder Hill Shelter",
+          "mile": "771.9",
+          "elevation": "3960'",
+          "county": "Bedford",
+          "state": "VA",
+          "latitude": 37.52746,
+          "longitude": -79.5039
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.5039, 37.52746] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Matts Creek Shelter",
+          "mile": "784.5",
+          "elevation": "835'",
+          "county": "Bedford",
+          "state": "VA",
+          "latitude": 37.59955,
+          "longitude": -79.4132
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.4132, 37.59955] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Johns Hollow Shelter",
+          "mile": "788.4",
+          "elevation": "1020'",
+          "county": "Amherst",
+          "state": "VA",
+          "latitude": 37.61292,
+          "longitude": -79.39178
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.39178, 37.61292] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Punchbowl Shelter",
+          "mile": "797.2",
+          "elevation": "2500'",
+          "county": "Amherst",
+          "state": "VA",
+          "latitude": 37.67788,
+          "longitude": -79.33844
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.33844, 37.67788] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brown Mountain Creek Shelter",
+          "mile": "806.7",
+          "elevation": "1395'",
+          "county": "Amherst",
+          "state": "VA",
+          "latitude": 37.70944,
+          "longitude": -79.26831
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.26831, 37.70944] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cow Camp Shelter",
+          "mile": "812.3",
+          "elevation": "3160'",
+          "county": "Amherst",
+          "state": "VA",
+          "latitude": 37.74504,
+          "longitude": -79.21268
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.21268, 37.74504] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Seeley-Woodworth Shelter",
+          "mile": "822.5",
+          "elevation": "3770'",
+          "county": "Nelson",
+          "state": "VA",
+          "latitude": 37.81897,
+          "longitude": -79.15488
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.15488, 37.81897] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "The Priest Shelter",
+          "mile": "829.1",
+          "elevation": "3840'",
+          "county": "Nelson",
+          "state": "VA",
+          "latitude": 37.81765,
+          "longitude": -79.07033
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.07033, 37.81765] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Harpers Creek Shelter",
+          "mile": "836.7",
+          "elevation": "1800'",
+          "county": "Nelson",
+          "state": "VA",
+          "latitude": 37.85619,
+          "longitude": -79.0005
+        },
+        "geometry": { "type": "Point", "coordinates": [-79.0005, 37.85619] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Maupin Field Shelter",
+          "mile": "842.9",
+          "elevation": "2720'",
+          "county": "Nelson",
+          "state": "VA",
+          "latitude": 37.8849,
+          "longitude": -78.99363
+        },
+        "geometry": { "type": "Point", "coordinates": [78.99363, 37.8849] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Paul C. Wolfe Shelter",
+          "mile": "858.7",
+          "elevation": "1700'",
+          "county": "Nelson",
+          "state": "VA",
+          "latitude": 37.98543,
+          "longitude": -78.88366
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.88366, 37.98543] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Calf Mountain Shelter",
+          "mile": "871.4",
+          "elevation": "2700'",
+          "county": "Augusta",
+          "state": "VA",
+          "latitude": 38.08553,
+          "longitude": -78.78555
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.78555, 38.08553] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Blackrock Hut",
+          "mile": "884.4",
+          "elevation": "2645'",
+          "county": "Albemarle",
+          "state": "VA",
+          "latitude": 38.21426,
+          "longitude": -78.74294
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.74294, 38.21426] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pinefield Hut",
+          "mile": "897.6",
+          "elevation": "2430'",
+          "county": "Greene",
+          "state": "VA",
+          "latitude": 38.29057,
+          "longitude": -78.64576
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.64576, 38.29057] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hightop Hut",
+          "mile": "905.8",
+          "elevation": "3175'",
+          "county": "Rockingham",
+          "state": "VA",
+          "latitude": 38.33314,
+          "longitude": -78.55835
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.55835, 38.33314] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bearfence Mountain Hut",
+          "mile": "918.2",
+          "elevation": "3110'",
+          "county": "Greene",
+          "state": "VA",
+          "latitude": 38.44409,
+          "longitude": -78.47041
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.47041, 38.44409] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rock Spring Hut",
+          "mile": "929.7",
+          "elevation": "3465'",
+          "county": "Page",
+          "state": "VA",
+          "latitude": 38.55353,
+          "longitude": -78.4083
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.4083, 38.55353] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Byrds Nest 3",
+          "mile": "940.6",
+          "elevation": "3920'",
+          "county": "Page",
+          "state": "VA",
+          "latitude": 38.63441,
+          "longitude": -78.32375
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.32375, 38.63441] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pass Mountain Hut",
+          "mile": "945",
+          "elevation": "2690'",
+          "county": "Rappahannock",
+          "state": "VA",
+          "latitude": 38.6766,
+          "longitude": -78.3189
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.3189, 38.6766] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gravel Springs Hut",
+          "mile": "958.1",
+          "elevation": "2480'",
+          "county": "Rappahannock",
+          "state": "VA",
+          "latitude": 38.76388,
+          "longitude": -78.23362
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.23362, 38.76388] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tom Floyd Wayside Shelter",
+          "mile": "968.6",
+          "elevation": "1900'",
+          "county": "Warren",
+          "state": "VA",
+          "latitude": 38.85046,
+          "longitude": -78.16365
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.16365, 38.85046] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jim n Molly Denton Shelter",
+          "mile": "976.7",
+          "elevation": "1310'",
+          "county": "Warren",
+          "state": "VA",
+          "latitude": 38.89007,
+          "longitude": -78.08306
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.08306, 38.89007] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Manassas Gap Shelter",
+          "mile": "982.2",
+          "elevation": "1655'",
+          "county": "Fauquier",
+          "state": "VA",
+          "latitude": 38.93071,
+          "longitude": -78.03269
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.03269, 38.93071] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Whiskey Hollow Shelter",
+          "mile": "986.7",
+          "elevation": "1230'",
+          "county": "Fauquier",
+          "state": "VA",
+          "latitude": 38.9697,
+          "longitude": -77.99721
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.99721, 38.9697] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rod Hollow Shelter",
+          "mile": "995.1",
+          "elevation": "840'",
+          "county": "Clarke",
+          "state": "VA",
+          "latitude": 39.04763,
+          "longitude": -77.94408
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.94408, 39.04763] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sam Moore Shelter",
+          "mile": "1002",
+          "elevation": "990'",
+          "county": "Clarke",
+          "state": "VA",
+          "latitude": 39.09067,
+          "longitude": -77.88627
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.88627, 39.09067] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bears Den Hostel",
+          "mile": "1005",
+          "elevation": "1350'",
+          "county": "Clarke",
+          "state": "VA",
+          "latitude": 39.11093,
+          "longitude": -77.85409
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.85409, 39.11093] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Blackbum Trail Center",
+          "mile": "1013",
+          "elevation": "1400'",
+          "county": "Loudoun",
+          "state": "VA",
+          "latitude": 39.18765,
+          "longitude": -77.79803
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.79803, 39.18765] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "David Lesser Shelter",
+          "mile": "1016.2",
+          "elevation": "1380'",
+          "county": "Loudoun",
+          "state": "VA",
+          "latitude": 39.22723,
+          "longitude": -77.77909
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.77909, 39.22723] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ed Garvey Shelter",
+          "mile": "1031.8",
+          "elevation": "1100'",
+          "county": "Washington",
+          "state": "MD",
+          "latitude": 39.35982,
+          "longitude": -77.66172
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.66172, 39.35982] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Crampton Gap Shelter",
+          "mile": "1035.9",
+          "elevation": "1000'",
+          "county": "Frederick",
+          "state": "MD",
+          "latitude": 39.41259,
+          "longitude": -77.63702
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.63702, 39.41259] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rocky Run Shelter",
+          "mile": "1040.9",
+          "elevation": "970'",
+          "county": "Washington",
+          "state": "MD",
+          "latitude": 39.46094,
+          "longitude": -77.63087
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.63087, 39.46094] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pine Knob Shelter",
+          "mile": "1048.4",
+          "elevation": "1360'",
+          "county": "Washington",
+          "state": "MD",
+          "latitude": 39.54249,
+          "longitude": -77.60181
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.60181, 39.54249] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ensign Cowall Shelter",
+          "mile": "1056.6",
+          "elevation": "1430'",
+          "county": "Washington",
+          "state": "MD",
+          "latitude": 39.63102,
+          "longitude": -77.55566
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.55566, 39.63102] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Raven Rock Shelter",
+          "mile": "1061.5",
+          "elevation": "1654'",
+          "county": "Washington",
+          "state": "MD",
+          "latitude": 39.67327,
+          "longitude": -77.52949
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.52949, 39.67327] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Devils Racecourse Shelter",
+          "mile": "1061.5",
+          "elevation": "1436'",
+          "county": "Washington",
+          "state": "MD",
+          "latitude": 39.67197,
+          "longitude": -77.5241
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.5241, 39.67197] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Deer Lick Shelters",
+          "mile": "1071.1",
+          "elevation": "1420'",
+          "county": "Franklin",
+          "state": "PA",
+          "latitude": 39.76615,
+          "longitude": -77.4848
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.4848, 39.76615] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Antietam Shelter",
+          "mile": "1073.5",
+          "elevation": "890'",
+          "county": "Franklin",
+          "state": "PA",
+          "latitude": 39.79379,
+          "longitude": -77.48257
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.48257, 39.79379] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tumbling Run Shelters",
+          "mile": "1074.7",
+          "elevation": "1120'",
+          "county": "Franklin",
+          "state": "PA",
+          "latitude": 39.80484,
+          "longitude": -77.47806
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.47806, 39.80484] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rocky Mountain Shelters",
+          "mile": "1081.3",
+          "elevation": "1520'",
+          "county": "Franklin",
+          "state": "PA",
+          "latitude": 39.86851,
+          "longitude": -77.5006
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.5006, 39.86851] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Quarry Gap Shelters",
+          "mile": "1086.9",
+          "elevation": "1455'",
+          "county": "Franklin",
+          "state": "PA",
+          "latitude": 39.93198,
+          "longitude": -77.48638
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.48638, 39.93198] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Birch Run Shelters",
+          "mile": "1094.3",
+          "elevation": "1795'",
+          "county": "Cumberland",
+          "state": "PA",
+          "latitude": 39.98512,
+          "longitude": -77.41943
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.41943, 39.98512] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Toms Run Shelters",
+          "mile": "1100.5",
+          "elevation": "1300'",
+          "county": "Cumberland",
+          "state": "PA",
+          "latitude": 40.03367,
+          "longitude": -77.35678
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.35678, 40.03367] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "James Fry Shelter",
+          "mile": "1111.4",
+          "elevation": "805'",
+          "county": "Cumberland",
+          "state": "PA",
+          "latitude": 40.06295,
+          "longitude": -77.20611
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.20611, 40.06295] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Alec Kennedy Shelter",
+          "mile": "1119.5",
+          "elevation": "850'",
+          "county": "Cumberland",
+          "state": "PA",
+          "latitude": 40.11178,
+          "longitude": -77.10402
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.10402, 40.11178] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Darlington Shelter",
+          "mile": "1137.7",
+          "elevation": "1250'",
+          "county": "Perry",
+          "state": "PA",
+          "latitude": 40.302,
+          "longitude": -77.0869
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.0869, 40.302] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Thelma Marks Shelter",
+          "mile": "1145",
+          "elevation": "1200'",
+          "county": "Perry",
+          "state": "PA",
+          "latitude": 40.36358,
+          "longitude": -77.06726
+        },
+        "geometry": { "type": "Point", "coordinates": [-77.06726, 40.36358] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Clarks Ferry Shelter",
+          "mile": "1153.3",
+          "elevation": "1260'",
+          "county": "Dauphin",
+          "state": "PA",
+          "latitude": 40.39238,
+          "longitude": -76.99411
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.99411, 40.39238] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Peters Mountain Shelter",
+          "mile": "1160",
+          "elevation": "970'",
+          "county": "Dauphin",
+          "state": "PA",
+          "latitude": 40.42593,
+          "longitude": -76.87932
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.87932, 40.42593] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rausch Gap Shelter",
+          "mile": "1178",
+          "elevation": "980'",
+          "county": "Lebanon",
+          "state": "PA",
+          "latitude": 40.49865,
+          "longitude": -76.60012
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.60012, 40.49865] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "William Penn Shelter",
+          "mile": "1191.4",
+          "elevation": "1300'",
+          "county": "Berks",
+          "state": "PA",
+          "latitude": 40.49559,
+          "longitude": -76.41409
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.41409, 40.49559] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "501 Shelter",
+          "mile": "1195.5",
+          "elevation": "1460'",
+          "county": "Berks",
+          "state": "PA",
+          "latitude": 40.51312,
+          "longitude": -76.3464
+        },
+        "geometry": { "type": "Point", "coordinates": [-76.3464, 40.51312] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Windsor Furnace Shelter",
+          "mile": "1225.3",
+          "elevation": "940'",
+          "county": "Berks",
+          "state": "PA",
+          "latitude": 40.59055,
+          "longitude": -75.94123
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.94123, 40.59055] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Eckville Shelter",
+          "mile": "1234.4",
+          "elevation": "600'",
+          "county": "Berks",
+          "state": "PA",
+          "latitude": 40.63375,
+          "longitude": -75.95789
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.95789, 40.63375] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Allentown Shelter",
+          "mile": "1241.8",
+          "elevation": "1350'",
+          "county": "Lehigh",
+          "state": "PA",
+          "latitude": 40.68305,
+          "longitude": -75.87385
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.87385, 40.68305] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bake Oven Knob Shelter",
+          "mile": "1251.8",
+          "elevation": "1380'",
+          "county": "Lehigh",
+          "state": "PA",
+          "latitude": 40.7541,
+          "longitude": -75.72701
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.72701, 40.7541] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "George W, Outerbridge Shelter",
+          "mile": "1258.6",
+          "elevation": "1000'",
+          "county": "Lehigh",
+          "state": "PA",
+          "latitude": 40.78249,
+          "longitude": -75.61793
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.61793, 40.78249] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Leroy A Smith Shelter",
+          "mile": "1275.3",
+          "elevation": "1410'",
+          "county": "Monroe",
+          "state": "PA",
+          "latitude": 40.8394,
+          "longitude": -75.35939
+        },
+        "geometry": { "type": "Point", "coordinates": [-75.35939, 40.8394] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brink Road Shelter",
+          "mile": "1320.2",
+          "elevation": "1110'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.15323,
+          "longitude": -74.83777
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.83777, 41.15323] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gren Anderson Shelter",
+          "mile": "1326.8",
+          "elevation": "1320'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.19948,
+          "longitude": -74.75264
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.75264, 41.19948] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mashipacong Shelter",
+          "mile": "1332.6",
+          "elevation": "1425'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.25216,
+          "longitude": -74.68594
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.68594, 41.25216] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rutherford Shelter",
+          "mile": "1335.2",
+          "elevation": "1345'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.27746,
+          "longitude": -74.6778
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.6778, 41.27746] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "High Point Shelter",
+          "mile": "1339.8",
+          "elevation": "1280'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.31575,
+          "longitude": -74.65725
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.65725, 41.31575] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pochuck Mountain Shelter",
+          "mile": "1352.2",
+          "elevation": "840'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.27126,
+          "longitude": -74.51492
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.51492, 41.27126] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wawayanda Shelter",
+          "mile": "1363.7",
+          "elevation": "1200'",
+          "county": "Sussex",
+          "state": "NJ",
+          "latitude": 41.20221,
+          "longitude": -74.39771
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.39771, 41.20221] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wildcat Shelter",
+          "mile": "1375.8",
+          "elevation": "1180'",
+          "county": "Orange",
+          "state": "NY",
+          "latitude": 41.26824,
+          "longitude": -74.26777
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.26777, 41.26824] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Fingerboard Shelter",
+          "mile": "1390.1",
+          "elevation": "1300'",
+          "county": "Orange",
+          "state": "NY",
+          "latitude": 41.26327,
+          "longitude": -74.10399
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.10399, 41.26327] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "William Brien Memorial Shelter",
+          "mile": "1395.4",
+          "elevation": "1070'",
+          "county": "Orange",
+          "state": "NY",
+          "latitude": 41.27973,
+          "longitude": -74.05929
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.05929, 41.27973] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "West Mountain Shelter",
+          "mile": "1398.6",
+          "elevation": "1240'",
+          "county": "Rockland",
+          "state": "NY",
+          "latitude": 41.28235,
+          "longitude": -74.0092
+        },
+        "geometry": { "type": "Point", "coordinates": [-74.0092, 41.28235] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "RPH Shelter",
+          "mile": "1430.8",
+          "elevation": "360'",
+          "county": "Dutchess",
+          "state": "NY",
+          "latitude": 41.51449,
+          "longitude": -73.79236
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.79236, 41.51449] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Morgan Stewart Memorial Shelter",
+          "mile": "1439.8",
+          "elevation": "1285'",
+          "county": "Dutchess",
+          "state": "NY",
+          "latitude": 41.56454,
+          "longitude": -73.6917
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.6917, 41.56454] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Telephone Pioneers Shelter",
+          "mile": "1447.6",
+          "elevation": "910'",
+          "county": "Dutchess",
+          "state": "NY",
+          "latitude": 41.60382,
+          "longitude": -73.61879
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.61879, 41.60382] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wiley Shelter",
+          "mile": "1456.4",
+          "elevation": "740'",
+          "county": "Dutchess",
+          "state": "NY",
+          "latitude": 41.63782,
+          "longitude": -73.53239
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.53239, 41.63782] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ten `mile` River Lean-to",
+          "mile": "1460.4",
+          "elevation": "290'",
+          "county": "Fairfield",
+          "state": "CT",
+          "latitude": 41.66516,
+          "longitude": -73.50922
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.50922, 41.66516] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mt. Ago Lean-to",
+          "mile": "1468.8",
+          "elevation": "655'",
+          "county": "Litchfield",
+          "state": "CT",
+          "latitude": 41.7318,
+          "longitude": -73.49581
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.49581, 41.7318] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stewart Hollow Brook Lean-to",
+          "mile": "1476.1",
+          "elevation": "425'",
+          "county": "Litchfield",
+          "state": "CT",
+          "latitude": 41.77928,
+          "longitude": -73.41851
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.41851, 41.77928] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pine Swamp Brook Lean-to",
+          "mile": "1486.1",
+          "elevation": "1075'",
+          "county": "Litchfield",
+          "state": "CT",
+          "latitude": 41.88167,
+          "longitude": -73.39161
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.39161, 41.88167] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Limestone Spring Lean-to",
+          "mile": "1497.4",
+          "elevation": "980'",
+          "county": "Litchfield",
+          "state": "CT",
+          "latitude": 41.97536,
+          "longitude": -73.3923
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.3923, 41.97536] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Riga Lean-to",
+          "mile": "1504.8",
+          "elevation": "1610'",
+          "county": "Litchfield",
+          "state": "CT",
+          "latitude": 42.01562,
+          "longitude": -73.45196
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.45196, 42.01562] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Brassie Brook Lean-to",
+          "mile": "1506",
+          "elevation": "1705'",
+          "county": "Litchfield",
+          "state": "CT",
+          "latitude": 42.02835,
+          "longitude": -73.45335
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.45335, 42.02835] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "The Hemlocks Lean-to",
+          "mile": "1514.8",
+          "elevation": "1880'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.10968,
+          "longitude": -73.42865
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.42865, 42.10968] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Glen Brook Lean-to",
+          "mile": "1514.9",
+          "elevation": "1885'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.11102,
+          "longitude": -73.42725
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.42725, 42.11102] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tom Leonard Lean-to",
+          "mile": "1529.2",
+          "elevation": "1540'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.16479,
+          "longitude": -73.3058
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.3058, 42.16479] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mt Wilcox South Lean-to",
+          "mile": "1534.5",
+          "elevation": "1720'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.20771,
+          "longitude": -73.26828
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.26828, 42.20771] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mt Wilcox North Lean-to",
+          "mile": "1536.3",
+          "elevation": "2100'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.22108,
+          "longitude": -73.25018
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.25018, 42.22108] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Upper Goose Pond Cabin",
+          "mile": "1550.5",
+          "elevation": "1483'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.28802,
+          "longitude": -73.18142
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.18142, 42.28802] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "October Mountain Lean-to",
+          "mile": "1559.3",
+          "elevation": "1950'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.35493,
+          "longitude": -73.15403
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.15403, 42.35493] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Kay Wood Lean-to",
+          "mile": "1568.1",
+          "elevation": "1860'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.45211,
+          "longitude": -73.16148
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.16148, 42.45211] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mark Noepel Lean-to",
+          "mile": "1584.8",
+          "elevation": "2750'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.60862,
+          "longitude": -73.18415
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.18415, 42.60862] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bascom Lodge",
+          "mile": "1588.1",
+          "elevation": "3491'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.63686,
+          "longitude": -73.16736
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.16736, 42.63686] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wilbur Clearing Lean-to",
+          "mile": "1591.4",
+          "elevation": "2300'",
+          "county": "Berkshire",
+          "state": "MA",
+          "latitude": 42.66776,
+          "longitude": -73.17015
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.17015, 42.66776] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Seth Warner Shelter",
+          "mile": "1601.3",
+          "elevation": "2180'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 42.77193,
+          "longitude": -73.13694
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.13694, 42.77193] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Congdon Shelter",
+          "mile": "1608.5",
+          "elevation": "2060'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 42.84807,
+          "longitude": -73.10993
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.10993, 42.84807] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Melville Nauheim Shelter",
+          "mile": "1614.4",
+          "elevation": "2330'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 42.88782,
+          "longitude": -73.09507
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.09507, 42.88782] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Goddard Shelter",
+          "mile": "1622.9",
+          "elevation": "3540'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 42.97409,
+          "longitude": -73.07169
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.07169, 42.97409] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Kid Gore Shelter",
+          "mile": "1627.2",
+          "elevation": "2795'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.01406,
+          "longitude": -73.04294
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.04294, 43.01406] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Caughnawaga Shelter",
+          "mile": "1627.2",
+          "elevation": "2795'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.01497,
+          "longitude": -73.04362
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.04362, 43.01497] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Story Spring Shelter",
+          "mile": "1631.8",
+          "elevation": "2810'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.05035,
+          "longitude": -73.01242
+        },
+        "geometry": { "type": "Point", "coordinates": [-73.01242, 43.05035] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stratton Pond Shelter",
+          "mile": "1642.2",
+          "elevation": "2565'",
+          "county": "Windham",
+          "state": "VT",
+          "latitude": 43.1005,
+          "longitude": -72.96355
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.96355, 43.1005] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "William B. Douglas Shelter",
+          "mile": "1647.1",
+          "elevation": "2210'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.1444,
+          "longitude": -72.99097
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.99097, 43.1444] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spruce Peak Shelter",
+          "mile": "1650.1",
+          "elevation": "2180'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.17858,
+          "longitude": -72.9952
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.9952, 43.17858] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bromley Shelter",
+          "mile": "1654.9",
+          "elevation": "2560'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.22238,
+          "longitude": -72.95048
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.95048, 43.22238] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Peru Peak Shelter",
+          "mile": "1663",
+          "elevation": "2605'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.3012,
+          "longitude": -72.95184
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.95184, 43.3012] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lost Pond Shelter",
+          "mile": "1667.7",
+          "elevation": "2150'",
+          "county": "Bennington",
+          "state": "VT",
+          "latitude": 43.3476,
+          "longitude": -72.95256
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.95256, 43.3476] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Big Branch Shelter",
+          "mile": "1669.4",
+          "elevation": "1460'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.36413,
+          "longitude": -72.9464
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.9464, 43.36413] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lula Tye Shelter",
+          "mile": "1672.4",
+          "elevation": "1920'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.39543,
+          "longitude": -72.95466
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.95466, 43.39543] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Little Rock Pond Shelter",
+          "mile": "1672.7",
+          "elevation": "1920'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.40408,
+          "longitude": -72.95314
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.95314, 43.40408] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Greenwall Shelter",
+          "mile": "1677.5",
+          "elevation": "2025'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.44059,
+          "longitude": -72.92946
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.92946, 43.44059] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Minerva Hinchey Shelter",
+          "mile": "1682.6",
+          "elevation": "1605'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.48786,
+          "longitude": -72.92453
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.92453, 43.48786] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Clarendon Shelter",
+          "mile": "1686.3",
+          "elevation": "1190'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.52354,
+          "longitude": -72.91257
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.91257, 43.52354] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Governor Clement Shelter",
+          "mile": "1692.4",
+          "elevation": "1900'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.56465,
+          "longitude": -72.84836
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.84836, 43.56465] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cooper Lodge",
+          "mile": "1696.7",
+          "elevation": "3900'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.60606,
+          "longitude": -72.82249
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.82249, 43.60606] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pico Camp Shelter",
+          "mile": "1699.2",
+          "elevation": "3510'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.6389,
+          "longitude": -72.83101
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.83101, 43.6389] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Churchill Scott Shelter",
+          "mile": "1701.1",
+          "elevation": "2560'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.64489,
+          "longitude": -72.85339
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.85339, 43.64489] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Tucker Johnson removed",
+          "mile": "1704",
+          "elevation": "2250'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.67943,
+          "longitude": -72.84295
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.84295, 43.67943] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gifford Woods `state` Park",
+          "mile": "1706.3",
+          "elevation": "1660'",
+          "county": "Rutland",
+          "state": "VT",
+          "latitude": 43.67607,
+          "longitude": -72.8112
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.8112, 43.67607] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stony Brook Shelter",
+          "mile": "1713",
+          "elevation": "1760'",
+          "county": "Windsor",
+          "state": "VT",
+          "latitude": 43.69176,
+          "longitude": -72.73014
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.73014, 43.69176] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wintturi Shelter",
+          "mile": "1722.9",
+          "elevation": "1910'",
+          "county": "Windsor",
+          "state": "VT",
+          "latitude": 43.66218,
+          "longitude": -72.62193
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.62193, 43.66218] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cloudland Shelter",
+          "mile": "1732.9",
+          "elevation": "1480'",
+          "county": "Windsor",
+          "state": "VT",
+          "latitude": 43.69214,
+          "longitude": -72.49312
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.49312, 43.69214] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Thistle Hill Shelter",
+          "mile": "1735.2",
+          "elevation": "1680'",
+          "county": "Windsor",
+          "state": "VT",
+          "latitude": 43.69518,
+          "longitude": -72.47532
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.47532, 43.69518] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Happy Hill Shelter",
+          "mile": "1744",
+          "elevation": "1460'",
+          "county": "Windsor",
+          "state": "VT",
+          "latitude": 43.72399,
+          "longitude": -72.36524
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.36524, 43.72399] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Velvet Rocks Shelter",
+          "mile": "1751.3",
+          "elevation": "1040'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.70251,
+          "longitude": -72.26472
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.26472, 43.70251] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Moose Mountain Shelter",
+          "mile": "1760.8",
+          "elevation": "1850'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.72718,
+          "longitude": -72.14926
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.14926, 43.72718] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Trapper John Shelter",
+          "mile": "1766.5",
+          "elevation": "1345'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.7831,
+          "longitude": -72.11151
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.11151, 43.7831] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Smarts Mountain Cabin",
+          "mile": "1773.1",
+          "elevation": "3220'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.82535,
+          "longitude": -72.03737
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.03737, 43.82535] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hexacuba Shelter",
+          "mile": "1778.5",
+          "elevation": "1980'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.87623,
+          "longitude": -72.02686
+        },
+        "geometry": { "type": "Point", "coordinates": [-72.02686, 43.87623] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ore Hill camp",
+          "mile": "1785.6",
+          "elevation": "1720'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.92183,
+          "longitude": -71.95744
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.95744, 43.92183] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Jeffers Brook Shelter",
+          "mile": "1794.2",
+          "elevation": "1350'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 43.99668,
+          "longitude": -71.88894
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.88894, 43.99668] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Beaver Brook Shelter",
+          "mile": "1801.1",
+          "elevation": "3650'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.03304,
+          "longitude": -71.81131
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.81131, 44.03304] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Eliza Brook Campsite Shelter",
+          "mile": "1810.1",
+          "elevation": "2400'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.10074,
+          "longitude": -71.74182
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.74182, 44.10074] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Kinsman Pond Campsite Shelter",
+          "mile": "1814.1",
+          "elevation": "3750'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.13681,
+          "longitude": -71.73229
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.73229, 44.13681] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lonesome Lake Hut",
+          "mile": "1816",
+          "elevation": "2760'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.13842,
+          "longitude": -71.70312
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.70312, 44.13842] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Greenleaf Hut",
+          "mile": "1825.3",
+          "elevation": "4200'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.16024,
+          "longitude": -71.66024
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.66024, 44.16024] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Garfield Ridge Campsite Shelter",
+          "mile": "1829.2",
+          "elevation": "3900'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.19069,
+          "longitude": -71.60836
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.60836, 44.19069] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Galehead Hut",
+          "mile": "1831.9",
+          "elevation": "3800'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.18777,
+          "longitude": -71.56885
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.56885, 44.18777] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Guyot Campsite Shelter",
+          "mile": "1834.7",
+          "elevation": "4580'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.16104,
+          "longitude": -71.53503
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.53503, 44.16104] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Zealand Falls Hut",
+          "mile": "1838.9",
+          "elevation": "2630'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.19583,
+          "longitude": -71.49431
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.49431, 44.19583] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Ethan Pond Campsite Shelter",
+          "mile": "1843.7",
+          "elevation": "2860'",
+          "county": "Grafton",
+          "state": "NH",
+          "latitude": 44.17715,
+          "longitude": -71.42659
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.42659, 44.17715] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Mizpah Spring Hut",
+          "mile": "1853",
+          "elevation": "3800'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.2193,
+          "longitude": -71.36956
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.36956, 44.2193] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Lake of the Clouds Hut",
+          "mile": "1857.7",
+          "elevation": "5012'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.2589,
+          "longitude": -71.31879
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.31879, 44.2589] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hermit Lake Shelter (1 of 2)",
+          "mile": "1859.1",
+          "elevation": "3875'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.26109,
+          "longitude": -71.2863
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.2863, 44.26109] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hermit Lake Shelter (2 of 2)",
+          "mile": "1859.1",
+          "elevation": "3875'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.2613,
+          "longitude": -71.28588
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.28588, 44.2613] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "The Perch Shelter",
+          "mile": "1863.3",
+          "elevation": "4313'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.32446,
+          "longitude": -71.31048
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.31048, 44.32446] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gray Knob",
+          "mile": "1863.9",
+          "elevation": "4481'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.33226,
+          "longitude": -71.31004
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.31004, 44.33226] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Crag Camp",
+          "mile": "1863.9",
+          "elevation": "4247'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.33491,
+          "longitude": -71.30202
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.30202, 44.33491] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Madison Springs Hut",
+          "mile": "1864.8",
+          "elevation": "4825'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.32779,
+          "longitude": -71.28318
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.28318, 44.32779] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Carter Notch Hut",
+          "mile": "1878.5",
+          "elevation": "3350'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.25926,
+          "longitude": -71.19533
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.19533, 44.25926] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Imp Campsite Shelter",
+          "mile": "1885.7",
+          "elevation": "3250'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.32886,
+          "longitude": -71.15004
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.15004, 44.32886] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rattle River Shelter",
+          "mile": "1891.8",
+          "elevation": "1260'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.3799,
+          "longitude": -71.10742
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.10742, 44.3799] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Gentian Pond Campsite Shelter",
+          "mile": "1905.5",
+          "elevation": "2166'",
+          "county": "Coos",
+          "state": "NH",
+          "latitude": 44.4518,
+          "longitude": -71.06937
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.06937, 44.4518] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cado Col Shelter",
+          "mile": "1910.7",
+          "elevation": "2945'",
+          "county": "Oxford",
+          "state": "ME",
+          "latitude": 44.48867,
+          "longitude": -71.01618
+        },
+        "geometry": { "type": "Point", "coordinates": [-71.01618, 44.48867] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Full Goose Shelter",
+          "mile": "1915.1",
+          "elevation": "3030'",
+          "county": "Oxford",
+          "state": "ME",
+          "latitude": 44.52515,
+          "longitude": -70.98088
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.98088, 44.52515] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Speck Pond Shelter",
+          "mile": "1920.2",
+          "elevation": "3500'",
+          "county": "Oxford",
+          "state": "ME",
+          "latitude": 44.56469,
+          "longitude": -70.97362
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.97362, 44.56469] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Baldpate Lean-to",
+          "mile": "1927.1",
+          "elevation": "2645'",
+          "county": "Oxford",
+          "state": "ME",
+          "latitude": 44.59842,
+          "longitude": -70.91167
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.91167, 44.59842] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Frye Notch Lean-to",
+          "mile": "1930.6",
+          "elevation": "2280'",
+          "county": "Oxford",
+          "state": "ME",
+          "latitude": 44.62791,
+          "longitude": -70.89982
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.89982, 44.62791] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hall Mountain Lean-to",
+          "mile": "1941.1",
+          "elevation": "2635'",
+          "county": "Oxford",
+          "state": "ME",
+          "latitude": 44.70079,
+          "longitude": -70.82473
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.82473, 44.70079] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bemis Mountain Lean-to",
+          "mile": "1953.9",
+          "elevation": "2790'",
+          "county": "Franklin",
+          "state": "ME",
+          "latitude": 44.81018,
+          "longitude": -70.75588
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.75588, 44.81018] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Sabbath Day Pond Lean-to",
+          "mile": "1962.2",
+          "elevation": "2390'",
+          "county": "Franklin",
+          "state": "ME",
+          "latitude": 44.84094,
+          "longitude": -70.66212
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.66212, 44.84094] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Piazza Rock Lean-to",
+          "mile": "1973.4",
+          "elevation": "2080'",
+          "county": "Franklin",
+          "state": "ME",
+          "latitude": 44.90418,
+          "longitude": -70.53004
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.53004, 44.90418] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Poplar Ridge Lean-to",
+          "mile": "1982.3",
+          "elevation": "2920'",
+          "county": "Franklin",
+          "state": "ME",
+          "latitude": 44.97,
+          "longitude": -70.44534
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.44534, 44.97] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Spaulding Mountain Lean-to",
+          "mile": "1990.3",
+          "elevation": "3140'",
+          "county": "Franklin",
+          "state": "ME",
+          "latitude": 44.99577,
+          "longitude": -70.34134
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.34134, 44.99577] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Horns Pond Lean-tos",
+          "mile": "2008.9",
+          "elevation": "3160'",
+          "county": "Franklin",
+          "state": "ME",
+          "latitude": 45.14388,
+          "longitude": -70.32966
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.32966, 45.14388] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Little Bigelow Lean-to",
+          "mile": "2019.1",
+          "elevation": "1760'",
+          "county": "Somerset",
+          "state": "ME",
+          "latitude": 45.13917,
+          "longitude": -70.19114
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.19114, 45.13917] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "West Carry Pond Lean-to",
+          "mile": "2026.8",
+          "elevation": "1340'",
+          "county": "Somerset",
+          "state": "ME",
+          "latitude": 45.15803,
+          "longitude": -70.09977
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.09977, 45.15803] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pierce Pond Lean-to",
+          "mile": "2036.8",
+          "elevation": "1150'",
+          "county": "Somerset",
+          "state": "ME",
+          "latitude": 45.24025,
+          "longitude": -70.05548
+        },
+        "geometry": { "type": "Point", "coordinates": [-70.05548, 45.24025] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Pleasant Pond Lean-to",
+          "mile": "2046.5",
+          "elevation": "1320'",
+          "county": "Somerset",
+          "state": "ME",
+          "latitude": 45.27119,
+          "longitude": -69.91674
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.91674, 45.27119] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Bald Mountain Brook Lean-to",
+          "mile": "2055.5",
+          "elevation": "1280'",
+          "county": "Somerset",
+          "state": "ME",
+          "latitude": 45.25854,
+          "longitude": -69.79947
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.79947, 45.25854] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Moxie Bald Lean-to",
+          "mile": "2059.6",
+          "elevation": "1220'",
+          "county": "Somerset",
+          "state": "ME",
+          "latitude": 45.27068,
+          "longitude": -69.74534
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.74534, 45.27068] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Horseshoe Canyon Lean-to",
+          "mile": "2068.5",
+          "elevation": "880'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.28274,
+          "longitude": -69.62759
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.62759, 45.28274] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Leeman Brook Lean-to",
+          "mile": "2080.5",
+          "elevation": "1060'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.35151,
+          "longitude": -69.49876
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.49876, 45.35151] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wilson Valley Lean-to",
+          "mile": "2087.9",
+          "elevation": "1000'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.39873,
+          "longitude": -69.45921
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.45921, 45.39873] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Long Pond Stream Lean-to",
+          "mile": "2092.6",
+          "elevation": "930'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.4211,
+          "longitude": -69.4096
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.4096, 45.4211] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cloud Pond Lean-to",
+          "mile": "2096.6",
+          "elevation": "2420'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.41804,
+          "longitude": -69.35321
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.35321, 45.41804] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Chairback Gap Lean-to",
+          "mile": "2103.5",
+          "elevation": "2000'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.45311,
+          "longitude": -69.26174
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.26174, 45.45311] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cad A. Newhall Lean-to",
+          "mile": "2113.4",
+          "elevation": "1860'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.53106,
+          "longitude": -69.31513
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.31513, 45.53106] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Logan Brook Lean-to",
+          "mile": "2126",
+          "elevation": "2480'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.5609,
+          "longitude": -69.23511
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.23511, 45.5609] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "East Branch Lean-to",
+          "mile": "2124.2",
+          "elevation": "1225'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.59676,
+          "longitude": -69.19816
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.19816, 45.59676] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cooper Brook Falls Lean-to",
+          "mile": "2132.3",
+          "elevation": "880'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.6405,
+          "longitude": -69.0874
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.0874, 45.6405] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Potaywadjo Spring Lean-to",
+          "mile": "2143.7",
+          "elevation": "710'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.70653,
+          "longitude": -69.00738
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.00738, 45.70653] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Wadleigh Stream Lean-to",
+          "mile": "2153.8",
+          "elevation": "685'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.74702,
+          "longitude": -69.14447
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.14447, 45.74702] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Rainbow Stream Lean-to",
+          "mile": "2161.9",
+          "elevation": "1020'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.79906,
+          "longitude": -69.17041
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.17041, 45.79906] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Hurd Brook Lean-to",
+          "mile": "2173.4",
+          "elevation": "715'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.81852,
+          "longitude": -69.01846
+        },
+        "geometry": { "type": "Point", "coordinates": [-69.01846, 45.81852] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "The Birches Shelters",
+          "mile": "2186.8",
+          "elevation": "1080'",
+          "county": "Piscataquis",
+          "state": "ME",
+          "latitude": 45.88675,
+          "longitude": -68.99905
+        },
+        "geometry": { "type": "Point", "coordinates": [-68.99905, 45.88675] }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Cameron Village Shelter",
+          "mile": "9999",
+          "elevation": "999'",
+          "county": "Wake",
+          "state": "NC",
+          "latitude": 35.792434,
+          "longitude": -78.647319
+        },
+        "geometry": { "type": "Point", "coordinates": [-78.647319, 35.792434] }
+      }
+    ]
+  }
+  

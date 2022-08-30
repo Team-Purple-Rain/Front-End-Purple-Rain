@@ -148,11 +148,13 @@ export default function Homepage({
                           borderRadius: 10,
                           backgroundColor: "white",
                           fontSize: "12px",
+                          width: "100%",
                           margin: "5px",
                         }}
                         id="filled-basic"
                         variant="filled"
                         type="number"
+                        // InputProps={{ inputProps: { min: 1, max: 20 } }}
                         onChange={(e) => setSelectedDistance(e.target.value)}
                         onClick={() => {
                           setHikeType("Mile Hike");

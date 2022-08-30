@@ -50,7 +50,7 @@ export default function Timer(props) {
 
   const OffLineLocalStorage = () => {
     // let time = props.time;
-    if (online) {
+    if (!online) {
       // time = time.toString();
       // time = time.slice(0, -3);
       storageBank = JSON.parse(localStorage.getItem("hike")) || [];
@@ -111,7 +111,7 @@ export default function Timer(props) {
   logTime();
 
   useEffect(() => {
-    if (!online) {
+    if (online) {
       let elevation = document.getElementsByClassName("elevation_div");
       elevation = elevation[0].id;
       if (

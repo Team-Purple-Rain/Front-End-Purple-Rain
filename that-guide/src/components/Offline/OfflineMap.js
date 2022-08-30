@@ -68,7 +68,7 @@ export const OfflineMap = ({ longitude, latitude }) => {
         iconUrl: hiker,
         iconSize: [10, 10],
       });
-      if (long & (lat !== "loading...")) {
+      if (long & (lat !== 0)) {
         L.marker([lat, long], { icon: hikerIcon }).addTo(map);
       }
       map.panTo(new L.LatLng([lat, long]));

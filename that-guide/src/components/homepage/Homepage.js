@@ -15,8 +15,6 @@ import Spinner from "react-spinkit";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function Homepage({
-  selectedDistance,
-  setSelectedDistance,
   latitude,
   longitude,
   setGoalCoords,
@@ -34,11 +32,6 @@ export default function Homepage({
 
   const navigate = useNavigate();
 
-  const handleSetDistance = (event) => {
-    setSelectedDistance(event.target.value);
-    console.log(event.target.value);
-  };
-
   const handleStartHike = (event) => {
     navigate("/starthike");
     event.preventDefault();
@@ -46,12 +39,7 @@ export default function Homepage({
     setError(null);
     setElevation(elevation);
     console.log("You have started a hike.");
-    if (selectedDistance) {
-      console.log(selectedDistance);
-    } else {
-      console.log("user chose not to track distance");
-      console.log(selectedDistance);
-    }
+
   };
 
   const [expanded, setExpanded] = React.useState(false);
@@ -120,69 +108,7 @@ export default function Homepage({
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion
-              expanded={expanded === "panel2"}
-              onChange={handleChange("panel2")}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2bh-content"
-                id="panel2bh-header"
-              >
-                <Typography sx={{ width: "30%", flexShrink: 0 }}>
-                  Set a distance.
-                </Typography>
-                <Typography sx={{ color: "text.secondary" }}>
-                  Choose a distance you want to hike in miles.
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  <div className="dropdown-options">
-                    <h4>I want to hike</h4>
-                    <form
-                      id="select-distance"
-                      onSubmit={setSelectedDistance}
-                    ></form>
-                    <div className="hike-starter-container">
-                      <TextField
-                        label="Type desired distance"
-                        style={{
-                          borderRadius: 10,
-                          backgroundColor: "white",
-                          fontSize: "12px",
-                          margin: "15px",
-                        }}
-                        id="filled-basic"
-                        variant="filled"
-                        onChange={(e) => setSelectedDistance(e.target.value)}
-                        onClick={() => {
-                          setHikeType("Mile-based Hike");
-                          setSelectedHikeType("Mile-based Hike");
-                        }}
-                      />
-                      <h4>miles</h4>
-                      <Button
-                        style={{
-                          borderRadius: 35,
-                          backgroundColor: "#21b6ae",
-                          padding: "10px",
-                          fontSize: "12px",
-                          margin: "10px",
-                        }}
-                        variant="contained"
-                        type="submit"
-                        className="start-hike"
-                        onClick={handleStartHike}
-                        onSubmit={handleSetDistance}
-                      >
-                        Start Hike
-                      </Button>
-                    </div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+
             <Accordion
               expanded={expanded === "panel3"}
               onChange={handleChange("panel3")}
@@ -196,7 +122,7 @@ export default function Homepage({
                   Freeform hike.
                 </Typography>
                 <Typography sx={{ color: "text.secondary" }}>
-                  Choose this option to track a hike without a goal distance.
+                  Choose this option to track a hike without a goal destination.
                   Hiking results will be shown after pressing "Stop Hike."
                 </Typography>
               </AccordionSummary>
@@ -205,7 +131,6 @@ export default function Homepage({
                   <div>
                     <div className="dropdown-options">
                       <h4>I just want to hike!</h4>
-
                       <Button
                         style={{
                           borderRadius: 35,

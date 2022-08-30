@@ -16,8 +16,6 @@ mapboxgl.accessToken =
 export default function Map({
   latitude,
   longitude,
-  selectedDistance,
-  setSelectedDistance,
   setGoalCoords,
   setHikeType,
   setSelectedHikeType,
@@ -25,8 +23,7 @@ export default function Map({
   setDestinationType,
   online,
 }) {
-  // console.log(latitude);
-  // console.log(longitude);
+
   const navigate = useNavigate();
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -225,33 +222,9 @@ export default function Map({
       toggleButton();
     });
 
-    // creates a User Location Marker at device location
-    // const el = document.createElement("div");
-    // el.className = "user-marker";
-
-    // const userMark = new mapboxgl.Marker(el)
-    //   .setLngLat([longitude, latitude])
-    //   .addTo(map);
-
-    // setUserMarker(userMark);
     setMapObject(map);
   }, []);
 
-  // function that updates the User marker's long lat
-  // function updateUserMarker() {
-  //   if (mapObject) {
-  //     userMarker.setLngLat([longitude, latitude]);
-  //   }
-  // }
-
-  // updateUserMarker();
-
-  // function to re-center map around User
-  // function setMapCenter(coords) {
-  //   if (mapObject) {
-  //     mapObject.flyTo(coords);
-  //   }
-  // }
 
   useInterval(() => {
     if (online) {
@@ -265,15 +238,15 @@ export default function Map({
         const data = await query.json();
         // Get all the returned features.
         const allFeatures = data.features;
-        // console.log(allFeatures);
+
         // For each returned feature, add elevation data to the elevations array.
         const elevations = allFeatures.map((feature) => feature.properties.ele);
-        // console.log(elevations);
+
         // In the elevations array, find the largest value.
         const highestElevation = Math.max(...elevations);
 
         const elevationConversion = highestElevation * 3.28;
-        // console.log(elevationConversion);
+
         let roundedElevation = elevationConversion.toFixed(0);
 
         setElevation(roundedElevation);
@@ -281,68 +254,14 @@ export default function Map({
       getElevation();
     }
   }, 7000);
-  // console.log(elevation);
 
-  // let roundedLatitude = parseFloat(Number(latitude.toFixed(5)));
-  // let roundedLongitude = parseFloat(Number(longitude.toFixed(5)));
 
   return (
     <>
       <div className="big-map-container">
-        <div ref={mapContainer} className="map-container"></div>
+        <div ref={mapContainer} className="map-container">
+        </div>
       </div>
     </>
   );
 }
-
-// for (const feature of water.features) {
-//   // create a HTML element for each feature
-//   const el = document.createElement("div");
-//   el.className = "water-marker";
-//   // el.addEventListener('click', function() {
-//   //   window.alert("hi!")
-//   // })
-
-//   // make a marker for each feature and add to the map
-//   new mapboxgl.Marker(el)
-//     .setLngLat([feature.longitude,feature.latitude])
-//     .addTo(map)
-//     .on('click', (e)=>{
-//       map.flyTo({center: [feature.longitude,feature.latitude]})
-//     })
-//     .setPopup(
-//       new mapboxgl.Popup({ offset: 25 }) // add popups
-//         .setHTML(
-//           `<h4>${feature.title}</h4>
-//           <p>Mile Marker: ${feature.mile}</p>
-//           <p>Coordinates: ${e.features[0].latitude},${e.features[0].longitude}</p>
-//           <button type="button" id="test">Test</button>`
-//         )
-//     )
-//     .addTo(map);
-// }
-
-// for (const feature of shelterSources.features) {
-//   // create a HTML element for each feature
-//   const el = document.createElement("div");
-//   el.className = "shelter-marker";
-//   el.addEventListener('click', function() {
-//     map.flyTo({center: [feature.longitude,feature.latitude]})
-//   })
-
-//   // make a marker for each feature and add to the map
-//   new mapboxgl.Marker(el)
-//     .setLngLat([feature.longitude,feature.latitude])
-//     .addTo(map)
-//     .setPopup(
-//       new mapboxgl.Popup({ offset: 25 }) // add popups
-//       .setHTML(
-//           `<h4>${feature.title}</h4>
-//           <p>County: ${feature.county}</p>
-//           <p>State: ${feature.state}</p>
-//           <p>Coordinates: ${feature.latitude},${feature.longitude}</p>
-//           <button type="button" id="button">Test</button>`
-//         )
-//     )
-//     .addTo(map);
-//     }

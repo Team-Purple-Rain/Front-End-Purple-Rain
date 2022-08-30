@@ -34,7 +34,6 @@ export default function StartHike({
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [currentElevation, setCurrentElevation] = useState(elevation);
-  const [distanceCheckpoint, setDistanceCheckpoint] = useState(0);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
@@ -110,22 +109,6 @@ export default function StartHike({
     }
   };
 
-  const distanceRemaining = selectedDistance - distanceCheckpoint;
-  const [speed, setSpeed] = useState("Calculating");
-
-  // button that tells the user how far they have traveled so far
-  const handleDistanceCheckpoint = () => {
-    if (ID !== null && window.location.href.indexOf("start") != -1)
-      axios
-        .get(`https://thatguide.herokuapp.com/map/${ID}/`, {})
-        .then((res) => {
-          console.log(res.data.distance_traveled);
-          setDistanceCheckpoint(res.data.distance_traveled);
-          setSpeed(distanceCheckpoint / (timeTraveled / 60))
-          return distanceCheckpoint;
-        });
-  };
-  setInterval(handleDistanceCheckpoint, 30000);
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
@@ -231,7 +214,6 @@ export default function StartHike({
           </>
         )}
       </div>
-
       <div className="map-and-timer">
         <DestinationMap
           latitude={latitude}
@@ -261,56 +243,6 @@ export default function StartHike({
             </div>
           </div>
         </div>
-      </div>
-      <div className="second-location-header">
-        <></>
-        {hikeType === "Mile-based Hike" ? (
-          <div>
-            <h3>Goal distance: {selectedDistance} miles</h3>
-            <div className="alert">
-              <h5>*Walk at least one mile to return current hike stats.*</h5>
-            </div>
-            <div className="distance-hiked">
-              <h4>
-                Distance Hiked: {distanceCheckpoint} Miles <br />
-              </h4>
-            </div>
-            <div className="distance-remaining">
-              <h4>
-                Distance Remaining: {distanceRemaining} Miles
-                <br /> Current Pace: {speed} MPH
-              </h4>
-            </div>
-          </div>
-        ) : hikeType === "Freeform Hike" ? (
-          <>
-            <div className="alert">
-              <h4>
-                *Your final stats will be displayed at the end of your hike.*{" "}
-                <br />
-                *Walk at least one mile to return current hike stats!*
-              </h4>
-            </div>
-            <div className="distance-hiked">
-              <h4>
-                Distance Hiked: {distanceCheckpoint} Miles
-                <br /> Current Pace: {speed} MPH
-              </h4>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="distance-hiked">
-              <h4>
-                Distance Hiked: {distanceCheckpoint} Miles
-                <br />
-              </h4>
-            </div>
-            <div className="miles-per-hour">
-              <h4>Miles per hour: {speed} MPH </h4>
-            </div>
-          </>
-        )}
       </div>
       <Button
         variant="contained"

@@ -36,9 +36,6 @@ function App() {
   };
   const [loggedIn, setLoggedIn] = useState(false);
   const isLoggedIn = username && token;
-  // console.log(isLoggedIn);
-
-  const [selectedDistance, setSelectedDistance] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
   const highestElevation = useState("");
@@ -86,7 +83,6 @@ function App() {
     "pk.eyJ1IjoicmZyZW5pYSIsImEiOiJjbDZvM2k5bXQwM2lzM2NvYWVvNmVjb3B6In0.ygD9Y7GQ6_FFQlLRCgcKbA";
 
   const areYouLoggedIn = localStorage.getItem("log in");
-  // console.log(areYouLoggedIn);
 
   const navigate = useNavigate();
 
@@ -125,15 +121,13 @@ function App() {
         const data = await query.json();
         // Get all the returned features.
         const allFeatures = data.features;
-        // console.log(allFeatures);
         // For each returned feature, add elevation data to the elevations array.
         const elevations = allFeatures.map((feature) => feature.properties.ele);
-        // console.log(elevations);
         // In the elevations array, find the largest value.
         const highestElevation = Math.max(...elevations);
 
         const elevationConversion = highestElevation * 3.28;
-        // console.log(elevationConversion);
+
         let roundedElevation = elevationConversion.toFixed(0);
 
         setElevation(roundedElevation);
@@ -141,7 +135,8 @@ function App() {
       getElevation();
     }
   }, 7000);
-  // console.log(elevation);
+
+
 
   return (
     <>
@@ -241,8 +236,6 @@ function App() {
           path="/"
           element={
             <Homepage
-              setSelectedDistance={setSelectedDistance}
-              selectedDistance={selectedDistance}
               hikeType={hikeType}
               setHikeType={setHikeType}
               selectedHikeType={selectedHikeType}
@@ -262,7 +255,6 @@ function App() {
           path="/starthike"
           element={
             <StartHike
-              selectedDistance={selectedDistance}
               longitude={longitude}
               latitude={latitude}
               setLatitude={setLatitude}
@@ -300,7 +292,6 @@ function App() {
           path="/starthike"
           element={
             <StartHike
-              selectedDistance={selectedDistance}
               longitude={longitude}
               latitude={latitude}
               setLatitude={setLatitude}

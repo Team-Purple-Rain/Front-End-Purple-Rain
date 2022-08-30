@@ -11,16 +11,12 @@ import moment from "moment";
 function Results({ latitude, longitude }) {
   let { ID } = useParams();
   console.log(ID);
-  const [startLat, setStartLat] = useState(latitude);
-  const [startLong, setStartLong] = useState(longitude);
+
   const [hikeUser, setHikeUser] = useState(null);
   const endHike = useState(null);
   const [elevationGain, setElevationGain] = useState(0);
   const [elevationLoss, setElevationLoss] = useState(0);
-  const [endHikeLat, setEndHikeLat] = useState(latitude);
-  const [endHikeLong, setEndHikeLong] = useState(longitude);
-  const [distanceTraveled, setDistanceTraveled] = useState(0);
-  const [speed, setSpeed] = useState(null);
+
   const [timeTraveled, setTimeTraveled] = useState("");
 
   const areYouLoggedIn = localStorage.getItem("log in");
@@ -59,17 +55,14 @@ function Results({ latitude, longitude }) {
   axios.get(`https://thatguide.herokuapp.com/map/${ID}/`).then((res) => {
     console.log(res);
     setElevationGain(res.data.elevation_gain);
-    setDistanceTraveled(res.data.distance_traveled);
-    setEndHikeLat(res.data.end_location.latitude);
-    setEndHikeLong(res.data.end_location.longitude);
-    setStartLat(res.data.start_location.latitude);
-    setStartLong(res.data.start_location.longitude);
+
+
     setTimeTraveled(time / 60);
     setHikeUser(res.data.username);
     setElevationLoss(res.data.elevation_loss);
-    // setSpeed(distanceTraveled / time);
+
     console.log(timeTraveled);
-    console.log(speed);
+
   });
 
   return (
@@ -78,22 +71,9 @@ function Results({ latitude, longitude }) {
       <div className="results-stats">
         <div className="small-container">
           <h4>Time Hiking: {properTime}</h4>
-          <h4>Distance Hiked: {distanceTraveled} miles</h4>
-          <h4>
-            Average Pace: {distanceTraveled / timeTraveled} miles per hour
-            {/* {distanceTraveled / timeTraveled} */}
-          </h4>
+
         </div>
-        <div className="small-container">
-          <h4>Start Coordinates:</h4>
-          <h4>
-            {startLat}, {startLong}
-          </h4>
-          <h4>End Coordinates:</h4>
-          <h4>
-            {endHikeLat}, {endHikeLong}
-          </h4>
-        </div>
+
         <div className="small-container">
           <h4>Elevation Gain: {elevationGain} feet</h4>
           <h4>Elevation Loss: {elevationLoss} feet</h4>
@@ -132,7 +112,6 @@ function Results({ latitude, longitude }) {
           </Button>
         </div>
       </div>
-      {/* <Map latitude={latitude} longitude={longitude} /> */}
     </>
   );
 }

@@ -24,6 +24,7 @@ export default function StartHike({
   destination,
   elevation,
   destinationType,
+  online,
 }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
@@ -39,6 +40,28 @@ export default function StartHike({
   const hikeSession = ID;
   let token = localStorage.getItem("auth_token");
   let timeTraveled = localStorage.getItem("time");
+  const [startDataLogged, setStartDataLogged] = useState(false);
+  let storageBank = [];
+
+  const MakeInitialLog = () => {
+    let elevation = document.getElementsByClassName("elevation_div");
+    elevation = elevation[0].id;
+    if (elevation !== "calculating..." && startDataLogged === false) {
+      storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+      storageBank.push({
+        hike_session: hikeSession,
+        time_logged: moment().format(),
+        location: {
+          latitude: latitude,
+          longitude: longitude,
+        },
+        elevation: parseInt(elevation),
+      });
+      localStorage.setItem("hike", JSON.stringify(storageBank));
+      console.log("intial log made");
+    }
+    setStartDataLogged(true);
+  };
 
   const handleStartHike = (event) => {
     console.log("hello button");
@@ -83,6 +106,7 @@ export default function StartHike({
           setID(res.data.id);
           console.log(res);
         });
+      MakeInitialLog();
     }
   };
 
@@ -232,6 +256,7 @@ export default function StartHike({
                 ID={ID}
                 setID={setID}
                 hikeSession={hikeSession}
+                storagebank={storageBank}
               />
             </div>
           </div>

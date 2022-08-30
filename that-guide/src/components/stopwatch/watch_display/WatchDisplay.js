@@ -19,6 +19,7 @@ function StopWatch({
   hikeSession,
   timeTraveled,
   setTimeTraveled,
+  storageBank,
 }) {
   const [time, setTime] = useState(0);
 
@@ -46,6 +47,7 @@ function StopWatch({
           longitude={longitude}
           ID={ID}
           hikeSession={hikeSession}
+          storageBank={storageBank}
         />
         <WatchButtons
           active={isActive}

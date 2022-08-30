@@ -1,7 +1,5 @@
-import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import { useEffect, useState, useRef } from "react";
 import { useInterval } from "use-interval";
-import axios from "axios";
 import { OfflineMap } from "./OfflineMap";
 import "leaflet.offline";
 
@@ -31,12 +29,12 @@ export default function OffLinePage(props) {
 
   useInterval(() => {
     getLocation();
-    console.log(latitude);
-    console.log(longitude);
-    console.log("hello");
+    if (latitude & (longitude !== 0)) {
+      console.log(latitude);
+      console.log(longitude);
+      console.log("hello");
+    }
   }, 10000);
-
-  // setInterval(getLocation, 10000);
 
   const handleStartHike = (event) => {
     console.log("hello button");

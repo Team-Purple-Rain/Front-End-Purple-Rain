@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import StopWatch from "../stopwatch/watch_display/WatchDisplay";
 import Timer from "../stopwatch/timer/Timer";
 import L from "leaflet";
-import { OfflineMap } from "./OfflineMap";
 
 export default function Offline({ children }) {
   const {
@@ -29,7 +28,11 @@ export default function Offline({ children }) {
           <div className="offline__text">
             {/* <OffLinePage StopWatch={StopWatch} Timer={Timer} /> */}
             {!online ? (
-              <OffLinePage StopWatch={StopWatch} Timer={Timer} />
+              <OffLinePage
+                StopWatch={StopWatch}
+                Timer={Timer}
+                online={online}
+              />
             ) : (
               <>{children}</>
             )}

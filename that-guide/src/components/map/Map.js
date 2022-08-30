@@ -22,6 +22,9 @@ export default function Map({
   setDestination,
   setDestinationType,
   online,
+  setMileMarker,
+  setState,
+  setStartCoords
 }) {
 
   const navigate = useNavigate();
@@ -104,6 +107,8 @@ export default function Map({
 
           const title = e.features[0].properties.title;
           const coordinates = e.features[0].geometry.coordinates.slice();
+          const mile = e.features[0].properties.mile
+          const goalstate = e.features[0].properties.state
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -127,6 +132,9 @@ export default function Map({
             setSelectedHikeType("Destination Hike");
             setDestination(title);
             setDestinationType("Shelter");
+            setMileMarker(mile);
+            setState(goalstate);
+            setStartCoords([latitude, longitude]);
           });
         });
       });
@@ -177,6 +185,8 @@ export default function Map({
 
           const coordinates = e.features[0].geometry.coordinates.slice();
           const title = e.features[0].properties.title;
+          const mile = e.features[0].properties.mile
+          const goalstate = e.features[0].properties.state
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -200,6 +210,9 @@ export default function Map({
             setSelectedHikeType("Destination Hike");
             setDestination(title);
             setDestinationType("Water Source");
+            setMileMarker(mile);
+            setState(goalstate);
+            setStartCoords([latitude, longitude]);
           });
         });
       });

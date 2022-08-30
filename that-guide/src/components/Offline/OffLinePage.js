@@ -4,6 +4,7 @@ import { useInterval } from "use-interval";
 import axios from "axios";
 import { OfflineMap } from "./OfflineMap";
 import "leaflet.offline";
+import "./Offline.css";
 
 export default function OffLinePage(props) {
   const [longitude, setLongitude] = useState(0);
@@ -57,12 +58,14 @@ export default function OffLinePage(props) {
 
   return (
     <div>
-      <div>
-        <div>You're offline but we're still logging your hike!</div>
+      <div className="offline-stats">
+        <div><h3>You're offline but we're still logging your hike!</h3></div>
         <div>
           Your current coordinates are:
-          <div>Latitude:{latitude}</div>
-          <div>Longitude:{longitude}</div>
+          <div>Latitude: {latitude}</div>
+          <div>Longitude: {longitude}</div>
+        </div>
+        </div>
           <OfflineMap
             longitude={longitude}
             latitude={latitude}
@@ -83,8 +86,8 @@ export default function OffLinePage(props) {
             ID={ID}
             setID={setID}
           ></props.StopWatch>
-        </div>
-      </div>
+       
+      
     </div>
   );
 }

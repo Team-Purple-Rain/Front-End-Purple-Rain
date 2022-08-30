@@ -15,6 +15,9 @@ function IndividualHike(props) {
         setExpanded(isExpanded ? panel : false);
     };
 
+    const timeHikingRounded = (((times) / 60).toFixed(2))
+    
+
     return (
         <>
             <h4> {moment(date).format('MMMM Do YYYY, h:mm:ss a')}</h4>

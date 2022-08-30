@@ -10,7 +10,7 @@
 .all-digits {
 	text-align: left;
 	font-size: calc(1em + 1vw);
-	font-family: 'Silkscreen', cursive;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .digits{
@@ -18,7 +18,7 @@
 	font-size: 6rem;
 	color: black;
 	text-align: left;
-	font-family: 'Alumni Sans Pinstripe', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .mili-sec{
@@ -29,7 +29,7 @@
 .time-elapsed{
 	color: rgb(0, 0, 0);
 	text-align: left;
-	font-family: 'Alumni Sans Pinstripe', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: calc(2em + 1vw);
 
 }

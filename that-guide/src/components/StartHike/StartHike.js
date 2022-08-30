@@ -210,7 +210,7 @@ export default function StartHike({
           </h3>
         ) : (
           <>
-            <h3 className="options">Your Current {hikeType}</h3>
+            <h3 className="options">Your {selectedDistance} {hikeType}</h3>
           </>
         )}
       </div>
@@ -251,7 +251,7 @@ export default function StartHike({
           backgroundColor: "#21b6ae",
           padding: "10px",
           margin: "8px",
-          float: "center",
+          float: "right",
           border: "1px solid white",
         }}
         onClick={handleReturnHome}

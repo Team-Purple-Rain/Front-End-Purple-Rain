@@ -14,6 +14,7 @@ import tentMarker from "./icons/smol.png";
 import waterDrop from "./icons/smolwater.png";
 import hiker from "./icons/hiker.png";
 import L, { marker } from "leaflet";
+import "leaflet";
 import "./Offline.css";
 import { LocationCity } from "@mui/icons-material";
 import maplibregl from "maplibre-gl";
@@ -92,6 +93,7 @@ function OffLinePage(props) {
     if (container != null) {
       container._leaflet_id = null;
     }
+
     let line_layer = new L.GeoJSON(AT_GEOJSON, {
       style: { color: "#000080", weight: 1 },
     }).addTo(map);
@@ -123,19 +125,34 @@ function OffLinePage(props) {
         layer.bindPopup(`Water Source: ${feature.properties.title}`);
       },
     }).addTo(map);
-    let hikerIcon = L.icon({
+    let hiker_layer = new L.GeoJSON(WATER, {
+      pointToLayer: (feature, latlng) => {
+        return L.marker(latlng, { icon: waterIcon });
+      },
+      onEachFeature: (feature = {}, layer) => {
+        layer.bindPopup(`Water Source: ${feature.properties.title}`);
+      },
+    }).addTo(map);
+
+    const hikerIcon = new L.icon({
       iconUrl: hiker,
       iconSize: [10, 10],
     });
-    if (long && lat !== 0) {
-      L.marker([lat, long], { icon: hikerIcon }).addTo(map);
-    }
+    // var latlng = L.latlng(latitude, longitude);
+    L.marker([36.147437, -82.009564], { icon: hikerIcon }).addTo(map);
+
+    // let user = L.marker([36.147437, -82.009564], { icon: hikerIcon }).addTo(
+    //   map
+    // );
+    // user.setLatLng(latlng);
+
+    // let user = marker.setLatLng(latitude, longitude).addTo(map);
   }, []);
 
   useInterval(() => {
     getLocation();
-    if (latitude & (longitude !== 0)) {
-      console.log("hello");
+    if (latitude && longitude !== 0) {
+      console.log("new coordinates");
     }
   }, 10000);
 

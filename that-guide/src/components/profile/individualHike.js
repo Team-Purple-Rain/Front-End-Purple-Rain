@@ -24,20 +24,16 @@ function IndividualHike(props) {
                     id="panel1bh-header"
                 >
                     <Typography sx={{ width: '43%', flexShrink: 0 }}>
-                        Open for Details
+                        {expanded ? "Click to Close" : "Open for Details"}
                     </Typography>
-                    {/* <Typography sx={{ color: 'text.secondary' }}>
-                        {moment(date).format('MMMM Do YYYY, h:mm:ss a')}
-                    </Typography> */}
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
 
                         Distance Hiked: {distance} miles
                         <br />
-                        Time Hiking: {times} minutes
+                        Time Hiking: {times / 60} minutes
                         <br />
-                        {/* {properTime} */}
                         Average Pace:
                         {speed} mph
                         <br />

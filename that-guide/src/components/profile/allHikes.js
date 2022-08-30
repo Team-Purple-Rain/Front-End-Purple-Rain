@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import * as React from 'react'
 import moment from "moment";
+import individualHike from "./individualHike";
 
 
 
@@ -43,23 +44,16 @@ function AllHikes({ latitude, longitude, hikeType }) {
                 setHikeResults(res.data);
                 console.log(hikeResults);
                 setTime(res.data.travel_time);
-                let averagePace = (res.data.distance_traveled) / (((res.data.travel_time)/60)/60)
+                let averagePace = (res.data.distance_traveled) / (((res.data.travel_time) / 60) / 60)
                 if (averagePace === NaN) {
                     return "Not enough information to determine pace."
                 }
             })
     }, [])
 
-
-    // const newTime = new Date(null);
-    // newTime.setSeconds(time);
-    // const properTime = newTime.toISOString().substr(11, 8);
-
-    // let averagePace = (individualHike.distance_traveled) / (((individualHike.travel_time) / 60) / 60)
-
     return (
         <>
-        
+            <individualHike />
             {hikeResults.map((individualHike) => (
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary

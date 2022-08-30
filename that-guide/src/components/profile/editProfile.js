@@ -24,64 +24,64 @@ import "./profile.css";
 
 function EditProfile() {
 
-    let token = localStorage.getItem("auth_token");
-    let username = localStorage.getItem("username")
-    const navigate = useNavigate();
-    const handleDiscardChanges = (event) => {
-        navigate("/profile");
-    }
-    const [preferredPace, setPreferredPace] = useState(null);
-    const [experience, setExperience] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [phone, setPhone] = useState(null);
-    const [newEmail, setNewEmail] = useState(null);
-    const [newPhone, setNewPhone] = useState(null);
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [newFirstName, setNewFirstName] = useState(null);
-    const [newLastName, setNewLastName] = useState(null);
+  let token = localStorage.getItem("auth_token");
+  let username = localStorage.getItem("username")
+  const navigate = useNavigate();
+  const handleDiscardChanges = (event) => {
+    navigate("/profile");
+  }
+  const [preferredPace, setPreferredPace] = useState(null);
+  const [experience, setExperience] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [newEmail, setNewEmail] = useState(null);
+  const [newPhone, setNewPhone] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [newFirstName, setNewFirstName] = useState(null);
+  const [newLastName, setNewLastName] = useState(null);
 
+  axios
+    .get(`https://thatguide.herokuapp.com/users/me/`, {
+      headers: {
+        Authorization: `Token ${token}`,
+      }
+    })
+    .then((res) => {
+      setEmail(res.data.email);
+      setPhone(res.data.phone);
+      setFirstName(res.data.first_name);
+      setLastName(res.data.last_name);
+    })
+    ;
+
+  const handleSaveChanges = (event) => {
     axios
-        .get(`https://thatguide.herokuapp.com/users/me/`, {
-            headers: {
-                Authorization: `Token ${token}`,
-            }
-        })
-        .then((res) => {
-            setEmail(res.data.email);
-            setPhone(res.data.phone);
-            setFirstName(res.data.first_name);
-            setLastName(res.data.last_name);
-        })
-        ;
+      .patch(`https://thatguide.herokuapp.com/users/me/`, {
+        email: newEmail,
+        phone: newPhone,
+        pace_list: preferredPace,
+        experience_list: experience,
+        first_name: newFirstName,
+        last_name: newLastName
+      },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          }
+        }
+      )
+      .then((res) => {
+        console.log("changes made");
+        // setFirstName("");
+        // setLastName("");
+        // setEmail("");
+        navigate("/profile")
+      })
+  }
 
-    const handleSaveChanges = (event) => {
-        axios
-            .patch(`https://thatguide.herokuapp.com/users/me/`, {
-                email: newEmail,
-                phone: newPhone,
-                pace_list: preferredPace,
-                experience_list: experience,
-                first_name: newFirstName,
-                last_name: newLastName
-            },
-                {
-                    headers: {
-                        Authorization: `Token ${token}`,
-                    }
-                }
-            )
-            .then((res) => {
-                console.log("changes made");
-                // setFirstName("");
-                // setLastName("");
-                // setEmail("");
-                navigate("/profile")
-            })
-    }
-
-// MUI consts
-const experiences = [
+  // MUI consts
+  const experiences = [
     {
       value: 'beginner',
       label: 'Beginner',
@@ -117,106 +117,106 @@ const experiences = [
     },
   ];
 
-    return (
-        <>
-        <div className="personal-info">
-            <h3>Edit Profile</h3>
-            <h3> Username:  {username} </h3>
-                <br />
+  return (
+    <>
+      <div className="personal-info">
+        <h3>Edit Profile</h3>
+        <h3> Username:  {username} </h3>
+        <br />
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-            <div>
-                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                <OutlinedInput
-                    required
-                    id="outlined-required"
-                    type="text"
-                    name="first"
-                    aria-describedby="outlined-first-name-helper-text"
-                    value={firstName}
-                    // placeholder={firstName}
-                    onChange={(event) => setFirstName(event.target.value)}
-                />
-                <FormHelperText id="outlined-weight-helper-text">First Name</FormHelperText>
-                </FormControl>
-                
-                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                <OutlinedInput
-                    required
-                    id="outlined-required"
-                    type="text"
-                // placeholder={lastName}
-                    value={lastName}
-                    onChange={(event) => setLastName(event.target.value)}
-                />
-                <FormHelperText id="outlined-weight-helper-text">Last Name</FormHelperText>
-                </FormControl>
-                <br/>
-            </div>
-            <div>
-                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                <OutlinedInput
-                    id="outlined-adornment-weight"
-                    type="text"
-                    value={email}
-                    placeholder={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-                <FormHelperText id="outlined-weight-helper-text">Email</FormHelperText>
-                </FormControl>
-                <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                <OutlinedInput
-                    id="outlined-adornment-weight"
-                    type="text"
-                    placeholder={phone}
-                    value={phone}
-                    onChange={(event) => setPhone(event.target.value)}
-                />
-                <FormHelperText id="outlined-weight-helper-text">Phone Number</FormHelperText>
-                </FormControl>
-                <br/>
-            </div>
-            </Box>
-            <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-            name="selectList" 
-            id="selectList"
-            select
-            label="Select"
-            helperText="Experience Level"
-            value={experience}
-            onChange={(event) => setExperience(event.target.value)}
+          <div>
+            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+              <OutlinedInput
+                required
+                id="outlined-required"
+                type="text"
+                name="first"
+                aria-describedby="outlined-first-name-helper-text"
+                // value={firstName}
+                placeholder={firstName}
+                onChange={(event) => setNewFirstName(event.target.value)}
+              />
+              <FormHelperText id="outlined-weight-helper-text">First Name</FormHelperText>
+            </FormControl>
+
+            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+              <OutlinedInput
+                required
+                id="outlined-required"
+                type="text"
+                placeholder={lastName}
+                // value={lastName}
+                onChange={(event) => setNewLastName(event.target.value)}
+              />
+              <FormHelperText id="outlined-weight-helper-text">Last Name</FormHelperText>
+            </FormControl>
+            <br />
+          </div>
+          <div>
+            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+              <OutlinedInput
+                id="outlined-adornment-weight"
+                type="text"
+                // value={email}
+                placeholder={email}
+                onChange={(event) => setNewEmail(event.target.value)}
+              />
+              <FormHelperText id="outlined-weight-helper-text">Email</FormHelperText>
+            </FormControl>
+            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+              <OutlinedInput
+                id="outlined-adornment-weight"
+                type="text"
+                placeholder={phone}
+                // value={phone}
+                onChange={(event) => setNewPhone(event.target.value)}
+              />
+              <FormHelperText id="outlined-weight-helper-text">Phone Number</FormHelperText>
+            </FormControl>
+            <br />
+          </div>
+        </Box>
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
         >
-            {experiences.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-            name="selectList" 
-            id="selectList"
-            select
-            label="Select"
-            helperText="Preferred Hiking Pace"
-            value={preferredPace}
-            onChange={(event) => setPreferredPace(event.target.value)}
-        >
-            {preferredPaces.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </div>
-      </Box>
+          <div>
+            <TextField
+              name="selectList"
+              id="selectList"
+              select
+              label="Select"
+              helperText="Experience Level"
+              value={experience}
+              onChange={(event) => setExperience(event.target.value)}
+            >
+              {experiences.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              name="selectList"
+              id="selectList"
+              select
+              label="Select"
+              helperText="Preferred Hiking Pace"
+              value={preferredPace}
+              onChange={(event) => setPreferredPace(event.target.value)}
+            >
+              {preferredPaces.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+        </Box>
       </div>
       <div className="results-buttons">
         <Button
@@ -247,8 +247,8 @@ const experiences = [
           onClick={handleDiscardChanges}>Discard Changes</Button>
       </div>
 
-        </>
-    )
+    </>
+  )
 }
 
 export default EditProfile

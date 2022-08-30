@@ -43,28 +43,44 @@ export default function StartHike({
   let storageBank = [];
 
   const MakeInitialLog = () => {
-    let elevation = document.getElementsByClassName("elevation_div");
-    elevation = elevation[0].id;
-    if (elevation !== "calculating..." && startDataLogged === false) {
-      storageBank = JSON.parse(localStorage.getItem("hike")) || [];
-      storageBank.push({
-        hike_session: hikeSession,
-        time_logged: moment().format(),
-        location: {
-          latitude: latitude,
-          longitude: longitude,
-        },
-        elevation: parseInt(elevation),
-      });
-      localStorage.setItem("hike", JSON.stringify(storageBank));
-      console.log("intial log made");
+    if (online) {
+      let elevation = document.getElementsByClassName("elevation_div");
+      elevation = elevation[0].id;
+      if (elevation !== "calculating..." && startDataLogged === false) {
+        storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+        storageBank.push({
+          hike_session: hikeSession,
+          time_logged: moment().format(),
+          location: {
+            latitude: latitude,
+            longitude: longitude,
+          },
+          elevation: parseInt(elevation),
+        });
+        localStorage.setItem("hike", JSON.stringify(storageBank));
+        console.log("intial log made");
+      }
+      if (!online) {
+        storageBank = JSON.parse(localStorage.getItem("hike")) || [];
+        storageBank.push({
+          hike_session: hikeSession,
+          time_logged: moment().format(),
+          location: {
+            latitude: latitude,
+            longitude: longitude,
+          },
+          elevation: parseInt(elevation),
+        });
+        localStorage.setItem("hike", JSON.stringify(storageBank));
+        console.log("intial offline log made");
+      }
     }
     setStartDataLogged(true);
   };
 
   const handleStartHike = (event) => {
     console.log("hello button");
-    if (elevation != "calculating..." && token != null) {
+    if (elevation != "calculating..." && token != null && online) {
       setIsActive(true);
       setIsPaused(false);
       setIsStarted(true);
@@ -88,7 +104,7 @@ export default function StartHike({
           setID(res.data.id);
           console.log(res);
         });
-    } else if (elevation != "calculating..." && token === null) {
+    } else if (elevation != "calculating..." && token === null && online) {
       setIsActive(true);
       setIsPaused(false);
       setIsStarted(true);
@@ -107,8 +123,13 @@ export default function StartHike({
         });
       MakeInitialLog();
     }
+    if (!online) {
+      setIsActive(true);
+      setIsPaused(false);
+      setIsStarted(true);
+      MakeInitialLog();
+    }
   };
-
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
@@ -210,7 +231,9 @@ export default function StartHike({
           </h3>
         ) : (
           <>
-            <h3 className="options">Your {selectedDistance} {hikeType}</h3>
+            <h3 className="options">
+              Your {selectedDistance} {hikeType}
+            </h3>
           </>
         )}
       </div>

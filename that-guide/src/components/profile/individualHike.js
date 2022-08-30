@@ -8,8 +8,15 @@ import moment from 'moment';
 
 function IndividualHike(props) {
     const { distance, times, speed, elevationGain, elevationLoss, startingLat, startingLong, endingLat, endingLong, date } = props;
+
+    // if (speed === NaN) {
+    //     return "Not enough information to determine pace"
+    // };
+
     let token = localStorage.getItem("auth_token");
+
     const [expanded, setExpanded] = React.useState(false);
+
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };

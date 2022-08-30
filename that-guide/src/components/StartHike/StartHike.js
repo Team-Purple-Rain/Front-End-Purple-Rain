@@ -223,6 +223,7 @@ export default function StartHike({
           longitude={longitude}
           goalCoords={goalCoords}
           handleStop={handleStop}
+          destinationType={destinationType}
         />
         <div className="whole-stats-container">
           <div className="right-container">

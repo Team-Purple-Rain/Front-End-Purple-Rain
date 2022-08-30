@@ -290,6 +290,7 @@ function App() {
               longitude={longitude}
               setID={setID}
               ID={ID}
+              hikeType={hikeType}
             />
           }
         />

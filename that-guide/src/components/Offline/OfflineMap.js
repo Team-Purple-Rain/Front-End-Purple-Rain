@@ -16,11 +16,11 @@ export const OfflineMap = ({ longitude, latitude }) => {
   const lat = latitude;
 
   useEffect(() => {
-    const container = L.DomUtil.get("offline_map");
+    // const container = L.DomUtil.get("offline_map");
 
-    if (container != null) {
-      container._leaflet_id = null;
-    }
+    // if (container != null) {
+    //   container._leaflet_id = null;
+    // }
 
     if (long && lat !== "loading...") {
       let map = L.map("offline_map").setView([lat, long], 30);

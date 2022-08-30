@@ -111,7 +111,7 @@ export default function Timer(props) {
   logTime();
 
   useEffect(() => {
-    if (!online) {
+    if (online) {
       let elevation = document.getElementsByClassName("elevation_div");
       elevation = elevation[0].id;
       if (

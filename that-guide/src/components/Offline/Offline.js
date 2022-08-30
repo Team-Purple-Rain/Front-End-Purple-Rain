@@ -39,8 +39,7 @@ export default function Offline({ children }) {
       <div className="offline">
         <div className="offline__content">
           <div className="offline__text">
-            <OffLinePage StopWatch={StopWatch} Timer={Timer} />
-            {/* {!online ? (
+            {!online ? (
               <OffLinePage
                 StopWatch={StopWatch}
                 Timer={Timer}
@@ -48,7 +47,7 @@ export default function Offline({ children }) {
               />
             ) : (
               <>{children}</>
-            )} */}
+            )}
           </div>
         </div>
       </div>
@@ -86,7 +85,7 @@ function OffLinePage(props) {
   useEffect(() => {
     const map = L.map("offline_map", {
       center: [30, -80],
-      zoom: 4,
+      zoom: 40,
     });
     const container = L.DomUtil.get("offline_map");
     console.log(container._leaflet_id);

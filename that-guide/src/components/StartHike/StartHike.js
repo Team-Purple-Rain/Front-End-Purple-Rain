@@ -96,7 +96,7 @@ export default function StartHike({
           return distanceCheckpoint;
         });
   }
-  setInterval(handleDistanceCheckpoint, 5000)
+  setInterval(handleDistanceCheckpoint, 30000)
 
   const distanceRemaining = selectedDistance - distanceCheckpoint
   const speed = distanceCheckpoint / (timeTraveled / 60)
@@ -130,7 +130,7 @@ export default function StartHike({
       handleStop();
     }
   };
-  setInterval(hitCheckpoint, 5000);
+  setInterval(hitCheckpoint, 30000);
 
   const sendToBackEnd = () => {
     const data = localStorage.getItem("hike");

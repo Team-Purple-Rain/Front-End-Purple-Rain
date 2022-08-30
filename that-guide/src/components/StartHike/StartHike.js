@@ -33,7 +33,7 @@ export default function StartHike({
   const [endHikeLat, setEndHikeLat] = useState(latitude);
   const [endHikeLong, setEndHikeLong] = useState(longitude);
   const [currentElevation, setCurrentElevation] = useState(elevation);
-  const [distanceCheckpoint, setDistanceCheckpoint] = useState(null);
+  const [distanceCheckpoint, setDistanceCheckpoint] = useState(0);
   const [isStopped, setIsStopped] = useState(false);
   const [ID, setID] = useState(null);
   const hikeSession = ID;
@@ -86,6 +86,9 @@ export default function StartHike({
     }
   };
 
+  const distanceRemaining = selectedDistance - distanceCheckpoint;
+  const [speed, setSpeed] = useState("Calculating");
+
   // button that tells the user how far they have traveled so far
   const handleDistanceCheckpoint = () => {
     if (ID !== null && window.location.href.indexOf("start") != -1)
@@ -94,13 +97,11 @@ export default function StartHike({
         .then((res) => {
           console.log(res.data.distance_traveled);
           setDistanceCheckpoint(res.data.distance_traveled);
+          setSpeed(distanceCheckpoint / (timeTraveled / 60))
           return distanceCheckpoint;
         });
   };
   setInterval(handleDistanceCheckpoint, 30000);
-
-  const distanceRemaining = selectedDistance - distanceCheckpoint;
-  const speed = distanceCheckpoint / (timeTraveled / 60);
 
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
@@ -246,13 +247,13 @@ export default function StartHike({
             </div>
             <div className="distance-hiked">
               <h4>
-                Distance Hiked: {distanceCheckpoint} miles <br />
+                Distance Hiked: {distanceCheckpoint} Miles <br />
               </h4>
             </div>
             <div className="distance-remaining">
               <h4>
-                Distance Remaining: {distanceRemaining} miles
-                <br /> Current Pace: {speed} mph
+                Distance Remaining: {distanceRemaining} Miles
+                <br /> Current Pace: {speed} MPH
               </h4>
             </div>
           </div>
@@ -262,15 +263,13 @@ export default function StartHike({
               <h4>
                 *Your final stats will be displayed at the end of your hike.*{" "}
                 <br />
-                {/* *Walk at least one mile to return current hike stats!* */}
+                *Walk at least one mile to return current hike stats!*
               </h4>
             </div>
             <div className="distance-hiked">
               <h4>
-                Distance Hiked: {distanceCheckpoint} miles
-                <br /> Current Pace: {speed} mph
-                {/* <button className="checkpoint-button"
-                        onClick={handleDistanceCheckpoint}>Distance Hiked</button> */}
+                Distance Hiked: {distanceCheckpoint} Miles
+                <br /> Current Pace: {speed} MPH
               </h4>
             </div>
           </>
@@ -278,14 +277,12 @@ export default function StartHike({
           <>
             <div className="distance-hiked">
               <h4>
-                Distance Hiked: {distanceCheckpoint} miles
+                Distance Hiked: {distanceCheckpoint} Miles
                 <br />
-                {/* <button className="checkpoint-button"
-                        onClick={handleDistanceCheckpoint}>Distance Hiked</button> */}
               </h4>
             </div>
             <div className="miles-per-hour">
-              <h4>Miles per hour: {speed} mph</h4>
+              <h4>Miles per hour: {speed} MPH </h4>
             </div>
           </>
         )}
@@ -296,7 +293,6 @@ export default function StartHike({
           borderRadius: 50,
           backgroundColor: "#21b6ae",
           padding: "10px",
-          // fontSize: "calc(.5vw + .5vh + .5vmin)",
           margin: "8px",
           float: "center",
           border: "1px solid white",
@@ -305,7 +301,6 @@ export default function StartHike({
       >
         Return Home
       </Button>
-      {/* <button onClick={sendToBackEnd}>Send To Back End</button> */}
     </>
   );
 }

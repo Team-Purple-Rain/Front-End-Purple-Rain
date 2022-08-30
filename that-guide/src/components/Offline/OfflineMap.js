@@ -23,7 +23,7 @@ export const OfflineMap = ({ longitude, latitude }) => {
     // }
 
     if (long && lat !== "loading...") {
-      let map = L.map("offline_map").setView([lat, long], 30);
+      const map = L.map("offline_map").setView([lat, long], 30);
       if (map) {
         let line_layer = new L.GeoJSON(AT_GEOJSON, {
           style: { color: "#000080", weight: 1 },
@@ -66,7 +66,7 @@ export const OfflineMap = ({ longitude, latitude }) => {
         L.marker([lat, long], { icon: hikerIcon }).addTo(map);
       }
     }
-  }, [lat, long]);
+  });
 
   return (
     <>

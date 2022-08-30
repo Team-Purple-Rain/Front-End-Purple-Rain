@@ -23,24 +23,8 @@ export default function Map({
   setSelectedHikeType,
   setDestination,
   setDestinationType,
+  online,
 }) {
-  const {
-    value: online,
-    setFalse: setOffline,
-    setTrue: setOnline,
-  } = useBooleanState(navigator.onLine);
-  const previousOnline = usePrevious(online);
-
-  useEffect(() => {
-    window.addEventListener("online", setOnline);
-    window.addEventListener("offline", setOffline);
-
-    return () => {
-      window.removeEventListener("online", setOnline);
-      window.removeEventListener("offline", setOffline);
-    };
-  }, []);
-
   // console.log(latitude);
   // console.log(longitude);
   const navigate = useNavigate();
@@ -81,7 +65,7 @@ export default function Map({
       new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true,
-          maximumAge: 10000
+          maximumAge: 10000,
         },
         trackUserLocation: true,
         showUserHeading: true,
@@ -190,7 +174,8 @@ export default function Map({
             center: [
               e.features[0].properties.longitude,
               e.features[0].properties.latitude - 0.002,
-            ], zoom: 15,
+            ],
+            zoom: 15,
           });
 
           const coordinates = e.features[0].geometry.coordinates.slice();
@@ -303,10 +288,8 @@ export default function Map({
 
   return (
     <>
-      <div  className="big-map-container">
-
-        <div ref={mapContainer} className="map-container">
-       </div>
+      <div className="big-map-container">
+        <div ref={mapContainer} className="map-container"></div>
       </div>
     </>
   );

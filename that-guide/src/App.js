@@ -143,8 +143,6 @@ function App() {
   }, 7000);
   // console.log(elevation);
 
-  
-
   return (
     <>
       <div className="background">
@@ -256,6 +254,7 @@ function App() {
               setDestination={setDestination}
               destination={destination}
               setDestinationType={setDestinationType}
+              online={online}
             />
           }
         />
@@ -277,6 +276,7 @@ function App() {
               destination={destination}
               elevation={elevation}
               destinationType={destinationType}
+              online={online}
             />
           }
         />
@@ -314,6 +314,7 @@ function App() {
               destination={destination}
               elevation={elevation}
               setElevation={setElevation}
+              online={online}
             />
           }
         />

@@ -28,6 +28,7 @@ export default function Homepage({
   setSelectedHikeType,
   setDestination,
   setDestinationType,
+  online,
 }) {
   const [error, setError] = useState(null);
 
@@ -90,6 +91,7 @@ export default function Homepage({
                 longitude={longitude}
                 setGoalCoords={setGoalCoords}
                 setDestinationType={setDestinationType}
+                online={online}
               />
             </div>
           </div>

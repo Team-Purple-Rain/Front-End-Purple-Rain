@@ -56,49 +56,66 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
     console.log(res);
     setElevationGain(res.data.elevation_gain);
 
-
     setTimeTraveled(time / 60);
     setHikeUser(res.data.username);
     setElevationLoss(res.data.elevation_loss);
 
     console.log(timeTraveled);
-
   });
 
-  let endCoords = (localStorage.getItem("goalCoords"))
+  let endCoords = localStorage.getItem("goalCoords");
   // console.log(endCoords[1])
 
-let destinationType = localStorage.getItem("destinationType")
-let destination = localStorage.getItem("destination")
-console.log(destination)
-console.log(destinationType)
-console.log(hikeType)
+  let destinationType = localStorage.getItem("destinationType");
+  let destination = localStorage.getItem("destination");
+  let startCoords = localStorage.getItem("startCoords");
+  let mileMarker = localStorage.getItem("milemarker");
 
-
+  console.log(destination);
+  console.log(endCoords[0]);
+  console.log(endCoords[1]);
+  console.log(endCoords)
+  console.log(hikeType);
 
   return (
     <>
       <div className="options">Hike Results</div>
       <div className="results-stats">
-      {hikeType === "Destination Hike" ? (
-          <h2>
-            You completed a hike to {destination}.
-          </h2>
-        ) : ("")}
-        <div className="small-container">
+        {hikeType === "Destination Hike" ? (
+          <>
+            <h2>Your hike to {destination}</h2>
+            <div className="small-container">
+              <h4>Time Hiking: {properTime}</h4>
+            </div>
+            <div className="small-container">
+              <h4>Destination Mile Marker: {mileMarker}</h4>
+            </div>
+            <div className="small-container">
+              <h4>Start Coordinates: {startCoords}</h4>
+              <h4>End Coordinates: {endCoords} </h4>
+            </div>
+            <div className="small-container">
+              <h4>Elevation Gain: {elevationGain} feet</h4>
+              <h4>Elevation Loss: {elevationLoss} feet</h4>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2>Your Freeform Hike</h2>
+            <div className="small-container">
+              <h4>Time Hiking: {properTime}</h4>
+            </div>
+            <div className="small-container">
+              <h4>Start Coordinates: {startCoords}</h4>
+              <h4>End Coordinates: [{latitude},{longitude}] </h4>
+            </div>
+            <div className="small-container">
+              <h4>Elevation Gain: {elevationGain} feet</h4>
+              <h4>Elevation Loss: {elevationLoss} feet</h4>
+            </div>
+          </>
+        )}
 
-          <h4>Time Hiking: {properTime}</h4>
-
-        </div>
-
-        <div className="small-container">
-          <h4>Elevation Gain: {elevationGain} feet</h4>
-          <h4>Elevation Loss: {elevationLoss} feet</h4>
-        </div>
-        <div className="small-container">
-          <h4>Start Coordinates: {latitude}, {longitude}</h4>
-          <h4>End Coordinates: {endCoords} </h4>
-        </div>
         <div className="results-buttons">
           <Button
             startIcon={<SaveIcon />}

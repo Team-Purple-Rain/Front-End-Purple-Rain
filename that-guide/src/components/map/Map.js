@@ -134,7 +134,7 @@ export default function Map({
             setDestinationType("Shelter");
             setMileMarker(mile);
             setState(goalstate);
-            setStartCoords([longitude, latitude]);
+            setStartCoords([latitude, longitude]);
           });
         });
       });
@@ -212,7 +212,7 @@ export default function Map({
             setDestinationType("Water Source");
             setMileMarker(mile);
             setState(goalstate);
-            setStartCoords([longitude, latitude]);
+            setStartCoords([latitude, longitude]);
           });
         });
       });

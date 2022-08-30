@@ -151,7 +151,7 @@ export default function Homepage({
                           setHikeType("Freeform Hike");
                           setSelectedHikeType("Freeform Hike");
                           setGoalCoords([0, 0]);
-                          setStartCoords([longitude,latitude]);
+                          setStartCoords([latitude, longitude]);
                           handleStartHike();
                         }}
                       >

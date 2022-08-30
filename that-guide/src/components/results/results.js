@@ -74,7 +74,8 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
   console.log(destination);
   console.log(endCoords[0]);
   console.log(endCoords[1]);
-  console.log(endCoords)
+  console.log(endCoords.slice(0,20))
+  console.log(endCoords.slice(21,40))
   console.log(hikeType);
 
   return (
@@ -91,8 +92,8 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
               <h4>Destination Mile Marker: {mileMarker}</h4>
             </div>
             <div className="small-container">
-              <h4>Start Coordinates: {startCoords}</h4>
-              <h4>End Coordinates: {endCoords} </h4>
+              <h4>Start Coordinates: {startCoords.slice(1,18)},{startCoords.slice(19,37)}</h4>
+              <h4>End Coordinates: {endCoords.slice(20,38)},{endCoords.slice(1,19)} </h4>
             </div>
             <div className="small-container">
               <h4>Elevation Gain: {elevationGain} feet</h4>

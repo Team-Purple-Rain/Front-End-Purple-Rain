@@ -30,8 +30,23 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
   const navigate = useNavigate();
 
   const handleResetSave = (event) => {
-    clearLocalStorage();
-    areYouLoggedIn ? navigate("/profile") : navigate("/createuser");
+    axios
+      .patch(`https://thatguide.herokuapp.com/map/${ID}/`, {
+        starting_location: {
+          latitude: startingLat,
+          longitude: startingLong
+        },
+        end_location: {
+          latitude: endingLat,
+          longitude: endingLong,
+        },
+        avg_mph: mileMarker
+      })
+      .then((res) => {
+        console.log("patched something");
+        clearLocalStorage();
+        areYouLoggedIn ? navigate("/profile") : navigate("/createuser");
+      })
   };
 
   const handleClearData = () => {
@@ -70,13 +85,13 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
   let destination = localStorage.getItem("destination");
   let startCoords = localStorage.getItem("startCoords");
   let mileMarker = localStorage.getItem("milemarker");
+  console.log(mileMarker)
+  const endingLat = (endCoords.slice(20, 38))
+  const endingLong = (endCoords.slice(1, 19))
+  const startingLat = (startCoords.slice(1, 10))
+  const startingLong = (startCoords.slice(12, 22))
 
-  console.log(destination);
-  console.log(endCoords[0]);
-  console.log(endCoords[1]);
-  console.log(endCoords.slice(0,20))
-  console.log(endCoords.slice(21,40))
-  console.log(hikeType);
+
 
   return (
     <>
@@ -92,8 +107,8 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
               <h4>Destination Mile Marker: {mileMarker}</h4>
             </div>
             <div className="small-container">
-              <h4>Start Coordinates: {startCoords.slice(1,18)},{startCoords.slice(19,37)}</h4>
-              <h4>End Coordinates: {endCoords.slice(20,38)},{endCoords.slice(1,19)} </h4>
+              <h4>Start Coordinates: {startCoords.slice(1, 10)}, {startCoords.slice(12, 22)}</h4>
+              <h4>End Coordinates: {endCoords.slice(20, 38)}, {endCoords.slice(1, 19)} </h4>
             </div>
             <div className="small-container">
               <h4>Elevation Gain: {elevationGain} feet</h4>

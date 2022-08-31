@@ -29,12 +29,14 @@ function AllHikes({ latitude, longitude, hikeType }) {
                 hikeResults.map((individualHike) => (
                     (
                         <IndividualHike
-
+                            mileMarker={individualHike.avg_mph}
                             times={individualHike.travel_time}
-
+                            startingLat={individualHike.start_location.latitude}
+                            startingLong={individualHike.start_location.longitude}
+                            endingLat={individualHike.end_location.latitude}
+                            endingLong={individualHike.end_location.longitude}
                             elevationGain={individualHike.elevation_gain}
                             elevationLoss={individualHike.elevation_loss}
-
                             date={individualHike.updated_at}
                         />
                     )))}

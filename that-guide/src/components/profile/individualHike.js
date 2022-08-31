@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import moment from 'moment';
 
 function IndividualHike(props) {
-    const { times, elevationGain, elevationLoss, date } = props;
+    const { times, startingElevation, endingElevation, date, startingLat, startingLong, endingLat, endingLong, mileMarker } = props;
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -16,7 +16,7 @@ function IndividualHike(props) {
     };
 
     const timeHikingRounded = (((times) / 60).toFixed(2))
-    
+
 
     return (
         <>
@@ -33,17 +33,21 @@ function IndividualHike(props) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-
                         Time Hiking: {times / 60} minutes
-
+                        <br />
+                        Mile Marker: {mileMarker}
                         <br />
                         <br />
-                        Elevation Gain: {elevationGain} ft
+                        Starting Elevation: {startingElevation} ft
                         <br />
-                        Elevation Loss: {elevationLoss} ft
+                        Elevation Loss: {endingElevation} ft
                         <br />
-
-
+                        <br />
+                        Starting Location: {startingLat}, {startingLong}
+                        <br />
+                        Ending Location: {endingLat}, {endingLong}
+                        <br />
+                        <br />
                     </Typography>
                 </AccordionDetails>
             </Accordion>

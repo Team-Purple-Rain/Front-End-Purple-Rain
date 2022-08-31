@@ -81,6 +81,9 @@ export default function StartHike({
     setStartDataLogged(true);
   };
 
+  const startingElevation = parseInt(currentElevation)
+
+
   const handleStartHike = (event) => {
     console.log("hello button");
     if (elevation != "calculating..." && token != null && online) {
@@ -96,7 +99,7 @@ export default function StartHike({
               latitude: startLat,
               longitude: startLong,
             },
-            current_elevation: parseInt(currentElevation),
+            current_elevation: startingElevation,
           },
           {
             headers: { Authorization: `Token ${token}` },

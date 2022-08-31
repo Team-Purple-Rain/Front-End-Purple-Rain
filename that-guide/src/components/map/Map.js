@@ -109,6 +109,8 @@ export default function Map({
           const coordinates = e.features[0].geometry.coordinates.slice();
           const stringMile = e.features[0].properties.mile
           const mile = parseInt(stringMile)
+          console.log(stringMile)
+          console.log(mile)
           const goalstate = e.features[0].properties.state
 
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {

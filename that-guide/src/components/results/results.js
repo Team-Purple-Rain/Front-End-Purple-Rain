@@ -90,8 +90,8 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
   const endingLong = (endCoords.slice(1, 19))
   const startingLat = (startCoords.slice(1, 10))
   const startingLong = (startCoords.slice(12, 22))
-
-
+  const startingElevation = localStorage.getItem("hike"[0].elevation)
+  console.log(startingElevation)
 
   return (
     <>
@@ -111,8 +111,8 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
               <h4>End Coordinates: {endCoords.slice(20, 38)}, {endCoords.slice(1, 19)} </h4>
             </div>
             <div className="small-container">
-              <h4>Elevation Gain: {elevationGain} feet</h4>
-              <h4>Elevation Loss: {elevationLoss} feet</h4>
+              {/* <h4>Starting Elevation: {startingElevation} feet</h4>
+              <h4>Ending Elevation: {elevation} feet</h4> */}
             </div>
           </>
         ) : (

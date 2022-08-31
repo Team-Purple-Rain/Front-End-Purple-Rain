@@ -33,7 +33,7 @@ function IndividualHike(props) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Time Hiking: {times / 60} minutes
+                        Time Hiking: {timeHikingRounded} minutes
                         <br />
                         Mile Marker: {mileMarker}
                         <br />

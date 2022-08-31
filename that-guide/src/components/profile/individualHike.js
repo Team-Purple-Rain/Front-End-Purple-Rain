@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import moment from 'moment';
 
 function IndividualHike(props) {
-    const { times, elevationGain, elevationLoss, date, startingLat, startingLong, endingLat, endingLong, mileMarker } = props;
+    const { times, startingElevation, endingElevation, date, startingLat, startingLong, endingLat, endingLong, mileMarker } = props;
 
     const [expanded, setExpanded] = React.useState(false);
 
@@ -38,9 +38,9 @@ function IndividualHike(props) {
                         Mile Marker: {mileMarker}
                         <br />
                         <br />
-                        Elevation Gain: {elevationGain} ft
+                        Starting Elevation: {startingElevation} ft
                         <br />
-                        Elevation Loss: {elevationLoss} ft
+                        Elevation Loss: {endingElevation} ft
                         <br />
                         <br />
                         Starting Location: {startingLat}, {startingLong}

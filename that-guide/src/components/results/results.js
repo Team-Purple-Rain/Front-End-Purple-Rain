@@ -8,7 +8,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import moment from "moment";
 
-function Results({ latitude, longitude, goalCoords, hikeType }) {
+function Results({ latitude, longitude, goalCoords, hikeType, elevation }) {
   let { ID } = useParams();
   console.log(ID);
 
@@ -16,6 +16,7 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
   const endHike = useState(null);
   const [elevationGain, setElevationGain] = useState(0);
   const [elevationLoss, setElevationLoss] = useState(0);
+
 
   const [timeTraveled, setTimeTraveled] = useState("");
 
@@ -40,7 +41,9 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
           latitude: endingLat,
           longitude: endingLong,
         },
-        avg_mph: mileMarker
+        avg_mph: mileMarker,
+        elevation_gain: startingElevation,
+        elevation_loss: endingElevation
       })
       .then((res) => {
         console.log("patched something");
@@ -88,10 +91,15 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
   console.log(mileMarker)
   const endingLat = (endCoords.slice(20, 38))
   const endingLong = (endCoords.slice(1, 19))
+  // const endingLat = latitude
+  // const endingLong = longitude
   const startingLat = (startCoords.slice(1, 10))
   const startingLong = (startCoords.slice(12, 22))
-  const startingElevation = localStorage.getItem("hike"[0].elevation)
+  const elevationArray = JSON.parse(localStorage.getItem("hike") || "[]");
+  console.log(elevationArray[0].elevation)
+  const startingElevation = (elevationArray[0].elevation)
   console.log(startingElevation)
+  const endingElevation = elevation
 
   return (
     <>
@@ -111,8 +119,8 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
               <h4>End Coordinates: {endCoords.slice(20, 38)}, {endCoords.slice(1, 19)} </h4>
             </div>
             <div className="small-container">
-              {/* <h4>Starting Elevation: {startingElevation} feet</h4>
-              <h4>Ending Elevation: {elevation} feet</h4> */}
+              <h4>Starting Elevation: {startingElevation} feet</h4>
+              <h4>Ending Elevation: {endingElevation} feet</h4>
             </div>
           </>
         ) : (
@@ -123,11 +131,11 @@ function Results({ latitude, longitude, goalCoords, hikeType }) {
             </div>
             <div className="small-container">
               <h4>Start Coordinates: {startCoords}</h4>
-              <h4>End Coordinates: [{latitude},{longitude}] </h4>
+              <h4>End Coordinates: [{endingLat},{endingLong}] </h4>
             </div>
             <div className="small-container">
-              <h4>Elevation Gain: {elevationGain} feet</h4>
-              <h4>Elevation Loss: {elevationLoss} feet</h4>
+              <h4>Starting Elevation: {startingElevation} feet</h4>
+              <h4>Ending Elevation: {endingElevation} feet</h4>
             </div>
           </>
         )}

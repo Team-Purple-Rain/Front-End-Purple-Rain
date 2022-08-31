@@ -35,9 +35,10 @@ function AllHikes({ latitude, longitude, hikeType }) {
                             startingLong={individualHike.start_location.longitude}
                             endingLat={individualHike.end_location.latitude}
                             endingLong={individualHike.end_location.longitude}
-                            elevationGain={individualHike.elevation_gain}
-                            elevationLoss={individualHike.elevation_loss}
+                            startingElevation={individualHike.elevation_gain}
+                            endingElevation={individualHike.elevation_loss}
                             date={individualHike.updated_at}
+
                         />
                     )))}
         </>

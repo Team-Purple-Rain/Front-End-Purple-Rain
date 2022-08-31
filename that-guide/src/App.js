@@ -58,7 +58,8 @@ function App() {
   );
   const [mileMarker, setMileMarker] = useLocalStorageState("milemarker", "")
   const [state, setState] = useLocalStorageState("state", "")
-  const [startCoords, setStartCoords] = useLocalStorageState("startCoords", [0,0])
+  const [startCoords, setStartCoords] = useLocalStorageState("startCoords", [0, 0])
+  const [newStartElevation, setNewStartElevation] = useLocalStorageState("newStartElevation", 0)
 
   const {
     value: online,
@@ -137,6 +138,7 @@ function App() {
         setElevation(roundedElevation);
       }
       getElevation();
+
     }
   }, 7000);
 
@@ -255,6 +257,7 @@ function App() {
               setMileMarker={setMileMarker}
               setState={setState}
               setStartCoords={setStartCoords}
+              setNewStartElevation={setNewStartElevation}
             />
           }
         />
@@ -291,6 +294,7 @@ function App() {
               setID={setID}
               ID={ID}
               hikeType={hikeType}
+              elevation={elevation}
             />
           }
         />
